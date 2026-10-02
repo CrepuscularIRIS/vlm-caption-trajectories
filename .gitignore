@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+raw_runs/
+datasets/
+weights/
+assets/
+_lf_tmp/

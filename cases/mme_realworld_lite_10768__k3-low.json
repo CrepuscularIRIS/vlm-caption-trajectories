@@ -1,0 +1,52 @@
+{
+  "item_id": "mme_realworld_lite_10768",
+  "generator": "k3-low",
+  "title": "KEEP：原图直接读取表格",
+  "note": "原图足以读取所需行列时可直接提交；无需制造一次 crop。",
+  "question": "Which month shows the highest EBITDA, according to the 'Income Statement' table?\n(A) May\n(B) June\n(C) July\n(D) August\n(E) The image does not feature the number.",
+  "answer": "C",
+  "gold": "C",
+  "score": {
+    "score": 1,
+    "method": "letter_exact"
+  },
+  "manual": {
+    "verdict": "KEEP",
+    "note": "EBITDA 行 Jun 489,248 / Jul 741,538 / Aug 653,785，与表一致；数字在 2548px 图上可读",
+    "source": "MANUAL_VIEW.zh.md 2026-10-01"
+  },
+  "views": [
+    {
+      "view_id": "original_image",
+      "parent": null,
+      "sha256": "b99f6e1067d598bf61bc1b001b3a93aa7a0a45cd87db2e6599ed09b89f340124",
+      "shown_px": [
+        2548,
+        784
+      ],
+      "source_px": [
+        2560,
+        776
+      ],
+      "fov_original": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "asset_included": false
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "available_before": [
+        "original_image"
+      ],
+      "raw_text": "<caption>\nStep 1 | commit\nThe Income Statement EBITDA row shows monthly values peaking at Jul Month 7 = 741,538, above Jun 489,248 and Aug 653,785 [original_image]. Among the options, July is highest.\n</caption>\n<answer>C</answer>",
+      "behavior": "commit",
+      "caption": "The Income Statement EBITDA row shows monthly values peaking at Jul Month 7 = 741,538, above Jun 489,248 and Aug 653,785 [original_image]. Among the options, July is highest.",
+      "observation": null
+    }
+  ]
+}

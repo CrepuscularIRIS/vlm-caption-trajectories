@@ -1,0 +1,138 @@
+{
+  "note": "Hashes of private source artifacts, not a promise that those files are distributed here. Public file hashes are in manifest.sha256.json.",
+  "sources": {
+    "obs/runs/v51_smoke24_20261001/selection_final/selection.jsonl": "b41507011a140dbdc440eda5170cf719ec2ec01546a8259a9f65ba4a115ee7a1",
+    "obs/runs/v51_smoke24_20261001/selection_final/SUMMARY.json": "e65036b8be1606c3c97770e3b57d3310d8962ea496537c60bbdf2d0cb329ec22",
+    "obs/runs/v51_smoke24_20261001/selection_final/sft/LF_CHECK.json": "a5f566f3f9dad973eb693d1c95ae238988d4330bb2e847888490050c8ad2363a",
+    "obs/runs/v51_smoke24_20261001/manual_verdicts_all.json": "ea25072885607ec5113509f496e9f0160ace013ac05c6d43c558d5dcb4a9479b",
+    "obs/benchmarks/cover_v51_20261001/MANIFEST.json": "83ca671b3892445d83f53b1fd1ee910ba92a6054bbdcac34666f924b85b34fbe",
+    "obs/runs/v51_smoke24_20261001/selection_final/sft/v51_clean.json": "8ae4e114a7394476a57f5e47c2198b9d7f6fd233984f66cff56d52f5b7bbc820",
+    "obs/runs/v51_smoke24_20261001/selection_final/sft/v51_clean_meta.json": "4a844aea5d23df3f69095cafd6f0812f258e60dfc074a722e5070721a2d5c29a",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/mme_realworld_lite_10768.json": "0eaf7902fc82886ba4f907d5a237aea72a09bdb0e835d7245135778994d3444d",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/mme_realworld_lite_10784.json": "2861b78d904bf012f430d86ebfb8b5f6d66db3aca2b35e7edcc140b26218f2e4",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/mme_realworld_lite_13585.json": "804ad943b5e58bba7a7bb6a65fd33457c2e4fd40923b6a212ce3f8aa6b9b0d36",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/mme_realworld_lite_21614.json": "6196b96e0c7ed8bf585707c7c1a0db2ce9a4d8ea684dd5032c18cf2f966f63ed",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/mme_realworld_lite_22254.json": "56e4aa7454422f5a3efe2a181e7684a17f392c6bd9b70b815639df69e234ed30",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/mme_realworld_lite_4137.json": "bfd42bd2f091dada449d0bd2097e6e084bb558466ec81c263bd66c521761fc83",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/visreason_c3_10.json": "b4d81e1c75a1a610bf59fae9b0b2445a7c00cffb4e7efbaca3f97a94dab43c9f",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/visreason_c3_5_20.json": "ec4f64a7c8f4f6677e653b424db8382228d39dd412efeac982024c32f7a6026a",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/visreason_c8_318.json": "8b23b870f3b1a7e71c7bce9f2894761fbac630fc89f23889c6fa2ac130096fe3",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/vs_024.json": "b4e2b42b0b7a70b6b0abe747f1d7871ea81ef811132e224fd1b6009a4c22f179",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/vs_126.json": "d42a57ff880a51db38f4ea0d8860bf3d74b3a116b2268e4e43f3f192531cf75f",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_0928.json": "ba408e41f41d03c555ffd03a0057f729fb5df7d98004ef83461870bab03c9da0",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1435.json": "1680c7567a2805ca6726cbb77abe9ba6a905cab0de4a98fe54287c88e9b951f7",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1543.json": "327ec183e35d396097705359fd4faae13378471e0de8f22fc32c89d6df9f6cb9",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1552.json": "24552470426551588a4cd4b69b4b48730a52848fb0efa5098383d78f3ad8aada",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1589.json": "5f5f483181a674f0fd26c40270bd8bc2676e79def26bc22e44e70e9eef8e4e20",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1598.json": "2b400f2150ad02f22974288c455c22d93fbbe467818b81c1aeab72d8a650f857",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1693.json": "f65aa6250e7c7fdccae3d5a7c38f4be01fdd9283c5b28f4b43f4475cc591a251",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1726.json": "31870a0f7cbbc2e81681f76e8852a54f55d144311982ad71aee166ee8781b8a7",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1746.json": "327706582441d1c05ee2bf0e645c2cba067ce401f641c61392559e4ad94af37d",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1770.json": "cda2bbab2764677e9eaf017d82126ce6e7ce7c0708594d2b67f02c23598e0915",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1789.json": "c0447fc8e55c100ce46eebe70b69727561cd5b731c195842d670f7a04872407d",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1844.json": "e209008428c149c69b2756a46db82f7f54971d0820db2a687e13486b25cbdd67",
+    "obs/runs/v51_smoke24_20261001/k3-low/results/worldbench_1872.json": "1628a56fc450b2b2d2ce93cc64213134eef81e95714be96329f900c34d17a4c2",
+    "obs/runs/v51_smoke24_20261001/glm/results/mme_realworld_lite_10768.json": "6c303279025fae427b90d89f24c5ba774ec0fd2691dc6f016e76eaa9b5340dcf",
+    "obs/runs/v51_smoke24_20261001/glm/results/mme_realworld_lite_10784.json": "c8b3f953b3c960e0292e6e59e8dc195db53708213a9d47429fd8a92294ab4dbf",
+    "obs/runs/v51_smoke24_20261001/glm/results/mme_realworld_lite_13585.json": "788e5971310599b20cebc2a2fb520d41efd953ead6e1e1afb47054985345563c",
+    "obs/runs/v51_smoke24_20261001/glm/results/mme_realworld_lite_21614.json": "257764af66983d1257f46e98e1b84411e4b37f6885d3af55db2e2131cb68333c",
+    "obs/runs/v51_smoke24_20261001/glm/results/mme_realworld_lite_22254.json": "de75fdd3e604c33b07311898910508c5bc42800e09362e9a3cb0f2e8bfdeb141",
+    "obs/runs/v51_smoke24_20261001/glm/results/mme_realworld_lite_4137.json": "97db7434682227755c40067754ce4bfd60858b051e1158c9e8e28aad6de7f1fc",
+    "obs/runs/v51_smoke24_20261001/glm/results/visreason_c3_10.json": "092a15efc6c63d91ddee88fecae45980f464b7615759290c3e19957eb736c5cf",
+    "obs/runs/v51_smoke24_20261001/glm/results/visreason_c3_5_20.json": "b9efd4cd27b240e1ec175100ad06ed6a662e884cc1ef9c90c08050e415e5bf0f",
+    "obs/runs/v51_smoke24_20261001/glm/results/visreason_c8_318.json": "b54fe0f3946f6c156f3ea5796cb89c47b94a750dc389260ecadf63f31af978f3",
+    "obs/runs/v51_smoke24_20261001/glm/results/vs_024.json": "ad89c20b41d8e3b7edc7206eebbc1dfdfa182a37be048013e047dcc23c44981a",
+    "obs/runs/v51_smoke24_20261001/glm/results/vs_126.json": "12e67b82b61042da8b2f524b40611abfb95db8a264c51c3ce2fd0241c13036cc",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_0928.json": "07dbf05d150fc1601df5c5990510ae312141eb7920162d087c65f808d4ee4424",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1435.json": "0a18d02f86b343495958ad3e8df6a828c8de10c4c16afdbc502113aa77397b9b",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1543.json": "0878a1f99516257a4491d0778ebf7b116af1c394cb9b8ccca1b41b043d57587a",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1552.json": "c1a255c4d5e285c159aa3fc6ac5bdd7ad84a50b52fe446ca7465ec5052953991",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1589.json": "9275f84b420cc76ed276e814ef7c5bd9de26b19d6fb748b35d330097313be578",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1598.json": "25468058c7643111a86ff9e42d804215603feaa8435ebf110f5d3fb86005603e",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1693.json": "ce03492ea7e4594812bcda2360905223e63cabe6595e07248f951fb2dc3d17e1",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1726.json": "e48cca45d1f503eeece55e8edc2a7a15ab85fc0fb2bee871f8704f618eb68e23",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1746.json": "cfb7eefe95bce769ea2f78cc2a4b690ff3df83b93ae6ebd6c0bc9f2eb3c41655",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1770.json": "d67afcca7970de6587a592dd55f7d15b13da6c634f0f0724d9d8d9d1a1411b1b",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1789.json": "ff9b60d473a32e305edc5f0a3b617e1f0de50b1eb042dfe43056d3204e9481ad",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1844.json": "4a50f043b6a6f09c06ffd01a7f124068571fa40cdfdf3a28d3815f3cd9939c36",
+    "obs/runs/v51_smoke24_20261001/glm/results/worldbench_1872.json": "593a25030cccfd103ce0df2e76ace2fe632f264a8dd760bc1f511fcdb28b5144",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/mme_realworld_lite_22254.json": "0373e3c4aeaca9de30368c03361aab8dd1b8465b0cdc81de810eb8f5a83d2136",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/mme_realworld_lite_4137.json": "517f4a4e7c7e2b12cf578d74c2e2e727b033031755991ec2e7b0fe021a046384",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/visreason_c3_10.json": "37ed6fe01cbc6aae7fbe60ce5c126a2bb7e9dc59f0970621256f323c3bd210cc",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/visreason_c3_5_20.json": "277e0cb41bd559bfa2705992f47417e82c67887526abb797a54f937c4ea6a581",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/visreason_c8_318.json": "ee82725f871cb2cc946d5f9bad2045956f1ca9503b7dfa1f4816fc6265911d9a",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/worldbench_1435.json": "c789daa2d24ed14e230038621a46fa347c94cda8c2cb9ea68a0108b8c6e682bf",
+    "obs/runs/v51_smoke24_20261001/sonnet/results/worldbench_1598.json": "9f6a1e23bb4e540068e35ec49602346b2aac019115374900585a4535663ead8c",
+    "obs/runs/v51_cover6_20261002/k3-default/results/mme_realworld_lite_4726.json": "4ad60964c9b47674ac4c9f956c219e3250af5f4f73317ca4e6835ae9f98eb3be",
+    "obs/runs/v51_cover6_20261002/k3-default/results/worldbench_0481.json": "297234873fa6467fa4a5ea4dead3a27d378d1325d03bd432439aea233c731f75",
+    "obs/runs/v51_cover6_20261002/k3-default/results/worldbench_0532.json": "e7ae0d20fde2038b437b6111b6d56b58ae86b5321d04fc79bf0cbda9afdfaf71",
+    "obs/runs/v51_cover6_20261002/k3-default/results/worldbench_1279.json": "cb9015cd4af0c33a7e6db1d6631bd7f9d0d2fb9b83331ecffcf93de5dce6c89a",
+    "obs/runs/v51_cover6_20261002/k3-default/results/worldbench_1580.json": "7ff2e1eff8c493888ec217933b69577cef87b11400771ef16ed58a1da33415af",
+    "obs/runs/v51_cover6_20261002/k3-default/results/worldbench_1643.json": "a3dc964795ae0e279b5595f520088bd4f770e52edd047a315eadf06aa02d5117",
+    "obs/runs/v51_cover6_20261002/sonnet/results/mme_realworld_lite_4726.json": "4c8ec4cf5e59e8884cac8d16bf18523ebeb986d3346f2c377da7a5756c8bb4b4",
+    "obs/runs/v51_cover6_20261002/sonnet/results/worldbench_0481.json": "c4c597995d915da62c6cc6d570305d55ccfa72a2c1b3d00353c56ab87ab77a65",
+    "obs/runs/v51_cover6_20261002/sonnet/results/worldbench_0532.json": "2f22e1f0c07183d23449f6391eef1fa3da175ab820f0e290f27829d05cea7305",
+    "obs/runs/v51_cover6_20261002/sonnet/results/worldbench_1279.json": "39087ee74073ac64eb309d40c86c680bb7e5f5c80c9b2e60afa4ae892d196fad",
+    "obs/runs/v51_cover6_20261002/sonnet/results/worldbench_1580.json": "d792dd593afa2c8e93e2663f74827faaeeaa5a77663df05ff5d62e4fc7cad4a0",
+    "obs/runs/v51_cover6_20261002/sonnet/results/worldbench_1643.json": "2b1960ba9a47099a4f7e7ef2b1bd9e426d8c48cb3bc854052d96322de36f3d98",
+    "obs/src/caption_v51.py": "af0a4a7b6b92813f0685a9894996e2df6e43e58a954c6636ee5acbb87ea3a099",
+    "obs/src/run_caption_v51.py": "a2fc7570edc4d2c6a73bf8abaae252d93775570cf7b41ee1f5c3926b856cbc64",
+    "obs/src/audit_v51.py": "eb09b011cda149a5613460e1e5dc7915dbc365123a3a132b50c42f2f98be75f5",
+    "obs/src/select_v51.py": "4cebbce2ec0399dcffb37a143b246d30f6cbafe704dbc879f1d9db9127438243",
+    "obs/src/corpus_scoring.py": "73b162c4c8eb1e4323ceb1ca05bea326fb99628302007c291b6df8af6eb7e3da",
+    "obs/src/lf_preprocess_check.py": "cea1e49668991b5802cff000c257e0717203df16a69f79ea8c5ae623f177378d",
+    "huggingface/Caption/BundleAudit/02_caption_v5_1_system.en.txt": "5ea1bf82f4795faa1de318e772b6785492d3fdf10009b28506dd43ae94cf2ae6"
+  },
+  "published_code": {
+    "code/reference/caption_v3.py": {
+      "source": "obs/src/caption_v3.py",
+      "sha256": "9b89f09914030acd15529b32239837b9d661fb9c68fa03802ad3d7d490a2d72d",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "code/reference/caption_v51.py": {
+      "source": "obs/src/caption_v51.py",
+      "sha256": "af0a4a7b6b92813f0685a9894996e2df6e43e58a954c6636ee5acbb87ea3a099",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "code/reference/run_caption_v51.py": {
+      "source": "obs/src/run_caption_v51.py",
+      "sha256": "a2fc7570edc4d2c6a73bf8abaae252d93775570cf7b41ee1f5c3926b856cbc64",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "code/reference/audit_v51.py": {
+      "source": "obs/src/audit_v51.py",
+      "sha256": "eb09b011cda149a5613460e1e5dc7915dbc365123a3a132b50c42f2f98be75f5",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "code/reference/select_v51.py": {
+      "source": "obs/src/select_v51.py",
+      "sha256": "4cebbce2ec0399dcffb37a143b246d30f6cbafe704dbc879f1d9db9127438243",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "code/reference/corpus_scoring.py": {
+      "source": "obs/src/corpus_scoring.py",
+      "sha256": "73b162c4c8eb1e4323ceb1ca05bea326fb99628302007c291b6df8af6eb7e3da",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "code/reference/lf_preprocess_check.py": {
+      "source": "obs/src/lf_preprocess_check.py",
+      "sha256": "cea1e49668991b5802cff000c257e0717203df16a69f79ea8c5ae623f177378d",
+      "transformation": "byte-for-byte reading snapshot"
+    },
+    "prompts/public_core_v51.en.txt": {
+      "source": "huggingface/Caption/BundleAudit/02_caption_v5_1_system.en.txt",
+      "sha256": "5ea1bf82f4795faa1de318e772b6785492d3fdf10009b28506dd43ae94cf2ae6",
+      "transformation": "byte-for-byte copy"
+    },
+    "prompts/runner_system_v51.en.txt": {
+      "source": "obs/src/caption_v51.py",
+      "source_sha256": "af0a4a7b6b92813f0685a9894996e2df6e43e58a954c6636ee5acbb87ea3a099",
+      "transformation": "Extracted SYSTEM or HINTS literal with ast.literal_eval; no model calls"
+    },
+    "prompts/task_hints_v51.json": {
+      "source": "obs/src/caption_v51.py",
+      "source_sha256": "af0a4a7b6b92813f0685a9894996e2df6e43e58a954c6636ee5acbb87ea3a099",
+      "transformation": "Extracted SYSTEM or HINTS literal with ast.literal_eval; no model calls"
+    }
+  }
+}

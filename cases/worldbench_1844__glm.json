@@ -1,0 +1,84 @@
+{
+  "item_id": "worldbench_1844",
+  "generator": "glm",
+  "title": "KEEP：一次裁图补充局部证据",
+  "note": "检查局部方块与公司标签的对应。不是裁得越多越好。",
+  "question": "Which company doesn't have a colored square next to the text box containing its name?\n(A) Berkshire Hathaway Inc.\n(B) Walmart Inc\n(C) Exxon Mobil Corporation\n(D) Microsoft Corporation",
+  "answer": "A",
+  "gold": "A",
+  "score": {
+    "score": 1,
+    "method": "letter_exact"
+  },
+  "manual": {
+    "verdict": "KEEP",
+    "note": "obs1 中 J&J 框左上有深蓝方块、Berkshire 框旁无方块，与 caption 一致；其余三个选项（Walmart、Exxon、Microsoft）在原图上确有方块。",
+    "source": "MANUAL_VIEW_ROUND2.zh.md 2026-10-02",
+    "valid_hold": null
+  },
+  "views": [
+    {
+      "view_id": "original_image",
+      "parent": null,
+      "sha256": "7ff262b12160c5e22e5823610439f244476c1a8f6f62659adf7725ccb951d651",
+      "shown_px": [
+        1596,
+        812
+      ],
+      "source_px": [
+        1600,
+        800
+      ],
+      "fov_original": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_1",
+      "parent": "original_image",
+      "sha256": "0026f19dabdf2f4fb154cf81112c8f26ed417bdcff161302c528d6c015dc77ea",
+      "shown_px": [
+        840,
+        448
+      ],
+      "source_px": [
+        512,
+        272
+      ],
+      "fov_original": [
+        0.68,
+        0.24,
+        1.0,
+        0.58
+      ],
+      "asset_included": false
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "available_before": [
+        "original_image"
+      ],
+      "raw_text": "<caption>\nStep 1 | locate\nThe four option labels sit in different areas: Microsoft inside a callout at mid-left, Berkshire Hathaway and the right-side label stack, and Walmart/Exxon at the bottom. I need to check each label for a small colored square marker. First I inspect the right-side stack where Berkshire Hathaway appears, since a square there is not clearly visible.\n</caption>\n<grounding>{\"bbox_2d\":[0.68,0.24,1.0,0.58],\"source\":\"original_image\"}</grounding>",
+      "behavior": "locate",
+      "caption": "The four option labels sit in different areas: Microsoft inside a callout at mid-left, Berkshire Hathaway and the right-side label stack, and Walmart/Exxon at the bottom. I need to check each label for a small colored square marker. First I inspect the right-side stack where Berkshire Hathaway appears, since a square there is not clearly visible.",
+      "observation": "observation_1"
+    },
+    {
+      "step": 2,
+      "available_before": [
+        "original_image",
+        "observation_1"
+      ],
+      "raw_text": "<caption>\nStep 2 | commit\nIn [observation_1], the Johnson & Johnson label has a dark blue square marker at its upper left, while the Berkshire Hathaway Inc. (BRK.B), 1,2% box shows no colored square beside its text box. Berkshire Hathaway is option A, so it is the company lacking a square marker.\n</caption>\n<answer>A</answer>",
+      "behavior": "commit",
+      "caption": "In [observation_1], the Johnson & Johnson label has a dark blue square marker at its upper left, while the Berkshire Hathaway Inc. (BRK.B), 1,2% box shows no colored square beside its text box. Berkshire Hathaway is option A, so it is the company lacking a square marker.",
+      "observation": null
+    }
+  ]
+}

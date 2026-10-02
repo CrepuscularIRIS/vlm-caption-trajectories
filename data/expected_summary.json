@@ -1,0 +1,42 @@
+{
+  "items": 30,
+  "unique_root_groups": 30,
+  "generated_episodes": 67,
+  "auto_candidates": 17,
+  "exportable": 16,
+  "export_root_groups": 16,
+  "selected_with_crop": 5,
+  "coverage": {
+    "direct": 11,
+    "hold": 1,
+    "revise": 0,
+    "fallback": 0
+  },
+  "selected_by_generator": {
+    "k3-low": 7,
+    "glm": 4,
+    "sonnet": 4,
+    "k3-default": 1
+  },
+  "cover": {
+    "items": 6,
+    "episodes": 12,
+    "correct": 6,
+    "direct": 4,
+    "with_crop": 8,
+    "rollout_steps": 38,
+    "format_retries": 1,
+    "request_receipts": 39,
+    "hold": 0,
+    "revise": 0,
+    "fallback": 1
+  },
+  "lf_report": {
+    "samples": 16,
+    "passed": 16,
+    "max_tokens": 7412,
+    "mean_tokens": 2884,
+    "cutoff": 16384
+  },
+  "behavior_gate_passed": false
+}

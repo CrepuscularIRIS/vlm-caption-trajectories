@@ -1,0 +1,218 @@
+{
+  "item_id": "worldbench_1789",
+  "generator": "glm",
+  "title": "WEAK：有 HOLD 字符串仍未通过",
+  "note": "人工记录指出旧值无声改变、新绑定伪装成旧事实；展示审计残余盲区，不作正例。",
+  "question": "Which of the following statements is true?\n(A) Angle B2 is equal to 2 * angle A2\n(B) Angle B1 is equal to Angle A1\n(C) We cannot determine angle A1 + angle B1\n(D) B1 to C has the same length as B1 to A1",
+  "answer": "C",
+  "gold": "C",
+  "score": {
+    "score": 1,
+    "method": "letter_exact"
+  },
+  "manual": {
+    "verdict": "WEAK",
+    "note": "几何读数与图一致且 A/B/D 逐项量化排除，但第 5 步 HOLD 里 'B1A1≈263 vs B1C≈386' 是此前没出现过的新绑定（此前量的是蓝杆 A2B2/B2C），θA2 在 45° 与 52° 之间无声改写，θA1 124/127–130 前后不一。",
+    "source": "MANUAL_VIEW_ROUND2.zh.md 2026-10-02",
+    "valid_hold": 0
+  },
+  "views": [
+    {
+      "view_id": "original_image",
+      "parent": null,
+      "sha256": "56d028f8a5c79725fa1bb05264f3f191a9799a48df28711464cf469c0bdac02e",
+      "shown_px": [
+        812,
+        672
+      ],
+      "source_px": [
+        809,
+        672
+      ],
+      "fov_original": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_1",
+      "parent": "original_image",
+      "sha256": "6d78da55cdb7eecb0530c67c700b6a1457532a7dfe0be18897de395e4e69238f",
+      "shown_px": [
+        588,
+        448
+      ],
+      "source_px": [
+        161,
+        121
+      ],
+      "fov_original": [
+        0.5203955500618047,
+        0.7604166666666666,
+        0.7194066749072929,
+        0.9404761904761905
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_2",
+      "parent": "original_image",
+      "sha256": "52215b276ac2c6cac36f54429e1d7eb66b50dca4751c8945bd48390e7549d8e0",
+      "shown_px": [
+        756,
+        448
+      ],
+      "source_px": [
+        202,
+        121
+      ],
+      "fov_original": [
+        0.6205191594561187,
+        0.41964285714285715,
+        0.8702101359703337,
+        0.5997023809523809
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_3",
+      "parent": "original_image",
+      "sha256": "567b720a04aa9fc0a6d5006f2b0d9af3a7820d190391a47c23d3c47eb88ca798",
+      "shown_px": [
+        588,
+        448
+      ],
+      "source_px": [
+        194,
+        148
+      ],
+      "fov_original": [
+        0.28059332509270707,
+        0.6994047619047619,
+        0.5203955500618047,
+        0.9196428571428571
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_4",
+      "parent": "original_image",
+      "sha256": "a298a69fc68a79f52b323a9c943880f1f13dff6546d239590c94e4c5e89e3562",
+      "shown_px": [
+        560,
+        448
+      ],
+      "source_px": [
+        178,
+        141
+      ],
+      "fov_original": [
+        0.10012360939431397,
+        0.44047619047619047,
+        0.32014833127317677,
+        0.6502976190476191
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_5",
+      "parent": "original_image",
+      "sha256": "a574d381663f4237761834d2044d11ea89493a8aa5c6574897a2736845eafbc6",
+      "shown_px": [
+        588,
+        448
+      ],
+      "source_px": [
+        162,
+        121
+      ],
+      "fov_original": [
+        0.10012360939431397,
+        0.41964285714285715,
+        0.3003708281829419,
+        0.5997023809523809
+      ],
+      "asset_included": false
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "available_before": [
+        "original_image"
+      ],
+      "raw_text": "<caption>\nStep 1 | locate\nTesting option (A) requires reading θA2 and θB2 from the drawn arcs, and option (D) needs the link lengths near B1. I first pin the A2 base center and its horizontal reference line.\n</caption>\n<grounding>{\"bbox_2d\":[0.52,0.76,0.72,0.94],\"source\":\"original_image\"}</grounding>",
+      "behavior": "locate",
+      "caption": "Testing option (A) requires reading θA2 and θB2 from the drawn arcs, and option (D) needs the link lengths near B1. I first pin the A2 base center and its horizontal reference line.",
+      "observation": "observation_1"
+    },
+    {
+      "step": 2,
+      "available_before": [
+        "original_image",
+        "observation_1"
+      ],
+      "raw_text": "<caption>\nStep 2 | re_examine\nThe A2 view shows θA2 measured from a horizontal reference up to the blue link; the slope reads roughly 45° (dx≈dy over the link rise). I now need θB2, whose arc sits at joint B2 in the original view, to test option (A).\n</caption>\n<grounding>{\"bbox_2d\":[0.62,0.42,0.87,0.6],\"source\":\"original_image\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "The A2 view shows θA2 measured from a horizontal reference up to the blue link; the slope reads roughly 45° (dx≈dy over the link rise). I now need θB2, whose arc sits at joint B2 in the original view, to test option (A).",
+      "observation": "observation_2"
+    },
+    {
+      "step": 3,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2"
+      ],
+      "raw_text": "<caption>\nStep 3 | re_examine\nAt B2 the arc θB2 spans from the extension of link A2–B2 to link B2–C; measuring the crop, the extension sits ≈52–57° above horizontal and B2–C ≈127–131°, giving θB2 ≈ 70–79°, while 2×θA2 ≈ 2×52–54° ≈ 105–108°, so (A) looks false. The two blue links are also visibly unequal (A2B2 ≈ 258 px vs B2C ≈ 386 px). Now I must read θA1 at base A1 to test (B).\n</caption>\n<grounding>{\"bbox_2d\":[0.28,0.7,0.52,0.92],\"source\":\"original_image\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "At B2 the arc θB2 spans from the extension of link A2–B2 to link B2–C; measuring the crop, the extension sits ≈52–57° above horizontal and B2–C ≈127–131°, giving θB2 ≈ 70–79°, while 2×θA2 ≈ 2×52–54° ≈ 105–108°, so (A) looks false. The two blue links are also visibly unequal (A2B2 ≈ 258 px vs B2C ≈ 386 px). Now I must read θA1 at base A1 to test (B).",
+      "observation": "observation_3"
+    },
+    {
+      "step": 4,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3"
+      ],
+      "raw_text": "<caption>\nStep 4 | re_examine\nθA1 reads ≈127–130°: the arc runs from the horizontal reference counterclockwise to the up-left link (slope ≈ dy/dx giving ~127°). Now the unresolved binding is θB1's arc extent at joint B1, needed to test option (B).\n</caption>\n<grounding>{\"bbox_2d\":[0.1,0.44,0.32,0.65],\"source\":\"original_image\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "θA1 reads ≈127–130°: the arc runs from the horizontal reference counterclockwise to the up-left link (slope ≈ dy/dx giving ~127°). Now the unresolved binding is θB1's arc extent at joint B1, needed to test option (B).",
+      "observation": "observation_4"
+    },
+    {
+      "step": 5,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3",
+        "observation_4"
+      ],
+      "raw_text": "<caption>\nStep 5 | re_examine\nThe θB1 arc sweeps the long way around (left–bottom–right) from the extension of A1–B1 (~126°) to B1–C (~49°), so θB1 reads as a reflex ≈282° (minor arc ≈78°) — clearly not equal to θA1 ≈ 126° [observation_3, observation_4].\nHOLD: [observation_1] θA2 ≈ 52°; [observation_2] θB2 ≈ 79°; [original_image] B1A1 ≈ 263 px vs B1C ≈ 386 px.\n</caption>\n<grounding>{\"bbox_2d\":[0.1,0.42,0.3,0.6],\"source\":\"original_image\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "The θB1 arc sweeps the long way around (left–bottom–right) from the extension of A1–B1 (~126°) to B1–C (~49°), so θB1 reads as a reflex ≈282° (minor arc ≈78°) — clearly not equal to θA1 ≈ 126° [observation_3, observation_4].\nHOLD: [observation_1] θA2 ≈ 52°; [observation_2] θB2 ≈ 79°; [original_image] B1A1 ≈ 263 px vs B1C ≈ 386 px.",
+      "observation": "observation_5"
+    },
+    {
+      "step": 6,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3",
+        "observation_4",
+        "observation_5"
+      ],
+      "raw_text": "<caption>\nStep 6 | commit\nRead values: θA2 ≈ 51° [observation_1], θB2 arc spans from the link extension (≈53°) to B2–C (≈131°) [observation_2], θA1 ≈ 124° [observation_3], θB1 is drawn as the reflex sweep from the A1–B1 extension to B1–C [observation_4, observation_5].\nRULE: angles measured CCW from the horizontal reference as drawn; link length = pixel distance between joint centers.\nCALC: 2×θA2 ≈ 102° vs θB2 ≈ 131° − 53° ≈ 78° → (A) false.\nCALC: θB1 ≈ 360° − (124° − 51°) ≈ 287° ≠ θA1 ≈ 124° → (B) false.\nCALC: |B1–C| ≈ √(252² + 309²) ≈ 399 px vs |B1–A1| ≈ √(151² + 218²) ≈ 265 px [original_image] → (D) false.\nThe drawing gives no numeric angle data, so θA1 + θB1 cannot be determined exactly; (C) is the true statement.\n</caption>\n<answer>C</answer>",
+      "behavior": "commit",
+      "caption": "Read values: θA2 ≈ 51° [observation_1], θB2 arc spans from the link extension (≈53°) to B2–C (≈131°) [observation_2], θA1 ≈ 124° [observation_3], θB1 is drawn as the reflex sweep from the A1–B1 extension to B1–C [observation_4, observation_5].\nRULE: angles measured CCW from the horizontal reference as drawn; link length = pixel distance between joint centers.\nCALC: 2×θA2 ≈ 102° vs θB2 ≈ 131° − 53° ≈ 78° → (A) false.\nCALC: θB1 ≈ 360° − (124° − 51°) ≈ 287° ≠ θA1 ≈ 124° → (B) false.\nCALC: |B1–C| ≈ √(252² + 309²) ≈ 399 px vs |B1–A1| ≈ √(151² + 218²) ≈ 265 px [original_image] → (D) false.\nThe drawing gives no numeric angle data, so θA1 + θB1 cannot be determined exactly; (C) is the true statement.",
+      "observation": null
+    }
+  ]
+}

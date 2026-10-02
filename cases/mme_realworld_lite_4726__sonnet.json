@@ -1,0 +1,144 @@
+{
+  "item_id": "mme_realworld_lite_4726",
+  "generator": "sonnet",
+  "title": "未入池：真实 fallback，终答不符金标",
+  "note": "裁到树和车后换区域，确实取得了人物视图；终答 A 与冻结 gold C 不符，且 caption 有坐标。不可据此说完全没有发生回退。",
+  "question": "This image shows the front view of the ego car. What should the ego vehicle do when encountering the pedestrian wearing blue top on the left?\n(A) passing by\n(B) slowing down\n(C) no response\n(D) stopping\n(E) The image does not feature the object",
+  "answer": "A",
+  "gold": "C",
+  "score": {
+    "score": 0,
+    "method": "letter_exact"
+  },
+  "manual": null,
+  "views": [
+    {
+      "view_id": "original_image",
+      "parent": null,
+      "sha256": "e29807d5d5955114950d0505883d1a4eed469382db6a1f102835a9e520b69380",
+      "shown_px": [
+        3080,
+        644
+      ],
+      "source_px": [
+        5760,
+        1200
+      ],
+      "fov_original": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_1",
+      "parent": "original_image",
+      "sha256": "19e2ace56a4b06a361127da66149d873edc2331686cc4c4d211437b1102175f4",
+      "shown_px": [
+        2884,
+        588
+      ],
+      "source_px": [
+        2880,
+        600
+      ],
+      "fov_original": [
+        0.0,
+        0.3,
+        0.5,
+        0.8
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_2",
+      "parent": "observation_1",
+      "sha256": "6f11567b4131c4f4c9685cf3c76fdb05e95c155c3aa45ca9c0b867efbbaf231f",
+      "shown_px": [
+        728,
+        448
+      ],
+      "source_px": [
+        259,
+        162
+      ],
+      "fov_original": [
+        0.25503472222222223,
+        0.425,
+        0.3,
+        0.56
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_3",
+      "parent": "observation_1",
+      "sha256": "c15ea51870c697d977300545ccc1bb2d6924f7840139134708560a799dd011be",
+      "shown_px": [
+        756,
+        448
+      ],
+      "source_px": [
+        230,
+        138
+      ],
+      "fov_original": [
+        0.45,
+        0.425,
+        0.48993055555555554,
+        0.54
+      ],
+      "asset_included": false
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "available_before": [
+        "original_image"
+      ],
+      "raw_text": "<caption>\nStep 1 | locate\nNo pedestrian in a blue top is visible in the overview [original_image]. The left side shows parked cars, a tree, and a sidewalk, so I will crop the left half to check for a small person.\n</caption>\n<grounding>{\"bbox_2d\":[0,0.3,0.5,0.8],\"source\":\"original_image\"}</grounding>",
+      "behavior": "locate",
+      "caption": "No pedestrian in a blue top is visible in the overview [original_image]. The left side shows parked cars, a tree, and a sidewalk, so I will crop the left half to check for a small person.",
+      "observation": "observation_1"
+    },
+    {
+      "step": 2,
+      "available_before": [
+        "original_image",
+        "observation_1"
+      ],
+      "raw_text": "<caption>\nStep 2 | locate\nA small figure with a blue top is visible near the right edge of [observation_1], beside the distant parked cars on the left side of the road. I will crop it to check its position and posture.\n</caption>\n<grounding>{\"bbox_2d\":[0.51,0.25,0.6,0.52],\"source\":\"observation_1\"}</grounding>",
+      "behavior": "locate",
+      "caption": "A small figure with a blue top is visible near the right edge of [observation_1], beside the distant parked cars on the left side of the road. I will crop it to check its position and posture.",
+      "observation": "observation_2"
+    },
+    {
+      "step": 3,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2"
+      ],
+      "raw_text": "<caption>\nStep 3 | fallback\nThe crop in [observation_2] landed on the dark tree and the black car and shows no person. In [observation_1] the blue-topped figure is near the right edge, beside the far parked cars, at about x=0.93 and y=0.36. I will crop that region.\n</caption>\n<grounding>{\"bbox_2d\":[0.9,0.25,0.98,0.48],\"source\":\"observation_1\"}</grounding>",
+      "behavior": "fallback",
+      "caption": "The crop in [observation_2] landed on the dark tree and the black car and shows no person. In [observation_1] the blue-topped figure is near the right edge, beside the far parked cars, at about x=0.93 and y=0.36. I will crop that region.",
+      "observation": "observation_3"
+    },
+    {
+      "step": 4,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3"
+      ],
+      "raw_text": "<caption>\nStep 4 | commit\n[observation_3] shows a pedestrian in a light-blue top carrying a green bag, standing on the left side of the road between parked cars at the curb. This is the left-side blue-topped pedestrian. The person is far ahead and at the curb, not in the ego lane, so the ego car can keep going and pass by.\n</caption>\n<answer>A</answer>",
+      "behavior": "commit",
+      "caption": "[observation_3] shows a pedestrian in a light-blue top carrying a green bag, standing on the left side of the road between parked cars at the curb. This is the left-side blue-topped pedestrian. The person is far ahead and at the curb, not in the ego lane, so the ego car can keep going and pass by.",
+      "observation": null
+    }
+  ]
+}

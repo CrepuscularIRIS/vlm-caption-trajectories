@@ -1,0 +1,218 @@
+{
+  "item_id": "mme_realworld_lite_22254",
+  "generator": "glm",
+  "title": "KEEP：跨视图保持两个小计",
+  "note": "3 行 HOLD、2 个不同事实、1 条轨迹；不能计成 3 条覆盖。",
+  "question": "How many cars are running on the road in the top right corner of this picture?\n(A) 3\n(B) 5\n(C) 6\n(D) 9\n(E) This image doesn't feature the count.",
+  "answer": "D",
+  "gold": "D",
+  "score": {
+    "score": 1,
+    "method": "letter_exact"
+  },
+  "manual": {
+    "verdict": "KEEP",
+    "note": "上行 6 辆（obs2、obs5 逐辆核对）、下行 3 辆（obs3）与 caption 一致，CALC 6+3=9 依赖两个被 HOLD 的小计；无坐标描述。",
+    "source": "MANUAL_VIEW_ROUND2.zh.md 2026-10-02",
+    "valid_hold": 3
+  },
+  "views": [
+    {
+      "view_id": "original_image",
+      "parent": null,
+      "sha256": "02522997d79633884c22a10cd8419a967f0184b7d1e0d4c04cef8ce5c06efab7",
+      "shown_px": [
+        1708,
+        1148
+      ],
+      "source_px": [
+        7360,
+        4912
+      ],
+      "fov_original": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_1",
+      "parent": "original_image",
+      "sha256": "9ec44e1456a7a3841ea6e6a5edb548cddec07c7b0ae942ea3b14142d04a3239a",
+      "shown_px": [
+        1848,
+        980
+      ],
+      "source_px": [
+        1840,
+        982
+      ],
+      "fov_original": [
+        0.75,
+        0.0,
+        1.0,
+        0.1999185667752443
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_2",
+      "parent": "observation_1",
+      "sha256": "a306ece4e8145b862cf5235f80b82506a9a0aaee2c6a64328d1ad66a1e683dea",
+      "shown_px": [
+        952,
+        448
+      ],
+      "source_px": [
+        626,
+        295
+      ],
+      "fov_original": [
+        0.8199728260869565,
+        0.0,
+        0.9050271739130434,
+        0.06005700325732899
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_3",
+      "parent": "observation_1",
+      "sha256": "0ecffab00d056fb875efa326b472b14f5506dd0bff6d366a6077ccbb07e4e574",
+      "shown_px": [
+        840,
+        532
+      ],
+      "source_px": [
+        828,
+        540
+      ],
+      "fov_original": [
+        0.8875,
+        0.06005700325732899,
+        1.0,
+        0.16999185667752442
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_4",
+      "parent": "observation_1",
+      "sha256": "f06a5de6bbc34cd70c69442e8af058b465b62048cf08ad77b275bae12ae0fdd6",
+      "shown_px": [
+        1092,
+        644
+      ],
+      "source_px": [
+        1104,
+        639
+      ],
+      "fov_original": [
+        0.85,
+        0.02992671009771987,
+        1.0,
+        0.16001628664495113
+      ],
+      "asset_included": false
+    },
+    {
+      "view_id": "observation_5",
+      "parent": "observation_1",
+      "sha256": "965e5696de2e92e8fae88b23cfbddab886ab29dbede9f959a52a7e2406139e2c",
+      "shown_px": [
+        1260,
+        448
+      ],
+      "source_px": [
+        1104,
+        393
+      ],
+      "fov_original": [
+        0.8125,
+        0.0,
+        0.9625,
+        0.08000814332247556
+      ],
+      "asset_included": false
+    }
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "available_before": [
+        "original_image"
+      ],
+      "raw_text": "<caption>\nStep 1 | locate\nThe top right corner contains a road/bridge crossing near the water. I will crop that region to count the moving cars on it.\n</caption>\n<grounding>{\"bbox_2d\":[0.75,0.0,1.0,0.2],\"source\":\"original_image\"}</grounding>",
+      "behavior": "locate",
+      "caption": "The top right corner contains a road/bridge crossing near the water. I will crop that region to count the moving cars on it.",
+      "observation": "observation_1"
+    },
+    {
+      "step": 2,
+      "available_before": [
+        "original_image",
+        "observation_1"
+      ],
+      "raw_text": "<caption>\nStep 2 | re_examine\nThe corner crop shows two roads with vehicles: several on the upper curved road and a few on the lower right-hand road. I need to verify each vehicle's identity and count, starting with the upper road cluster near the top.\n</caption>\n<grounding>{\"bbox_2d\":[0.28,0.0,0.62,0.3],\"source\":\"observation_1\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "The corner crop shows two roads with vehicles: several on the upper curved road and a few on the lower right-hand road. I need to verify each vehicle's identity and count, starting with the upper road cluster near the top.",
+      "observation": "observation_2"
+    },
+    {
+      "step": 3,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2"
+      ],
+      "raw_text": "<caption>\nStep 3 | re_examine\nThe upper-road cluster in [observation_2] shows six vehicles moving in the same direction. The road continues rightward in [observation_1] where more vehicles (an orange car, a dark car, and a white van) appear; I need to check that area and the right edge for additional cars.\n</caption>\n<grounding>{\"bbox_2d\":[0.55,0.3,1.0,0.85],\"source\":\"observation_1\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "The upper-road cluster in [observation_2] shows six vehicles moving in the same direction. The road continues rightward in [observation_1] where more vehicles (an orange car, a dark car, and a white van) appear; I need to check that area and the right edge for additional cars.",
+      "observation": "observation_3"
+    },
+    {
+      "step": 4,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3"
+      ],
+      "raw_text": "<caption>\nStep 4 | re_examine\nHOLD: [observation_2] the upper curved road in the corner shows six running cars (including the one cut by the top edge).\nObservation_3 confirms three more vehicles on the lower carriageways: an orange car, a dark car, and a white van. I still need to check the band between and below them for any additional running cars before totaling.\n</caption>\n<grounding>{\"bbox_2d\":[0.4,0.15,1.0,0.8],\"source\":\"observation_1\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "HOLD: [observation_2] the upper curved road in the corner shows six running cars (including the one cut by the top edge).\nObservation_3 confirms three more vehicles on the lower carriageways: an orange car, a dark car, and a white van. I still need to check the band between and below them for any additional running cars before totaling.",
+      "observation": "observation_4"
+    },
+    {
+      "step": 5,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3",
+        "observation_4"
+      ],
+      "raw_text": "<caption>\nStep 5 | re_examine\nHOLD: [observation_3] the lower carriageways in the corner show exactly three running vehicles: an orange car, a dark car, and a white van.\nThe upper road's car cluster needs one unified count: [observation_2] and [observation_4] overlap there and their edge cars must not be double-counted. A wide crop along the whole upper road in [observation_1] will show every car on it in one frame.\n</caption>\n<grounding>{\"bbox_2d\":[0.25,0.0,0.85,0.4],\"source\":\"observation_1\"}</grounding>",
+      "behavior": "re_examine",
+      "caption": "HOLD: [observation_3] the lower carriageways in the corner show exactly three running vehicles: an orange car, a dark car, and a white van.\nThe upper road's car cluster needs one unified count: [observation_2] and [observation_4] overlap there and their edge cars must not be double-counted. A wide crop along the whole upper road in [observation_1] will show every car on it in one frame.",
+      "observation": "observation_5"
+    },
+    {
+      "step": 6,
+      "available_before": [
+        "original_image",
+        "observation_1",
+        "observation_2",
+        "observation_3",
+        "observation_4",
+        "observation_5"
+      ],
+      "raw_text": "<caption>\nStep 6 | commit\nHOLD: [observation_3] the lower carriageways of the corner bridge show exactly three running vehicles: an orange car, a dark car, and a white van.\nThe unified view [observation_5] shows the whole curved road with exactly six running cars (dark car at top edge, silver car, four dark cars in the cluster); [observation_4] confirms the road right of the cluster holds no more cars, so its top-left dark car is the same sixth one, not an extra.\nCALC: 6 (upper curved road) + 3 (lower carriageways) = 9 cars running on the roads in the top right corner.\n</caption>\n<answer>D</answer>",
+      "behavior": "commit",
+      "caption": "HOLD: [observation_3] the lower carriageways of the corner bridge show exactly three running vehicles: an orange car, a dark car, and a white van.\nThe unified view [observation_5] shows the whole curved road with exactly six running cars (dark car at top edge, silver car, four dark cars in the cluster); [observation_4] confirms the road right of the cluster holds no more cars, so its top-left dark car is the same sixth one, not an extra.\nCALC: 6 (upper curved road) + 3 (lower carriageways) = 9 cars running on the roads in the top right corner.",
+      "observation": null
+    }
+  ]
+}
