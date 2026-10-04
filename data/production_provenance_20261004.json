@@ -1,0 +1,94 @@
+{
+  "source_files": {
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0826.json": "81e5738501104083faa9c476a003dc4732aeb811a6888c613d3145e13f1acceb",
+    "obs/runs/audit_luna_v1_20261003/audit/luna_direct__worldbench_0826__gpt-6-luna.json": "a8ff8c20700215bc716e26e61c8208b38b0bf3657af476eca126eb696a939b0f",
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_06170.json": "233e89c51cb9eb03e29f22e806625c46a72c049805824994b6d59e166612a5a4",
+    "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_06170__gpt-6-luna.json": "12a4255453897fa9e2177cb8938e52db344403fee4a727f7cb69db51d0bc592a",
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_00568.json": "5a80bc7caa127f7f98b31c1c9fcc09875e2fe977f1a63b491a74849c045964f3",
+    "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_00568__gpt-6-luna.json": "513d4bcffa3f9fed353c9a1420ecc3a4782aa97084c3c22338820174ced3b646",
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_12899.json": "694087863a226c69f6cf1204fc077a2dff656c619f89013640e6f0775a7e3ca2",
+    "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_12899__gpt-6-luna.json": "08951d6f496b8790508062b1fc1336c451bc4ded9b1cacec2e9a3c2ed671d9db",
+    "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/mme_realworld_10708.json": "7d6ec4c073bae7bf2f0024f9915ff0cdf6034bcf72566dc89c37065ef9863579",
+    "obs/runs/accept_unit1_20261003/audit_run/audit/old__mme_realworld_10708__glm-5.3-flash.json": "a4d67e8f5122d196267e6c843384dfc200174881ae20b49a1891433cbbb3c66d",
+    "obs/runs/accept_unit1_20261003/gen_glm-5.3-flash_high/results/mme_realworld_22834.json": "395ad8107a6b5765514b505db582987dbcf97dc8567362e65989209f3242f453",
+    "obs/runs/accept_unit1_20261003/audit_run/audit/new__mme_realworld_22834__glm-5.3-flash.json": "cf1f40cc93c423c4cf615edbfb59002d74f498d848dc447105968619af3666cb",
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_1913.json": "f1e686d48f468e40c4e7dd81dc848df2473739d19dc7cc7c763cb19b608876e0",
+    "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_1913.json": "7e8526c0e0a3862fab2e22fee869c7a640173d013169d67e1e70b01e2cc613aa",
+    "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_1913.json": "60966bd82e406655d48eefbc5c536a7c73df3e695d8189892b04ca3983d804a8",
+    "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/results/worldbench_1913.json": "2f051bbd3901f02d28a93df834b2e52d0dabe606b4ea58b8c332ecea3f0c0fa7",
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0675.json": "74b07022abef635503db85fca9ea38580dfea94ea99d668eeba9fc50bddf11f0",
+    "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_0675.json": "683770157072eb277c3c9aee9912716630a90d8f397902a252ade740019818de",
+    "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_0675.json": "64eb4fd4fc8a8ef5291f09ae446d65dc4d7a013b3d39364d0769e346ef003302",
+    "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/results/worldbench_0675.json": "cdf7f2507d1227934d9ffc7e924cda6d413e452347f8a4dbadb8764ef119e6f1",
+    "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0841.json": "ce9cdb6dd6b1119e7f89f83cc6154c04bd57fe227d255608c31d8673e99bf3e8",
+    "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_0841.json": "fad0f736f642184367b356153f610e9496b88328b61e7b14b5fa5ea2059d8780",
+    "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_0841.json": "b73667c80fbd636e3dfb91777625ea6ae820555242a469f6f4be6fe700a45f82",
+    "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/results/worldbench_0841.json": "63bd1657dc0568b8cb9e534896ade274d44709ebde4dd7fd5d3501e750af1083",
+    "reports/luna_mentor_status_review_20261003/SNAPSHOT.json": "06cef1ba2abb16e03420f7cc358fa9fc4d0e3d76e7157608b04792b8f9b2d035",
+    "reports/luna_mentor_status_review_20261003/AUDIT_ROWS.jsonl": "bc059d3619c9124f978283a3491b312dab4e96a1442978d11b29ccc3a5cb705d",
+    "reports/luna_mentor_status_review_20261003/ADDITIONAL_CHECKS.json": "2437ba6d1e43cfd92864e9a2b49c4fdf30d8d37880929f6b039f89a0ae7eebb1",
+    "reports/luna_mentor_status_review_20261003/VERIFICATION.json": "e6b42f966df496f5002ad59d04077584ac4b079cd975440a37bd071f1e879088",
+    "reports/luna_mentor_status_review_20261003/REVIEW.zh.md": "123182ee43b581bc5725e35d280d02d5de6ca361e37e1dfc539cde9042a5ee37",
+    "reports/luna_mentor_status_review_20261003/CODE_HASHES.json": "5bdd55bd113e7107b6a03b73eed060f07d8de0ca0019fcada08dfc5c8998a5cf"
+  },
+  "published_code": {
+    "code/reference/production_20261004/funnel_gen.py": {
+      "source_path": "obs/src/funnel_gen.py",
+      "source_sha256": "3e7fe40f2408e299bbd8d1cfd6f99b10bb3102a0f2132c8052731dcfcd75d2e2",
+      "transformation": "byte-for-byte reading snapshot",
+      "audit_snapshot_sha256": "3e7fe40f2408e299bbd8d1cfd6f99b10bb3102a0f2132c8052731dcfcd75d2e2",
+      "matches_audit_snapshot": true
+    },
+    "code/reference/production_20261004/funnel_select.py": {
+      "source_path": "obs/src/funnel_select.py",
+      "source_sha256": "d0c47897d8e72fc068f72ee99948a2bf2aeee91431911b86fb19b02e8c2c80d3",
+      "transformation": "byte-for-byte reading snapshot",
+      "audit_snapshot_sha256": "d0c47897d8e72fc068f72ee99948a2bf2aeee91431911b86fb19b02e8c2c80d3",
+      "matches_audit_snapshot": true
+    },
+    "code/reference/production_20261004/funnel_audit.py": {
+      "source_path": "obs/src/funnel_audit.py",
+      "source_sha256": "24ade6d14264e4c2c76f611ee53012273c569d88e61bafc159e7e537c36a0b77",
+      "transformation": "byte-for-byte reading snapshot",
+      "audit_snapshot_sha256": "2dea008ee53a3b4dc13095990e6c6491b81f7b0c76103789d48e1d8a32d461af",
+      "matches_audit_snapshot": false,
+      "version_note": "Captured after the frozen statistical audit. Contains a later optional Sonnet CLI route; no execution or validation of that new route is claimed by this publication."
+    },
+    "code/reference/production_20261004/build_audit_pools.py": {
+      "source_path": "obs/src/build_audit_pools.py",
+      "source_sha256": "92ecf08925abbb93cf268e16b6d24e5c40ad58c58dbf6bf0c1298f7becf6e942",
+      "transformation": "byte-for-byte reading snapshot",
+      "audit_snapshot_sha256": "92ecf08925abbb93cf268e16b6d24e5c40ad58c58dbf6bf0c1298f7becf6e942",
+      "matches_audit_snapshot": true
+    },
+    "code/reference/production_20261004/audit_tiered.py": {
+      "source_path": "obs/src/audit_tiered.py",
+      "source_sha256": "f94419040b28420fa0a0b019b919c2ff978f9077fea21959c44e624d118d232c",
+      "transformation": "byte-for-byte reading snapshot",
+      "audit_snapshot_sha256": "f94419040b28420fa0a0b019b919c2ff978f9077fea21959c44e624d118d232c",
+      "matches_audit_snapshot": true
+    },
+    "code/reference/production_20261004/teacher_context_excerpt.py": {
+      "source_path": "obs/src/caption_tiered.py",
+      "source_sha256": "575228829d96f03bae220ad97ca18b7b917786d9b0f220fa3a4a69da68b394ce",
+      "transformation": "AST-selected GUIDANCE and TeacherContext verbatim; operational preparation and quota configuration omitted",
+      "audit_snapshot_sha256": "575228829d96f03bae220ad97ca18b7b917786d9b0f220fa3a4a69da68b394ce",
+      "matches_audit_snapshot": true
+    }
+  },
+  "transformations": [
+    "Private absolute paths made workspace-relative",
+    "Gateway address omitted",
+    "Moving remaining queue omitted",
+    "Visible captions/actions only; no hidden reasoning or API payloads",
+    "MME tasks paraphrased; original MME images/crops excluded"
+  ],
+  "source_verification": {
+    "checked_at_utc": "2026-10-04T03:28:14.977429+00:00",
+    "hash_checks": 5057,
+    "hash_mismatches": [],
+    "visual_diagnostic_cases": 6,
+    "visual_views": 17,
+    "production_files_modified_by_this_review": false
+  }
+}

@@ -1,85 +1,93 @@
 # VLM Caption Trajectories
 
-**从真实视觉观察构建 SFT 示范轨迹：设计、实现快照、首批结果与未解决问题。**
+**用短证据 caption 和真实视觉动作，构建可核验的 SFT 示范。**
 
-A research snapshot of evidence-grounded visual trajectory construction for SFT. Includes protocols, reference Python code, derived results, and accepted/rejected cases. **Behavior coverage is incomplete; no SFT or RL training results are claimed.**
+Evidence-grounded visual trajectory construction: design, production audit, reference Python, and curated positive/negative cases. **Automatic candidates are not accepted training data. No SFT/RL gains are claimed.**
 
-更新：**2026-10-02** · 协议：**Caption v5.1** · 当前阶段：**种子样例与构造管线**
+更新：**2026-10-04** · 协议：**Caption v5.1** · 当前阶段：**量产候选与人工校准**
 
-## 想解决什么
+## 导师先看这三页
 
-训练材料应教会模型：从已收到的图像取得证据、保持目标与数值的绑定、按需裁图、保留有效事实、有据修正、离开无效搜索分支，并在证据足够时停止。
+1. [当前设计、漏斗与质量缺口](docs/09_production_review_20261004.md)：生成了什么、如何多模型审核、哪些尚未完成。
+2. [9 个真实案例 · 18 条完整可见轨迹](docs/CASEBOOK_20261004.md)：好的直答/绑定、自然回退、错误前缀后修正、多模型共同分歧。
+3. [五个具体问题与反馈表](docs/10_mentor_questions_20261004.md)：请判断教材质量、恢复边界、审核充分性、金标争议和首批验收线。
 
-每一步由**短证据 caption + 一个真实动作**组成。caption 记录可核对的观察、未决项和必要短计算；不追求长篇推理。原图已足够时，直接作答就是合格示范。
+## 核心是什么
 
-本仓库整理原始 Caption 方案及后续 BundleAudit 更新。前者提出示范构造目标，后者补充面向未来 SFT/RL 的证据时序、依赖更新、分池和监督约束。**设计建议、实际实现、观察结果与后续计划分别标明。**
+每一步用一小段 caption 记录**当前看到了什么、属于哪个实例、什么还不确定**，再采取一个真实动作。优先学会**绑定与按需观测 → 保持有效证据 → 有据修正/回退**。原图足够时直接作答；不以多 crop、长推理或固定反思句作为质量目标。
 
-## 当前结果
+原始 Caption 与 BundleAudit 负责证据契约、时序、依赖和监督边界；生成/审核漏斗负责选择高质量的真实示范。这两层相关，但不等同。
 
-|项目|已记录/复算的结果|
-|---|---:|
-|题目 / 独立原图组|30 / 30（24 冒烟 + 6 补覆盖）|
-|保存的生成轨迹|67（不同教师版本不算独立题目）|
-|自动候选 → 人工 KEEP → 可导出|17 → 16 → 16|
-|最终 direct / 使用 crop|11 / 5|
-|最终 HOLD / REVISE / fallback|1 / 0 / 0|
-|行为覆盖门：三类各 ≥2|**未通过**|
-|既有 CPU 预处理报告|16/16；最大 7412 token，cutoff 16384|
-|SFT / RL 训练收益|尚未验证|
+## 最新公开快照
 
-16 条是当前本地可导出的种子子集，**不是完整行为课程，也不是本仓库已经分发的可直接训练数据集**。公开仓库提供元数据、5 个文本案例与源码；原图、完整 API 日志和训练权重不在此包中。详见[发布范围](docs/08_release.md)。
+统计冻结于 **2026-10-03 23:10 America/New_York**，离线捕获 23:19:45。GLM 当时仍继续生成；下表不是最终总产量。
 
-补覆盖的 12 条轨迹有 **6 条终答符合金标，4 条直答、8 条使用 crop，39 个生成请求回执**。曾发生 1 次 fallback，但终答不合格，因此合格 fallback 仍为 0。不能据此将缺口概括成“模型都直接作答”，也不能宣称已经排除选题问题。
-
-## 建议阅读顺序
-
-|读者想了解|入口|
+|项目|结果及含义|
 |---|---|
-|先看项目目标与设计演进|[01 · 设计思路](docs/01_design.md)|
-|一步轨迹具体长什么样|[02 · 协议与提示词](docs/02_protocol.md)|
-|如何选题、生成、审核、导出|[03 · 构造流水线](docs/03_construction.md)|
-|所有结果、分母与通过线|[04 · 结果与校正](docs/04_results.md)|
-|现在卡在哪里、需要讨论什么|[05 · 当前问题与后续选项](docs/05_open_questions.md)|
-|未来 SFT / RL 怎样接上|[06 · 训练衔接与边界](docs/06_sft_rl.md)|
-|看真实正反案例|[CASEBOOK · 5 条完整文本路径](docs/CASEBOOK.md)|
-|读 Python / 复算本页数字|[07 · 代码与复现](docs/07_reproduction.md)|
+|生成库存|32,333 条，20,706 题，10,672 个原图组|
+|Luna 主线|20,694 条；12,092 条过 CPU 预筛，尚不代表语义全部合格|
+|GLM 补充|8,440 条；Luna 明确答错的已配对题中，GLM 答对 915/1,954|
+|Luna 多模型审核|2,520 条 = 1,690 crop + 830 direct|
+|自动通过候选|1,241 条 / 1,128 个图组；crop 722、direct 519|
+|其他审核结果|拒绝 870、争议 256、格式待核 12、未完成 141|
+|已知漏审|81 条自动候选仍带 fallback_unreviewed|
+|人工验收|首批校准 44 条、生产抽检 69 条均 PENDING|
+|本批最终训练导出 / 学生效果|未完成 / 未验证|
 
-导师快速审阅可按：**本页 → 案例 → 当前问题**。重点讨论示范是否教到了目标行为、允许何种生成期通用引导、下一批应如何界定真实行为机会。
+生成器题集和难度不同，不能按上述正确率给模型排名。L1/L2/L3 是答案共识与调度类别，不是 SFT 质量分级；多个生成模型也不等于多个独立家族。
 
-## 构造流程
+实际多模型审核为 **Sonnet 过程/绑定审查 + Gemini 或 Grok 前缀盲读**。Sonnet 走官方 CLI（任务内 cc），Gemini 走 agy，Grok 走既有 API 网关。自动通过池有 Gemini 235 条、Grok 1,006 条，均配 Sonnet。当前主池叫 `single_teacher_multi_judge`，尚不能称已完成逐条多生成器证据共识。
+
+## 案例看什么
+
+|案例|核心问题|
+|---|---|
+|[C01](docs/CASEBOOK_20261004.md#c01)|原图足够，一步直答是好示范|
+|[C02](docs/CASEBOOK_20261004.md#c02)|两个图表有相同数值，仍需找对系列|
+|[C03](docs/CASEBOOK_20261004.md#c03)|跨视图保留事实；最终审核可能遗漏全局上下文|
+|[C04](docs/CASEBOOK_20261004.md#c04)|两次裁空后真正换区域恢复，仍待补审|
+|[C05](docs/CASEBOOK_20261004.md#c05)|终答正确、前缀读错：是否只能作恢复教材|
+|[C06](docs/CASEBOOK_20261004.md#c06)|坐标描述漏过门槛：答案对不等于过程合格|
+|[C07](docs/CASEBOOK_20261004.md#c07)|四模型把可见两行推广成全部交易数|
+|[C08](docs/CASEBOOK_20261004.md#c08)|四模型同答白色：是否漏了区域，或题意有歧义|
+|[C09](docs/CASEBOOK_20261004.md#c09)|四模型读 5，金标给 6：不能多数投票改标|
+
+案例是定向诊断，不用于估计错误率。C07–C09 的“都错”只表示已有四条生成记录按原金标均得 0 分；涉及三个家族，不包括所有可用模型。C08/C09 的视觉/标注争议尚未裁定。
+
+公开展示 4 道 WorldBench 题的 8 张保存视图，并注明来源与许可；MME 原图/crop 仅供本地完整案例册查看。见 [发布范围与复现](docs/11_publication_and_reproduction_20261004.md)。
+
+## 管线与当前取舍
 
 ```mermaid
 flowchart TD
-    A[冻结题源、图组和答案规范] --> B[多个教师独立生成]
-    B --> C[真实 crop 与逐步视图记录]
-    C --> D[冻结原轨迹与请求记录]
-    D --> E[答案与协议检查]
-    E --> F[限定视图盲读、关键事实及结构审查]
-    F --> G[人工终裁]
-    G --> H[选择一条完整路径]
-    H --> I[clean SFT 导出与 CPU 预处理检查]
-    G --> J[恢复、争议或诊断用途另池]
+    A[冻结题源与图组] --> B[Luna 主生成、其他教师选择性补充]
+    B --> C[真实 crop 与短证据 caption]
+    C --> D[答案和协议预筛]
+    D --> E[跨家族过程检查与前缀盲读]
+    E --> F[自动候选 / 拒绝 / 争议 / 未完成]
+    F --> G[人工校准、定向补核和版本冻结]
+    G --> H[待完成最终选择、导出与 CPU 预处理]
 ```
 
-gold 只进入离线判分，不进入生成器和中性盲读输入。未来更清楚的图不能替早期猜测补证。多个教师的历史不能拼成一条假执行轨迹。
+gold 只进入离线评分；未来图像不能替早期声明补证；不同模型的步骤不拼成假执行路径。保留当前结构，优先补漏审、坐标门、必要上下文与人工验收，不继续堆评委或行为词。本次更新没有新跑生成、审核或训练，也没有干预 GLM。
 
-## 三十秒复算
-
-Python 3.10+，只用标准库，不需要图像、密钥、网络或 GPU：
+## Python 与复算
 
 ```bash
 git clone https://github.com/CrepuscularIRIS/vlm-caption-trajectories.git
 cd vlm-caption-trajectories
+python scripts/verify_production.py
+python scripts/build_casebook.py --check-markdown
 python scripts/verify_snapshot.py
-python scripts/inspect_case.py cases/mme_realworld_lite_22254__glm.json
+python scripts/inspect_case.py --all
 ```
 
-第一个命令核对公开快照的数量、图组、导出对应关系与文件哈希；第二个用实际协议解析器检查一条案例的格式和视图时序。**PASS 只表示这些检查通过，不证明像素事实正确、行为覆盖达标或训练有效。**
+Python 3.10+，标准库，无密钥、网络或 GPU。PASS 表示公开文件、统计、案例时序和哈希一致，**不是像素真值或训练验收**。生成器/审核器的 [实际 Python 阅读快照](code/reference/production_20261004/README.md) 有未分发的项目依赖，不是开箱即用生产框架。
 
-`code/reference/` 提供七个实际实现文件的阅读快照。协议解析器可独立使用；生成器和审计器依赖未分发的项目适配器与题图，不能把整个目录视为开箱即用的训练框架。
+## 历史设计与种子批
 
-## 当前取舍
+2026-10-02 种子批：30 题、67 条生成轨迹，17 个自动候选 → 16 条人工 KEEP/可导出；direct 11、crop 5、HOLD 1、REVISE 0、fallback 0。行为三类各 ≥2 的覆盖线未通过；历史 CPU 预处理 16/16 通过。**这些历史验收不能替代新批次验收。**
 
-保留真实动作、短证据、绑定、时序、离线复核和人工终裁；暂不增加行为词、固定反思句或评委层级。接下来最有价值的是少量**确实具有保持、修正、回退机会**的完整样例。扩题源、教师引导与真实前缀恢复属于待讨论方案；本次公开发布没有启动新生成、下载或训练。
+[01 设计](docs/01_design.md) · [02 协议](docs/02_protocol.md) · [03 早期构造](docs/03_construction.md) · [04 历史结果](docs/04_results.md) · [05 早期问题](docs/05_open_questions.md) · [06 SFT/RL 衔接](docs/06_sft_rl.md) · [07 早期代码](docs/07_reproduction.md) · [旧案例册](docs/CASEBOOK.md)
 
-[变更记录](CHANGELOG.md) · [数据与发布说明](docs/08_release.md) · [反馈方式](CONTRIBUTING.md)
+[变更记录](CHANGELOG.md) · [最新发布说明](docs/11_publication_and_reproduction_20261004.md) · [反馈方式](CONTRIBUTING.md)

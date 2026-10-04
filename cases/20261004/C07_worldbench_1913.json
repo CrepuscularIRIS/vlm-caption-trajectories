@@ -1,0 +1,356 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C07",
+  "item_id": "worldbench_1913",
+  "title": "四个模型都把可见两行当作总数",
+  "category": "shared_scope_failure",
+  "task_paraphrase_zh": "账户所有者总共有多少笔交易？",
+  "editorial_observation_zh": "四条已有轨迹都答 B（2），金标 D（无法确定）。画面只列当前 Credit Card 的两行，侧栏还有其他账户；局部计数不足以支持账户所有者的全部交易数。",
+  "mentor_question_zh": "这是否应训练证据范围与不充分作答，而不是继续提高读数精度？",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "model": "gpt-6-luna",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_1913.json",
+      "source_sha256": "f1e686d48f468e40c4e7dd81dc848df2473739d19dc7cc7c763cb19b608876e0",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "B",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The visible Credit Card account ledger contains two transaction rows: “Store” and “Starting Balance” [original_image]. Counting the rows under this account owner gives 2 total transactions.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe visible Credit Card account ledger contains two transaction rows: “Store” and “Starting Balance” [original_image]. Counting the rows under this account owner gives 2 total transactions.\n</caption>\n<answer>B</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1118.0,
+            263.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "glm-5.3-flash",
+      "family": "Zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_1913.json",
+      "source_sha256": "7e8526c0e0a3862fab2e22fee869c7a640173d013169d67e1e70b01e2cc613aa",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "B",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "Counting transaction rows in the register table of the displayed account (\"Credit Card\", the only transaction list shown): row 1 is \"04/05/2016 Store\", row 2 is \"04/05/2016 Starting Balance\", and the area below the rows is blank with no clipped edge row [original_image].\nCALC: Store 1 + Starting Balance 1 = 2 transactions total.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nCounting transaction rows in the register table of the displayed account (\"Credit Card\", the only transaction list shown): row 1 is \"04/05/2016 Store\", row 2 is \"04/05/2016 Starting Balance\", and the area below the rows is blank with no clipped edge row [original_image].\nCALC: Store 1 + Starting Balance 1 = 2 transactions total.\n</caption>\n<answer>B</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1118.0,
+            263.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "grok-4.7",
+      "family": "xAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_1913.json",
+      "source_sha256": "60966bd82e406655d48eefbc5c536a7c73df3e695d8189892b04ca3983d804a8",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "B",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The selected Credit Card register shows dated rows under DATE, PAYEE, and CATEGORY, but the exact row count and whether any extra row is clipped at the bottom still need a closer look [original_image].",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.33,
+              0.28,
+              0.99,
+              0.72
+            ]
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe selected Credit Card register shows dated rows under DATE, PAYEE, and CATEGORY, but the exact row count and whether any extra row is clipped at the bottom still need a closer look [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.33,0.28,0.99,0.72],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The Credit Card register contains two dated transaction rows: Store and Starting Balance, with empty space beneath them [observation_1]. No additional transaction row is visible in the account region [original_image].\nCALC: 1 + 1 = 2 transactions.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "observation_1",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe Credit Card register contains two dated transaction rows: Store and Starting Balance, with empty space beneath them [observation_1]. No additional transaction row is visible in the account region [original_image].\nCALC: 1 + 1 = 2 transactions.\n</caption>\n<answer>B</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1118.0,
+            263.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            369.0,
+            74.0,
+            1107.0,
+            189.0
+          ],
+          "fov_original": [
+            0.3300536672629696,
+            0.2813688212927757,
+            0.9901610017889088,
+            0.7186311787072244
+          ],
+          "source_px": [
+            738,
+            115
+          ],
+          "shown_px": [
+            2884,
+            448
+          ],
+          "sha256": "11fb3305d2eb11a6322ba6cc880cb886d97c64372f510d5022b32386421451de",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_1913/obs1.jpg",
+          "public_asset": "media/20261004/11fb3305d2eb11a6322ba6cc880cb886d97c64372f510d5022b32386421451de.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/results/worldbench_1913.json",
+      "source_sha256": "2f051bbd3901f02d28a93df834b2e52d0dabe606b4ea58b8c332ecea3f0c0fa7",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "B",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "Counting transaction rows in the full Credit Card transaction table, there are two entries: “Store” and “Starting Balance”; no additional rows appear below them [original_image].\nCALC: 2 transaction rows = 2 total transactions.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nCounting transaction rows in the full Credit Card transaction table, there are two entries: “Store” and “Starting Balance”; no additional rows appear below them [original_image].\nCALC: 2 transaction rows = 2 total transactions.\n</caption>\n<answer>B</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1118.0,
+            263.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    }
+  ],
+  "images_public": true,
+  "source_question": "How many total transactions are under the account owner?\n(A) 1\n(B) 2\n(C) 3\n(D) Not possible to tell"
+}

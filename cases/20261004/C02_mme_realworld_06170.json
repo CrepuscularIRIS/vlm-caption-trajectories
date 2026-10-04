@@ -1,0 +1,217 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C02",
+  "item_id": "mme_realworld_06170",
+  "title": "数值相同，仍核对正确系列",
+  "category": "positive_candidate",
+  "task_paraphrase_zh": "读取 EBITDA 图中 Budget vs Updated Forecast 对应的 June 数值。",
+  "editorial_observation_zh": "先裁 STEP 1，发现图例是 Actuals vs Budget，再看 STEP 4。两个面板 June 都是 732,998；仅比较答案无法检验是否找对系列。",
+  "mentor_question_zh": "这是否是我们最该优先教的实例与系列绑定？候选纠正是否必须显式 REVISE？",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 1,
+  "trajectories": [
+    {
+      "model": "gpt-6-luna",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_06170.json",
+      "source_sha256": "233e89c51cb9eb03e29f22e806625c46a72c049805824994b6d59e166612a5a4",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 2,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The chart labeled “EBITDA Variance” appears in the lower panel of STEP 1, but its bars and vertical labels are too small here to read reliably. I’ll inspect that chart to bind June’s value to the requested variance.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.199,
+              0.68,
+              0.399,
+              0.914
+            ]
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe chart labeled “EBITDA Variance” appears in the lower panel of STEP 1, but its bars and vertical labels are too small here to read reliably. I’ll inspect that chart to bind June’s value to the requested variance.\n</caption>\n<grounding>{\"bbox_2d\":[0.199,0.68,0.399,0.914],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": [
+            "no_citation"
+          ]
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "The inspected STEP 1 chart binds June to 732,998, but its legend identifies “Variance (Actuals vs. Budget) Monthly (2022),” not the requested Budget vs Updated Forecast. I need to inspect the STEP 4 “EBITDA Variance” chart, where the legend is Budget vs. Updated Forecast, and read its June bar.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.803,
+              0.68,
+              0.998,
+              0.914
+            ]
+          },
+          "cited": [],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\nThe inspected STEP 1 chart binds June to 732,998, but its legend identifies “Variance (Actuals vs. Budget) Monthly (2022),” not the requested Budget vs Updated Forecast. I need to inspect the STEP 4 “EBITDA Variance” chart, where the legend is Budget vs. Updated Forecast, and read its June bar.\n</caption>\n<grounding>{\"bbox_2d\":[0.803,0.68,0.998,0.914],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": [
+            "no_citation"
+          ]
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_2], the STEP 4 EBITDA Variance chart’s legend is “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This matches option D.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_2"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 3 | commit\nIn [observation_2], the STEP 4 EBITDA Variance chart’s legend is “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This matches option D.\n</caption>\n<answer>D</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            3124.0,
+            1394.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            3124,
+            1394
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "029c562e2299ee32a2f1e540ef0a882f1b36b02e4b72c01026c39c8f6a37deff",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            622.0,
+            948.0,
+            1246.0,
+            1274.0
+          ],
+          "fov_original": [
+            0.19910371318822023,
+            0.6800573888091822,
+            0.39884763124199746,
+            0.9139167862266858
+          ],
+          "source_px": [
+            624,
+            326
+          ],
+          "shown_px": [
+            868,
+            448
+          ],
+          "sha256": "db2b4b44636793e1ef8cc600ccfd1c24fb339c02c380f2eda7a22687fba45c8c",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "effective_box_px": [
+            2509.0,
+            948.0,
+            3118.0,
+            1274.0
+          ],
+          "fov_original": [
+            0.8031370038412292,
+            0.6800573888091822,
+            0.9980793854033291,
+            0.9139167862266858
+          ],
+          "source_px": [
+            609,
+            326
+          ],
+          "shown_px": [
+            840,
+            448
+          ],
+          "sha256": "beeff0e3f38b9e1752fe1872e5b132af5545fcd2af1db1f38e827593bbbbb1fb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs2.jpg",
+          "public_asset": null
+        }
+      ],
+      "audit": {
+        "decision": "AUTO_PASS_PENDING_MANUAL",
+        "reasons": [],
+        "cpu": [],
+        "source_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_06170__gpt-6-luna.json",
+        "source_sha256": "12a4255453897fa9e2177cb8938e52db344403fee4a727f7cb69db51d0bc592a",
+        "pool": "clean_candidate",
+        "fact_statuses": [
+          "SUPPORTED"
+        ],
+        "final_blind": {
+          "read": "(D)",
+          "status": "SUPPORTED",
+          "views": [
+            "observation_2"
+          ]
+        }
+      },
+      "manual_verdict": null,
+      "teacher_demo": "binding",
+      "format_normalized_requests": [
+        "4900fd2c3e1539cb4d87ec2202aa6fd71bfcb7b836ff506206dd6749045c5908",
+        "edd018d892955527e167dfe1da78c68b772cb5ee686286979c8faa83623b522e"
+      ]
+    }
+  ],
+  "images_public": false,
+  "source_question": null
+}

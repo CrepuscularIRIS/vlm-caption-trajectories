@@ -20,3 +20,7 @@ jobs:
         run: python scripts/verify_snapshot.py
       - name: Inspect all real text cases
         run: python scripts/inspect_case.py --all
+      - name: Verify production audit and curated visual cases
+        run: python scripts/verify_production.py
+      - name: Check casebook against the source cases
+        run: python scripts/build_casebook.py --check-markdown

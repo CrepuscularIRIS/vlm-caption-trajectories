@@ -1,0 +1,355 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C08",
+  "item_id": "worldbench_0675",
+  "title": "四个模型同答白色，红色区域是否漏看",
+  "category": "scope_or_gold_dispute",
+  "task_paraphrase_zh": "拖鞋下面布料的颜色。",
+  "editorial_observation_zh": "四条轨迹都答 A（白色），金标 C（白色和红色）。显眼桌布是白色，另一处有红色花纹材料；需要确认问题覆盖哪些拖鞋、红色材料是否属于所问布料。",
+  "mentor_question_zh": "这是漏看区域，还是题目范围歧义？在澄清前应进入争议池。",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "model": "gpt-6-luna",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0675.json",
+      "source_sha256": "74b07022abef635503db85fca9ea38580dfea94ea99d668eeba9fc50bddf11f0",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "A",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "C",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The slippers rest on pale white fabric visible around and beneath them, especially along the right side; it is distinct from the red slipper uppers [original_image].",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "A"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe slippers rest on pale white fabric visible around and beneath them, especially along the right side; it is distinct from the red slipper uppers [original_image].\n</caption>\n<answer>A</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1920.0,
+            1272.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1920,
+            1272
+          ],
+          "shown_px": [
+            1736,
+            1148
+          ],
+          "sha256": "04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0675/obs0.jpg",
+          "public_asset": "media/20261004/04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "glm-5.3-flash",
+      "family": "Zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_0675.json",
+      "source_sha256": "683770157072eb277c3c9aee9912716630a90d8f397902a252ade740019818de",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "A",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "C",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The slippers rest on a light fabric that is clearly visible along the right side and between the rows; it reads as white/off-white, matching the tone of the white fur collars [original_image]. Red appears only on slipper bodies and background cloth, not on the surface beneath them.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "A"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe slippers rest on a light fabric that is clearly visible along the right side and between the rows; it reads as white/off-white, matching the tone of the white fur collars [original_image]. Red appears only on slipper bodies and background cloth, not on the surface beneath them.\n</caption>\n<answer>A</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1920.0,
+            1272.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1920,
+            1272
+          ],
+          "shown_px": [
+            1736,
+            1148
+          ],
+          "sha256": "04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_0675/obs0.jpg",
+          "public_asset": "media/20261004/04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "grok-4.7",
+      "family": "xAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_0675.json",
+      "source_sha256": "64eb4fd4fc8a8ef5291f09ae446d65dc4d7a013b3d39364d0769e346ef003302",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "A",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "C",
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The slippers sit on a pale cloth that fills the right side of the table; I need a closer look at that fabric, away from the colored slippers, to name its color reliably [original_image].",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.7,
+              0.25,
+              0.99,
+              0.98
+            ]
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe slippers sit on a pale cloth that fills the right side of the table; I need a closer look at that fabric, away from the colored slippers, to name its color reliably [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.70,0.25,0.99,0.98],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The cloth beneath and beside the slippers is a pale off-white fabric with soft folds, clearly distinct from the red slippers resting on it [observation_1]. The surface is white, not red.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "A"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe cloth beneath and beside the slippers is a pale off-white fabric with soft folds, clearly distinct from the red slippers resting on it [observation_1]. The surface is white, not red.\n</caption>\n<answer>A</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1920.0,
+            1272.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1920,
+            1272
+          ],
+          "shown_px": [
+            1736,
+            1148
+          ],
+          "sha256": "04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_0675/obs0.jpg",
+          "public_asset": "media/20261004/04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            1344.0,
+            318.0,
+            1901.0,
+            1247.0
+          ],
+          "fov_original": [
+            0.7,
+            0.25,
+            0.9901041666666667,
+            0.9803459119496856
+          ],
+          "source_px": [
+            557,
+            929
+          ],
+          "shown_px": [
+            560,
+            924
+          ],
+          "sha256": "1a2ccda71353dc53d5401453dcbf45d78f0bf636962a735c47a3587919fa92b6",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_0675/obs1.jpg",
+          "public_asset": "media/20261004/1a2ccda71353dc53d5401453dcbf45d78f0bf636962a735c47a3587919fa92b6.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/results/worldbench_0675.json",
+      "source_sha256": "cdf7f2507d1227934d9ffc7e924cda6d413e452347f8a4dbadb8764ef119e6f1",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "A",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "C",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The fabric beneath the slippers is white, visible in the exposed folds and hanging edge on the right [original_image]. Its shaded folds appear gray compared with its brighter white ridges, not red.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "A"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe fabric beneath the slippers is white, visible in the exposed folds and hanging edge on the right [original_image]. Its shaded folds appear gray compared with its brighter white ridges, not red.\n</caption>\n<answer>A</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1920.0,
+            1272.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1920,
+            1272
+          ],
+          "shown_px": [
+            1736,
+            1148
+          ],
+          "sha256": "04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e",
+          "source_path": "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/obs/worldbench_0675/obs0.jpg",
+          "public_asset": "media/20261004/04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    }
+  ],
+  "images_public": true,
+  "source_question": "What color is the fabric beneath the slippers?\n(A) White\n(B) Red\n(C) Both\n(D) Neither"
+}

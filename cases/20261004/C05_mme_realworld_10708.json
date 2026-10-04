@@ -1,0 +1,215 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C05",
+  "item_id": "mme_realworld_10708",
+  "title": "终答正确，前缀读错后 REVISE",
+  "category": "recovery_only_proposal",
+  "task_paraphrase_zh": "找出预测 Equity Value 首次超过 50 million 的年份。",
+  "editorial_observation_zh": "早期把 49,281,999 读成 45,281,999；末步依据清晰表格修正读数和年份映射，得到 2033。审核因早期错误拒绝整条 clean 路径。",
+  "mentor_question_zh": "应整条排除，还是单独构造恢复教材并 mask 错误前缀？后者目前只是方案。",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 1,
+  "trajectories": [
+    {
+      "model": "glm-5.3-flash",
+      "family": "Zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/mme_realworld_10708.json",
+      "source_sha256": "7d6ec4c073bae7bf2f0024f9915ff0cdf6034bcf72566dc89c37065ef9863579",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "gold": "C",
+      "termination": "answer",
+      "crops": 2,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The 'Forecasted Company Valuation' table has an 'Equity Value' row whose values (…, 45,281,999, 52,769,359, 60,183,678) straddle the 50,000,000 threshold, but which year column each value belongs to (2025–2034) must be bound precisely. I crop the valuation table's header rows together with the Equity Value row to check the column alignment.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.55,
+              0.47,
+              1.0,
+              0.68
+            ]
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe 'Forecasted Company Valuation' table has an 'Equity Value' row whose values (…, 45,281,999, 52,769,359, 60,183,678) straddle the 50,000,000 threshold, but which year column each value belongs to (2025–2034) must be bound precisely. I crop the valuation table's header rows together with the Equity Value row to check the column alignment.\n</caption>\n<grounding>{\"bbox_2d\":[0.55,0.47,1.0,0.68],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": [
+            "no_citation"
+          ]
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "[observation_1] binds the columns clearly: 2025=Year 1 through 2034=Year 10, and shows the component rows (Business Value, Financial Debt, Cash). The bottom Equity Value row is clipped mid-digit, so the exact values per year (e.g., 45/49,281,999 for 2031 vs 52,769,359 for 2032) are not fully readable. I crop the Equity Value row itself to read its values against the confirmed year columns.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.55,
+              0.64,
+              1.0,
+              0.72
+            ]
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\n[observation_1] binds the columns clearly: 2025=Year 1 through 2034=Year 10, and shows the component rows (Business Value, Financial Debt, Cash). The bottom Equity Value row is clipped mid-digit, so the exact values per year (e.g., 45/49,281,999 for 2031 vs 52,769,359 for 2032) are not fully readable. I crop the Equity Value row itself to read its values against the confirmed year columns.\n</caption>\n<grounding>{\"bbox_2d\":[0.55,0.64,1.0,0.72],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "commit",
+          "caption": "[observation_1] and [observation_2] share the same x-window, so the ten bold Equity Value values bind in order to the confirmed columns: 2025=20,171,564 … 2031=43,432,669, 2032=49,281,999, 2033=52,769,359, 2034=60,183,678. The first value above 50,000,000 is 52,769,359 in 2033 (2032's 49,281,999 is still below).\nREVISE: [original_image] tentative reading \"45,281,999 at 2031, 52,769,359 at 2032\" -> corrected to 49,281,999 at 2032 and 52,769,359 at 2033, because [observation_2] shows ten values aligning one-to-one with the 2025–2034 headers in [observation_1].",
+          "updates": [
+            {
+              "kind": "REVISE",
+              "text": "[original_image] tentative reading \"45,281,999 at 2031, 52,769,359 at 2032\" -> corrected to 49,281,999 at 2032 and 52,769,359 at 2033, because [observation_2] shows ten values aligning one-to-one with the 2025–2034 headers in [observation_1]."
+            }
+          ],
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1",
+            "observation_2",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 3 | commit\n[observation_1] and [observation_2] share the same x-window, so the ten bold Equity Value values bind in order to the confirmed columns: 2025=20,171,564 … 2031=43,432,669, 2032=49,281,999, 2033=52,769,359, 2034=60,183,678. The first value above 50,000,000 is 52,769,359 in 2033 (2032's 49,281,999 is still below).\nREVISE: [original_image] tentative reading \"45,281,999 at 2031, 52,769,359 at 2032\" -> corrected to 49,281,999 at 2032 and 52,769,359 at 2033, because [observation_2] shows ten values aligning one-to-one with the 2025–2034 headers in [observation_1].\n</caption>\n<answer>C</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            2560.0,
+            1136.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2560,
+            1136
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "1d10daf7fd87b8b792dbffc74b46218fb6516ea56e7322ea3c1ddc4e7fea0ee4",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_10708/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            1408.0,
+            534.0,
+            2560.0,
+            772.0
+          ],
+          "fov_original": [
+            0.55,
+            0.47007042253521125,
+            1.0,
+            0.6795774647887324
+          ],
+          "source_px": [
+            1152,
+            238
+          ],
+          "shown_px": [
+            2156,
+            448
+          ],
+          "sha256": "a3146744743403947a9f4892fed3783db3889992c0910825f5ea1d766a0e3aba",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_10708/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "effective_box_px": [
+            1408.0,
+            727.0,
+            2560.0,
+            818.0
+          ],
+          "fov_original": [
+            0.55,
+            0.6399647887323944,
+            1.0,
+            0.7200704225352113
+          ],
+          "source_px": [
+            1152,
+            91
+          ],
+          "shown_px": [
+            4620,
+            364
+          ],
+          "sha256": "0aa62ef0452381396adecfac2d5f32529c5b0f24e0b5f2784e54f7c40169ae3d",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_10708/obs2.jpg",
+          "public_asset": null
+        }
+      ],
+      "audit": {
+        "decision": "REVIEW_REJECTED",
+        "reasons": [
+          "contradicted_claim"
+        ],
+        "cpu": [],
+        "source_path": "obs/runs/accept_unit1_20261003/audit_run/audit/old__mme_realworld_10708__glm-5.3-flash.json",
+        "source_sha256": "a4d67e8f5122d196267e6c843384dfc200174881ae20b49a1891433cbbb3c66d",
+        "pool": null,
+        "fact_statuses": [],
+        "final_blind": {}
+      },
+      "manual_verdict": null,
+      "teacher_demo": "binding",
+      "format_normalized_requests": []
+    }
+  ],
+  "images_public": false,
+  "source_question": null
+}

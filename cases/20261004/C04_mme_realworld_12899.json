@@ -1,0 +1,277 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C04",
+  "item_id": "mme_realworld_12899",
+  "title": "两次裁到空路面后换区域",
+  "category": "fallback_review_pending",
+  "task_paraphrase_zh": "判断道路中行人的上衣颜色。",
+  "editorial_observation_zh": "两次 crop 没找到目标，第三次改换区域看见白色上衣行人。已有具体失败证据和有效恢复，但自动池标记 fallback_unreviewed，不能当作已完成回退验收。",
+  "mentor_question_zh": "这种自然回退是否可作为教材？补核通过后是否需要因两次无效 crop 再过滤？",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 1,
+  "trajectories": [
+    {
+      "model": "gpt-6-luna",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_12899.json",
+      "source_sha256": "694087863a226c69f6cf1204fc077a2dff656c619f89013640e6f0775a7e3ca2",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "B",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "gold": "B",
+      "termination": "answer",
+      "crops": 3,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "A small person is visible walking on the roadway near the bottom center of the image [original_image]. The coat color is difficult to distinguish at this scale, so a closer view can establish its color.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.33,
+              0.77,
+              0.38,
+              0.86
+            ]
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nA small person is visible walking on the roadway near the bottom center of the image [original_image]. The coat color is difficult to distinguish at this scale, so a closer view can establish its color.\n</caption>\n<grounding>{\"bbox_2d\":[0.33,0.77,0.38,0.86],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "fallback",
+          "caption": "The first crop shows only roadway, so it missed the walking person visible near the bottom center in the full image [original_image]. I’ll use a wider crop around that person to include the coat.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.32,
+              0.73,
+              0.43,
+              0.88
+            ]
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | fallback\nThe first crop shows only roadway, so it missed the walking person visible near the bottom center in the full image [original_image]. I’ll use a wider crop around that person to include the coat.\n</caption>\n<grounding>{\"bbox_2d\":[0.32,0.73,0.43,0.88],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "fallback",
+          "caption": "The wider crop still contains only curb, grass, and roadway [observation_2], so the earlier location was wrong. The person appears farther to the right in the original image; I’ll crop that visible figure.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.53,
+              0.75,
+              0.59,
+              0.86
+            ]
+          },
+          "cited": [
+            "observation_2"
+          ],
+          "observation": "observation_3",
+          "visible_output": "<caption>\nStep 3 | fallback\nThe wider crop still contains only curb, grass, and roadway [observation_2], so the earlier location was wrong. The person appears farther to the right in the original image; I’ll crop that visible figure.\n</caption>\n<grounding>{\"bbox_2d\":[0.53,0.75,0.59,0.86],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 4,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3"
+          ],
+          "behavior": "commit",
+          "caption": "The person is walking, so they are a pedestrian; their coat is visibly white in the close view [observation_3]. The nearby gray roadway provides a neutral comparison, supporting white rather than a dark or tinted color.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "observation_3"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 4 | commit\nThe person is walking, so they are a pedestrian; their coat is visibly white in the close view [observation_3]. The nearby gray roadway provides a neutral comparison, supporting white rather than a dark or tinted color.\n</caption>\n<answer>B</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            2000.0,
+            1500.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2000,
+            1500
+          ],
+          "shown_px": [
+            1624,
+            1204
+          ],
+          "sha256": "146a9908e9f71111ea3efe2ce03e5684450d0e356fb68781567bbddfdc42eacb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            660.0,
+            1155.0,
+            760.0,
+            1290.0
+          ],
+          "fov_original": [
+            0.33,
+            0.77,
+            0.38,
+            0.86
+          ],
+          "source_px": [
+            100,
+            135
+          ],
+          "shown_px": [
+            392,
+            532
+          ],
+          "sha256": "88aaeb5d610fc16bef6dcbd1a28c73087a905bd312c869d9238623c84f9d9a78",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "effective_box_px": [
+            640.0,
+            1095.0,
+            860.0,
+            1320.0
+          ],
+          "fov_original": [
+            0.32,
+            0.73,
+            0.43,
+            0.88
+          ],
+          "source_px": [
+            220,
+            225
+          ],
+          "shown_px": [
+            448,
+            448
+          ],
+          "sha256": "b4fe9b4e4ae79d9a4e5c4368bc219e2e35e73c41c38edb4b8be0ddaef1afff54",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs2.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_3",
+          "parent": "original_image",
+          "effective_box_px": [
+            1060.0,
+            1125.0,
+            1180.0,
+            1290.0
+          ],
+          "fov_original": [
+            0.53,
+            0.75,
+            0.59,
+            0.86
+          ],
+          "source_px": [
+            120,
+            165
+          ],
+          "shown_px": [
+            448,
+            616
+          ],
+          "sha256": "9542d39ecab5847b02f4d0174f8fbcc334837e8e4f17fb1572522a2b467c5d8c",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs3.jpg",
+          "public_asset": null
+        }
+      ],
+      "audit": {
+        "decision": "AUTO_PASS_PENDING_MANUAL",
+        "reasons": [],
+        "cpu": [],
+        "process_reviewer": "claude-sonnet-5-5",
+        "blind_reader": "grok-4.7",
+        "fallback_unreviewed": true,
+        "source_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_12899__gpt-6-luna.json",
+        "source_sha256": "08951d6f496b8790508062b1fc1336c451bc4ded9b1cacec2e9a3c2ed671d9db",
+        "pool": "clean_candidate",
+        "fact_statuses": [
+          "SUPPORTED"
+        ],
+        "final_blind": {
+          "read": "B",
+          "status": "SUPPORTED",
+          "views": [
+            "observation_3"
+          ]
+        }
+      },
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": [
+        "b41b1c36552892bc43aab1d9807a7f8910ec0e062bd2cad1399a23cdc4791d37",
+        "966a0e96769b75684d0620f161ebd7fe155ac65638bbba39ae133ad8484472be",
+        "5a69339089e2c71900ae5ab15ecffd36f4de34d107615c653814dee60ffb2a54"
+      ]
+    }
+  ],
+  "images_public": false,
+  "source_question": null
+}

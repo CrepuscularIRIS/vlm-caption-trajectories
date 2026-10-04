@@ -1,0 +1,107 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C01",
+  "item_id": "worldbench_0826",
+  "title": "原图足够：直接作答",
+  "category": "positive_candidate",
+  "task_paraphrase_zh": "手套盒相对玻璃碗的位置。",
+  "editorial_observation_zh": "原图已显示盒子在碗后方，一步回答，无仪式性裁图。",
+  "mentor_question_zh": "这种短观察加直接作答是否应作为常规正例保留？",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 1,
+  "trajectories": [
+    {
+      "model": "gpt-6-luna",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0826.json",
+      "source_sha256": "81e5738501104083faa9c476a003dc4732aeb811a6888c613d3145e13f1acceb",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The disposable-gloves box is at the upper left, behind the glass bowl, while the bowl is in front of it [original_image]. The box therefore lies behind the bowl.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe disposable-gloves box is at the upper left, behind the glass bowl, while the bowl is in front of it [original_image]. The box therefore lies behind the bowl.\n</caption>\n<answer>D</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1280.0,
+            960.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1280,
+            960
+          ],
+          "shown_px": [
+            1288,
+            952
+          ],
+          "sha256": "42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0826/obs0.jpg",
+          "public_asset": "media/20261004/42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688.jpg"
+        }
+      ],
+      "audit": {
+        "decision": "AUTO_PASS_PENDING_MANUAL",
+        "reasons": [],
+        "cpu": [],
+        "process_reviewer": "claude-sonnet-5-5",
+        "blind_reader": "grok-4.7",
+        "source_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__worldbench_0826__gpt-6-luna.json",
+        "source_sha256": "a8ff8c20700215bc716e26e61c8208b38b0bf3657af476eca126eb696a939b0f",
+        "pool": "clean_candidate",
+        "fact_statuses": [
+          "SUPPORTED"
+        ],
+        "final_blind": {
+          "read": "D",
+          "status": "SUPPORTED",
+          "views": [
+            "original_image"
+          ]
+        }
+      },
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    }
+  ],
+  "images_public": true,
+  "source_question": "Where does the box of disposable gloves lie relative to the glass bowl?\n(A) To its right\n(B) To its left\n(C) In front of it\n(D) Behind it"
+}

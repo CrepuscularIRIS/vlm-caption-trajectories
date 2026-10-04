@@ -1,0 +1,161 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C06",
+  "item_id": "mme_realworld_22834",
+  "title": "答案正确，但坐标描述漏过门槛",
+  "category": "style_gate_counterexample",
+  "task_paraphrase_zh": "判断有红色机身的飞机在全图中的位置。",
+  "editorial_observation_zh": "终答正确且自动审核通过，caption 却包含 (0.30, 0.78) 及转义形式的坐标。坐标门漏检可复现，不能用正确答案代替风格与协议验收。",
+  "mentor_question_zh": "图像位置坐标应继续作为硬门吗？建议修检测并重筛，不改写原始轨迹。",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 1,
+  "trajectories": [
+    {
+      "model": "glm-5.3-flash",
+      "family": "Zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/accept_unit1_20261003/gen_glm-5.3-flash_high/results/mme_realworld_22834.json",
+      "source_sha256": "395ad8107a6b5765514b505db582987dbcf97dc8567362e65989209f3242f453",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "Most parked aircraft on the apron appear white, but one aircraft in the bottom-left cluster near (0.30, 0.78) looks reddish at this scale. I need to confirm its body color before answering, so I crop that cluster.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.2,
+              0.66,
+              0.4,
+              0.86
+            ]
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nMost parked aircraft on the apron appear white, but one aircraft in the bottom-left cluster near (0.30, 0.78) looks reddish at this scale. I need to confirm its body color before answering, so I crop that cluster.\n</caption>\n<grounding>{\"bbox_2d\":[0.2,0.66,0.4,0.86],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": [
+            "no_citation"
+          ]
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_1], one aircraft in this cluster clearly shows a red fuselage with white wings, distinct from the all-white aircraft around it. Its position in [original_image] is around x\\u22480.30, y\\u22480.78, which falls in the lower left area of the picture.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_1",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], one aircraft in this cluster clearly shows a red fuselage with white wings, distinct from the all-white aircraft around it. Its position in [original_image] is around x\\u22480.30, y\\u22480.78, which falls in the lower left area of the picture.\n</caption>\n<answer>D</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1874.0,
+            1660.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1874,
+            1660
+          ],
+          "shown_px": [
+            1484,
+            1316
+          ],
+          "sha256": "3af9dbe7a1d5088c5767a0905706ae571558f39838b68bd7ce19cf51692be5af",
+          "source_path": "obs/runs/accept_unit1_20261003/gen_glm-5.3-flash_high/obs/mme_realworld_22834/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            375.0,
+            1096.0,
+            750.0,
+            1428.0
+          ],
+          "fov_original": [
+            0.2001067235859125,
+            0.6602409638554216,
+            0.400213447171825,
+            0.8602409638554217
+          ],
+          "source_px": [
+            375,
+            332
+          ],
+          "shown_px": [
+            504,
+            448
+          ],
+          "sha256": "53d252faeaeae3111dee1c42992730d5d5cfb4b2f2eed6e72d95fbea95863de5",
+          "source_path": "obs/runs/accept_unit1_20261003/gen_glm-5.3-flash_high/obs/mme_realworld_22834/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "audit": {
+        "decision": "AUTO_PASS_PENDING_MANUAL",
+        "reasons": [],
+        "cpu": [],
+        "source_path": "obs/runs/accept_unit1_20261003/audit_run/audit/new__mme_realworld_22834__glm-5.3-flash.json",
+        "source_sha256": "cf1f40cc93c423c4cf615edbfb59002d74f498d848dc447105968619af3666cb",
+        "pool": null,
+        "fact_statuses": [
+          "SUPPORTED"
+        ],
+        "final_blind": {
+          "read": "(D)",
+          "status": "SUPPORTED",
+          "views": [
+            "observation_1",
+            "original_image"
+          ]
+        }
+      },
+      "manual_verdict": null,
+      "teacher_demo": "binding",
+      "format_normalized_requests": []
+    }
+  ],
+  "images_public": false,
+  "source_question": null
+}

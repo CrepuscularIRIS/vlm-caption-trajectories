@@ -1,0 +1,82 @@
+{
+  "media/20261004/42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688.jpg": {
+    "sha256": "42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_0826",
+    "source_image_sha256": "c38df791fc5512edf1021cfff3865aec7af96e2543eafa73438c4d1ac47f3566"
+  },
+  "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg": {
+    "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_1913",
+    "source_image_sha256": "54c6db1b3bc7baadab9a1e02de2c827b5caccc605fa61115a0fd7beaf182c7ee"
+  },
+  "media/20261004/11fb3305d2eb11a6322ba6cc880cb886d97c64372f510d5022b32386421451de.jpg": {
+    "sha256": "11fb3305d2eb11a6322ba6cc880cb886d97c64372f510d5022b32386421451de",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_1913",
+    "source_image_sha256": "54c6db1b3bc7baadab9a1e02de2c827b5caccc605fa61115a0fd7beaf182c7ee"
+  },
+  "media/20261004/04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e.jpg": {
+    "sha256": "04e11eb498afe200eea33b601fad260e8a8340d37c39ab230d413d323892979e",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_0675",
+    "source_image_sha256": "febe8dc79de4743b1640888b89eb30ed426639878a392523e2b023eb98974bec"
+  },
+  "media/20261004/1a2ccda71353dc53d5401453dcbf45d78f0bf636962a735c47a3587919fa92b6.jpg": {
+    "sha256": "1a2ccda71353dc53d5401453dcbf45d78f0bf636962a735c47a3587919fa92b6",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_0675",
+    "source_image_sha256": "febe8dc79de4743b1640888b89eb30ed426639878a392523e2b023eb98974bec"
+  },
+  "media/20261004/9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6.jpg": {
+    "sha256": "9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_0841",
+    "source_image_sha256": "6fcbb10fe0147d14a43c5af3b6af33fdf432557c5bbc7aedcc8f871164b53458"
+  },
+  "media/20261004/b29ca2cb6cb396601e034980fc8fced9d7489175753496789e58d3b761809395.jpg": {
+    "sha256": "b29ca2cb6cb396601e034980fc8fced9d7489175753496789e58d3b761809395",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_0841",
+    "source_image_sha256": "6fcbb10fe0147d14a43c5af3b6af33fdf432557c5bbc7aedcc8f871164b53458"
+  },
+  "media/20261004/db9463b8aca7d51319a41c0d9f287fae3a283863b9d5305415f118f3018e4b5d.jpg": {
+    "sha256": "db9463b8aca7d51319a41c0d9f287fae3a283863b9d5305415f118f3018e4b5d",
+    "source_dataset": "WorldBench",
+    "dataset_card": "https://huggingface.co/datasets/zlab-princeton/WorldBench",
+    "license": "CC-BY-4.0",
+    "credit": "WorldBench dataset contributors (Zlab Princeton; see dataset card)",
+    "modification": "Saved generator input view: source image resized/cropped by the original rollout; copied unchanged for this publication.",
+    "item_id": "worldbench_0841",
+    "source_image_sha256": "6fcbb10fe0147d14a43c5af3b6af33fdf432557c5bbc7aedcc8f871164b53458"
+  }
+}

@@ -1,0 +1,409 @@
+{
+  "schema": "public-case-v2",
+  "case_id": "C09",
+  "item_id": "worldbench_0841",
+  "title": "四个模型读 5，金标为 6",
+  "category": "gold_or_measurement_dispute",
+  "task_paraphrase_zh": "黑色卷尺上的绿色激光靠近哪个数字？",
+  "editorial_observation_zh": "四条轨迹都答 C（5），金标 D（6）。原图及 crop 可见 5 附近刻度，但绿色激光与刻度的相对位置、尺壳遮挡及邻近数字需要核对。不能直接断言四个模型视觉读错，也不能以多数票改金标。",
+  "mentor_question_zh": "是否隔离这一题并核查题意与标注？哪些证据才足以更正金标？",
+  "editorial_status": "Codex diagnostic opinion; not human acceptance",
+  "sampling": "Purposive diagnostic selection, not a random quality estimate",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "model": "gpt-6-luna",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0841.json",
+      "source_sha256": "ce9cdb6dd6b1119e7f89f83cc6154c04bd57fe227d255608c31d8673e99bf3e8",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "C",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The green laser crosses the black tape near the 5 mark; the nearby visible markings include 4 and 5 [original_image].",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe green laser crosses the black tape near the 5 mark; the nearby visible markings include 4 and 5 [original_image].\n</caption>\n<answer>C</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1024.0,
+            768.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1024,
+            768
+          ],
+          "shown_px": [
+            1036,
+            756
+          ],
+          "sha256": "9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0841/obs0.jpg",
+          "public_asset": "media/20261004/9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "glm-5.3-flash",
+      "family": "Zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_0841.json",
+      "source_sha256": "fad0f736f642184367b356153f610e9496b88328b61e7b14b5fa5ea2059d8780",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "C",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The REEKON tape measure's blade shows printed numbers with the green laser emanating near the housing. I need to inspect which number sits next to the green laser glow.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.35,
+              0.3,
+              0.65,
+              0.65
+            ]
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe REEKON tape measure's blade shows printed numbers with the green laser emanating near the housing. I need to inspect which number sits next to the green laser glow.\n</caption>\n<grounding>{\"bbox_2d\":[0.35,0.3,0.65,0.65],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": [
+            "no_citation"
+          ]
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_1], the green laser glow emanates from the housing and directly illuminates the \"5\" printed on the blade, while \"4\" sits further along outside the glow. The laser is nearest the number 5.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the green laser glow emanates from the housing and directly illuminates the \"5\" printed on the blade, while \"4\" sits further along outside the glow. The laser is nearest the number 5.\n</caption>\n<answer>C</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1024.0,
+            768.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1024,
+            768
+          ],
+          "shown_px": [
+            1036,
+            756
+          ],
+          "sha256": "9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_0841/obs0.jpg",
+          "public_asset": "media/20261004/9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            358.0,
+            230.0,
+            666.0,
+            499.0
+          ],
+          "fov_original": [
+            0.349609375,
+            0.2994791666666667,
+            0.650390625,
+            0.6497395833333334
+          ],
+          "source_px": [
+            308,
+            269
+          ],
+          "shown_px": [
+            504,
+            448
+          ],
+          "sha256": "b29ca2cb6cb396601e034980fc8fced9d7489175753496789e58d3b761809395",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_0841/obs1.jpg",
+          "public_asset": "media/20261004/b29ca2cb6cb396601e034980fc8fced9d7489175753496789e58d3b761809395.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "grok-4.7",
+      "family": "xAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_0841.json",
+      "source_sha256": "b73667c80fbd636e3dfb91777625ea6ae820555242a469f6f4be6fe700a45f82",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "C",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The extended black blade shows inch marks increasing toward the tool, with a bright green line crossing it near the higher numbers [original_image]. I need a closer view to bind that line to the nearest printed number.",
+          "updates": [],
+          "action": {
+            "kind": "grounding",
+            "source": "original_image",
+            "bbox": [
+              0.45,
+              0.4,
+              0.72,
+              0.58
+            ]
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe extended black blade shows inch marks increasing toward the tool, with a bright green line crossing it near the higher numbers [original_image]. I need a closer view to bind that line to the nearest printed number.\n</caption>\n<grounding>{\"bbox_2d\":[0.45,0.40,0.72,0.58],\"source\":\"original_image\"}</grounding>",
+          "violations": [],
+          "flags": []
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The bright green line crosses the blade immediately beside the large printed 5, between the 5 and 4 marks but much closer to 5 [observation_1]. It is therefore around 5.",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe bright green line crosses the blade immediately beside the large printed 5, between the 5 and 4 marks but much closer to 5 [observation_1]. It is therefore around 5.\n</caption>\n<answer>C</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1024.0,
+            768.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1024,
+            768
+          ],
+          "shown_px": [
+            1036,
+            756
+          ],
+          "sha256": "9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_0841/obs0.jpg",
+          "public_asset": "media/20261004/9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "effective_box_px": [
+            461.0,
+            307.0,
+            737.0,
+            445.0
+          ],
+          "fov_original": [
+            0.4501953125,
+            0.3997395833333333,
+            0.7197265625,
+            0.5794270833333334
+          ],
+          "source_px": [
+            276,
+            138
+          ],
+          "shown_px": [
+            896,
+            448
+          ],
+          "sha256": "db9463b8aca7d51319a41c0d9f287fae3a283863b9d5305415f118f3018e4b5d",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_0841/obs1.jpg",
+          "public_asset": "media/20261004/db9463b8aca7d51319a41c0d9f287fae3a283863b9d5305415f118f3018e4b5d.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    },
+    {
+      "model": "gpt-6.1-sol",
+      "family": "OpenAI",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/results/worldbench_0841.json",
+      "source_sha256": "63bd1657dc0568b8cb9e534896ade274d44709ebde4dd7fd5d3501e750af1083",
+      "protocol": "caption-v5.1-20261001",
+      "answer": "C",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "gold": "D",
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The green laser crosses the black tape near the housing, just beside the visible number 5 [original_image].",
+          "updates": [],
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe green laser crosses the black tape near the housing, just beside the visible number 5 [original_image].\n</caption>\n<answer>C</answer>",
+          "violations": [],
+          "flags": []
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "effective_box_px": [
+            0.0,
+            0.0,
+            1024.0,
+            768.0
+          ],
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1024,
+            768
+          ],
+          "shown_px": [
+            1036,
+            756
+          ],
+          "sha256": "9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6",
+          "source_path": "obs/runs/funnel_v1_20261002/l2_gpt-6.1-sol_low/obs/worldbench_0841/obs0.jpg",
+          "public_asset": "media/20261004/9d1f368b6638d23b07ccb93ab89b2a7542e26ce97192b811c50650cbac5f0fd6.jpg"
+        }
+      ],
+      "audit": null,
+      "manual_verdict": null,
+      "teacher_demo": "direct",
+      "format_normalized_requests": []
+    }
+  ],
+  "images_public": true,
+  "source_question": "Around what number is the green laser near on the black tape measure?\n(A) 3\n(B) 4\n(C) 5\n(D) 6"
+}
