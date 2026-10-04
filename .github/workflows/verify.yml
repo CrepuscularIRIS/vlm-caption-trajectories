@@ -24,3 +24,5 @@ jobs:
         run: python scripts/verify_production.py
       - name: Check casebook against the source cases
         run: python scripts/build_casebook.py --check-markdown
+      - name: Verify cc update and frozen 75-case sample
+        run: python scripts/spotcheck_review.py --verify

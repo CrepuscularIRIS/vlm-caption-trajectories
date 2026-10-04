@@ -8,7 +8,7 @@ Evidence-grounded visual trajectory construction: design, production audit, refe
 
 ## 导师先看这三页
 
-1. [当前设计、漏斗与质量缺口](docs/09_production_review_20261004.md)：生成了什么、如何多模型审核、哪些尚未完成。
+1. [最新 cc 补审、75 条抽检与重做分析](docs/12_cc_spotcheck_update_20261004.md)：补审真实产出、人工状态与被拒轨迹怎么处理；[设计与完整漏斗](docs/09_production_review_20261004.md) 保留首版统计。
 2. [9 个真实案例 · 18 条完整可见轨迹](docs/CASEBOOK_20261004.md)：好的直答/绑定、自然回退、错误前缀后修正、多模型共同分歧。
 3. [五个具体问题与反馈表](docs/10_mentor_questions_20261004.md)：请判断教材质量、恢复边界、审核充分性、金标争议和首批验收线。
 
@@ -18,7 +18,15 @@ Evidence-grounded visual trajectory construction: design, production audit, refe
 
 原始 Caption 与 BundleAudit 负责证据契约、时序、依赖和监督边界；生成/审核漏斗负责选择高质量的真实示范。这两层相关，但不等同。
 
-## 最新公开快照
+## 最新进展：cc 补审完成与 75 条抽检
+
+**2026-10-04 01:22 America/New_York** 核对：审核 **2,520/2,520 全部完成**，自动候选 **1,317 条 / 1,193 图组**。cc 补审 141 条：通过 76、争议 19、拒绝 46；生产回执 **273/273 有效**，原始 stdout 复核一致。cc 仍是 Sonnet 的另一条调用通道，不算新增模型家族；早期两次已归档 smoke 超时另列。
+
+最终分池：候选 **1,317**、争议 **275**、审核格式待核 **12**、拒绝 **916**；未审 **0**。需人工复核 287 条。[75 条分层抽检全文](docs/SPOTCHECK75_20261004.md) 含 132 个可见步骤，**原 69 条全部保留，新增 6 条，人工表仍 75 PENDING**。81 条 fallback 漏审尚未因此解决，最终 SFT 数据仍待验收。
+
+对 916 条拒绝记录的初步建议：**531 条先审已有替代路径、30 条先查上下文/可读性、355 条再筛有限定向重做**。这是分析清单，未执行重生成。详见 [新增分析](docs/12_cc_spotcheck_update_20261004.md) 和 [逐项清单](data/rejection_triage_20261004.json)。GLM 继续运行；速率与 429 需按巡检窗口报告，不固定承诺完成时间。
+
+## 首版生成与审核快照（23:10）
 
 统计冻结于 **2026-10-03 23:10 America/New_York**，离线捕获 23:19:45。GLM 当时仍继续生成；下表不是最终总产量。
 
@@ -78,6 +86,7 @@ git clone https://github.com/CrepuscularIRIS/vlm-caption-trajectories.git
 cd vlm-caption-trajectories
 python scripts/verify_production.py
 python scripts/build_casebook.py --check-markdown
+python scripts/spotcheck_review.py --verify
 python scripts/verify_snapshot.py
 python scripts/inspect_case.py --all
 ```
@@ -90,4 +99,4 @@ Python 3.10+，标准库，无密钥、网络或 GPU。PASS 表示公开文件�
 
 [01 设计](docs/01_design.md) · [02 协议](docs/02_protocol.md) · [03 早期构造](docs/03_construction.md) · [04 历史结果](docs/04_results.md) · [05 早期问题](docs/05_open_questions.md) · [06 SFT/RL 衔接](docs/06_sft_rl.md) · [07 早期代码](docs/07_reproduction.md) · [旧案例册](docs/CASEBOOK.md)
 
-[变更记录](CHANGELOG.md) · [最新发布说明](docs/11_publication_and_reproduction_20261004.md) · [反馈方式](CONTRIBUTING.md)
+[变更记录](CHANGELOG.md) · [发布说明](docs/11_publication_and_reproduction_20261004.md) · [cc 补审与抽检更新](docs/12_cc_spotcheck_update_20261004.md) · [反馈方式](CONTRIBUTING.md)

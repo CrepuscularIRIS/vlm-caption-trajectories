@@ -1,0 +1,236 @@
+{
+  "captured_start_utc": "2026-10-04T05:22:16.073807+00:00",
+  "captured_end_utc": "2026-10-04T05:22:16.959052+00:00",
+  "captured_local": "2026-10-04T01:22:16.959150-04:00",
+  "expected_manifest": 2520,
+  "completed": 2520,
+  "missing_current_sidecars": 0,
+  "pools": {
+    "clean_candidate": 1317,
+    "rejected": 916,
+    "disputed": 275,
+    "review_format": 12
+  },
+  "by_tag": {
+    "luna_crop": {
+      "clean_candidate": 722,
+      "rejected": 761,
+      "disputed": 197,
+      "review_format": 10
+    },
+    "luna_direct": {
+      "clean_candidate": 595,
+      "rejected": 155,
+      "disputed": 78,
+      "review_format": 2
+    }
+  },
+  "clean_groups": 1193,
+  "clean_fallback_unreviewed": 81,
+  "cc_completed": 141,
+  "cc_decisions": {
+    "REVIEW_REJECTED": 46,
+    "DISPUTED_PENDING_MANUAL": 19,
+    "AUTO_PASS_PENDING_MANUAL": 76
+  },
+  "cc_material": {
+    "count": 2,
+    "chart_table": 1,
+    "academic": 86,
+    "visual_puzzle": 50,
+    "map": 2
+  },
+  "cc_receipts": 273,
+  "cc_receipts_valid": 273,
+  "cc_receipts_reparsed_valid": 273,
+  "cc_receipts_fields_match": 273,
+  "cc_active_timeouts": 0,
+  "cc_archived_smoke": [
+    {
+      "source_path": "obs/runs/audit_luna_v1_20261003/sonnet_cc_smoke_failed/3990c262b395975cadb91702beec84714b3f9759297b9f734c8bfa06c744ceb9.json",
+      "source_sha256": "7d60b88b870d68d694ceb536506bc34d3f6536b313d53e124802bd78d5d32a6d",
+      "valid": false,
+      "exit": "timeout",
+      "elapsed_s": 300.021
+    },
+    {
+      "source_path": "obs/runs/audit_luna_v1_20261003/sonnet_cc_smoke_failed/da8584c408df9e374790fb5d9d1d58d327a26547e722af4490d1220e7f6f4ff2.json",
+      "source_sha256": "7b3287522970bdc9d8a5e4dd38cf1ac604521c92e14f0db96564a28405e8a0ce",
+      "valid": false,
+      "exit": "timeout",
+      "elapsed_s": 300.023
+    }
+  ],
+  "cc_linked_receipts": 479,
+  "cc_linked_invalid": 0,
+  "returned_model_sets": {
+    "claude-sonnet-5-5 + claude-sonnet-5-5[1m]": 273
+  },
+  "spotcheck": {
+    "n": 75,
+    "verdicts": {
+      "PENDING": 75
+    },
+    "base_candidates": 1317,
+    "base_groups": 1193,
+    "strata": [
+      {
+        "stratum": "luna_crop/academic",
+        "base_candidates": 19,
+        "sample_count": 2,
+        "expected_count": 2
+      },
+      {
+        "stratum": "luna_crop/chart_table",
+        "base_candidates": 132,
+        "sample_count": 7,
+        "expected_count": 7
+      },
+      {
+        "stratum": "luna_crop/count",
+        "base_candidates": 62,
+        "sample_count": 4,
+        "expected_count": 4
+      },
+      {
+        "stratum": "luna_crop/natural",
+        "base_candidates": 300,
+        "sample_count": 15,
+        "expected_count": 15
+      },
+      {
+        "stratum": "luna_crop/text",
+        "base_candidates": 207,
+        "sample_count": 11,
+        "expected_count": 11
+      },
+      {
+        "stratum": "luna_crop/visual_puzzle",
+        "base_candidates": 2,
+        "sample_count": 2,
+        "expected_count": 2
+      },
+      {
+        "stratum": "luna_direct/academic",
+        "base_candidates": 136,
+        "sample_count": 7,
+        "expected_count": 7
+      },
+      {
+        "stratum": "luna_direct/chart_table",
+        "base_candidates": 263,
+        "sample_count": 14,
+        "expected_count": 14
+      },
+      {
+        "stratum": "luna_direct/count",
+        "base_candidates": 39,
+        "sample_count": 2,
+        "expected_count": 2
+      },
+      {
+        "stratum": "luna_direct/map",
+        "base_candidates": 1,
+        "sample_count": 1,
+        "expected_count": 1
+      },
+      {
+        "stratum": "luna_direct/natural",
+        "base_candidates": 94,
+        "sample_count": 5,
+        "expected_count": 5
+      },
+      {
+        "stratum": "luna_direct/text",
+        "base_candidates": 48,
+        "sample_count": 3,
+        "expected_count": 3
+      },
+      {
+        "stratum": "luna_direct/visual_puzzle",
+        "base_candidates": 14,
+        "sample_count": 2,
+        "expected_count": 2
+      }
+    ],
+    "benches": {
+      "mmmu_pro": 9,
+      "mme_realworld": 55,
+      "worldbench": 6,
+      "vstar": 1,
+      "visreason": 4
+    },
+    "fallback_pending_count": 2,
+    "total_steps": 132,
+    "source_html": "obs/runs/audit_luna_v1_20261003/SPOTCHECK_CASEBOOK.html",
+    "source_html_sha256": "17f8e8bbf99b843785cfed18c134f6e67afcaa111ca83ffedb3046e223d167d5",
+    "original_n": 69,
+    "original_retained": 69,
+    "new_keys": [
+      "luna_direct__mmmu_pro_std_test_Economics_149__gpt-6-luna",
+      "luna_direct__mmmu_pro_std_validation_Physics_17__gpt-6-luna",
+      "luna_direct__mmmu_pro_vision_test_Electronics_213__gpt-6-luna",
+      "luna_direct__visreason_c10_1_8__gpt-6-luna",
+      "luna_direct__visreason_c4_91__gpt-6-luna",
+      "luna_direct__worldbench_1865__gpt-6-luna"
+    ]
+  },
+  "on_disk_pool_summary": {
+    "construction_mode": "single_teacher_multi_judge",
+    "pools": {
+      "clean_candidate": 1317,
+      "rejected": 916,
+      "disputed": 275,
+      "review_format": 12
+    },
+    "clean_groups": 1193
+  },
+  "transitions": {
+    "clean_candidate -> clean_candidate": 1241,
+    "rejected -> rejected": 870,
+    "disputed -> disputed": 256,
+    "pending -> rejected": 46,
+    "pending -> disputed": 19,
+    "review_format -> review_format": 12,
+    "pending -> clean_candidate": 76
+  },
+  "triage": {
+    "candidate_for_bounded_targeted_regeneration": 355,
+    "adjudicate_evidence_before_regeneration": 275,
+    "review_existing_alternative_first": 531,
+    "check_context_or_readability_first": 30,
+    "repair_or_review_judge_output": 12
+  },
+  "rejected_triage": {
+    "candidate_for_bounded_targeted_regeneration": 355,
+    "review_existing_alternative_first": 531,
+    "check_context_or_readability_first": 30
+  },
+  "rejected_reasons": {
+    "contradicted_claim": 480,
+    "leading_yes_no_fact": 30,
+    "key_fact_contradicted": 208,
+    "final_blind_contradicted": 158,
+    "future_or_unknown_fact_view": 31,
+    "key_fact_insufficient": 113,
+    "final_blind_disputed": 63,
+    "key_fact_disputed": 90,
+    "final_blind_insufficient": 81,
+    "instance_switch": 23,
+    "missing_or_invalid_fallback_review": 98,
+    "unsupported_flip": 16
+  },
+  "health": {
+    "header": "# funnel-v1 HEALTH 2026-10-04 01:20",
+    "model": "glm-5.3-flash",
+    "running": "yes",
+    "remaining": 3748,
+    "rate": "456/h",
+    "calls_since_last_patrol": 192,
+    "http_429_since_last_patrol": 7,
+    "timeouts_since_last_patrol": 0
+  },
+  "publication_scope": "Offline final-audit snapshot and proposed triage; no generation or manual verdicts added.",
+  "cc_budget_dispatches": 275,
+  "human_review_queue": 287
+}

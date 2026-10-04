@@ -1,0 +1,4082 @@
+[
+  {
+    "sample_id": "S01",
+    "key": "luna_crop__mmmu_pro_std_test_Marketing_116__gpt-6-luna",
+    "item_id": "mmmu_pro_std_test_Marketing_116",
+    "bench": "mmmu_pro",
+    "stratum": "luna_crop/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_test_Marketing_116.json",
+    "result_sha256": "c3a63adc89cd8f6f437773524ae4c5391375e6c7e38bb2dff4a34811d3f4c1c7",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mmmu_pro_std_test_Marketing_116__gpt-6-luna.json",
+    "audit_sha256": "0dc23f9033c7eb60253835d7d844d652ccb673236d4ed61d66bdccd31666f404",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "H",
+    "gold": "H",
+    "score": 1,
+    "material": "academic",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_test_Marketing_116/obs0.jpg",
+        "sha256": "1506a4bed7955cfb91a76f44d19691bf9ce1946d0b475b374796d8ef8faa96ad"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_test_Marketing_116/obs1.jpg",
+        "sha256": "251d5f28f806f5d913ec87a492650feb862ddcf5e2c287addd56bdfb35602912"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | re_examine\nThe distribution shows P(5) = 0.10 and P(6) = 0.05; the P(x) cell for x = 4 is blank [original_image]. I’ll check that blank cell to determine whether it affects the requested probability.\n</caption>\n<grounding>{\"bbox_2d\":[0.405,0.624,0.6,0.745],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe table gives P(5) = 0.10 and P(6) = 0.05 [original_image]; the x = 4 probability is blank, but it is not included in P(X ≥ 5). RULE: For discrete values, P(X ≥ 5) is the sum of probabilities for x = 5 and above. CALC: 0.10 + 0.05 = 0.15.\n</caption>\n<answer>H</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S02",
+    "key": "luna_crop__mmmu_pro_std_test_Accounting_307__gpt-6-luna",
+    "item_id": "mmmu_pro_std_test_Accounting_307",
+    "bench": "mmmu_pro",
+    "stratum": "luna_crop/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_test_Accounting_307.json",
+    "result_sha256": "459f87adfe42f0f7414e0b8a28fd235173800e53ab559627a92f29b372f66b2c",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mmmu_pro_std_test_Accounting_307__gpt-6-luna.json",
+    "audit_sha256": "3d5cfbbe7203cc32128ffd2a80c568b36f15e384bb4607fc7ce318a9c0c830a7",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "academic",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_test_Accounting_307/obs0.jpg",
+        "sha256": "e7f9e9e2b1a141d8c6cfab72e98d0497b197b296770f897e5c71f575c937cedf"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_test_Accounting_307/obs1.jpg",
+        "sha256": "160f01070a2713d802d785de44329165f35c9198f7a2519c08ca69aaa4d7f056"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe table lists three funds, each with a $100 million starting value and gross returns of 20%, 10%, and 30%, respectively [original_image]. I’ll compute each fund’s net return after its fee, then apply the fund-of-funds fee to their equal-weighted net returns.\n</caption>\n<grounding>{\"bbox_2d\":[0.35,0.25,0.7,0.95],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe table gives starting values of $100 million for each fund and gross returns of 20%, 10%, and 30% [original_image]; Fund 1’s $100 and 20% are also visible in the crop [observation_1]. RULE: Each fund’s post-fee gain is 80% of its gross gain; the equal-weighted portfolio’s gain is then reduced by the FF’s 20% fee. CALC: Fund net returns = 16%, 8%, 24%; average = 16%; after FF fee = 16% × 0.8 = 12.8%, option C.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S03",
+    "key": "luna_crop__mme_realworld_07592__gpt-6-luna",
+    "item_id": "mme_realworld_07592",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_07592.json",
+    "result_sha256": "9a25c6b2f01c3b7a0b8782005943ea518100f87a0b7a288cc41b8739f4dc3a73",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_07592__gpt-6-luna.json",
+    "audit_sha256": "0461f56436094c5ecdb97d788a08f97a0f1b84c000f18d270a15170b4f88261e",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_07592/obs0.jpg",
+        "sha256": "ae5a2a9000ad4394d62dd0b8ca212012bf6cb10949ac66cb49e746feaef939db"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_07592/obs1.jpg",
+        "sha256": "3429b0364535a91a48ed06f10d93b4dfacca0fdfb8f73e46aba8dc01ed2f8883"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_07592/obs2.jpg",
+        "sha256": "a31bf2708beddef69c9a9f00fc6b9b470c3ce87e27f556a623b77e2af9c7feb5"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe relevant table is Product 2 in the upper middle; I need the Purchase Intent value in the row labeled Price 3 [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.15,0.13,0.51,0.36],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nIn the Product 2 table, the visible price sequence is 22, 28, 33, 39… and the row for 33 shows 40% Purchase Intent [observation_1]. The row header “Price 3” is not visible in this crop, so I’ll check the table’s left-side row labels to bind that requested row.\n</caption>\n<grounding>{\"bbox_2d\":[0.008,0.13,0.048,0.36],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe row labels show “Price 3” as the third row [observation_2]. In Product 2, the third price row is 33 and its Purchase Intent is 40% [observation_1], so the answer is (C).\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S04",
+    "key": "luna_crop__mme_realworld_06206__gpt-6-luna",
+    "item_id": "mme_realworld_06206",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_06206.json",
+    "result_sha256": "2a884b85fda84be15b7029090a830dfb917a36122409df893e7d0f2e1d304759",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_06206__gpt-6-luna.json",
+    "audit_sha256": "93405180864ead1efa352bcb9e9052400517c7dd9834f9fc158a1646002cfd5b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06206/obs0.jpg",
+        "sha256": "1ddfd1c1e7f5420ccef8ad9a88eac7171ed15d01c324ca5a0fec465199d0b9d5"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06206/obs1.jpg",
+        "sha256": "5e5344551d69c9c719a985a7760024a687774602a9ced0a89741ebdba9333447"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe “OpEx by Department” chart is at the lower right, and its legend identifies Total NS ORG DEPT. The March point appears near the chart’s top range, but the exact plotted value is not legible at this scale; I’ll inspect that chart’s axis and March point.\n</caption>\n<grounding>{\"bbox_2d\":[0.68,0.65,0.99,0.94],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the “OpEx by Department” chart’s legend binds the line to Total NS ORG DEPT, and the dropdown shows Total 6000 - Expenses. The March point is at 1,400K on the y-axis, so the answer is (B).\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S05",
+    "key": "luna_crop__mme_realworld_08243__gpt-6-luna",
+    "item_id": "mme_realworld_08243",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_08243.json",
+    "result_sha256": "57e9f8501d91f888ab1eca3a16ac5871b95934db8664efbbca10443e4e7bedfd",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_08243__gpt-6-luna.json",
+    "audit_sha256": "bbfe1c8f89bf53a970743b204c7a5cd5f39a70033b1d97b68f569975dece7220",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_08243/obs0.jpg",
+        "sha256": "116f2297c72bc30eb1e0364c4a4a2bf2f08160282541877d91a47c33e38e4d60"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_08243/obs1.jpg",
+        "sha256": "3439b5e7dba45f1d708e64b37886f451fd8b517789c22bdc4185aec357bde082"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe visible table row “Card fees” is on row 19, and the column letters show C above the first numeric column; that intersection appears to contain 23 [original_image]. The column headers for the table are above the visible area, so I’ll inspect the upper-left portion to confirm the table’s column binding.\n</caption>\n<grounding>{\"bbox_2d\":[0.025,0,0.3,0.18],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe “Card fees” row intersects spreadsheet column C at 23 [observation_1]; the column-letter header directly above that first numeric entry is C. Therefore the answer is (A) 23.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S06",
+    "key": "luna_crop__mme_realworld_09079__gpt-6-luna",
+    "item_id": "mme_realworld_09079",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_09079.json",
+    "result_sha256": "d6f6fc5a6f82324c3ea339091ba26d37285bb81c8d460c1400c4d0a391b0c1b6",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_09079__gpt-6-luna.json",
+    "audit_sha256": "d4a36a481dc0aa76743848829a2935f5a5e60f73986464a5179e3b5e75268185",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_09079/obs0.jpg",
+        "sha256": "bfeaa01ae3ed93071b287d5a78ffb2c7143e04d6e8a6c2ae9ae5f0bba551b5c7"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_09079/obs1.jpg",
+        "sha256": "f9dfe1c54607ba94e3c41fe116a83099282111024b656f70b6ae755180a43c47"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe “Cumulative EBITDA by Month” chart is in the middle-right; April is the fourth month, with three series indicated in the legend. I need the enlarged April bars to bind the Series 3 bar to its value.\n</caption>\n<grounding>{\"bbox_2d\":[0.5,0.51,0.96,0.75],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nIn the “Cumulative EBITDA by Month” chart, April is the fourth bar group; the legend identifies the dark navy middle bar as Series 3. Its label is 95k, so the answer is (B).\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S07",
+    "key": "luna_crop__mme_realworld_10668__gpt-6-luna",
+    "item_id": "mme_realworld_10668",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_10668.json",
+    "result_sha256": "30a93d643eedaec0fce3dcacb54fb18c6a1892863621e8f2b65bdb25cd8a86f6",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_10668__gpt-6-luna.json",
+    "audit_sha256": "1dfd5a9798b2b481e1c6e5fb604c4125cd6f2b1d5a38de7b6a15baa10a97c0cf",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10668/obs0.jpg",
+        "sha256": "f82e167bbe28f882387e45afaefaaa8532c3b127cf1e50d037efab0041f097b4"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10668/obs1.jpg",
+        "sha256": "fa048252a513030850fbc5c4b0be95ce0fa4c2baa26f68512c6d3feabaf108c6"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe “Total Assets” row in the Assets section is visible with five annual figures: 164,641; 129,659; 140,956; 189,654; and 282,459. I’ll inspect the annual column headers and this row together to bind those values to 2021–2025 before comparing the four offered years. [original_image]\n</caption>\n<grounding>{\"bbox_2d\":[0.24,0.002,0.46,0.33],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the annual headers bind the “Total Assets” values to 2021–2025: 2021 = 164,641; 2022 = 129,659; 2023 = 140,956; 2024 = 189,654; 2025 = 282,459. RULE: Compare the values for the years listed in the choices. CALC: 129,659 is the lowest, so the answer is 2022.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S08",
+    "key": "luna_crop__mme_realworld_10603__gpt-6-luna",
+    "item_id": "mme_realworld_10603",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_10603.json",
+    "result_sha256": "042eb7abe0036fc3383cafeaccf217db93faa3b21225d7d4e28c84c1968fa381",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_10603__gpt-6-luna.json",
+    "audit_sha256": "376f1345be8e122d0e46d91e102e53843577898db47bd945ea0ca53d6a9084aa",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10603/obs0.jpg",
+        "sha256": "9c5332f3d4ad536a6492ad74724579bf4be67aa3e529795aaf23d537df9792f1"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10603/obs1.jpg",
+        "sha256": "a4dc42d22bf630d5fb49580a09d0197504a820d17f0faec641cd2ea32236e976"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10603/obs2.jpg",
+        "sha256": "2a7065b33914a46ecd41d068e0b9bc08f19c2770a6dd762d6f583fa7ea796be0"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe bottom “Units’ Unlevered (FCFF) and Levered (FCFE) IRR” chart shows light-green Levered (FCFE) bars across rental units, but the highest bar’s unit label is too small to identify in the full image [original_image]. I’ll inspect the tallest-bar region and its x-axis labels.\n</caption>\n<grounding>{\"bbox_2d\":[0.56,0.79,0.77,0.94],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nIn the bottom IRR chart, the tallest light-green Levered (FCFE) bar in this crop aligns with Rental Unit 72, not one of the listed choices; the crop shows only units 56–77 [observation_1]. I’ll compare the other regions containing the listed units, especially 18, 50, and 6, against that peak.\n</caption>\n<grounding>{\"bbox_2d\":[0.13,0.79,0.56,0.94],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe tallest Levered (FCFE) bar among units 11–55 aligns with Rental Unit 18 [observation_2]. The peak around Unit 72 in the adjacent range is lower [observation_1], and Unit 18 is the highest of the listed choices.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S09",
+    "key": "luna_crop__mme_realworld_06170__gpt-6-luna",
+    "item_id": "mme_realworld_06170",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_06170.json",
+    "result_sha256": "233e89c51cb9eb03e29f22e806625c46a72c049805824994b6d59e166612a5a4",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_06170__gpt-6-luna.json",
+    "audit_sha256": "12a4255453897fa9e2177cb8938e52db344403fee4a727f7cb69db51d0bc592a",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs0.jpg",
+        "sha256": "029c562e2299ee32a2f1e540ef0a882f1b36b02e4b72c01026c39c8f6a37deff"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs1.jpg",
+        "sha256": "db2b4b44636793e1ef8cc600ccfd1c24fb339c02c380f2eda7a22687fba45c8c"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs2.jpg",
+        "sha256": "beeff0e3f38b9e1752fe1872e5b132af5545fcd2af1db1f38e827593bbbbb1fb"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe chart labeled “EBITDA Variance” appears in the lower panel of STEP 1, but its bars and vertical labels are too small here to read reliably. I’ll inspect that chart to bind June’s value to the requested variance.\n</caption>\n<grounding>{\"bbox_2d\":[0.199,0.68,0.399,0.914],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe inspected STEP 1 chart binds June to 732,998, but its legend identifies “Variance (Actuals vs. Budget) Monthly (2022),” not the requested Budget vs Updated Forecast. I need to inspect the STEP 4 “EBITDA Variance” chart, where the legend is Budget vs. Updated Forecast, and read its June bar.\n</caption>\n<grounding>{\"bbox_2d\":[0.803,0.68,0.998,0.914],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nIn [observation_2], the STEP 4 EBITDA Variance chart’s legend is “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This matches option D.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S10",
+    "key": "luna_crop__mme_realworld_21569__gpt-6-luna",
+    "item_id": "mme_realworld_21569",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/count",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_21569.json",
+    "result_sha256": "51da703ba13fed9127da95e4792edc268d5918109462838f5cd449b1d8e9f8b0",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_21569__gpt-6-luna.json",
+    "audit_sha256": "5dc3ea421e31da5684c208cc5da2e3e8350a85a976aba27682a6d860d5d1274a",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "count",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21569/obs0.jpg",
+        "sha256": "eadab777e612729bc98e82b7f64abfab63ed7094dcc2c49a5c0ee6f4667c3233"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21569/obs1.jpg",
+        "sha256": "e5fc171ed8ea35b8892679016079d61cce9c0a806a1d4597c025469ecf93a3c9"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe target region is the playground enclosed by the oval red running track near the upper center of the image. I’ll inspect the full infield and track-bounded area for white rectangular structures, including the edges.\n</caption>\n<grounding>{\"bbox_2d\":[0.32,0.13,0.69,0.5],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nWithin the full playground enclosed by the red track, I can identify two white rectangular structures: one near the upper-left side of the infield and one near the lower-right end. The other pale rectangular features are recessed pits or marked ground areas, not white structures. The count is 2, option C.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S11",
+    "key": "luna_crop__mme_realworld_lite_22164__gpt-6-luna",
+    "item_id": "mme_realworld_lite_22164",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/count",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_lite_22164.json",
+    "result_sha256": "73f17ccc51ce98c6629780dd4742f282cd49d40d4cfa52fef03bc789a246b4fb",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_lite_22164__gpt-6-luna.json",
+    "audit_sha256": "91f85cfdd72c309d75e6c6866ea22d5f53754f8e6deb6bf32ad3a2af2f6e208d",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "count",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_22164/obs0.jpg",
+        "sha256": "15e2b385941595d55f10069a07107cfa1f1aca276f35d6ccc1279302b31e28ab"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_22164/obs1.jpg",
+        "sha256": "7231d350eb29374adb4915b0c0e078acf1bfd08d3f4d4f6347152032357dad69"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_22164/obs2.jpg",
+        "sha256": "8fffa4154980f8d1984eb582f0b951d885ebd75bdfaf0f07cb38eafefc229acf"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe target is the slanted road in the bottom-right portion of the aerial image, but the reduced full view does not resolve individual car colors reliably. I’ll inspect the road itself and count red cars within its visible extent.\n</caption>\n<grounding>{\"bbox_2d\":[0.72,0.68,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe crop shows the slanted street along the lower-right edge, with two clear red cars close together; other nearby vehicles appear white or dark. I’ll inspect the street’s full segment and endpoints to check for another red car.\n</caption>\n<grounding>{\"bbox_2d\":[0.73,0.78,0.99,0.99],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe slanted road segment at the bottom right contains two red cars, both visible together in [observation_2]. Counting cars on that road gives 2, so the answer is (B).\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S12",
+    "key": "luna_crop__mme_realworld_21756__gpt-6-luna",
+    "item_id": "mme_realworld_21756",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/count",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_21756.json",
+    "result_sha256": "90820a85689d45969661a500900ff2690134792ea1eb0b83880412a4d157636b",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_21756__gpt-6-luna.json",
+    "audit_sha256": "c7e93187097beccc4b22f3612c7837cb85e573f675ec60871c3346a4eab20854",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "count",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21756/obs0.jpg",
+        "sha256": "6d7cfc672b5972e6a2c5b44f2c5878d71f5636d17f731bb82a6513fd7e06dccf"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21756/obs1.jpg",
+        "sha256": "d120eff165d411eca0c805bd8f7c3ad87ff84e9aa246314b8c595f7cc438e345"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "observation_1",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21756/obs2.jpg",
+        "sha256": "2bafd19430752c0fa4f1acbb09bbafe47c0986a6863f3639217ead928a9e399e"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nCount red cars in the full bottom-left street/shore area; the original view shows several tiny vehicles but their color and car identity are unclear at this scale. I’ll inspect the lower-left road and adjacent quay where those vehicles appear.\n</caption>\n<grounding>{\"bbox_2d\":[0,0.68,0.27,1],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe bottom-left street area in [observation_1] contains two clearly red cars: one near the lower edge by the building and another farther up the street; the remaining visible cars appear dark or gray. I’ll check the street segment more closely to distinguish any additional red cars.\n</caption>\n<grounding>{\"bbox_2d\":[0.1,0.42,0.38,1],\"source\":\"observation_1\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe bottom-left street area contains two red cars: one on the curved street and one near the bottom edge [observation_1], both clearly visible in the closer view [observation_2]. Other cars in the inspected street segment are not red. CALC: red cars in the bottom-left area = 2.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S13",
+    "key": "luna_crop__mme_realworld_02794__gpt-6-luna",
+    "item_id": "mme_realworld_02794",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/count",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_02794.json",
+    "result_sha256": "40e6f6ffde690f9b15129dd92314aadedfc4bebaea993b7584ade2193a034454",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_02794__gpt-6-luna.json",
+    "audit_sha256": "1e2843a30427985a8c0990cdccabbff40120fba15d197189db8f0cd0e5707865",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "count",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02794/obs0.jpg",
+        "sha256": "449e35a2588926075c04e597a08d182a5e00278ba029bb5d00fc805125af69f2"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02794/obs1.jpg",
+        "sha256": "d14669fa87bb685081e5b828273d5eedb093638fa41fdbf57389be18b99b7042"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02794/obs2.jpg",
+        "sha256": "bc85bc0e0b2e1f9f50bf45d70c7a16640083197691a9ad19f12c312030457815"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe roadwork area is visible in the distant right-center, where a line of small cones runs beside the barrier; their exact count is hard to distinguish at this scale [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.69,0.51,0.87,0.64],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe roadwork line contains several alternating red and dark cones, but the crop clips its leftmost end and the overlap makes the total uncertain [observation_1]. I’ll inspect a wider view of the entire line, including its edges.\n</caption>\n<grounding>{\"bbox_2d\":[0.64,0.49,0.86,0.67],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nCounting traffic cones in the roadwork line, the full visible row has 8 cones, including the small partially obscured cones at the left edge [observation_2]. Option D matches.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S14",
+    "key": "luna_crop__worldbench_1168__gpt-6-luna",
+    "item_id": "worldbench_1168",
+    "bench": "worldbench",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_1168.json",
+    "result_sha256": "c05c7e047a349a16d57682244de555e687b10e1179bd91804169364360d76f64",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__worldbench_1168__gpt-6-luna.json",
+    "audit_sha256": "1feefbdfcf96afd45e7a9706b88d8f6d43eab8ae9981bbb90363d7d68967cd3f",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "natural",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1168/obs0.jpg",
+        "sha256": "e6a7b29d687273811a1de5565a7fde6726bc37fa0c81e7868a32fcac2aa9f81c"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1168/obs1.jpg",
+        "sha256": "50039469217a2abcba2647250f7f1ec5c91455ab5c0d116ea8c318e9e76fc4ca"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1168/obs2.jpg",
+        "sha256": "7c176baf4cbcd20a5f406b5ce5b60879bbbe2263153eb1bfae223dad393c3ad5"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nSeveral ants are visible, so the specific ant meant by “the ant” is ambiguous; some backs appear reddish-brown while others look nearly black. I’ll inspect the prominent ant near the upper center-right, whose back is clearly visible against the lighter ground.\n</caption>\n<grounding>{\"bbox_2d\":[0.59,0.24,0.79,0.42],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe prominent ant in [observation_1] has a glossy black rear segment and a reddish-brown segment immediately behind its head; the back color depends on which part “back” refers to. I’ll inspect the wider context to distinguish the ant’s rear/back from its middle body.\n</caption>\n<grounding>{\"bbox_2d\":[0.55,0.22,0.83,0.48],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe prominent ant’s rear-most body segment in [observation_2] is glossy black, while the segment nearer its head is reddish-brown. Interpreting “back” as the rear of the ant, the answer is black.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S15",
+    "key": "luna_crop__mme_realworld_20583__gpt-6-luna",
+    "item_id": "mme_realworld_20583",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_20583.json",
+    "result_sha256": "9242810947ee1885922387188b9905672032a6d7438ed7d5c23348d9bce22ab1",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_20583__gpt-6-luna.json",
+    "audit_sha256": "0f0cf7eaed739d439820451bd4c026f0aca7d55bbf5f33a4c75d76a4d61ec20b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_20583/obs0.jpg",
+        "sha256": "6a71e84931286a3ccf4db5c84b471531eabc21abf5c5ebfd2456b15dab964f05"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_20583/obs1.jpg",
+        "sha256": "67ddebfd414d128328d9ef668dd7747a7aa638bb85426b422e3fb20c3375fc50"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA construction site is visible on the right side, with small machinery scattered across the pale cleared ground; the excavator’s color is not distinguishable at this scale [original_image]. I’ll inspect the right-side site more closely.\n</caption>\n<grounding>{\"bbox_2d\":[0.73,0.08,1,0.44],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nA small excavator with a visible blue body sits near the center-left of the construction site [observation_1]. Its color is blue.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S16",
+    "key": "luna_crop__mme_realworld_02390__gpt-6-luna",
+    "item_id": "mme_realworld_02390",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_02390.json",
+    "result_sha256": "0758c7c5db4a96949f993d2c8e7cc5af2b094eb31995aafd9ded6f1a9bab14a5",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_02390__gpt-6-luna.json",
+    "audit_sha256": "3a21c667caf7f862e876b698638fa8b78b4f2eae372a4bd1fd205d7f51943d30",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "natural",
+    "crops": 3,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02390/obs0.jpg",
+        "sha256": "5ac776a04cd6aa1bb3cd2f0940a27343ef4db19ee5ad740f29f432541fafc67a"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02390/obs1.jpg",
+        "sha256": "95eac1ea34d66c22f0cecf26d0db12422df792804fd23e7ba3aa1112b89c2bd6"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "observation_1",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02390/obs2.jpg",
+        "sha256": "e00ccadcc95f7b8590701e856552245eccb28acaec62d368b2e6d1b3c5dc794f"
+      },
+      {
+        "view_id": "observation_3",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02390/obs3.jpg",
+        "sha256": "13dc0c17a2c2cde6ab34af42bc1c65e790aca060da8e75eef7408477bcd6f004"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe scene contains pedestrians on the right-side sidewalk, but at this wide view their clothing and positions are too small to distinguish the person in a black top. I’ll inspect that group to identify the rightmost matching pedestrian and whether they are on the sidewalk or crossing.\n</caption>\n<grounding>{\"bbox_2d\":[0.56,0.37,0.64,0.57],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nIn [observation_1], the rightmost person is wearing a dark/black top, distinct from the nearby people in light tops, and is on the sidewalk. Their feet and pose are small in this view, so I’ll inspect that same person more closely to distinguish standing from walking.\n</caption>\n<grounding>{\"bbox_2d\":[0.68,0.15,0.77,0.57],\"source\":\"observation_1\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | re_examine\n[observation_2] confirms the same rightmost pedestrian wears a dark top, but the tight crop omits their legs and feet, so it cannot establish motion. I’ll return to a wider view of this person and the sidewalk context to check whether they are walking or standing.\n</caption>\n<grounding>{\"bbox_2d\":[0.60,0.38,0.65,0.58],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_3"
+      },
+      {
+        "step": 4,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2",
+          "observation_3"
+        ],
+        "visible_output": "<caption>\nStep 4 | commit\nThe matching pedestrian is the rightmost person in [observation_1], confirmed in [observation_2] and shown with full-body context in [observation_3]. They are standing on the sidewalk, not in the roadway or crosswalk; the answer is (A).\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S17",
+    "key": "luna_crop__mme_realworld_23331__gpt-6-luna",
+    "item_id": "mme_realworld_23331",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_23331.json",
+    "result_sha256": "7176ea0b7fc6c8a04e055152f3ee3de4872bf1af581e37558f9073f9b55a9a86",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_23331__gpt-6-luna.json",
+    "audit_sha256": "9c0a0984b572eb3cfd994508632ac409643371e9ee28a705f07395397f407d29",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_23331/obs0.jpg",
+        "sha256": "f30dddf575da818efe65c482ae36f3caac64eb436a4b4e5a452b6bd9a6c67c85"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_23331/obs1.jpg",
+        "sha256": "b3d08106ac96efa7ebe84e0c1c27956b9ae9ba74ca2fa2a2269817fbf6894a4e"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA prominent circular road junction with a flower-like radial pattern is visible near the top of the image, left of center [original_image]. I’ll inspect it to confirm it is the turntable described.\n</caption>\n<grounding>{\"bbox_2d\":[0.19,0,0.33,0.12],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe flower-like radial pattern is centered on the circular turntable near the top and left of the image’s center [observation_1; original_image]. It is in the upper-left area.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S18",
+    "key": "luna_crop__mme_realworld_12690__gpt-6-luna",
+    "item_id": "mme_realworld_12690",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_12690.json",
+    "result_sha256": "53a29b07a8c19af66fd93395d6b2565548a5c8f4516836f77b89791a8971a948",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_12690__gpt-6-luna.json",
+    "audit_sha256": "6c15c3a0e7b2c2924892107447ec2c0ec0ace951e2c5ad448df4238779cce49c",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12690/obs0.jpg",
+        "sha256": "a7226d2cf3075b4e0410ded2fc7460d55153b70bb45db8ddeacba5cf5348502b"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12690/obs1.jpg",
+        "sha256": "6a037f6797a9063e8c6a271aaedf578c47426e8e690cb7ea13eb93ec9bc039a3"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe aerial plaza view has tiny bicycles near the right edge, but the right-side bicycle’s frame color is not discernible at this scale [original_image]. I’ll inspect that area to distinguish its color.\n</caption>\n<grounding>{\"bbox_2d\":[0.94,0.52,1,0.62],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe bicycle at the far right of the plaza has a yellow frame [observation_1]. The frame color is clearly distinct from the gray paving, so the answer is Yellow.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S19",
+    "key": "luna_crop__mme_realworld_12714__gpt-6-luna",
+    "item_id": "mme_realworld_12714",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_12714.json",
+    "result_sha256": "692ffc59eee4d934e4304f90ec30b41aa24e20ef22666b360317b5467a7435dc",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_12714__gpt-6-luna.json",
+    "audit_sha256": "899000378f5c2971f8854d29f629c897669fb82e3bef945b8d6024a8fe74ba07",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12714/obs0.jpg",
+        "sha256": "4a4db776d875367f9a2f26ab303d8ca9b71d97fa106a38eabf65ab1b4a89bc46"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12714/obs1.jpg",
+        "sha256": "33a0efea083b78197a8601ccd808c53698897a6a1e49b787d197cc68dd6b3a12"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA truck-like vehicle is visible near the lower center-left, beside the curb, but its exact body color is unclear at this scale [original_image]. I’ll inspect that vehicle and nearby neutral pavement to distinguish its color.\n</caption>\n<grounding>{\"bbox_2d\":[0.345,0.808,0.405,0.89],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe truck beside the curb has a light, white body; the nearby pavement is gray, providing a neutral comparison [observation_1]. Its color matches option B.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S20",
+    "key": "luna_crop__worldbench_0636__gpt-6-luna",
+    "item_id": "worldbench_0636",
+    "bench": "worldbench",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0636.json",
+    "result_sha256": "e29fe23416ea4cff0d2a5c6c3775ff7ae1e6ae03f96e41a3a2221a2b31695908",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__worldbench_0636__gpt-6-luna.json",
+    "audit_sha256": "4b4393db95eef77c1f6870d7f31493eae0197758fc414f543290c2c4ae09282a",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0636/obs0.jpg",
+        "sha256": "31fd58e1c4ee9f89992a1518a9b2ecf9823ffe634fbff82c7fc32547e6f669dc"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0636/obs1.jpg",
+        "sha256": "9da08e5d62b45c5c3803a04612eac6417aed62ca6b17977ad5078359570f1820"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | re_examine\nA red banner is attached near the rope at the lower-right center, and its pale numerals are small at the full-image scale. I’ll inspect that banner closely to distinguish the printed number.\n</caption>\n<grounding>{\"bbox_2d\":[0.65,0.56,0.77,0.67],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe red banner attached beside the rope reads “220” in [observation_1]. This matches option B.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S21",
+    "key": "luna_crop__mme_realworld_02232__gpt-6-luna",
+    "item_id": "mme_realworld_02232",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_02232.json",
+    "result_sha256": "c62cdd0b1a26b9ebc2a994e2ea25d91711058606702266a35232333536731353",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_02232__gpt-6-luna.json",
+    "audit_sha256": "6134e9193a15ff9dca7b93fb6f5923ef0f1f37cf9ab80f7520b562fc0d502e9f",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02232/obs0.jpg",
+        "sha256": "88f38f173340f0bf281063ae6e8a589d7aa66156cce9199eb333dbe07df632be"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02232/obs1.jpg",
+        "sha256": "28c6367f184c081c1c7bdad5fc34deda57138406c42b84e566655222306a9442"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe panorama shows multiple traffic signals, including a prominent pair on the right-side building; the signal on the right of that pair appears illuminated yellow, but I’ll inspect it alongside its neighbor to confirm the right-hand object and color [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.681,0.17,0.727,0.405],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe right-hand traffic signal in the inspected pair has its middle lamp illuminated yellow; the left-hand signal is a separate object [observation_1]. The answer is yellow.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S22",
+    "key": "luna_crop__mme_realworld_00568__gpt-6-luna",
+    "item_id": "mme_realworld_00568",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_00568.json",
+    "result_sha256": "5a80bc7caa127f7f98b31c1c9fcc09875e2fe977f1a63b491a74849c045964f3",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_00568__gpt-6-luna.json",
+    "audit_sha256": "513d4bcffa3f9fed353c9a1420ecc3a4782aa97084c3c22338820174ced3b646",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_00568/obs0.jpg",
+        "sha256": "61206a8fdd116053d6cbaa5f12c37258a892ab9b6b7438a5b39c7ce1a689237b"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_00568/obs1.jpg",
+        "sha256": "5da84f71b876b258a32e33c0b54b370773b8469abe8415677f31a3451c08df33"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nFrom the front-facing camera view, the scene ahead contains several cars and a truck, and two pedestrians are visible on the right sidewalk; barriers or a bicycle are not apparent. I’ll inspect the distant roadway and sidewalks to verify the vehicle and pedestrian counts.\n</caption>\n<grounding>{\"bbox_2d\":[0.22,0.39,0.78,0.63],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the roadway ahead includes multiple cars and two trucks: a light-colored truck near the center and a dark box truck farther ahead. The original view also shows two pedestrians on the right sidewalk, so the matching choice is (B).\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S23",
+    "key": "luna_crop__mme_realworld_21010__gpt-6-luna",
+    "item_id": "mme_realworld_21010",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_21010.json",
+    "result_sha256": "baf23b635aee5fb67dab9bfc39da1d3e6c6c5d1e77b9f5716ca7727ea255b5d5",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_21010__gpt-6-luna.json",
+    "audit_sha256": "2be9c0d81838872ff3227da970a05c668c7086ae83ff02a1384e220919273b3b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21010/obs0.jpg",
+        "sha256": "505070a6d7a861a9c6508e10ea31e561e1f196ff08a23cb803909f6a9f5897fd"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_21010/obs1.jpg",
+        "sha256": "2e4e89bf8b8e84b96156679f9ee014717ef8e5a1d0fc7b2e17c5fffb93a3d2ff"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe lower-left portion contains several buildings, so the specific roof and its color are not yet clear at the full-image scale [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0,0.72,0.27,1],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe roof on the far lower-left building is light gray in the aerial view [observation_1], so the answer is Gray.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S24",
+    "key": "luna_crop__vs_099__gpt-6-luna",
+    "item_id": "vs_099",
+    "bench": "vstar",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/vs_099.json",
+    "result_sha256": "4cca23b7cf2b099a005320a996b059d1dda313dec3b07fad80b784810f958a5c",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__vs_099__gpt-6-luna.json",
+    "audit_sha256": "54e0594b8a603f1e5d40f76fb547edb8eb58aa69e7c77ae08d77f42d427f1d2a",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": true,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "natural",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/vs_099/obs0.jpg",
+        "sha256": "dc0849472f64ed4e5b3f991de9cfeb946ff3f2e1b23ab681d6178935c648c1ec"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/vs_099/obs1.jpg",
+        "sha256": "3d00075afe3144d8e3fa48fe1d3704e4f0fa1740f012dea75bd6856ac4ce0378"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/vs_099/obs2.jpg",
+        "sha256": "f795dd4800e27513f6be2594c4d7c434d2e49d97172e32361611410e27f9102f"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe dog is a very small figure near the lower-left shoreline beside the beachgoers; its coat color is not distinguishable at this scale [original_image]. I’ll inspect that figure more closely.\n</caption>\n<grounding>{\"bbox_2d\":[0.032,0.565,0.075,0.635],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | fallback\nThe close crop shows beachgoers but no clearly identifiable dog, so it does not establish the target animal or its color [observation_1]. I’ll widen the shoreline view to locate any dog adjacent to the people.\n</caption>\n<grounding>{\"bbox_2d\":[0.015,0.55,0.14,0.68],\"source\":\"original_image\"}</grounding>",
+        "behavior": "fallback",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe dog beside the shoreline has a mostly light coat with distinct dark patches, including a dark head [observation_2]. Its color is black and white.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S25",
+    "key": "luna_crop__mme_realworld_04143__gpt-6-luna",
+    "item_id": "mme_realworld_04143",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_04143.json",
+    "result_sha256": "302a8e09c8fe441f09b7f303bd59ed84b82b7db72ee8e70d77260dfb08670dc0",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_04143__gpt-6-luna.json",
+    "audit_sha256": "76ca21c861b11f1dcbf6826c50905aac6bb9e8ba825910c7a0ee8a91cfe561d3",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_04143/obs0.jpg",
+        "sha256": "b8f6bee6d1944d884ad96a7f17cbedcfc91f888db5d38a9e2ba05112d83df680"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_04143/obs1.jpg",
+        "sha256": "e740dcc1be35a1db227576d4d81257e8de4542ed5680b28a6dece6d135ae8cbd"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA small blue sedan is visible near the center of the roadway beyond the crosswalk [original_image]. Its future direction is unclear at this scale, so I’ll inspect it together with the nearby lane markings and traffic context.\n</caption>\n<grounding>{\"bbox_2d\":[0.47,0.5,0.6,0.62],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe blue sedan is on the roadway ahead and aligned with the straight-ahead travel path; no turn is indicated in the visible scene [original_image] [observation_1]. The best-supported choice is to keep going straight.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S26",
+    "key": "luna_crop__worldbench_0280__gpt-6-luna",
+    "item_id": "worldbench_0280",
+    "bench": "worldbench",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0280.json",
+    "result_sha256": "4b999d2795642941faead8f5e03ab1768dc926b73acfa5649b3f62d251fdc419",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__worldbench_0280__gpt-6-luna.json",
+    "audit_sha256": "63e292143b749c76e59d7681c014116877dedc6ab5946ea91bb4d381b41bdf08",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "natural",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0280/obs0.jpg",
+        "sha256": "3fafe25ca73cc6af035b85abf79191d11e2bcccea7b52b879723f98b1b00c34e"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0280/obs1.jpg",
+        "sha256": "8f43c7126b92f48799e030b72abdfac297e4f0188aec7a6296f2415860bc95fc"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe image shows several women and a small child in the back near folding chairs; the target “woman in the back” is not yet uniquely identified. I’ll inspect the rear seating area to determine whether the woman associated with the child is seated on a chair or a rock.\n</caption>\n<grounding>{\"bbox_2d\":[0.32,0.19,0.51,0.43],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe woman seated in the back is the blonde woman in the patterned dress: the child is beside her, and she is sitting on a rock ledge rather than a folding chair [observation_1]. Folding chairs are visible behind the podium in the original image, so the statement that she is seated on a chair is not true; the rock statement is true of this same woman.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S27",
+    "key": "luna_crop__worldbench_0155__gpt-6-luna",
+    "item_id": "worldbench_0155",
+    "bench": "worldbench",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0155.json",
+    "result_sha256": "1b5fef57cd0fb225bbba8110b1ef1a05919a9cbd69ad2bb72b35229e8609fbc5",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__worldbench_0155__gpt-6-luna.json",
+    "audit_sha256": "86612ed906790dba9f5a48c4ca0ee4f679b4fe657ff7ae0ad09e987589f655c1",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "natural",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0155/obs0.jpg",
+        "sha256": "40f4b8045f347f76305a46a61eff5bca878a66ec9588cadd6d32110bfc7fbfca"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0155/obs1.jpg",
+        "sha256": "3f0fe7f8076e01f149a4612e44a7d2aa12542ec86f1c9e0ce899766b922c20bb"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0155/obs2.jpg",
+        "sha256": "dfcd4aedcb738e3c5c2022bafd1cfc5a5513a770e70f0162fc9f1f7622f8b82f"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe train’s rear is the visible end at the bottom of the central track; cars occupy the adjacent lot on the left [original_image]. I need to identify the car at that same image height and inspect its color.\n</caption>\n<grounding>{\"bbox_2d\":[0.17,0.60,0.40,0.78],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe crop shows several overlapping cars, including a red car and a dark green pickup, so the target’s exact alignment is not settled [observation_1]. I’ll compare their positions with the train’s rear across a wider horizontal strip of the original.\n</caption>\n<grounding>{\"bbox_2d\":[0.0,0.60,0.58,0.80],\"source\":\"original_image\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe train’s rear is around the horizontal level of the dark green pickup in the adjacent lot [original_image, observation_2]. Its body is visibly green, matching option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S28",
+    "key": "luna_crop__mme_realworld_12899__gpt-6-luna",
+    "item_id": "mme_realworld_12899",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_12899.json",
+    "result_sha256": "694087863a226c69f6cf1204fc077a2dff656c619f89013640e6f0775a7e3ca2",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_12899__gpt-6-luna.json",
+    "audit_sha256": "08951d6f496b8790508062b1fc1336c451bc4ded9b1cacec2e9a3c2ed671d9db",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": true,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 3,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs0.jpg",
+        "sha256": "146a9908e9f71111ea3efe2ce03e5684450d0e356fb68781567bbddfdc42eacb"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs1.jpg",
+        "sha256": "88aaeb5d610fc16bef6dcbd1a28c73087a905bd312c869d9238623c84f9d9a78"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs2.jpg",
+        "sha256": "b4fe9b4e4ae79d9a4e5c4368bc219e2e35e73c41c38edb4b8be0ddaef1afff54"
+      },
+      {
+        "view_id": "observation_3",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs3.jpg",
+        "sha256": "9542d39ecab5847b02f4d0174f8fbcc334837e8e4f17fb1572522a2b467c5d8c"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA small person is visible walking on the roadway near the bottom center of the image [original_image]. The coat color is difficult to distinguish at this scale, so a closer view can establish its color.\n</caption>\n<grounding>{\"bbox_2d\":[0.33,0.77,0.38,0.86],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | fallback\nThe first crop shows only roadway, so it missed the walking person visible near the bottom center in the full image [original_image]. I’ll use a wider crop around that person to include the coat.\n</caption>\n<grounding>{\"bbox_2d\":[0.32,0.73,0.43,0.88],\"source\":\"original_image\"}</grounding>",
+        "behavior": "fallback",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | fallback\nThe wider crop still contains only curb, grass, and roadway [observation_2], so the earlier location was wrong. The person appears farther to the right in the original image; I’ll crop that visible figure.\n</caption>\n<grounding>{\"bbox_2d\":[0.53,0.75,0.59,0.86],\"source\":\"original_image\"}</grounding>",
+        "behavior": "fallback",
+        "observation": "observation_3"
+      },
+      {
+        "step": 4,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2",
+          "observation_3"
+        ],
+        "visible_output": "<caption>\nStep 4 | commit\nThe person is walking, so they are a pedestrian; their coat is visibly white in the close view [observation_3]. The nearby gray roadway provides a neutral comparison, supporting white rather than a dark or tinted color.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S29",
+    "key": "luna_crop__mme_realworld_lite_17586__gpt-6-luna",
+    "item_id": "mme_realworld_lite_17586",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_lite_17586.json",
+    "result_sha256": "98797c67cc1937a7c36e3040959a3ac635b92ab70a665ce05d8023ec912644c4",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_lite_17586__gpt-6-luna.json",
+    "audit_sha256": "9191bd291ac3deccbceb695faf6e74cb38bd9adf448bbcdca7c04801d6107bdd",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_17586/obs0.jpg",
+        "sha256": "c41772fc1907d321a12b51695fe5197e13b355da6d7c5483cf830fa314c31b15"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_17586/obs1.jpg",
+        "sha256": "fd793538101d6e1717442acbd73cecf6dd3a843f92cf8d90a902cf21b6a68df5"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe far-right tricycle is the large foreground vehicle; its front plate appears to read “DL1R K2921,” but the small characters merit closer inspection [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.728,0.54,0.832,0.618],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe large foreground tricycle at the far right has plate “DL1R K2921” [observation_1], matching option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S30",
+    "key": "luna_crop__mme_realworld_16927__gpt-6-luna",
+    "item_id": "mme_realworld_16927",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16927.json",
+    "result_sha256": "4976e5a0bca766c295128b5e5907944f2e00b68419ce791bac5d0ac40b230041",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_16927__gpt-6-luna.json",
+    "audit_sha256": "93fbc989d0bfd7a13c7ec641e0881c6865e9e7cdd2bbb8a28da95798b57b3238",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "text",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16927/obs0.jpg",
+        "sha256": "eab43ac4170f428e6f16409120f04e1a8479801964c2afb208b5a48c8cece32f"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16927/obs1.jpg",
+        "sha256": "28c3a9102534fd27119454a05ac9c099462447c234d5b67deff18cda09062e9f"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16927/obs2.jpg",
+        "sha256": "636e62b377bd8b52913dff5dd1aa3d05c79416e15e0144368b04b9e011a8aca0"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe red car is parked directly in front of the white building, and its rear plate is visible but too small here to read reliably [original_image]. I’ll inspect the plate area for its characters.\n</caption>\n<grounding>{\"bbox_2d\":[0.43,0.87,0.49,0.92],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | fallback\nThe first crop contains only cobblestones, so it missed the car’s rear plate [observation_1]. The car is higher in the original image; I’ll crop its rear and plate area instead.\n</caption>\n<grounding>{\"bbox_2d\":[0.36,0.76,0.49,0.83],\"source\":\"original_image\"}</grounding>",
+        "behavior": "fallback",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe red car in front of the white building has a rear plate that reads DDCK512 [observation_2]. This matches option B.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S31",
+    "key": "luna_crop__mme_realworld_16917__gpt-6-luna",
+    "item_id": "mme_realworld_16917",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16917.json",
+    "result_sha256": "e0add91533a5ccf36bbbb4a991c21bd114b429730cd71763a474ab001034c1e9",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_16917__gpt-6-luna.json",
+    "audit_sha256": "9fc6bdedc7fbf64bdfde624073ee9c2ada183acca8466c5e8845acfd04619b0e",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16917/obs0.jpg",
+        "sha256": "2453a3ff9e1c265d403455617bb82f959984a57251265999fb298e192328f558"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16917/obs1.jpg",
+        "sha256": "6ada169e823f8cc94b24413e54b36c1ed199a2a1987e1625dc177cdcfa0c9076"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe white-and-red compact car is at the lower left near the traffic lights; its front plate is visible but too small here to read confidently [original_image]. I’ll inspect that plate closely to distinguish its characters.\n</caption>\n<grounding>{\"bbox_2d\":[0.25,0.79,0.29,0.86],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe close-up of the white-and-red car’s front plate shows “K” followed by characters that appear to be “RG231” [observation_1]. This matches option (A), KRG231.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S32",
+    "key": "luna_crop__mme_realworld_14385__gpt-6-luna",
+    "item_id": "mme_realworld_14385",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_14385.json",
+    "result_sha256": "0e5da61f69f7314be65a7aeeeced98a43881ac43f4671dfcdb70e2f62ad4bedb",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_14385__gpt-6-luna.json",
+    "audit_sha256": "3de8d946b78ce7bb950e741c0f32fca4b4024f67e3807e1aae2ce9631e83be47",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_14385/obs0.jpg",
+        "sha256": "0927be3f1abd07932b609dbdf5b51409f63ea708528e7f33f7ccd2d3eb94a85c"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_14385/obs1.jpg",
+        "sha256": "88a2a4844e2a935b57ef3fe34b64a59e94eb265e2dcfec0631036bc04ff46c3f"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA small black package sits tilted at the right side of the gift basket, distinct from the brown “Truffettes” package below it [original_image]. Its lettering is too small to distinguish confidently at this scale; inspect the black package text.\n</caption>\n<grounding>{\"bbox_2d\":[0.684,0.356,0.804,0.486],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe black packaging box reads “MAXIM’S” on its top line and “DE PARIS” beneath it [observation_1]. This matches option A, “MAXIM'S DE PARIS.”\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S33",
+    "key": "luna_crop__mme_realworld_lite_13878__gpt-6-luna",
+    "item_id": "mme_realworld_lite_13878",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_lite_13878.json",
+    "result_sha256": "7f4dfa3978dc7f46bb8eded84179fb4fe9e4bc5030bd7585e0e6098e1db28d54",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_lite_13878__gpt-6-luna.json",
+    "audit_sha256": "6d5fd4a6b4c5aef9461c9319b2bc9f683330d37c7ff8e657adc4b0dcdd4927ff",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_13878/obs0.jpg",
+        "sha256": "f3f8048b3e4c5f74b215497c448799487c69d70a160ced4bd7abf2844e36ba28"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_13878/obs1.jpg",
+        "sha256": "b2e966e83bff2091d167eea3cbc75ec8a9037de14437453115cd20de0949e590"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe prominent hanging black sign at the right reads “YELLOW” above “KORNER” [original_image]. I’m checking its small lettering at a closer scale to distinguish the requested content from nearby signs.\n</caption>\n<grounding>{\"bbox_2d\":[0.345,0.16,0.407,0.316],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe black hanging billboard below the yellow letters reads “KORNER” [observation_1], so the answer is (B).\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S34",
+    "key": "luna_crop__mme_realworld_16759__gpt-6-luna",
+    "item_id": "mme_realworld_16759",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16759.json",
+    "result_sha256": "eee06f75388321cf68e35a08cf14a523b421211fbce086ce9cedea678193fde7",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_16759__gpt-6-luna.json",
+    "audit_sha256": "c3d8b59cdf4caf2018ecc6e332d92a2a1724cc48ae4208380fc204ea24e5831b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16759/obs0.jpg",
+        "sha256": "72511106e5f3efeeb62da56b99cb93e59cb267a9ced3783e63a355d8b95cce52"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16759/obs1.jpg",
+        "sha256": "b7204467d8623242fb9533c4cabb6c6bfab2191b153c915474220b29513f7399"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nAt the lower right, beside the large gray truck body, a silver car’s front is visible with a grille badge that may identify its manufacturer; the badge is too small here to read confidently [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.655,0.66,0.826,0.93],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe silver car at the bottom right has a clearly visible circular Nissan badge in the grille [observation_1]. Its manufacturer is NISSAN.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S35",
+    "key": "luna_crop__mme_realworld_16779__gpt-6-luna",
+    "item_id": "mme_realworld_16779",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16779.json",
+    "result_sha256": "433a3cc80b2b504eb4181ea6ff9051c587aea6893c58bab76aaaa90c879f577d",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_16779__gpt-6-luna.json",
+    "audit_sha256": "ebe569dc95cf8138cedbcf941ba826868b650cc3e552e63a22fe0417003b475f",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "text",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16779/obs0.jpg",
+        "sha256": "e51fb23b8089a6cad23e2948b1d8fa709ec7b485aa066c90493383b27e0dd745"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16779/obs1.jpg",
+        "sha256": "ba4d2e503a904700166e88de3b22f2b25ca8d649545b477a884037984973562c"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16779/obs2.jpg",
+        "sha256": "c363dd87c95ddb5d5a8d7aebadaa774bb9943d14ace5d92a5841a8349f1ea0e1"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe vehicle near the middle of the image has a visible rear plate, but it is small at the full-image scale. I’ll inspect that plate closely to distinguish the similar digit sequences in the options. [original_image]\n</caption>\n<grounding>{\"bbox_2d\":[0.49,0.58,0.54,0.62],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | fallback\nThe crop shows the bumper and spare tire rather than the plate, so it does not resolve the characters. I’ll shift the crop slightly lower to include the plate visible beneath the spare tire on the middle vehicle. [original_image]\n</caption>\n<grounding>{\"bbox_2d\":[0.488,0.62,0.543,0.65],\"source\":\"original_image\"}</grounding>",
+        "behavior": "fallback",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe rear plate on the middle vehicle reads “17 45 QT” in [observation_2]. This matches option B.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S36",
+    "key": "luna_crop__mme_realworld_16834__gpt-6-luna",
+    "item_id": "mme_realworld_16834",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16834.json",
+    "result_sha256": "655360116c06c4b09489431c35046ea856287518cb3605d7af8aeb5464b7f503",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_16834__gpt-6-luna.json",
+    "audit_sha256": "9d659296a60a9e9a1b6b4a9970581599e453feada2d04e8fd85366c6864fccef",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16834/obs0.jpg",
+        "sha256": "de217cd0284ce7b62ba740a9c590c0eb819dbd1e876fcdc0c3d83a16ac49e1f0"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16834/obs1.jpg",
+        "sha256": "401eb7a5ec979edcd8dbccef8a020ddea0956c21ed0375881b32439bee322d50"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nA black car is partly visible at the lower-right edge, while the gray car near the middle has a visible plate reading “02-01-IN” and a Renault diamond badge [original_image]. I’ll inspect that mid-image car and plate more closely to confirm which car the question refers to.\n</caption>\n<grounding>{\"bbox_2d\":[0.52,0.67,0.77,0.95],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe car in the middle has a clearly visible Renault diamond badge and its plate is present, reading “02-01-IN” [observation_1]. The manufacturer is RENAULT, option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S37",
+    "key": "luna_crop__mme_realworld_16865__gpt-6-luna",
+    "item_id": "mme_realworld_16865",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16865.json",
+    "result_sha256": "b40a09d523ba7478dc169740178aa3896245cc7d81230c0dbe649bf1c2a7ce48",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_16865__gpt-6-luna.json",
+    "audit_sha256": "c092a8a5b09cee496eded7056b928464e2f5f7ba655cd050ed14c005cc05d4a1",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16865/obs0.jpg",
+        "sha256": "64ff6177aacc12b29cd4608239f25693b533ee7a2173874aed1cd5495445d868"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16865/obs1.jpg",
+        "sha256": "92406792226e3ed4f9405f3e7fb189e94276cb251be735b16f2da705c4bda77f"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe blue car is at the far right of the parked row, and a small plate is visible on its rear; its characters are too small to read in the full image. I’ll inspect that plate closely.\n</caption>\n<grounding>{\"bbox_2d\":[0.855,0.77,0.93,0.81],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe plate on the blue car at the far right reads “17 HL 05” in [observation_1], matching option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S38",
+    "key": "luna_crop__mme_realworld_lite_17762__gpt-6-luna",
+    "item_id": "mme_realworld_lite_17762",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_lite_17762.json",
+    "result_sha256": "140afefe9a57fce3518426926684f1fda2fa315e1009255fcd50215f9ed70b56",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_lite_17762__gpt-6-luna.json",
+    "audit_sha256": "0b785a47c45ad9d2f3cc3aca21bab616a658ca0ceb7bfc32b7a916e08eafac76",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "text",
+    "crops": 2,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_17762/obs0.jpg",
+        "sha256": "61291e6e8355f93fe634d3a22052ace7673f4934f0cce37f26251c81d5165a00"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_17762/obs1.jpg",
+        "sha256": "05256c0f81bb0a5afa867b88de62c6c4f92138ab6ecc987c2901a85a2fd3c90e"
+      },
+      {
+        "view_id": "observation_2",
+        "parent": "observation_1",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_lite_17762/obs2.jpg",
+        "sha256": "4de009cf214496e81de36788512e1d32ba58a321da5b68bfdca65ad050f89831"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe blue sign on the second-floor exterior is on the left side of the image; its small phone text is not reliably readable at this scale [original_image]. I’ll inspect that sign closely to distinguish the number’s digits.\n</caption>\n<grounding>{\"bbox_2d\":[0.043,0.493,0.223,0.621],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | re_examine\nThe phone number printed on the left portion of the blue sign appears to read “(917)757-0639,” but the first digits and final digit are small [observation_1]. A tighter view of that printed line may resolve them.\n</caption>\n<grounding>{\"bbox_2d\":[0.365,0.648,0.711,0.816],\"source\":\"observation_1\"}</grounding>",
+        "behavior": "re_examine",
+        "observation": "observation_2"
+      },
+      {
+        "step": 3,
+        "available_before": [
+          "original_image",
+          "observation_1",
+          "observation_2"
+        ],
+        "visible_output": "<caption>\nStep 3 | commit\nThe left-side phone number on the blue second-floor store sign reads “(917)757-0639” [observation_1, observation_2]. This matches option C.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S39",
+    "key": "luna_crop__mme_realworld_14557__gpt-6-luna",
+    "item_id": "mme_realworld_14557",
+    "bench": "mme_realworld",
+    "stratum": "luna_crop/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_14557.json",
+    "result_sha256": "f19c0a204dfd37b2a6ba9b357bc311e39d8380a2335a8e03da305f66634af7a5",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__mme_realworld_14557__gpt-6-luna.json",
+    "audit_sha256": "2fd932598ef4300f4dd14a9dc9a1c1b21a3d4f0368120092eaaef596f6ae7dd8",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_14557/obs0.jpg",
+        "sha256": "0dcd65fa6463d88fec22c539f200dce7d337ca5262c82138b71fea97099536b3"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_14557/obs1.jpg",
+        "sha256": "2accfa46ca7894bde98ab0b28c43e4c4cf0769c190938fc1939bc5215588d403"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe large scoreboard is in the upper-left area; a red-script advertising sign immediately to its right appears to read “CocaCola,” but the small characters should be checked closely. [original_image]\n</caption>\n<grounding>{\"bbox_2d\":[0.27,0.22,0.34,0.30],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe red-script sign immediately to the right of the large scoreboard reads “CocaCola” in [observation_1]. That matches option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S40",
+    "key": "luna_crop__visreason_c4_103__gpt-6-luna",
+    "item_id": "visreason_c4_103",
+    "bench": "visreason",
+    "stratum": "luna_crop/visual_puzzle",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/visreason_c4_103.json",
+    "result_sha256": "b1132da72edf19e63dd082f591d4ed8efe7499248ee552df2e757d201b1bfd0c",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__visreason_c4_103__gpt-6-luna.json",
+    "audit_sha256": "45b79f98630befc6e14350c33cd0de36d9c2cf6ccf71c06661e39e362371f694",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "visual_puzzle",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/visreason_c4_103/obs0.jpg",
+        "sha256": "5fa195725c9021fa189800e4c1d69c329540832b73ebcf7fd4ace680a38fa03c"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/visreason_c4_103/obs1.jpg",
+        "sha256": "8928f938210ff8ed991c6c9a18266c271e8357461243fffd4070de513f37720e"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe object has a stepped, sloped form with a dark stripe on the raised surface and a dark patch on the near face; options A–D pair left and front outlines [original_image]. I need compare which projected outlines preserve those features in the specified views.\n</caption>\n<grounding>{\"bbox_2d\":[0.21,0.2,0.99,0.8],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe left view must show the recessed notch and the near-face boundary, while the front view must show the sloped profile with the vertical division where the raised portion meets the lower body [original_image][observation_1]. Only B includes the horizontal and vertical boundaries in the left view and the corresponding vertical division in the front view.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S41",
+    "key": "luna_crop__visreason_c10_37__gpt-6-luna",
+    "item_id": "visreason_c10_37",
+    "bench": "visreason",
+    "stratum": "luna_crop/visual_puzzle",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/visreason_c10_37.json",
+    "result_sha256": "4c9639b631a83fd59290aa49d9970d93efd0b30c5de2b3a6d15be3a0ebdfbe17",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_crop__visreason_c10_37__gpt-6-luna.json",
+    "audit_sha256": "51339f7e99ca859dbec177da03ba093d909aab9b1999b73d5523c271f5f9c0f5",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "up",
+    "gold": "Up",
+    "score": 1,
+    "material": "visual_puzzle",
+    "crops": 1,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/visreason_c10_37/obs0.jpg",
+        "sha256": "bbdc33134573378a15960c9fee48de7dda5bf05686ed21bba927398b0438bb5d"
+      },
+      {
+        "view_id": "observation_1",
+        "parent": "original_image",
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/visreason_c10_37/obs1.jpg",
+        "sha256": "25840a55590c5b196f03c13b4738777d2da89892c65d4edac47d88841ed49470"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | locate\nThe green panels show four keys arranged along a path, with a question-mark panel below the rightmost key; their shafts appear vertical or horizontal [original_image]. I’ll inspect the key sequence and the question panel together to determine each orientation change.\n</caption>\n<grounding>{\"bbox_2d\":[0.005,0.005,0.98,0.96],\"source\":\"original_image\"}</grounding>",
+        "behavior": "locate",
+        "observation": "observation_1"
+      },
+      {
+        "step": 2,
+        "available_before": [
+          "original_image",
+          "observation_1"
+        ],
+        "visible_output": "<caption>\nStep 2 | commit\nThe keys in sequence point up, right, down, then left; each turns 90° clockwise [observation_1]. Applying that rule, the key in the question-mark panel should point up.\n</caption>\n<answer>up</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S42",
+    "key": "luna_direct__mmmu_pro_std_validation_Physics_17__gpt-6-luna",
+    "item_id": "mmmu_pro_std_validation_Physics_17",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_validation_Physics_17.json",
+    "result_sha256": "80d21dfe107a3d499eba83a3e345b7c09fef87fdcec0ec6b03af85b2767b4b13",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_std_validation_Physics_17__gpt-6-luna.json",
+    "audit_sha256": "60800518683c197dd0465e7d016d02492130c723bf5b50c54ee303736e04ccdb",
+    "pool_at_selection": "pending",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_validation_Physics_17/obs0.jpg",
+        "sha256": "55348864e58bbf62ff754c0097097d24936dcf559c9569e4290661e20cfadc40"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nFor an Ohmic component, \\(V=IR\\), so \\(P=VI=I^2R\\) and power increases quadratically with current. Graph A is the upward-curving graph from the origin; C is linear, while B and D decrease [original_image].\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S43",
+    "key": "luna_direct__mmmu_pro_vision_test_Electronics_213__gpt-6-luna",
+    "item_id": "mmmu_pro_vision_test_Electronics_213",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_vision_test_Electronics_213.json",
+    "result_sha256": "1b067eee6a4cae0879bc8d748d6125a008dbd4d9a117f3edb9bdb60056531cb2",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_vision_test_Electronics_213__gpt-6-luna.json",
+    "audit_sha256": "3c66cfcd075afde1f8743b1be21677def477ca43b72078f6a3da08e48da0aa18",
+    "pool_at_selection": "pending",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_vision_test_Electronics_213/obs0.jpg",
+        "sha256": "1a8bf15261d1c566eccce5a8dd867ee33b44b7e2d803fe3f7c7ab0d54e7ccdf3"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe image gives \\(v_i(t)=u(t)\\,\\mathrm V\\), with a 3 Ω series resistor feeding a parallel 1 H inductor and 6 Ω resistor; \\(i_o(t)\\) is the current through the 6 Ω branch [original_image]. RULE: Use the Laplace-domain impedance \\(Z_L=sL\\) and the voltage-divider rule. CALC: \\(V_{\\text{node}}/V_i=(6s/(s+6))/(3+6s/(s+6))=2s/[3(s+2)]\\); \\(I_o=V_{\\text{node}}/6\\), and \\(V_i(s)=1/s\\), so \\(I_o(s)=1/[9(s+2)]\\), giving \\(i_o(t)=\\tfrac19 e^{-2t}u(t)\\).\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S44",
+    "key": "luna_direct__mmmu_pro_std_validation_Architecture_and_Engineering_11__gpt-6-luna",
+    "item_id": "mmmu_pro_std_validation_Architecture_and_Engineering_11",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_validation_Architecture_and_Engineering_11.json",
+    "result_sha256": "259f70d0e39cc92f2f6ba62021f689a1a7ed618ac2a8e256618a0570c9dd123a",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_std_validation_Architecture_and_Engineering_11__gpt-6-luna.json",
+    "audit_sha256": "047970197006ba4611158f2a16e6b2e516506b3457906af01286b30b57b10adb",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "H",
+    "gold": "H",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_validation_Architecture_and_Engineering_11/obs0.jpg",
+        "sha256": "8a1e3ee182339324299b3428b3c9280c7d1744560f24408cee0253c8fe169584"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe table lists moisture contents of 4.8, 7.5, 7.8, 8.9, and 9.7, with corresponding bulk densities of 2.164, 2.322, 2.351, 2.345, and 2.327 g/cc [original_image]. RULE: Optimum moisture content is the moisture content at maximum dry density; for fixed bulk density, dry density is proportional to bulk density divided by \\(1+w\\). CALC: The peak occurs at 7.8%: \\(2.351/1.078 \\approx 2.181\\) g/cc, versus \\(2.345/1.089 \\approx 2.154\\) and \\(2.322/1.075 \\approx 2.160\\) at the neighboring readings; closest option is 8%.\n</caption>\n<answer>H</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S45",
+    "key": "luna_direct__mmmu_pro_std_test_Math_18__gpt-6-luna",
+    "item_id": "mmmu_pro_std_test_Math_18",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_test_Math_18.json",
+    "result_sha256": "9336bf625df654d4a1de8350c1bce1e805ac24a844f8c6107bdf05c792f1f789",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_std_test_Math_18__gpt-6-luna.json",
+    "audit_sha256": "edc665eacab844adcdb698d4eca0e733e78d0a36d162906f7f63d9cd9b51fe7b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_test_Math_18/obs0.jpg",
+        "sha256": "cc1a1a0b64e1ab8a1c7a332ee6804ab5e56dcbe039d6b044ce53e082b4c20c8b"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe airport graph shows JFK → ATL, JFK → SFO, SFO → ATL, ATL → SFO, and ATL → JFK [original_image]. RULE: An itinerary must start at JFK and use each ticket once, choosing the lexically smallest valid itinerary. CALC: Taking JFK → ATL → JFK → SFO → ATL → SFO uses all five arrows once and matches the proposed itinerary.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S46",
+    "key": "luna_direct__mmmu_pro_vision_test_Computer_Science_353__gpt-6-luna",
+    "item_id": "mmmu_pro_vision_test_Computer_Science_353",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_vision_test_Computer_Science_353.json",
+    "result_sha256": "10d50d15ba2cd0bcbc67713395ea0a18e5615c5069dc462784949a84b108d19f",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_vision_test_Computer_Science_353__gpt-6-luna.json",
+    "audit_sha256": "ef473e68d656a78c30c71724fbee1c3678498518824be4998f2c0f3c7998984e",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_vision_test_Computer_Science_353/obs0.jpg",
+        "sha256": "4e7fc582c0c8165f72dba00c414dcf12e3a9cac9268921523fb8e0dffa0705ba"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe diagram’s missing box branches to classification and regression, with examples including decision trees and linear regression [original_image]. Those are types of supervised learning, matching option D.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S47",
+    "key": "luna_direct__mmmu_pro_std_validation_Economics_7__gpt-6-luna",
+    "item_id": "mmmu_pro_std_validation_Economics_7",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_validation_Economics_7.json",
+    "result_sha256": "e500b784a22687217c343475a8f6f1ac1e7cb26e8932a7be1c02eb4f64977aa2",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_std_validation_Economics_7__gpt-6-luna.json",
+    "audit_sha256": "748ea5f3d8e09291f79e504af87356a1d01e95060f54a2b1a24e014fc1552de9",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_validation_Economics_7/obs0.jpg",
+        "sha256": "4803b06b4d82e949ab77ad96c82b479d277fd594e5760d6eaa63df87e47869bc"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe graph’s horizontal axis is Real GDP, with labeled gridlines every 100; SRAS and AD intersect at GDP 400 and price level 600 [original_image]. The vertical LRAS line at 500 is not the short-run equilibrium.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S48",
+    "key": "luna_direct__mmmu_pro_std_test_Economics_149__gpt-6-luna",
+    "item_id": "mmmu_pro_std_test_Economics_149",
+    "bench": "mmmu_pro",
+    "stratum": "luna_direct/academic",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mmmu_pro_std_test_Economics_149.json",
+    "result_sha256": "596a38b568db19f1e0176b5c2963d3db3a422ae62e0fc9635de1e5b79f63708c",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mmmu_pro_std_test_Economics_149__gpt-6-luna.json",
+    "audit_sha256": "73872c51800d5fa4703590687b64a2babb12ecf4bdec399864f4216208f686e6",
+    "pool_at_selection": "pending",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "academic",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mmmu_pro_std_test_Economics_149/obs0.jpg",
+        "sha256": "2061adb5dff4fbf22b638b1acd327c3f945bb01e897332c321bcc47232e42839"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nFor the Glasses column, the table shows Mexico = 12 and Nigeria = 5 workers per unit [original_image]. RULE: With the same number of workers, the country needing fewer workers per unit has the absolute advantage. CALC: Nigeria needs 5 workers per unit versus Mexico’s 12, so Nigeria has the absolute advantage.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S49",
+    "key": "luna_direct__mme_realworld_05318__gpt-6-luna",
+    "item_id": "mme_realworld_05318",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_05318.json",
+    "result_sha256": "4fdd84a4e65329f142069aea3de46f7c9d92d669381b4fde4f9086d307b5ca2f",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_05318__gpt-6-luna.json",
+    "audit_sha256": "33a1e44953edc0d65da0a00ddace2eb31b7711fd1a102413ba9f5b6ecf3b9ab8",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_05318/obs0.jpg",
+        "sha256": "d708950fa260832a659a364a466e0a5d9915ba5a8ee839416a2ba42aef444fec"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Balance Sheet, the Cash Balance row under Period Number 2 (01-Jan-24 to 31-Dec-24) shows 1,074,753 [original_image]. This matches option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S50",
+    "key": "luna_direct__mme_realworld_10684__gpt-6-luna",
+    "item_id": "mme_realworld_10684",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_10684.json",
+    "result_sha256": "49551d166172609c6b9223eec5e817eaa30b36e59ed23a609a9a7bfb9f9e0435",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_10684__gpt-6-luna.json",
+    "audit_sha256": "722611555fd2014f14d435a97717664dfb015c0509740afe2202f9c3553806b6",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10684/obs0.jpg",
+        "sha256": "3e6ac83ab4c0740a458d68abe49b3e085cace60d0e27d47760b676c77d259031"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe “Income Statement” Revenue rows show 2022 values: RS1 - Product A, 41,605 EUR; RS2 - Product B, 27,737 EUR; and RS3 - Product C, 194,156 EUR. RS3 has the highest Revenue in 2022, so the answer is C. [original_image]\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S51",
+    "key": "luna_direct__mme_realworld_08724__gpt-6-luna",
+    "item_id": "mme_realworld_08724",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_08724.json",
+    "result_sha256": "7240fe8026478fcf756ab2f95c7b3c56c76d5ce0dfa53c2c176656fad1dbd039",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_08724__gpt-6-luna.json",
+    "audit_sha256": "191e3018560be3c171563e3c807505ce5278ba21d0505b9441c804b21facd2ad",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_08724/obs0.jpg",
+        "sha256": "b335aef8c925d279b1ba2b7687fc79034b5c88bf52335aa5eb52d76d9dd3a56c"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the “Cumulative CashFlow ($'000) - 5 Years to December 2023” chart, the cash-balance line is labeled 33 at 2021 [original_image]. The matching 2021 Cash row in Core Financials also shows 33 [original_image].\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S52",
+    "key": "luna_direct__mme_realworld_10774__gpt-6-luna",
+    "item_id": "mme_realworld_10774",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_10774.json",
+    "result_sha256": "e35c632f48eab316dc864e409b81b81ecc73407050492f961c43ddca4cffee8a",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_10774__gpt-6-luna.json",
+    "audit_sha256": "ee9d03eadf7b6f6a30c8d17f43c1fdd7576b9a640943b0eba227fa16c71dfc18",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10774/obs0.jpg",
+        "sha256": "10aba719bc5ffe9489d0e952d4e6b698a6d70d04722e544747a08801bf1eaac8"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Income Statement, the EBITDA row shows May 201,963, June 219,092, August 201,963, and October 152,288 USD [original_image]. June is the highest among the listed options.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S53",
+    "key": "luna_direct__mme_realworld_09204__gpt-6-luna",
+    "item_id": "mme_realworld_09204",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_09204.json",
+    "result_sha256": "4193a6b05b6ae77d43c313351c964064464ca514b5adab6509c13e69c4df7362",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_09204__gpt-6-luna.json",
+    "audit_sha256": "3d03c27a6f6f216fd3cab70036b38c77ea00bcb7d99b3413c364c9720b89a3f1",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_09204/obs0.jpg",
+        "sha256": "b08790961133ca5504ec614379ea08f24fddd56d08814077ccfeed6f81bec35c"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the “EBITDA - Actual vs Budget” graph, the bar labeled “Delta Opex” shows -20.930. That matches option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S54",
+    "key": "luna_direct__mme_realworld_05990__gpt-6-luna",
+    "item_id": "mme_realworld_05990",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_05990.json",
+    "result_sha256": "460efee55cb492eb7cf95fa57dd0c9e53024a511416099bd19246f7d477737f2",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_05990__gpt-6-luna.json",
+    "audit_sha256": "a5004ea05f5077d52a76befde4f055bec3c6162cd4cf6da2587cb21d66afaebb",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_05990/obs0.jpg",
+        "sha256": "1ef84ba8b3090bf382a1557197cf17a50a474d2e2d52d4a0784f51ce1ab270e3"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Capitalization Table, the Raise B row intersects the “% of Common Stock” column at 15.0%. That matches option D. [original_image]\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S55",
+    "key": "luna_direct__mme_realworld_09497__gpt-6-luna",
+    "item_id": "mme_realworld_09497",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_09497.json",
+    "result_sha256": "d33e48f0ad4d9c352ce7dc4e5661f2fbba2b1e44bb724e1d28f0002dbbd5bc63",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_09497__gpt-6-luna.json",
+    "audit_sha256": "aac5e3336d8836bb874bf5b8e45db1b88419d4d53e1c107db6a89c95d6ff8263",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_09497/obs0.jpg",
+        "sha256": "57cfd8179c12f29df2c24b6ce27411dbb09883835de7d148c07c734f732c3b75"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Balance Sheet table, the Receivables row under the 2028 (Year 4) column shows 150,281 USD [original_image]. This matches option C.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S56",
+    "key": "luna_direct__mme_realworld_07394__gpt-6-luna",
+    "item_id": "mme_realworld_07394",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_07394.json",
+    "result_sha256": "72ef5a70e8ce04f95d81f46b71b36e328fa2ec44540497b2191cf13672490984",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_07394__gpt-6-luna.json",
+    "audit_sha256": "b1df846c8d574f56fbc0aa2dc3f88df650b1b7b296120f355c796dac5db823bd",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_07394/obs0.jpg",
+        "sha256": "12075da78dbfd572d62c45a886220fd6b931caaaa21d8d28044779c995bacffc"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Calculation table, the Trade Payables row under the 2022 column shows 2,107,900 [original_image]. This matches option A.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S57",
+    "key": "luna_direct__mme_realworld_10631__gpt-6-luna",
+    "item_id": "mme_realworld_10631",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_10631.json",
+    "result_sha256": "c6b8f5cfc5f184ddac9252811bb89135f124f3e0044c159c48c8a0ab8ec02916",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_10631__gpt-6-luna.json",
+    "audit_sha256": "5950ac4b4ac6a3358b869bdd2ce62a7d6616b2fb3f53d96e00aa6a610d43c2e4",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10631/obs0.jpg",
+        "sha256": "1568f1c97d90a95226231061a59a3e74bd5dab2670f8a9b83b64c4a93bb914a0"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Revenue Breakdown table, the “Revenue” row under the Forecast Year columns shows 2025 = 3,074,118, 2026 = 3,730,734, and 2027 = 4,140,779 USD [original_image]. The first value exceeding 4,000,000 is in 2027.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S58",
+    "key": "luna_direct__mme_realworld_09633__gpt-6-luna",
+    "item_id": "mme_realworld_09633",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_09633.json",
+    "result_sha256": "4e8f5afd15c7a5f31bd25a951a8f6610bb396f1a3fecc54abd8fe40b24546f44",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_09633__gpt-6-luna.json",
+    "audit_sha256": "e14b8f9202571936686b841d81388fc5f5a7992c3d65da70b4f027bae9f03c4a",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_09633/obs0.jpg",
+        "sha256": "91912e83a47816458e6b0f4dff3849f13c551fb5e82b90ddbbbf61610c565a55"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the “Ratios” table, the “Debt to Equity Ratio” row under the 2024 column reads 19.5% [original_image]. This corresponds to option D.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S59",
+    "key": "luna_direct__mme_realworld_05224__gpt-6-luna",
+    "item_id": "mme_realworld_05224",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_05224.json",
+    "result_sha256": "f1b1c79ef8cf512fe5cf2954323fa47443de2d75b4f0df08e61134c7c800cb92",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_05224__gpt-6-luna.json",
+    "audit_sha256": "3346f7c4fde6c5044b2a6ae63d69f0b1d15d5896f61b106cc48a53bd65c1e6c7",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_05224/obs0.jpg",
+        "sha256": "011e144714084ab466cf3d0e568406680c98fb7bfee7a4fd3de182f264afc98d"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the CAPEX table’s Initial Balance section, the Business License row shows 2,583 under Jul-24 [original_image]. The visible CAPEX section below does not change that row-and-column binding.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S60",
+    "key": "luna_direct__mme_realworld_07448__gpt-6-luna",
+    "item_id": "mme_realworld_07448",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_07448.json",
+    "result_sha256": "acae7957b644fbf89a61bfdfa45fd92120d14ee6f6b66f0e760e42c434803b51",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_07448__gpt-6-luna.json",
+    "audit_sha256": "bf1d12d54e3fb2365db5f835a4e315ba3a00e67a2f6efdf9f16e7b9bde0eec1b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_07448/obs0.jpg",
+        "sha256": "4f998aeb053f9a262aca7c8047fe7ca1af11358cb842690d333839155f37ade7"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Deposits table, the “Total Deposits” row under “Quarter 1” is 142,144, matching the Dashboard’s Quarter 1 bar label [original_image]. The answer is D.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S61",
+    "key": "luna_direct__mme_realworld_06656__gpt-6-luna",
+    "item_id": "mme_realworld_06656",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_06656.json",
+    "result_sha256": "868b3dc607e08c9a37ebd814a9a4376155ab98aca93226d76207b60e87a6e0f4",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_06656__gpt-6-luna.json",
+    "audit_sha256": "d086ef4037b5698b882740456315068b47bd7083c8bce6a509b62c626a3fce7b",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06656/obs0.jpg",
+        "sha256": "f1bae35b922b0438e784c6b2e2bf79200eff930ff196fa6186723801aa2e7406"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the table, the “Equity Beginning Balance” row under the “Year 12” column shows 173,927 [original_image]. This matches option C.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S62",
+    "key": "luna_direct__mme_realworld_07368__gpt-6-luna",
+    "item_id": "mme_realworld_07368",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/chart_table",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_07368.json",
+    "result_sha256": "6d9ca7edf8c525469fac9aa6c6265eb1727be63715c4435224320ae626deeb9f",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_07368__gpt-6-luna.json",
+    "audit_sha256": "b637a01bbcea8c82760704f6ea1ff50db062f78f3f02165b15cae05dddc75978",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "chart_table",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_07368/obs0.jpg",
+        "sha256": "dd8afa94312868edf2f94ad7a3118069105af199b1d5a3469f161d67edbbfcae"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nIn the Opening Balance section, the Initial Loan row at Month 10, Year 1, 2024 shows 148,750 USD [original_image]. This matches option B.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S63",
+    "key": "luna_direct__mme_realworld_02988__gpt-6-luna",
+    "item_id": "mme_realworld_02988",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/count",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_02988.json",
+    "result_sha256": "8f9249204ee3407a8319f4accebe469649670216508e54a19aeaeba9f5aaeab5",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_02988__gpt-6-luna.json",
+    "audit_sha256": "58db391d849676409f06f97846110168d420ce3c8be2d4673378ef85d583c343",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "count",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02988/obs0.jpg",
+        "sha256": "3d7b67f1b6dfc8ed90b083e66d224a8bb505cb89ed1da21bafaadff73b8e6333"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nCounting dogs on or around the road across the full visible scene, I can identify one dog near the center of the roadway [original_image]. No other dogs are visible in the surrounding road area, so the count is 1.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S64",
+    "key": "luna_direct__worldbench_1031__gpt-6-luna",
+    "item_id": "worldbench_1031",
+    "bench": "worldbench",
+    "stratum": "luna_direct/count",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_1031.json",
+    "result_sha256": "eee69bfe9eb8884e311143a6008b297c25f712aa862551cb22491aa707b94c89",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__worldbench_1031__gpt-6-luna.json",
+    "audit_sha256": "fc5355f5073ca80940b423efa64c2a356703408f7b9b29952749de416ad08046",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "C",
+    "gold": "C",
+    "score": 1,
+    "material": "count",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1031/obs0.jpg",
+        "sha256": "844b058ae74849f9f638b71dc096bb17d917f45cf58ad2ea4059910c3dcbfb4f"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe full image shows seven distinct spice types: green cardamom, star anise, peppercorns, nutmeg, cloves, and cinnamon, plus a small separate group of brown seeds near the cardamom. The count is 7, so the answer is C.\n</caption>\n<answer>C</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S65",
+    "key": "luna_direct__worldbench_1865__gpt-6-luna",
+    "item_id": "worldbench_1865",
+    "bench": "worldbench",
+    "stratum": "luna_direct/map",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_1865.json",
+    "result_sha256": "a477fa975b600b0a4dcd9a5fc62631f4c4b98de6036081161d8c0794bac3914d",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__worldbench_1865__gpt-6-luna.json",
+    "audit_sha256": "0930b708e94b89c6530aceee4c6e6645d750725a1bd3bc11bb937ff2a33c40d9",
+    "pool_at_selection": "pending",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "map",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1865/obs0.jpg",
+        "sha256": "7df331ca35aa669981ec8dc9c9fcb6651a4d1180062704e3a9ad88fd2e7c5ba5"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe legend places South Cemetery (8) and Gate of Kenchreiai (9) beside one another at the city’s eastern edge [original_image]. The other listed pairs are farther apart on the map, so the closest pair is South Cemetery and Gate of Kenchreiai.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S66",
+    "key": "luna_direct__mme_realworld_03335__gpt-6-luna",
+    "item_id": "mme_realworld_03335",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_03335.json",
+    "result_sha256": "2148c50828d2b045efaaf89b0b33016d131b96e28c0cbe2123876f2d7aa77a9a",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_03335__gpt-6-luna.json",
+    "audit_sha256": "fccd991a03e13701b201fb2b1039c36abc625ffb8dab8bf63cd1a2ea8dd05860",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "natural",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_03335/obs0.jpg",
+        "sha256": "57d72caa3f950083a52d696294b4d492139d61843a6f290b576be9d865a96b03"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nSeveral pedestrians are visible crossing in front of the ego car: one near the middle-right and another farther to the right. Both appear to be walking, and no standing pedestrians are apparent, matching “Many pedestrians are moving.” [original_image]\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S67",
+    "key": "luna_direct__mme_realworld_11638__gpt-6-luna",
+    "item_id": "mme_realworld_11638",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_11638.json",
+    "result_sha256": "1d1a9c65e290ac86eedfaced932bc4fa720787350c008aa6e3bf3913056b8d8c",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_11638__gpt-6-luna.json",
+    "audit_sha256": "864c1bb0843d7f879a9a7a69d6edde0a0357f471d58947af54e02c94513f7ad3",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "E",
+    "gold": "E",
+    "score": 1,
+    "material": "natural",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_11638/obs0.jpg",
+        "sha256": "b296e8056413593264b07b564c8188065ddb59e940b5c3814616d0c78755f7ab"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe image shows an aerial street scene with cars and construction, but no awning-tricycles are visible [original_image]. The image does not feature the awning-tricycles, so the answer is E.\n</caption>\n<answer>E</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S68",
+    "key": "luna_direct__mme_realworld_03553__gpt-6-luna",
+    "item_id": "mme_realworld_03553",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_03553.json",
+    "result_sha256": "e26ba0a156a9af603b6678af1efc8f99ecdb266314037906205f9320e6467a1c",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_03553__gpt-6-luna.json",
+    "audit_sha256": "4dd934af67e60a5a6c79c7fe249d2cb4b7b0938720735711e97f38f9cc191e88",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_03553/obs0.jpg",
+        "sha256": "9b098be901de60e3087ef211d64affcb7e5dd128a288038b5cd853452ea15d41"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nTwo pedestrians are visible in front of the ego car: one on the left sidewalk standing, and one at the right crossing with a walking stride [original_image]. One is standing and one is moving.\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S69",
+    "key": "luna_direct__mme_realworld_03569__gpt-6-luna",
+    "item_id": "mme_realworld_03569",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_03569.json",
+    "result_sha256": "f873d37b06d8e66bbc52898520f530235c7bf473860f22830db88a9e9fbcff73",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_03569__gpt-6-luna.json",
+    "audit_sha256": "aadec4dbe85636ad25985de6a77fa6a010dbd052640fb61866898b6f4f709f6e",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "natural",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_03569/obs0.jpg",
+        "sha256": "e777ad1212ec917e574f65470b964b0338f76b25afd21a9123600e4f14b12e6c"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThree pedestrians are visible ahead of the ego car: two near the stairs on the left and one on the right side of the road. The two on the left appear to be walking, and the one on the right is also walking, so three pedestrians are moving [original_image].\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S70",
+    "key": "luna_direct__mme_realworld_01572__gpt-6-luna",
+    "item_id": "mme_realworld_01572",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/natural",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_01572.json",
+    "result_sha256": "2dc987e553dabbb83c6bd2ebec3ecb720ea0ecf1677753f47de3f1f0e1a7c9e4",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_01572__gpt-6-luna.json",
+    "audit_sha256": "626950fdf0b6850878e7463106cfa197f9b368cb31e35141957c8d2e16edba62",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "natural",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_01572/obs0.jpg",
+        "sha256": "bcc5882cae87e4a84222116825f98a1626423b254f5ab99d9edcea92c032214e"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe road ahead contains many cars parked along the left curb and two cars in the roadway ahead [original_image]. This matches “many are parked, and two are moving.”\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S71",
+    "key": "luna_direct__mme_realworld_16133__gpt-6-luna",
+    "item_id": "mme_realworld_16133",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_16133.json",
+    "result_sha256": "f6463d36a4d9e4bda5b703bc5f234c1dca3cc09c84a58168c103415e64350203",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_16133__gpt-6-luna.json",
+    "audit_sha256": "52863a3692041c411333aa06195e0df84178a1f80ab0560daedeac098b292792",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "D",
+    "gold": "D",
+    "score": 1,
+    "material": "text",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_16133/obs0.jpg",
+        "sha256": "4e2257b7647997ab6a57db04bcaf97a81784443d807a62866a34a9d922733ade"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe movie poster in the top-left corner is titled “Path to Glory” [original_image], which matches option D.\n</caption>\n<answer>D</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S72",
+    "key": "luna_direct__mme_realworld_14198__gpt-6-luna",
+    "item_id": "mme_realworld_14198",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_14198.json",
+    "result_sha256": "bf3659517957e08c0f60432f16590cf1a3d826a70bf734480c67d80c2009d6eb",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_14198__gpt-6-luna.json",
+    "audit_sha256": "359bed52bacfe3d61e7ff19864b6172d1853034bbd88cd633db28045db8e1f17",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_14198/obs0.jpg",
+        "sha256": "9ecf37f898a6c5bd440f03c29256c5aa6db0781655835a91cddc49bf8bc78e80"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe red vertical banner near the center-left shows “120～” near its bottom [original_image], matching ￥120.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S73",
+    "key": "luna_direct__mme_realworld_15952__gpt-6-luna",
+    "item_id": "mme_realworld_15952",
+    "bench": "mme_realworld",
+    "stratum": "luna_direct/text",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_15952.json",
+    "result_sha256": "03ebe18275700724a5e8cdeff46258e066e8c24c670330586fe5a5c8defee45d",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__mme_realworld_15952__gpt-6-luna.json",
+    "audit_sha256": "2d2cad1fccbb46aa80ffe35cb641feafdb1d8bb67554de3898ec50eb553100c5",
+    "pool_at_selection": "clean_candidate",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "A",
+    "gold": "A",
+    "score": 1,
+    "material": "text",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_15952/obs0.jpg",
+        "sha256": "d89b781814c41d0536f6da576e3d5e718752fb4a7fee288d86241f9f22914d0f"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe book cover’s large title reads “FRANKENSTEIN” [original_image]. The other prominent text, including “BERNI WRIGHTSON,” is credited as the illustrator, not the book title.\n</caption>\n<answer>A</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S74",
+    "key": "luna_direct__visreason_c10_1_8__gpt-6-luna",
+    "item_id": "visreason_c10_1_8",
+    "bench": "visreason",
+    "stratum": "luna_direct/visual_puzzle",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/visreason_c10_1_8.json",
+    "result_sha256": "2a8ccc746ddfab894ef375cbce9c9cb9f6b0bd9bfa0c4fe33f13e9c61c555815",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__visreason_c10_1_8__gpt-6-luna.json",
+    "audit_sha256": "375d62af9ec7b8413566913cb2cc429ce3f452d326a41a2218d80ec458b6994a",
+    "pool_at_selection": "pending",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "28",
+    "gold": "28",
+    "score": 1,
+    "material": "visual_puzzle",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/visreason_c10_1_8/obs0.jpg",
+        "sha256": "41c36e3c0e131c89b3c99258961d3f21bd79fd2986fe2660d2b8001128ea8b52"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe visible sequence is 0, 1, 3, 6, 10, 15, 21, ?. Successive increases are 1, 2, 3, 4, 5, and 6, so the next increase is 7.\nRULE: Add consecutive positive integers.\nCALC: 21 + 7 = 28 [original_image].\n</caption>\n<answer>28</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  },
+  {
+    "sample_id": "S75",
+    "key": "luna_direct__visreason_c4_91__gpt-6-luna",
+    "item_id": "visreason_c4_91",
+    "bench": "visreason",
+    "stratum": "luna_direct/visual_puzzle",
+    "manual_verdict": "PENDING",
+    "manual_note": "",
+    "selected_from_pool": "2026-10-04 final pools: 1317 automatic candidates; original 69 retained",
+    "result_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/visreason_c4_91.json",
+    "result_sha256": "af819c6415db391313f0f3c8eb78b14025928ce482850e8ff68f0b1c626b05e7",
+    "audit_path": "obs/runs/audit_luna_v1_20261003/audit/luna_direct__visreason_c4_91__gpt-6-luna.json",
+    "audit_sha256": "b2f922bf407820dfb1668feed86bfad338fee652dddd17b14fd80a4c68abfee6",
+    "pool_at_selection": "pending",
+    "pool_at_capture": "clean_candidate",
+    "fallback_unreviewed": false,
+    "model": "gpt-6-luna",
+    "answer": "B",
+    "gold": "B",
+    "score": 1,
+    "material": "visual_puzzle",
+    "crops": 0,
+    "views": [
+      {
+        "view_id": "original_image",
+        "parent": null,
+        "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/visreason_c4_91/obs0.jpg",
+        "sha256": "311c3b488680136032c6ae373d5943337b49eb410b83291b01118306affe9215"
+      }
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "available_before": [
+          "original_image"
+        ],
+        "visible_output": "<caption>\nStep 1 | commit\nThe two views show a circle and a square [original_image]. Together they most likely represent a cylinder: the circle is its end view and the square its side view, matching option B [original_image].\n</caption>\n<answer>B</answer>",
+        "behavior": "commit",
+        "observation": null
+      }
+    ]
+  }
+]

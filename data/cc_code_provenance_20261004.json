@@ -1,0 +1,17 @@
+{
+  "captured_at_utc": "2026-10-04T05:20:46.547280+00:00",
+  "published_code": {
+    "code/reference/cc_update_20261004/cc_proxy_reviewer.py": {
+      "source_path": "obs/src/cc_proxy_reviewer.py",
+      "source_sha256": "59a37e39e671f1beadaf75ae9b024c2ebf9812f91cb33d956d8bc4dce60e57a4",
+      "published_sha256": "42ee30a02661ec60d330c3db4eee17f67aad127a3a01109713e75b7be9891a40",
+      "transformation": "Replace module description and local path constants; route string generalized. Validation and effort logic unchanged."
+    },
+    "code/reference/cc_update_20261004/funnel_audit.py": {
+      "source_path": "obs/src/funnel_audit.py",
+      "source_sha256": "24ade6d14264e4c2c76f611ee53012273c569d88e61bafc159e7e537c36a0b77",
+      "published_sha256": "24ade6d14264e4c2c76f611ee53012273c569d88e61bafc159e7e537c36a0b77",
+      "transformation": "byte-for-byte reading snapshot"
+    }
+  }
+}
