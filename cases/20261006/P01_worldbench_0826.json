@@ -1,0 +1,377 @@
+{
+  "schema": "public-progress-case-v1",
+  "case_id": "P01",
+  "item_id": "worldbench_0826",
+  "title": "原图足够的直答与有据裁图",
+  "task_paraphrase_zh": "手套盒相对玻璃碗的位置。",
+  "editorial_observation_zh": "四条均获自动正向判断。Luna/Sol 直答可保留；GLM/Grok 的 crop 不自动使其更优。",
+  "category": "clean_candidate",
+  "sampling": "Purposive calibration, not a random acceptance sample",
+  "editorial_status": "Codex review, not human KEEP",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "label": "Luna",
+      "model": "gpt-6-luna",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_0826.json",
+      "source_sha256": "81e5738501104083faa9c476a003dc4732aeb811a6888c613d3145e13f1acceb",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The disposable-gloves box is at the upper left, behind the glass bowl, while the bowl is in front of it [original_image]. The box therefore lies behind the bowl.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe disposable-gloves box is at the upper left, behind the glass bowl, while the bowl is in front of it [original_image]. The box therefore lies behind the bowl.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1280,
+            960
+          ],
+          "shown_px": [
+            1288,
+            952
+          ],
+          "sha256": "42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_0826/obs0.jpg",
+          "public_asset": "media/20261004/42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688.jpg"
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "Binds to the gloves box and glass bowl, and says the box is behind the bowl. The blind read agrees ('farther from the camera and above') and gives D, matching the kept answer. Its evidence is brief, but nothing in it conflicts with the other readings."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "GLM",
+      "model": "glm-5.3-flash",
+      "family": "zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_0826.json",
+      "source_sha256": "5c026e31b676815f11d00c5f3a6debef29b243d08959a14ae95dafc4ed319d83",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The gloves box (green, labeled \"Disposable Gloves\") and a clear glass bowl are both in the top-left corner of [original_image]. I need to check their overlap and depth ordering to decide between left/right and front/behind.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.0,
+              0.0,
+              0.35,
+              0.5
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe gloves box (green, labeled \"Disposable Gloves\") and a clear glass bowl are both in the top-left corner of [original_image]. I need to check their overlap and depth ordering to decide between left/right and front/behind.\n</caption>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.35,0.5],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_1], the glass bowl's rim occludes the bottom edge of the green \"Disposable Gloves\" box, so the box is farther from the camera than the bowl. This is the camera viewpoint, so the box lies behind the bowl.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the glass bowl's rim occludes the bottom edge of the green \"Disposable Gloves\" box, so the box is farther from the camera than the bowl. This is the camera viewpoint, so the box lies behind the bowl.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1280,
+            960
+          ],
+          "shown_px": [
+            1288,
+            952
+          ],
+          "sha256": "42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_0826/obs0.jpg",
+          "public_asset": "media/20261004/42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.0,
+            0.0,
+            0.35,
+            0.5
+          ],
+          "source_px": [
+            448,
+            480
+          ],
+          "shown_px": [
+            448,
+            476
+          ],
+          "sha256": "0a1871970749fd056c7ca27a3600b684745a1bd6c9235d694a5a210dc17d17da",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_0826/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "States the occlusion cue explicitly: the bowl rim covers the box's lower edge, so the box is farther away and behind. The blind read agrees (bowl in front, box seen through it, behind the far rim), and q1 and q2 support it. Answer D matches the kept answer."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE",
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Sol 5.6",
+      "model": "gpt-5.6-sol",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/results/worldbench_0826.json",
+      "source_sha256": "a14bb1dda80d9edd7c906a47304cad22324569307e5193e94e5dd1d1362604c3",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The disposable-gloves box is partially occluded by the glass bowl at the upper left, placing the box behind the bowl from the camera’s viewpoint [original_image].",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe disposable-gloves box is partially occluded by the glass bowl at the upper left, placing the box behind the bowl from the camera’s viewpoint [original_image].\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1280,
+            960
+          ],
+          "shown_px": [
+            1288,
+            952
+          ],
+          "sha256": "42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/worldbench_0826/obs0.jpg",
+          "public_asset": "media/20261004/42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688.jpg"
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "Gives the correct occlusion cue (the bowl overlaps the box's lower part, so the box is farther away). The blind read agrees, and q1 independently confirms the overlap. Answer D matches."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Grok",
+      "model": "grok-4.7",
+      "family": "xai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_0826.json",
+      "source_sha256": "13f8504c4b6be20db1303b608664e4376771d9ef52b696c7df09d03793f7966b",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The glass bowl sits at the lower left, while a green “Vinyl / Disposable Gloves” box is visible just above it toward the back of the counter [original_image]. I need a closer view to confirm which object is in front.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.0,
+              0.06,
+              0.3,
+              0.48
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe glass bowl sits at the lower left, while a green “Vinyl / Disposable Gloves” box is visible just above it toward the back of the counter [original_image]. I need a closer view to confirm which object is in front.\n</caption>\n<grounding>{\"bbox_2d\":[0.0,0.06,0.30,0.48],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The “Disposable Gloves” box sits behind the glass bowl: its lower edge is partly hidden by the bowl rim and it is farther back on the counter [observation_1]. Relative to the bowl, the box is behind it.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe “Disposable Gloves” box sits behind the glass bowl: its lower edge is partly hidden by the bowl rim and it is farther back on the counter [observation_1]. Relative to the bowl, the box is behind it.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1280,
+            960
+          ],
+          "shown_px": [
+            1288,
+            952
+          ],
+          "sha256": "42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_0826/obs0.jpg",
+          "public_asset": "media/20261004/42074ccb200d162b6ca9d2118a32b0f7ea2fc8516b54cab3ddba98a348014688.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.0,
+            0.06041666666666667,
+            0.3,
+            0.48020833333333335
+          ],
+          "source_px": [
+            384,
+            403
+          ],
+          "shown_px": [
+            448,
+            476
+          ],
+          "sha256": "96b7782931ec8a9d24147c08a19eab67be7398b591979e983ddff2d62f175f79",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_0826/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "Step 2 matches the blind read (the bowl's edge overlaps the box, which is farther away). Step 1 places the bowl at the lower left with the box just above it. That is a needs_check wording issue rather than a conflict, since it is consistent with the box being farther back. Answer D matches."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    }
+  ]
+}

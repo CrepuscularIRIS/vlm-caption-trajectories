@@ -1,0 +1,514 @@
+{
+  "schema": "public-progress-case-v1",
+  "case_id": "P03",
+  "item_id": "mme_realworld_12899",
+  "title": "搜索失败可以诚实；直答不应因无 crop 被拒",
+  "task_paraphrase_zh": "判断画面下方步行者上衣的颜色。",
+  "editorial_observation_zh": "Luna 如实报告未找到再换区。Sol 原图上的 white 获 Gemini 支持，Sonnet 因无放大拒绝的依据不充分；Codex 看图支持重新列为直答候选。",
+  "category": "reviewer_calibration",
+  "sampling": "Purposive calibration, not a random acceptance sample",
+  "editorial_status": "Codex review, not human KEEP",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "label": "Luna",
+      "model": "gpt-6-luna",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_12899.json",
+      "source_sha256": "694087863a226c69f6cf1204fc077a2dff656c619f89013640e6f0775a7e3ca2",
+      "answer": "B",
+      "gold": "B",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 3,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "A small person is visible walking on the roadway near the bottom center of the image [original_image]. The coat color is difficult to distinguish at this scale, so a closer view can establish its color.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.33,
+              0.77,
+              0.38,
+              0.86
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nA small person is visible walking on the roadway near the bottom center of the image [original_image]. The coat color is difficult to distinguish at this scale, so a closer view can establish its color.\n</caption>\n<grounding>{\"bbox_2d\":[0.33,0.77,0.38,0.86],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "fallback",
+          "caption": "The first crop shows only roadway, so it missed the walking person visible near the bottom center in the full image [original_image]. I’ll use a wider crop around that person to include the coat.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.32,
+              0.73,
+              0.43,
+              0.88
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | fallback\nThe first crop shows only roadway, so it missed the walking person visible near the bottom center in the full image [original_image]. I’ll use a wider crop around that person to include the coat.\n</caption>\n<grounding>{\"bbox_2d\":[0.32,0.73,0.43,0.88],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "fallback",
+          "caption": "The wider crop still contains only curb, grass, and roadway [observation_2], so the earlier location was wrong. The person appears farther to the right in the original image; I’ll crop that visible figure.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.53,
+              0.75,
+              0.59,
+              0.86
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_2"
+          ],
+          "observation": "observation_3",
+          "visible_output": "<caption>\nStep 3 | fallback\nThe wider crop still contains only curb, grass, and roadway [observation_2], so the earlier location was wrong. The person appears farther to the right in the original image; I’ll crop that visible figure.\n</caption>\n<grounding>{\"bbox_2d\":[0.53,0.75,0.59,0.86],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 4,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3"
+          ],
+          "behavior": "commit",
+          "caption": "The person is walking, so they are a pedestrian; their coat is visibly white in the close view [observation_3]. The nearby gray roadway provides a neutral comparison, supporting white rather than a dark or tinted color.",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "observation_3"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 4 | commit\nThe person is walking, so they are a pedestrian; their coat is visibly white in the close view [observation_3]. The nearby gray roadway provides a neutral comparison, supporting white rather than a dark or tinted color.\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2000,
+            1500
+          ],
+          "shown_px": [
+            1624,
+            1204
+          ],
+          "sha256": "146a9908e9f71111ea3efe2ce03e5684450d0e356fb68781567bbddfdc42eacb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.33,
+            0.77,
+            0.38,
+            0.86
+          ],
+          "source_px": [
+            100,
+            135
+          ],
+          "shown_px": [
+            392,
+            532
+          ],
+          "sha256": "88aaeb5d610fc16bef6dcbd1a28c73087a905bd312c869d9238623c84f9d9a78",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.32,
+            0.73,
+            0.43,
+            0.88
+          ],
+          "source_px": [
+            220,
+            225
+          ],
+          "shown_px": [
+            448,
+            448
+          ],
+          "sha256": "b4fe9b4e4ae79d9a4e5c4368bc219e2e35e73c41c38edb4b8be0ddaef1afff54",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs2.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_3",
+          "parent": "original_image",
+          "fov_original": [
+            0.53,
+            0.75,
+            0.59,
+            0.86
+          ],
+          "source_px": [
+            120,
+            165
+          ],
+          "shown_px": [
+            448,
+            616
+          ],
+          "sha256": "9542d39ecab5847b02f4d0174f8fbcc334837e8e4f17fb1572522a2b467c5d8c",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_12899/obs3.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "normal_search_clean",
+        "reason": "The first crops missed the person and this was acknowledged, then the walking figure was found and the close-up read 'white', matching the blind read (AGREE) and the final answer B. The recovery from the misses is acceptable."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "GLM",
+      "model": "glm-5.3-flash",
+      "family": "zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/mme_realworld_12899.json",
+      "source_sha256": "d3221018dbe943b9c28127d252a836e3fb80c83cdac9b650af8d6d7abb5b031a",
+      "answer": "B",
+      "gold": "B",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "A small figure appears walking on the road near the bottom center of the aerial view [original_image]. I will crop that region to check the coat color, since the person is small at this scale.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.5,
+              0.72,
+              0.65,
+              0.85
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nA small figure appears walking on the road near the bottom center of the aerial view [original_image]. I will crop that region to check the coat color, since the person is small at this scale.\n</caption>\n<grounding>{\"bbox_2d\":[0.5,0.72,0.65,0.85],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The enlarged crop [observation_1] shows a walking person in a bright white short-sleeved top, clearly lighter than the dark gray asphalt and gray shorts beside them, so the coat/shirt reads as white, not dark or tinted. The figure is walking, so it qualifies as a pedestrian.",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe enlarged crop [observation_1] shows a walking person in a bright white short-sleeved top, clearly lighter than the dark gray asphalt and gray shorts beside them, so the coat/shirt reads as white, not dark or tinted. The figure is walking, so it qualifies as a pedestrian.\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2000,
+            1500
+          ],
+          "shown_px": [
+            1624,
+            1204
+          ],
+          "sha256": "146a9908e9f71111ea3efe2ce03e5684450d0e356fb68781567bbddfdc42eacb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_12899/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.5,
+            0.72,
+            0.65,
+            0.85
+          ],
+          "source_px": [
+            300,
+            195
+          ],
+          "shown_px": [
+            700,
+            448
+          ],
+          "sha256": "b818f8af9679efa811e89fadedcfb42861479da015eb930eaf6a4556b464ba72",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_12899/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "It bound directly to the walking person near the bottom center and read a white top from one enlarged crop. The blind read agrees ('White'), and the final answer B matches the neutral q1/q2 results (white, walking)."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Sol 5.6",
+      "model": "gpt-5.6-sol",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/results/mme_realworld_12899.json",
+      "source_sha256": "e4562c5341679b0fc7745d52508f606ceeea523bc0c5400ca4f8c87960418086",
+      "answer": "B",
+      "gold": "B",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "A pedestrian is walking near the bottom center, wearing a white coat that is visibly lighter than the nearby gray pavement [original_image].",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nA pedestrian is walking near the bottom center, wearing a white coat that is visibly lighter than the nearby gray pavement [original_image].\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2000,
+            1500
+          ],
+          "shown_px": [
+            1624,
+            1204
+          ],
+          "sha256": "146a9908e9f71111ea3efe2ce03e5684450d0e356fb68781567bbddfdc42eacb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/mme_realworld_12899/obs0.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "The final answer B and the white claim are correct (blind read AGREE), but the color was asserted from the uncropped original at small scale, with no zoomed evidence. The reviewer flagged the step as insufficient and the path as flawed (sft_ok false), so it is not suitable as an SFT trajectory."
+      },
+      "reviewers_split": true,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Grok",
+      "model": "grok-4.7-cpa",
+      "family": "xai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/results/mme_realworld_12899.json",
+      "source_sha256": "24e957a06f454b781762e7753c0aff88727bc9efd31494beca625b9fbb46d6e9",
+      "answer": "B",
+      "gold": "B",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "A single walking figure is near the bottom-center curb, but the clothing color is too small to judge reliably against the gray pavement [original_image].",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.5,
+              0.75,
+              0.58,
+              0.84
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nA single walking figure is near the bottom-center curb, but the clothing color is too small to judge reliably against the gray pavement [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.50,0.75,0.58,0.84],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The walking pedestrian’s upper garment reads white against the gray pavement and green grass, not red, green, or black [observation_1].",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe walking pedestrian’s upper garment reads white against the gray pavement and green grass, not red, green, or black [observation_1].\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2000,
+            1500
+          ],
+          "shown_px": [
+            1624,
+            1204
+          ],
+          "sha256": "146a9908e9f71111ea3efe2ce03e5684450d0e356fb68781567bbddfdc42eacb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_12899/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.5,
+            0.75,
+            0.58,
+            0.84
+          ],
+          "source_px": [
+            160,
+            135
+          ],
+          "shown_px": [
+            532,
+            448
+          ],
+          "sha256": "9ae98bd8b3ae3c52823b45d423b65416d67170037aedb56ffb0fe84746735041",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_12899/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "It targeted the walking person near the bottom-center curb and read the upper garment as white from a valid crop. The blind read agrees ('white') and the final answer B matches q1 and q2."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    }
+  ]
+}

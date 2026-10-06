@@ -1,0 +1,607 @@
+{
+  "schema": "public-progress-case-v1",
+  "case_id": "P04",
+  "item_id": "mme_realworld_10708",
+  "title": "C05：错误前缀后的恢复与审核上下文",
+  "task_paraphrase_zh": "找出权益价值首次超过五千万的年份。",
+  "editorial_observation_zh": "GLM 前缀错读且错位年份，应列 recovery。两张 crop 缺行名导致事实盲读 UNREADABLE；同路径原图加 crop 的终答盲读已支持 2033，不能说只靠别家路径佐证。",
+  "category": "recovery_candidate",
+  "sampling": "Purposive calibration, not a random acceptance sample",
+  "editorial_status": "Codex review, not human KEEP",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "label": "Luna",
+      "model": "gpt-6-luna",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_10708.json",
+      "source_sha256": "ed2fb4113925677951a7af890c116a279a61a99b79bf808755f51c27f943e216",
+      "answer": "C",
+      "gold": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "In the “Forecasted Company Valuation” table, the “Equity Value” row shows 49,281,999 for 2032 and 52,769,359 for 2033, in USD [original_image]. Thus it first exceeds 50,000,000 in 2033.",
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nIn the “Forecasted Company Valuation” table, the “Equity Value” row shows 49,281,999 for 2032 and 52,769,359 for 2033, in USD [original_image]. Thus it first exceeds 50,000,000 in 2033.\n</caption>\n<answer>C</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2560,
+            1136
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "1d10daf7fd87b8b792dbffc74b46218fb6516ea56e7322ea3c1ddc4e7fea0ee4",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_10708/obs0.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "Reads Equity Value as 49,281,999 (2032) and 52,769,359 (2033); the blind reader agreed on both values and on the final answer C, and the neutral questions q1 and q2 independently confirmed them."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "GLM",
+      "model": "glm-5.3-flash",
+      "family": "zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/mme_realworld_10708.json",
+      "source_sha256": "7d6ec4c073bae7bf2f0024f9915ff0cdf6034bcf72566dc89c37065ef9863579",
+      "answer": "C",
+      "gold": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 2,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The 'Forecasted Company Valuation' table has an 'Equity Value' row whose values (…, 45,281,999, 52,769,359, 60,183,678) straddle the 50,000,000 threshold, but which year column each value belongs to (2025–2034) must be bound precisely. I crop the valuation table's header rows together with the Equity Value row to check the column alignment.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.55,
+              0.47,
+              1.0,
+              0.68
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe 'Forecasted Company Valuation' table has an 'Equity Value' row whose values (…, 45,281,999, 52,769,359, 60,183,678) straddle the 50,000,000 threshold, but which year column each value belongs to (2025–2034) must be bound precisely. I crop the valuation table's header rows together with the Equity Value row to check the column alignment.\n</caption>\n<grounding>{\"bbox_2d\":[0.55,0.47,1.0,0.68],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "[observation_1] binds the columns clearly: 2025=Year 1 through 2034=Year 10, and shows the component rows (Business Value, Financial Debt, Cash). The bottom Equity Value row is clipped mid-digit, so the exact values per year (e.g., 45/49,281,999 for 2031 vs 52,769,359 for 2032) are not fully readable. I crop the Equity Value row itself to read its values against the confirmed year columns.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.55,
+              0.64,
+              1.0,
+              0.72
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\n[observation_1] binds the columns clearly: 2025=Year 1 through 2034=Year 10, and shows the component rows (Business Value, Financial Debt, Cash). The bottom Equity Value row is clipped mid-digit, so the exact values per year (e.g., 45/49,281,999 for 2031 vs 52,769,359 for 2032) are not fully readable. I crop the Equity Value row itself to read its values against the confirmed year columns.\n</caption>\n<grounding>{\"bbox_2d\":[0.55,0.64,1.0,0.72],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "commit",
+          "caption": "[observation_1] and [observation_2] share the same x-window, so the ten bold Equity Value values bind in order to the confirmed columns: 2025=20,171,564 … 2031=43,432,669, 2032=49,281,999, 2033=52,769,359, 2034=60,183,678. The first value above 50,000,000 is 52,769,359 in 2033 (2032's 49,281,999 is still below).\nREVISE: [original_image] tentative reading \"45,281,999 at 2031, 52,769,359 at 2032\" -> corrected to 49,281,999 at 2032 and 52,769,359 at 2033, because [observation_2] shows ten values aligning one-to-one with the 2025–2034 headers in [observation_1].",
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1",
+            "observation_2",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 3 | commit\n[observation_1] and [observation_2] share the same x-window, so the ten bold Equity Value values bind in order to the confirmed columns: 2025=20,171,564 … 2031=43,432,669, 2032=49,281,999, 2033=52,769,359, 2034=60,183,678. The first value above 50,000,000 is 52,769,359 in 2033 (2032's 49,281,999 is still below).\nREVISE: [original_image] tentative reading \"45,281,999 at 2031, 52,769,359 at 2032\" -> corrected to 49,281,999 at 2032 and 52,769,359 at 2033, because [observation_2] shows ten values aligning one-to-one with the 2025–2034 headers in [observation_1].\n</caption>\n<answer>C</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2560,
+            1136
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "1d10daf7fd87b8b792dbffc74b46218fb6516ea56e7322ea3c1ddc4e7fea0ee4",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_10708/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.55,
+            0.47007042253521125,
+            1.0,
+            0.6795774647887324
+          ],
+          "source_px": [
+            1152,
+            238
+          ],
+          "shown_px": [
+            2156,
+            448
+          ],
+          "sha256": "a3146744743403947a9f4892fed3783db3889992c0910825f5ea1d766a0e3aba",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_10708/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.55,
+            0.6399647887323944,
+            1.0,
+            0.7200704225352113
+          ],
+          "source_px": [
+            1152,
+            91
+          ],
+          "shown_px": [
+            4620,
+            364
+          ],
+          "sha256": "0aa62ef0452381396adecfac2d5f32529c5b0f24e0b5f2784e54f7c40169ae3d",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_10708/obs2.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "recovery_candidate",
+        "reason": "Step 1 and step 2 misread 2031/2032 as 45,281,999 and 52,769,359, shifting the years by one column, and these were marked contradicted. Step 3 corrected to 2032=49,281,999 and 2033=52,769,359, which matches the other paths and the neutral reads. The blind reader could not read these values (UNCLEAR), but its final answer was C, so the recovery is supported only by the other paths and q1/q2, not by independent confirmation of GLM's own crops."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "UNCLEAR",
+        "UNCLEAR"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Sol 5.6",
+      "model": "gpt-5.6-sol",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/results/mme_realworld_10708.json",
+      "source_sha256": "6f4184c0ac54764419a5ac05758b2cd459687ba51af6485529b91e67938f611f",
+      "answer": "C",
+      "gold": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "In the “Forecasted Company Valuation” table, the Equity Value is 49,281,999 in 2032 and rises to 52,769,359 in 2033 [original_image]. Thus, it first exceeds 50,000,000 in 2033.",
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nIn the “Forecasted Company Valuation” table, the Equity Value is 49,281,999 in 2032 and rises to 52,769,359 in 2033 [original_image]. Thus, it first exceeds 50,000,000 in 2033.\n</caption>\n<answer>C</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2560,
+            1136
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "1d10daf7fd87b8b792dbffc74b46218fb6516ea56e7322ea3c1ddc4e7fea0ee4",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/mme_realworld_10708/obs0.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "Claims 49,281,999 (2032) and 52,769,359 (2033); the blind reader agreed on both and on the final answer C, and q1/q2 also agree. No wrong statements. Verification is minimal but the facts are correct."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE",
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Grok",
+      "model": "grok-4.7",
+      "family": "xai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/mme_realworld_10708.json",
+      "source_sha256": "a450cc23280b77aca92e7a7fd6aa119275dee29a145296bac4184ffbf2fdcace",
+      "answer": "C",
+      "gold": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 5,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The Forecasted Company Valuation table is in the lower-right panel, with an Equity Value row under year columns 2025–2034. I need the exact Equity Value figures to see which year first passes 50,000,000.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.39,
+              0.52,
+              0.99,
+              0.72
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe Forecasted Company Valuation table is in the lower-right panel, with an Equity Value row under year columns 2025–2034. I need the exact Equity Value figures to see which year first passes 50,000,000.\n</caption>\n<grounding>{\"bbox_2d\":[0.39,0.52,0.99,0.72],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "The crop shows the valuation numbers but clips the row labels, so the bold last-row values are not yet securely bound to Equity Value or to calendar years. I need the left edge of the same table to read those headers.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.39,
+              0.51,
+              0.72,
+              0.68
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\nThe crop shows the valuation numbers but clips the row labels, so the bold last-row values are not yet securely bound to Equity Value or to calendar years. I need the left edge of the same table to read those headers.\n</caption>\n<grounding>{\"bbox_2d\":[0.39,0.51,0.72,0.68],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "re_examine",
+          "caption": "The year mapping is visible, but the row names are still cut off at the left edge. I need a wider left crop so the bold value row can be identified as Equity Value rather than another total.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.38,
+              0.55,
+              0.58,
+              0.68
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_3",
+          "visible_output": "<caption>\nStep 3 | re_examine\nThe year mapping is visible, but the row names are still cut off at the left edge. I need a wider left crop so the bold value row can be identified as Equity Value rather than another total.\n</caption>\n<grounding>{\"bbox_2d\":[0.38,0.55,0.58,0.68],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 4,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3"
+          ],
+          "behavior": "fallback",
+          "caption": "The previous crop still begins mid-word, showing fragments such as “rise Value” and “al Debt,” so the row identities remain unresolved. I will shift farther left to capture the complete row labels.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.36,
+              0.54,
+              0.52,
+              0.68
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_4",
+          "visible_output": "<caption>\nStep 4 | fallback\nThe previous crop still begins mid-word, showing fragments such as “rise Value” and “al Debt,” so the row identities remain unresolved. I will shift farther left to capture the complete row labels.\n</caption>\n<grounding>{\"bbox_2d\":[0.36,0.54,0.52,0.68],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 5,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4"
+          ],
+          "behavior": "re_examine",
+          "caption": "The visible labels stop at Cash, while the next row is clipped at the bottom. I need that final label fully visible to bind it to the bold value series.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.36,
+              0.58,
+              0.55,
+              0.72
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_5",
+          "visible_output": "<caption>\nStep 5 | re_examine\nThe visible labels stop at Cash, while the next row is clipped at the bottom. I need that final label fully visible to bind it to the bold value series.\n</caption>\n<grounding>{\"bbox_2d\":[0.36,0.58,0.55,0.72],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 6,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4",
+            "observation_5"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_5], the bold final row is labeled Equity Value. Combined with [observation_1] and the calendar headers in [original_image], 2032 shows 49,281,999 while 2033 shows 52,769,359, so Equity Value first exceeds 50,000,000 in 2033.",
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1",
+            "observation_5",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 6 | commit\nIn [observation_5], the bold final row is labeled Equity Value. Combined with [observation_1] and the calendar headers in [original_image], 2032 shows 49,281,999 while 2033 shows 52,769,359, so Equity Value first exceeds 50,000,000 in 2033.\n</caption>\n<answer>C</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            2560,
+            1136
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "1d10daf7fd87b8b792dbffc74b46218fb6516ea56e7322ea3c1ddc4e7fea0ee4",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/mme_realworld_10708/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.38984375,
+            0.5202464788732394,
+            0.98984375,
+            0.7200704225352113
+          ],
+          "source_px": [
+            1536,
+            227
+          ],
+          "shown_px": [
+            3024,
+            448
+          ],
+          "sha256": "0934dd19d900c7357a49b98b5eedf480bd891854ce9e1a32d54304c88b4c5fd0",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/mme_realworld_10708/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.38984375,
+            0.5096830985915493,
+            0.719921875,
+            0.6795774647887324
+          ],
+          "source_px": [
+            845,
+            193
+          ],
+          "shown_px": [
+            1960,
+            448
+          ],
+          "sha256": "b0340c562e0f7d6f2380e36b7afade3e600b55ba6d7d2b33e9aad9f83be053d1",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/mme_realworld_10708/obs2.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_3",
+          "parent": "original_image",
+          "fov_original": [
+            0.380078125,
+            0.5501760563380281,
+            0.580078125,
+            0.6795774647887324
+          ],
+          "source_px": [
+            512,
+            147
+          ],
+          "shown_px": [
+            1568,
+            448
+          ],
+          "sha256": "2a370511935be5ba8ec0370449117774a8e81cf164a75d350ed7aa9a8dc8aefa",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/mme_realworld_10708/obs3.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_4",
+          "parent": "original_image",
+          "fov_original": [
+            0.36015625,
+            0.539612676056338,
+            0.519921875,
+            0.6795774647887324
+          ],
+          "source_px": [
+            409,
+            159
+          ],
+          "shown_px": [
+            1148,
+            448
+          ],
+          "sha256": "f87282d152d6168d4be45a2446369d2501aef98ccd653f9ed7e9e68e48e7de67",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/mme_realworld_10708/obs4.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_5",
+          "parent": "original_image",
+          "fov_original": [
+            0.36015625,
+            0.5801056338028169,
+            0.55,
+            0.7200704225352113
+          ],
+          "source_px": [
+            486,
+            159
+          ],
+          "shown_px": [
+            1372,
+            448
+          ],
+          "sha256": "89166df4900e016ea2e4a44209bebf522339615ff63ecad67afe5ff6da503aff",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/mme_realworld_10708/obs5.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "normal_search_clean",
+        "reason": "Binds the row label, year headers and values through several crops, and ends at 2032=49,281,999 and 2033=52,769,359. The blind reader agreed on both values and on the final answer C, and q1/q2 confirm them. No wrong statements remain."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE",
+        "AGREE"
+      ],
+      "manual_verdict": null
+    }
+  ]
+}

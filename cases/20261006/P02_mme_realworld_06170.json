@@ -1,0 +1,551 @@
+{
+  "schema": "public-progress-case-v1",
+  "case_id": "P02",
+  "item_id": "mme_realworld_06170",
+  "title": "同样的数值，仍须绑定正确图表",
+  "task_paraphrase_zh": "读取指定比较图表的六月数值。",
+  "editorial_observation_zh": "两个面板六月均为 732,998；先看到另一面板、按图例排除并换区，是合理搜索。",
+  "category": "normal_search",
+  "sampling": "Purposive calibration, not a random acceptance sample",
+  "editorial_status": "Codex review, not human KEEP",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "label": "Luna",
+      "model": "gpt-6-luna",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_06170.json",
+      "source_sha256": "233e89c51cb9eb03e29f22e806625c46a72c049805824994b6d59e166612a5a4",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 2,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The chart labeled “EBITDA Variance” appears in the lower panel of STEP 1, but its bars and vertical labels are too small here to read reliably. I’ll inspect that chart to bind June’s value to the requested variance.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.199,
+              0.68,
+              0.399,
+              0.914
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe chart labeled “EBITDA Variance” appears in the lower panel of STEP 1, but its bars and vertical labels are too small here to read reliably. I’ll inspect that chart to bind June’s value to the requested variance.\n</caption>\n<grounding>{\"bbox_2d\":[0.199,0.68,0.399,0.914],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "The inspected STEP 1 chart binds June to 732,998, but its legend identifies “Variance (Actuals vs. Budget) Monthly (2022),” not the requested Budget vs Updated Forecast. I need to inspect the STEP 4 “EBITDA Variance” chart, where the legend is Budget vs. Updated Forecast, and read its June bar.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.803,
+              0.68,
+              0.998,
+              0.914
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\nThe inspected STEP 1 chart binds June to 732,998, but its legend identifies “Variance (Actuals vs. Budget) Monthly (2022),” not the requested Budget vs Updated Forecast. I need to inspect the STEP 4 “EBITDA Variance” chart, where the legend is Budget vs. Updated Forecast, and read its June bar.\n</caption>\n<grounding>{\"bbox_2d\":[0.803,0.68,0.998,0.914],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_2], the STEP 4 EBITDA Variance chart’s legend is “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This matches option D.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_2"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 3 | commit\nIn [observation_2], the STEP 4 EBITDA Variance chart’s legend is “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This matches option D.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            3124,
+            1394
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "029c562e2299ee32a2f1e540ef0a882f1b36b02e4b72c01026c39c8f6a37deff",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.19910371318822023,
+            0.6800573888091822,
+            0.39884763124199746,
+            0.9139167862266858
+          ],
+          "source_px": [
+            624,
+            326
+          ],
+          "shown_px": [
+            868,
+            448
+          ],
+          "sha256": "db2b4b44636793e1ef8cc600ccfd1c24fb339c02c380f2eda7a22687fba45c8c",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.8031370038412292,
+            0.6800573888091822,
+            0.9980793854033291,
+            0.9139167862266858
+          ],
+          "source_px": [
+            609,
+            326
+          ],
+          "shown_px": [
+            840,
+            448
+          ],
+          "sha256": "beeff0e3f38b9e1752fe1872e5b132af5545fcd2af1db1f38e827593bbbbb1fb",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_06170/obs2.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "normal_search_clean",
+        "reason": "Luna first read 732,998 from the STEP 1 chart (Actuals vs. Budget) and correctly rejected it on the legend, then moved to STEP 4 and read 732,998 on the Budget vs. Updated Forecast June bar. The blind read agrees with the claim and the final answer is D."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "GLM",
+      "model": "glm-5.3-flash",
+      "family": "zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/mme_realworld_06170.json",
+      "source_sha256": "d806c80313664a1d5ad576d99ab1b05c63baf81cd7f5bf86b524b80fcc011159",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The dashboard has several \"EBITDA Variance\" charts; the one for Budget vs Updated Forecast is in the STEP 4 panel at the far right, with legend \"Variance (Budget Vs. Updated Forecast)\". I need to read the June bar label there, so I crop that chart region.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.8,
+              0.66,
+              1.0,
+              0.98
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe dashboard has several \"EBITDA Variance\" charts; the one for Budget vs Updated Forecast is in the STEP 4 panel at the far right, with legend \"Variance (Budget Vs. Updated Forecast)\". I need to read the June bar label there, so I crop that chart region.\n</caption>\n<grounding>{\"bbox_2d\":[0.80,0.66,1.0,0.98],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_1], the STEP 4 chart is titled \"EBITDA Variance\" with legend \"Variance (Budget Vs. Updated Forecast)\". Its Jun bar is labeled 732,998, matching option D.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the STEP 4 chart is titled \"EBITDA Variance\" with legend \"Variance (Budget Vs. Updated Forecast)\". Its Jun bar is labeled 732,998, matching option D.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            3124,
+            1394
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "029c562e2299ee32a2f1e540ef0a882f1b36b02e4b72c01026c39c8f6a37deff",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_06170/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.7999359795134443,
+            0.6599713055954088,
+            1.0,
+            0.9799139167862266
+          ],
+          "source_px": [
+            625,
+            446
+          ],
+          "shown_px": [
+            616,
+            448
+          ],
+          "sha256": "027f957a4cd53420cd1e2dc4f02cba31c3d32e0539fc58e1aa65cc53f1944bec",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_06170/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "GLM went straight to the STEP 4 chart with the Budget vs. Updated Forecast legend and read 732,998 on the Jun bar from one clean crop. The blind read agrees and the final answer is D."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Sol 5.6",
+      "model": "gpt-5.6-sol",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/results/mme_realworld_06170.json",
+      "source_sha256": "af74fe0fd227b11c9c929726c56ec64a0757c3994044ce2b317c91f43f7620c0",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 2,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The relevant panel is Step 4’s bottom-right “EBITDA Variance” chart, whose legend identifies “Variance (Budget vs. Updated Forecast).” I need to inspect the June bar label and keep it bound to that month and series. [original_image]",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.795,
+              0.435,
+              1.0,
+              0.655
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe relevant panel is Step 4’s bottom-right “EBITDA Variance” chart, whose legend identifies “Variance (Budget vs. Updated Forecast).” I need to inspect the June bar label and keep it bound to that month and series. [original_image]\n</caption>\n<grounding>{\"bbox_2d\":[0.795,0.435,1.0,0.655],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "fallback",
+          "caption": "The crop shows the Step 4 EBITDA area chart rather than the lower EBITDA Variance bars, so it does not contain the requested June label. I will shift downward within the same Step 4 column to include the variance title, month axis, and vertical data labels. [observation_1] [original_image]",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.795,
+              0.635,
+              1.0,
+              0.94
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_1",
+            "original_image"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | fallback\nThe crop shows the Step 4 EBITDA area chart rather than the lower EBITDA Variance bars, so it does not contain the requested June label. I will shift downward within the same Step 4 column to include the variance title, month axis, and vertical data labels. [observation_1] [original_image]\n</caption>\n<grounding>{\"bbox_2d\":[0.795,0.635,1.0,0.94],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "commit",
+          "caption": "The Step 4 “EBITDA Variance” chart’s legend identifies the series as “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This corresponds to option D. [observation_2]",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_2"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 3 | commit\nThe Step 4 “EBITDA Variance” chart’s legend identifies the series as “Variance (Budget vs. Updated Forecast),” and the June bar is labeled 732,998. This corresponds to option D. [observation_2]\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            3124,
+            1394
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "029c562e2299ee32a2f1e540ef0a882f1b36b02e4b72c01026c39c8f6a37deff",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/mme_realworld_06170/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.795134443021767,
+            0.4347202295552367,
+            1.0,
+            0.6549497847919655
+          ],
+          "source_px": [
+            640,
+            307
+          ],
+          "shown_px": [
+            924,
+            448
+          ],
+          "sha256": "da2b3b37b3e1a4b29aa7a5589924d948b4cdc757a35fc55c462197e566507759",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/mme_realworld_06170/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.795134443021767,
+            0.6348637015781923,
+            1.0,
+            0.93974175035868
+          ],
+          "source_px": [
+            640,
+            425
+          ],
+          "shown_px": [
+            672,
+            448
+          ],
+          "sha256": "b0a860eb76267ccfdeb762dafe9a07a492ceff47ac21bb90d20ceb56e4c484cd",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/mme_realworld_06170/obs2.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "normal_search_clean",
+        "reason": "Sol's first crop showed the STEP 4 area chart rather than the variance bars. It then moved down and read 732,998 on the June bar under the Budget vs. Updated Forecast legend. The blind read agrees and the final answer is D."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Grok",
+      "model": "grok-4.7-cpa",
+      "family": "xai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/results/mme_realworld_06170.json",
+      "source_sha256": "f30f5626e5c0df7c0676ec2538dd2ec88e5dfd4a74e046c94350c5b38e6a03cd",
+      "answer": "D",
+      "gold": "D",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The requested series is the bottom-right EBITDA Variance chart under Updated Forecast vs. Budget, not the other variance panels. I need the numeric label on the June bar.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.8,
+              0.68,
+              0.99,
+              0.92
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe requested series is the bottom-right EBITDA Variance chart under Updated Forecast vs. Budget, not the other variance panels. I need the numeric label on the June bar.\n</caption>\n<grounding>{\"bbox_2d\":[0.80,0.68,0.99,0.92],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_1], the bottom-right EBITDA Variance chart is labeled Variance (Budget vs. Updated Forecast), and the June bar is marked 732,998. That matches option D.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nIn [observation_1], the bottom-right EBITDA Variance chart is labeled Variance (Budget vs. Updated Forecast), and the June bar is marked 732,998. That matches option D.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            3124,
+            1394
+          ],
+          "shown_px": [
+            2100,
+            924
+          ],
+          "sha256": "029c562e2299ee32a2f1e540ef0a882f1b36b02e4b72c01026c39c8f6a37deff",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_06170/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.7999359795134443,
+            0.6800573888091822,
+            0.9900768245838668,
+            0.9196556671449068
+          ],
+          "source_px": [
+            594,
+            334
+          ],
+          "shown_px": [
+            784,
+            448
+          ],
+          "sha256": "42804224f98768a056310857c9587cf7bd20f20f769462b05eb1a4dc2b38ed35",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_06170/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "clean",
+        "reason": "Grok read 732,998 on the June bar of the chart with the Budget vs. Updated Forecast legend in a single step. The blind read agrees and the final answer is D, though it gives less detail on how it identified the chart."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    }
+  ]
+}

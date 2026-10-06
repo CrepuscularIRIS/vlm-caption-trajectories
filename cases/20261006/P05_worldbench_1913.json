@@ -1,0 +1,332 @@
+{
+  "schema": "public-progress-case-v1",
+  "case_id": "P05",
+  "item_id": "worldbench_1913",
+  "title": "四家同答与 GT 冲突：局部表格不代表全部账户",
+  "task_paraphrase_zh": "判断账户所有者的全部交易数量能否由当前界面确定。",
+  "editorial_observation_zh": "四条都答 B（两行），GT 为 D。可见 Credit Card 的两行不能证明所有账户交易总数。保留 GT，不把共错自动当作升级模型就能救回的题。",
+  "category": "shared_gold_conflict",
+  "sampling": "Purposive calibration, not a random acceptance sample",
+  "editorial_status": "Codex review, not human KEEP",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "label": "Luna",
+      "model": "gpt-6-luna",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/worldbench_1913.json",
+      "source_sha256": "f1e686d48f468e40c4e7dd81dc848df2473739d19dc7cc7c763cb19b608876e0",
+      "answer": "B",
+      "gold": "D",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The visible Credit Card account ledger contains two transaction rows: “Store” and “Starting Balance” [original_image]. Counting the rows under this account owner gives 2 total transactions.",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe visible Credit Card account ledger contains two transaction rows: “Store” and “Starting Balance” [original_image]. Counting the rows under this account owner gives 2 total transactions.\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "Row count of 2 in the Credit Card register is confirmed by blind read, but the path equates 'account owner' with that single register; no owner is shown (q1) and the Checking Account's transactions are not displayed (q2), so its answer B contradicts the kept answer D."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "GLM",
+      "model": "glm-5.3-flash",
+      "family": "zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/worldbench_1913.json",
+      "source_sha256": "7e8526c0e0a3862fab2e22fee869c7a640173d013169d67e1e70b01e2cc613aa",
+      "answer": "B",
+      "gold": "D",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "Counting transaction rows in the register table of the displayed account (\"Credit Card\", the only transaction list shown): row 1 is \"04/05/2016 Store\", row 2 is \"04/05/2016 Starting Balance\", and the area below the rows is blank with no clipped edge row [original_image].\nCALC: Store 1 + Starting Balance 1 = 2 transactions total.",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nCounting transaction rows in the register table of the displayed account (\"Credit Card\", the only transaction list shown): row 1 is \"04/05/2016 Store\", row 2 is \"04/05/2016 Starting Balance\", and the area below the rows is blank with no clipped edge row [original_image].\nCALC: Store 1 + Starting Balance 1 = 2 transactions total.\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "Count of 2 rows (Store, Starting Balance) agrees with the blind read, but it assumes the only displayed list is the owner's; the Checking Account is unseen and no owner is identified, so the final B conflicts with D."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Sol 5.6",
+      "model": "gpt-5.6-sol",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/results/worldbench_1913.json",
+      "source_sha256": "09e09a0c34027fc35a48e457d2e10405d7bb68050eba1b680f699b85967174a1",
+      "answer": "B",
+      "gold": "D",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 0,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "commit",
+          "caption": "The full transaction table for the selected “Credit Card” account contains two transaction rows: “Store” and “Starting Balance” [original_image]. The unit counted is transaction rows, for a total of 2.",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 1 | commit\nThe full transaction table for the selected “Credit Card” account contains two transaction rows: “Store” and “Starting Balance” [original_image]. The unit counted is transaction rows, for a total of 2.\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "Correctly counts 2 rows in the Credit Card table, but treats the selected account as the account owner's full set of transactions; the image shows no owner and omits the Checking Account's transactions, so B is unsupported versus D."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Grok",
+      "model": "grok-4.7",
+      "family": "xai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/results/worldbench_1913.json",
+      "source_sha256": "60966bd82e406655d48eefbc5c536a7c73df3e695d8189892b04ca3983d804a8",
+      "answer": "B",
+      "gold": "D",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The selected Credit Card register shows dated rows under DATE, PAYEE, and CATEGORY, but the exact row count and whether any extra row is clipped at the bottom still need a closer look [original_image].",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.33,
+              0.28,
+              0.99,
+              0.72
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "original_image"
+          ],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe selected Credit Card register shows dated rows under DATE, PAYEE, and CATEGORY, but the exact row count and whether any extra row is clipped at the bottom still need a closer look [original_image].\n</caption>\n<grounding>{\"bbox_2d\":[0.33,0.28,0.99,0.72],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The Credit Card register contains two dated transaction rows: Store and Starting Balance, with empty space beneath them [observation_1]. No additional transaction row is visible in the account region [original_image].\nCALC: 1 + 1 = 2 transactions.",
+          "action": {
+            "kind": "answer",
+            "answer": "B"
+          },
+          "cited": [
+            "observation_1",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe Credit Card register contains two dated transaction rows: Store and Starting Balance, with empty space beneath them [observation_1]. No additional transaction row is visible in the account region [original_image].\nCALC: 1 + 1 = 2 transactions.\n</caption>\n<answer>B</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1118,
+            263
+          ],
+          "shown_px": [
+            1904,
+            448
+          ],
+          "sha256": "6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_1913/obs0.jpg",
+          "public_asset": "media/20261004/6ee746838c7aa2bf28ccf720fcd9a952dc653d96a33648c44447b4e1dc4d19b3.jpg"
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.3300536672629696,
+            0.2813688212927757,
+            0.9901610017889088,
+            0.7186311787072244
+          ],
+          "source_px": [
+            738,
+            115
+          ],
+          "shown_px": [
+            2884,
+            448
+          ],
+          "sha256": "11fb3305d2eb11a6322ba6cc880cb886d97c64372f510d5022b32386421451de",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7_low/obs/worldbench_1913/obs1.jpg",
+          "public_asset": "media/20261004/11fb3305d2eb11a6322ba6cc880cb886d97c64372f510d5022b32386421451de.jpg"
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "The observation of 2 rows with empty space below is accurate, but it only shows the Credit Card register is complete, not that it covers the 'account owner'; with no owner shown and Checking not visible, B is unsupported and D is the kept answer."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    }
+  ]
+}

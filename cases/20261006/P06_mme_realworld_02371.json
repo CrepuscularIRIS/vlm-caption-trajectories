@@ -1,0 +1,1049 @@
+{
+  "schema": "public-progress-case-v1",
+  "case_id": "P06",
+  "item_id": "mme_realworld_02371",
+  "title": "颜色用于区分对象时，歧义不能被正确终答掩盖",
+  "task_paraphrase_zh": "判断右侧黑上衣、蓝色下装行人的动作。",
+  "editorial_observation_zh": "两组模型绑定不同人物。暗部不足以可靠区分蓝/黑；GLM 同时被标 normal_search_clean 和 ambiguous，不能只读前一字段导出。暂不入 clean，GT 不变。",
+  "category": "ambiguous",
+  "sampling": "Purposive calibration, not a random acceptance sample",
+  "editorial_status": "Codex review, not human KEEP",
+  "independent_generator_families": 3,
+  "trajectories": [
+    {
+      "label": "Luna",
+      "model": "gpt-6-luna",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/results/mme_realworld_02371.json",
+      "source_sha256": "5c375f40566c18d05623601c93004e976dacdc570d26a3ae58f6d65e16b8c2ae",
+      "answer": "C",
+      "gold": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 2,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "Several pedestrians are on the right, including people on the sidewalk and a dark-clothed figure nearer the crosswalk. I need to distinguish the person wearing both a black top and blue bottoms, then determine that same person's position relative to the crossing.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.59,
+              0.35,
+              0.87,
+              0.92
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nSeveral pedestrians are on the right, including people on the sidewalk and a dark-clothed figure nearer the crosswalk. I need to distinguish the person wearing both a black top and blue bottoms, then determine that same person's position relative to the crossing.\n</caption>\n<grounding>{\"bbox_2d\":[0.59,0.35,0.87,0.92],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_1], the man at the left edge wears a black top and dark-looking bottoms, while the other nearby pedestrians are not a clear match. The bottoms’ color and whether this matching person is crossing the marked crosswalk or walking alongside it remain uncertain.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.59,
+              0.35,
+              0.72,
+              0.88
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\nIn [observation_1], the man at the left edge wears a black top and dark-looking bottoms, while the other nearby pedestrians are not a clear match. The bottoms’ color and whether this matching person is crossing the marked crosswalk or walking alongside it remain uncertain.\n</caption>\n<grounding>{\"bbox_2d\":[0.59,0.35,0.72,0.88],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "commit",
+          "caption": "The pedestrian on the far right near the stop sign wears a black top and blue bottoms [original_image]; in [observation_1], that same person is on the sidewalk, not on the crosswalk. The matching pedestrian is walking on the sidewalk.",
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1",
+            "original_image"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 3 | commit\nThe pedestrian on the far right near the stop sign wears a black top and blue bottoms [original_image]; in [observation_1], that same person is on the sidewalk, not on the crosswalk. The matching pedestrian is walking on the sidewalk.\n</caption>\n<answer>C</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            5760,
+            1200
+          ],
+          "shown_px": [
+            3080,
+            644
+          ],
+          "sha256": "e48b22a2111683af90d863a579697ffeaf50eb56ac2d40cfdff59da0fecc14bf",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02371/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.5899305555555555,
+            0.35,
+            0.8699652777777778,
+            0.92
+          ],
+          "source_px": [
+            1613,
+            684
+          ],
+          "shown_px": [
+            1624,
+            672
+          ],
+          "sha256": "c07955bb78cdb99640d00979b01563ba94967f2d6c2b5d94bedbf10598186086",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02371/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.5899305555555555,
+            0.35,
+            0.7199652777777777,
+            0.88
+          ],
+          "source_px": [
+            749,
+            636
+          ],
+          "shown_px": [
+            756,
+            644
+          ],
+          "sha256": "e949ae379271a59b4974019e0c4eb57d0502207a685cd32d732cf350c161bd4a",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-6-luna_low/obs/mme_realworld_02371/obs2.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "ambiguous",
+        "reason": "Binds the far-right sidewalk pedestrian and reaches C, and the blind read agrees on the sidewalk surface. But the blind read and q1 give black pants, so the 'blue bottoms' fact is unsupported. The process was also marked flawed for thin checking."
+      },
+      "reviewers_split": true,
+      "ambiguous": true,
+      "fact_statuses": [
+        "AGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "GLM",
+      "model": "glm-5.3-flash",
+      "family": "zhipu",
+      "effort": "high",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/results/mme_realworld_02371.json",
+      "source_sha256": "0b30fb5d6e79028058ce01d028afbcb436e1120bb8a80aa10764300bfc5f3bab",
+      "answer": "C",
+      "gold": "C",
+      "score": {
+        "score": 1,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 7,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The right side of the panorama shows a crosswalk with several pedestrians, some mid-crossing and others on the right sidewalk. I need to find the one wearing a black top and blue bottom and judge whether they are on the crosswalk, sidewalk, or crossing illegally. I crop the right crosswalk area where the dark-clothed pedestrian stands.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.58,
+              0.3,
+              0.85,
+              1.0
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe right side of the panorama shows a crosswalk with several pedestrians, some mid-crossing and others on the right sidewalk. I need to find the one wearing a black top and blue bottom and judge whether they are on the crosswalk, sidewalk, or crossing illegally. I crop the right crosswalk area where the dark-clothed pedestrian stands.\n</caption>\n<grounding>{\"bbox_2d\":[0.58,0.3,0.85,1.0],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_1], one man at the left stands on the white zebra stripes wearing a dark jacket; his pants look dark and possibly blue. Other pedestrians to the right walk near the curb, and one blurred figure at far right wears a dark top with lighter blue-gray pants. I zoom on the man on the stripes to bind his top and bottom colors and his position.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.05,
+              0.15,
+              0.35,
+              0.75
+            ],
+            "source": "observation_1"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\nIn [observation_1], one man at the left stands on the white zebra stripes wearing a dark jacket; his pants look dark and possibly blue. Other pedestrians to the right walk near the curb, and one blurred figure at far right wears a dark top with lighter blue-gray pants. I zoom on the man on the stripes to bind his top and bottom colors and his position.\n</caption>\n<grounding>{\"bbox_2d\":[0.05,0.15,0.35,0.75],\"source\":\"observation_1\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_2], the man mid-crosswalk wears a black jacket, but his pants read nearly black in this shadowed crop, not clearly blue. In [observation_1], the blurred figure at far right by the pole shows a dark top with lighter gray-blue pants. I inspect that figure to bind its colors and position.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.75,
+              0.05,
+              1.0,
+              0.85
+            ],
+            "source": "observation_1"
+          },
+          "cited": [
+            "observation_1",
+            "observation_2"
+          ],
+          "observation": "observation_3",
+          "visible_output": "<caption>\nStep 3 | re_examine\nIn [observation_2], the man mid-crosswalk wears a black jacket, but his pants read nearly black in this shadowed crop, not clearly blue. In [observation_1], the blurred figure at far right by the pole shows a dark top with lighter gray-blue pants. I inspect that figure to bind its colors and position.\n</caption>\n<grounding>{\"bbox_2d\":[0.75,0.05,1.0,0.85],\"source\":\"observation_1\"}</grounding>"
+        },
+        {
+          "step": 4,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_3], the figure near the pole has a dark top and dark pants, but the crop is too shadowed to confirm the bottom is blue, and the figure is partly hidden. The far right edge of [original_image] shows another pedestrian whose pants look lighter blue-gray. I crop that edge region to bind the colors and position.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.82,
+              0.3,
+              1.0,
+              1.0
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_3",
+            "original_image"
+          ],
+          "observation": "observation_4",
+          "visible_output": "<caption>\nStep 4 | re_examine\nIn [observation_3], the figure near the pole has a dark top and dark pants, but the crop is too shadowed to confirm the bottom is blue, and the figure is partly hidden. The far right edge of [original_image] shows another pedestrian whose pants look lighter blue-gray. I crop that edge region to bind the colors and position.\n</caption>\n<grounding>{\"bbox_2d\":[0.82,0.3,1.0,1.0],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 5,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_4], the far-right edge is only shadow with a sliver of the pole figure, so no distinct blue-pants pedestrian exists beyond him. The strongest candidate remains the man on the zebra stripes in [observation_2]: black jacket, mid-stride on the crosswalk, with pants that may be dark blue. I re-examine his legs at higher zoom to bind the bottom color.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.28,
+              0.45,
+              0.65,
+              1.0
+            ],
+            "source": "observation_2"
+          },
+          "cited": [
+            "observation_2",
+            "observation_4"
+          ],
+          "observation": "observation_5",
+          "visible_output": "<caption>\nStep 5 | re_examine\nIn [observation_4], the far-right edge is only shadow with a sliver of the pole figure, so no distinct blue-pants pedestrian exists beyond him. The strongest candidate remains the man on the zebra stripes in [observation_2]: black jacket, mid-stride on the crosswalk, with pants that may be dark blue. I re-examine his legs at higher zoom to bind the bottom color.\n</caption>\n<grounding>{\"bbox_2d\":[0.28,0.45,0.65,1.0],\"source\":\"observation_2\"}</grounding>"
+        },
+        {
+          "step": 6,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4",
+            "observation_5"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_5], the crossing man's pants stay a backlit black silhouette with only a faint blue rim, leaving the bottom color unresolved. The pole figure in [observation_3] is the other black-top candidate: his thigh shows a gray-blue tone on the sidewalk. I zoom his legs to bind whether his bottom is blue.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.15,
+              0.45,
+              0.7,
+              0.9
+            ],
+            "source": "observation_3"
+          },
+          "cited": [
+            "observation_3",
+            "observation_5"
+          ],
+          "observation": "observation_6",
+          "visible_output": "<caption>\nStep 6 | re_examine\nIn [observation_5], the crossing man's pants stay a backlit black silhouette with only a faint blue rim, leaving the bottom color unresolved. The pole figure in [observation_3] is the other black-top candidate: his thigh shows a gray-blue tone on the sidewalk. I zoom his legs to bind whether his bottom is blue.\n</caption>\n<grounding>{\"bbox_2d\":[0.15,0.45,0.7,0.9],\"source\":\"observation_3\"}</grounding>"
+        },
+        {
+          "step": 7,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4",
+            "observation_5",
+            "observation_6"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_6], the pole figure's lower legs are shadowed black with only a white shoe highlight, so the thigh patch seen in [observation_3] is the remaining clue for a blue bottom. I zoom the hip-to-knee area of that same figure, keeping the black-top binding from [observation_3], to decide whether his pants are blue denim before choosing between crosswalk and sidewalk motions.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.2,
+              0.35,
+              0.8,
+              0.85
+            ],
+            "source": "observation_3"
+          },
+          "cited": [
+            "observation_3",
+            "observation_6"
+          ],
+          "observation": "observation_7",
+          "visible_output": "<caption>\nStep 7 | re_examine\nIn [observation_6], the pole figure's lower legs are shadowed black with only a white shoe highlight, so the thigh patch seen in [observation_3] is the remaining clue for a blue bottom. I zoom the hip-to-knee area of that same figure, keeping the black-top binding from [observation_3], to decide whether his pants are blue denim before choosing between crosswalk and sidewalk motions.\n</caption>\n<grounding>{\"bbox_2d\":[0.2,0.35,0.8,0.85],\"source\":\"observation_3\"}</grounding>"
+        },
+        {
+          "step": 8,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4",
+            "observation_5",
+            "observation_6",
+            "observation_7"
+          ],
+          "behavior": "commit",
+          "caption": "Across [observation_1], [observation_3], and [observation_7], the rightmost pedestrian by the pole has a black top and a gray-blue denim-toned thigh, i.e., a blue bottom, and his stride and motion blur show him walking on the sidewalk past the end of the crosswalk. The crosswalk man in [observation_2]/[observation_5] has a black top but his pants stay a backlit black silhouette with no confirmable blue, so he does not meet both conditions. The bound instance (black top, blue bottom, far right) is walking on the sidewalk.",
+          "action": {
+            "kind": "answer",
+            "answer": "C"
+          },
+          "cited": [
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_5",
+            "observation_7"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 8 | commit\nAcross [observation_1], [observation_3], and [observation_7], the rightmost pedestrian by the pole has a black top and a gray-blue denim-toned thigh, i.e., a blue bottom, and his stride and motion blur show him walking on the sidewalk past the end of the crosswalk. The crosswalk man in [observation_2]/[observation_5] has a black top but his pants stay a backlit black silhouette with no confirmable blue, so he does not meet both conditions. The bound instance (black top, blue bottom, far right) is walking on the sidewalk.\n</caption>\n<answer>C</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            5760,
+            1200
+          ],
+          "shown_px": [
+            3080,
+            644
+          ],
+          "sha256": "e48b22a2111683af90d863a579697ffeaf50eb56ac2d40cfdff59da0fecc14bf",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.5800347222222222,
+            0.3,
+            0.85,
+            1.0
+          ],
+          "source_px": [
+            1555,
+            840
+          ],
+          "shown_px": [
+            1568,
+            840
+          ],
+          "sha256": "98737a0cb2162797f654643151331c1ac62eea3e5a424f1b86d018294e4c130e",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "observation_1",
+          "fov_original": [
+            0.5935763888888889,
+            0.405,
+            0.6744791666666666,
+            0.825
+          ],
+          "source_px": [
+            466,
+            504
+          ],
+          "shown_px": [
+            476,
+            504
+          ],
+          "sha256": "cf313817efe5085c456c8ecad9410588e37c182d3c764f228e841aba0827307c",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs2.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_3",
+          "parent": "observation_1",
+          "fov_original": [
+            0.7824652777777777,
+            0.335,
+            0.85,
+            0.895
+          ],
+          "source_px": [
+            389,
+            672
+          ],
+          "shown_px": [
+            448,
+            784
+          ],
+          "sha256": "28f66513146dae3901e233ec6f8cd82243aef3ea8d7607c55d53efbbbbd5afe1",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs3.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_4",
+          "parent": "original_image",
+          "fov_original": [
+            0.8199652777777777,
+            0.3,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            1037,
+            840
+          ],
+          "shown_px": [
+            1036,
+            840
+          ],
+          "sha256": "8dd2ac68e9e53ddc634d51552bd6a144fdbb033775da6dfda494a57ea7ce9755",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs4.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_5",
+          "parent": "observation_2",
+          "fov_original": [
+            0.6161458333333333,
+            0.5941666666666666,
+            0.6461805555555555,
+            0.825
+          ],
+          "source_px": [
+            173,
+            277
+          ],
+          "shown_px": [
+            448,
+            728
+          ],
+          "sha256": "bbe606fc49fc1fcc259ed58cbf2d54a83e64eb5e236392a74712a237cd062527",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs5.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_6",
+          "parent": "observation_3",
+          "fov_original": [
+            0.7925347222222222,
+            0.5866666666666667,
+            0.8296875,
+            0.8391666666666666
+          ],
+          "source_px": [
+            214,
+            303
+          ],
+          "shown_px": [
+            448,
+            644
+          ],
+          "sha256": "b8bbbed3b62c4457df466d432cb44d35cf25fd914f97751cf7043f1f8ac51c11",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs6.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_7",
+          "parent": "observation_3",
+          "fov_original": [
+            0.7960069444444444,
+            0.5308333333333334,
+            0.8364583333333333,
+            0.8108333333333333
+          ],
+          "source_px": [
+            233,
+            336
+          ],
+          "shown_px": [
+            448,
+            644
+          ],
+          "sha256": "0cf6a370914c104963acf5a1f3f20bf9815addae41ba2bd5be4c06d56a88fa4c",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_glm-5.3-flash_high/obs/mme_realworld_02371/obs7.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "normal_search_clean",
+        "reason": "Checks both black-top candidates, finds the crosswalk man's pants stay black, and settles on the pole pedestrian on the sidewalk (blind read AGREE, q3 sidewalk, answer C matches). Its 'gray-blue pants' claim is contradicted by the blind read and q1 (black), but the target binding and the answer do not depend on it."
+      },
+      "reviewers_split": true,
+      "ambiguous": true,
+      "fact_statuses": [
+        "AGREE",
+        "DISAGREE"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Sol 5.6",
+      "model": "gpt-5.6-sol",
+      "family": "openai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low_b/results/mme_realworld_02371.json",
+      "source_sha256": "63e66a8f53e8b1658c56d2214b3e52ebac695756eed16e3b76d9a935962a3b71",
+      "answer": "D",
+      "gold": "C",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 1,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "Several pedestrians appear on the right, including candidates in dark tops near the curb and sidewalk. I need to distinguish which one has blue bottoms and then judge that same person’s position relative to the crosswalk.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.61,
+              0.2,
+              0.92,
+              0.98
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nSeveral pedestrians appear on the right, including candidates in dark tops near the curb and sidewalk. I need to distinguish which one has blue bottoms and then judge that same person’s position relative to the crosswalk.\n</caption>\n<grounding>{\"bbox_2d\":[0.61,0.20,0.92,0.98],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "commit",
+          "caption": "The matching pedestrian is the leftmost person in [observation_1], wearing a black top and blue bottoms. That person is walking directly on the painted crosswalk stripes, so the motion is crossing the crosswalk.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 2 | commit\nThe matching pedestrian is the leftmost person in [observation_1], wearing a black top and blue bottoms. That person is walking directly on the painted crosswalk stripes, so the motion is crossing the crosswalk.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            5760,
+            1200
+          ],
+          "shown_px": [
+            3080,
+            644
+          ],
+          "sha256": "e48b22a2111683af90d863a579697ffeaf50eb56ac2d40cfdff59da0fecc14bf",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low_b/obs/mme_realworld_02371/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.6100694444444444,
+            0.2,
+            0.9199652777777778,
+            0.98
+          ],
+          "source_px": [
+            1785,
+            936
+          ],
+          "shown_px": [
+            1792,
+            924
+          ],
+          "sha256": "9cfe47e1c3faa9de45d1a0d412a08a99634fe11f4a0a5cf65b1823b04b013c6e",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_gpt-5.6-sol_low_b/obs/mme_realworld_02371/obs1.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "Binds the man on the crosswalk stripes as having blue bottoms, which q2 (black pants) contradicts. It answers D, which differs from the kept answer C, and the blind check on its key fact was UNCLEAR."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "UNCLEAR"
+      ],
+      "manual_verdict": null
+    },
+    {
+      "label": "Grok",
+      "model": "grok-4.7-cpa",
+      "family": "xai",
+      "effort": "low",
+      "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/results/mme_realworld_02371.json",
+      "source_sha256": "39c7f91497d9dbd8f37f5e221f6ce894174482aabc43b49809d3f1544d14b94a",
+      "answer": "D",
+      "gold": "C",
+      "score": {
+        "score": 0,
+        "method": "letter_exact"
+      },
+      "termination": "answer",
+      "crops": 6,
+      "steps": [
+        {
+          "step": 1,
+          "available_before": [
+            "original_image"
+          ],
+          "behavior": "locate",
+          "caption": "The right side of the panorama shows several pedestrians near a marked crosswalk and stop sign. I need the one wearing a black top with blue bottoms, so I crop that right-hand group.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.62,
+              0.42,
+              0.92,
+              0.85
+            ],
+            "source": "original_image"
+          },
+          "cited": [],
+          "observation": "observation_1",
+          "visible_output": "<caption>\nStep 1 | locate\nThe right side of the panorama shows several pedestrians near a marked crosswalk and stop sign. I need the one wearing a black top with blue bottoms, so I crop that right-hand group.\n</caption>\n<grounding>{\"bbox_2d\":[0.62,0.42,0.92,0.85],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 2,
+          "available_before": [
+            "original_image",
+            "observation_1"
+          ],
+          "behavior": "re_examine",
+          "caption": "In [observation_1] the right-side walkers are mostly dark coats and black pants, and the far-left figure is cut off. The black-top, blue-bottom candidate appears just left of this crop, so I inspect that person and the crosswalk stripes together.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.7,
+              0.42,
+              0.84,
+              0.82
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_1"
+          ],
+          "observation": "observation_2",
+          "visible_output": "<caption>\nStep 2 | re_examine\nIn [observation_1] the right-side walkers are mostly dark coats and black pants, and the far-left figure is cut off. The black-top, blue-bottom candidate appears just left of this crop, so I inspect that person and the crosswalk stripes together.\n</caption>\n<grounding>{\"bbox_2d\":[0.70,0.42,0.84,0.82],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 3,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2"
+          ],
+          "behavior": "fallback",
+          "caption": "[observation_2] shows olive and black coats with dark pants near the corner, not a clearly blue bottom. The partial pedestrian at the left edge of [observation_1] is still the better black-top candidate, so I widen left to include that person and the crosswalk.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.66,
+              0.4,
+              0.78,
+              0.82
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_1",
+            "observation_2"
+          ],
+          "observation": "observation_3",
+          "visible_output": "<caption>\nStep 3 | fallback\n[observation_2] shows olive and black coats with dark pants near the corner, not a clearly blue bottom. The partial pedestrian at the left edge of [observation_1] is still the better black-top candidate, so I widen left to include that person and the crosswalk.\n</caption>\n<grounding>{\"bbox_2d\":[0.66,0.40,0.78,0.82],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 4,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3"
+          ],
+          "behavior": "locate",
+          "caption": "The right-corner group in [observation_3] has dark or olive coats, not a clearly blue bottom. A separate pedestrian farther left on the crosswalk, near the center-right of [original_image], has a black top and blue legs, so I isolate that person.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.735,
+              0.42,
+              0.795,
+              0.78
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_3",
+            "original_image"
+          ],
+          "observation": "observation_4",
+          "visible_output": "<caption>\nStep 4 | locate\nThe right-corner group in [observation_3] has dark or olive coats, not a clearly blue bottom. A separate pedestrian farther left on the crosswalk, near the center-right of [original_image], has a black top and blue legs, so I isolate that person.\n</caption>\n<grounding>{\"bbox_2d\":[0.735,0.42,0.795,0.78],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 5,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4"
+          ],
+          "behavior": "fallback",
+          "caption": "[observation_4] only shows the dark-coated pedestrians by the white vehicle, so the blue-bottom candidate is not there. In [observation_1] that candidate is the partly cut-off figure at the far left, standing on the white crosswalk stripes; I shift the crop left to include the whole figure.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.6,
+              0.42,
+              0.7,
+              0.8
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_1",
+            "observation_4"
+          ],
+          "observation": "observation_5",
+          "visible_output": "<caption>\nStep 5 | fallback\n[observation_4] only shows the dark-coated pedestrians by the white vehicle, so the blue-bottom candidate is not there. In [observation_1] that candidate is the partly cut-off figure at the far left, standing on the white crosswalk stripes; I shift the crop left to include the whole figure.\n</caption>\n<grounding>{\"bbox_2d\":[0.60,0.42,0.70,0.80],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 6,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4",
+            "observation_5"
+          ],
+          "behavior": "re_examine",
+          "caption": "[observation_5] shows the left pedestrian in a black jacket, mid-stride over the white crosswalk bars, but the bottom color is still too dark to separate blue from black. I zoom on that same person's torso and legs.",
+          "action": {
+            "kind": "grounding",
+            "bbox": [
+              0.6,
+              0.44,
+              0.66,
+              0.78
+            ],
+            "source": "original_image"
+          },
+          "cited": [
+            "observation_5"
+          ],
+          "observation": "observation_6",
+          "visible_output": "<caption>\nStep 6 | re_examine\n[observation_5] shows the left pedestrian in a black jacket, mid-stride over the white crosswalk bars, but the bottom color is still too dark to separate blue from black. I zoom on that same person's torso and legs.\n</caption>\n<grounding>{\"bbox_2d\":[0.60,0.44,0.66,0.78],\"source\":\"original_image\"}</grounding>"
+        },
+        {
+          "step": 7,
+          "available_before": [
+            "original_image",
+            "observation_1",
+            "observation_2",
+            "observation_3",
+            "observation_4",
+            "observation_5",
+            "observation_6"
+          ],
+          "behavior": "commit",
+          "caption": "In [observation_6], the right-side pedestrian has a black top and dark blue pants and is mid-stride on the white crosswalk bars, not waiting or staying on the sidewalk. That motion is crossing the crosswalk.",
+          "action": {
+            "kind": "answer",
+            "answer": "D"
+          },
+          "cited": [
+            "observation_6"
+          ],
+          "observation": null,
+          "visible_output": "<caption>\nStep 7 | commit\nIn [observation_6], the right-side pedestrian has a black top and dark blue pants and is mid-stride on the white crosswalk bars, not waiting or staying on the sidewalk. That motion is crossing the crosswalk.\n</caption>\n<answer>D</answer>"
+        }
+      ],
+      "views": [
+        {
+          "view_id": "original_image",
+          "parent": null,
+          "fov_original": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "source_px": [
+            5760,
+            1200
+          ],
+          "shown_px": [
+            3080,
+            644
+          ],
+          "sha256": "e48b22a2111683af90d863a579697ffeaf50eb56ac2d40cfdff59da0fecc14bf",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs0.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_1",
+          "parent": "original_image",
+          "fov_original": [
+            0.6199652777777778,
+            0.42,
+            0.9199652777777778,
+            0.85
+          ],
+          "source_px": [
+            1728,
+            516
+          ],
+          "shown_px": [
+            1736,
+            504
+          ],
+          "sha256": "cda2a2bb31bfda3d2967a732ecfd904480e32777e00bb7386c1ce6fe38821f05",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs1.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_2",
+          "parent": "original_image",
+          "fov_original": [
+            0.7,
+            0.42,
+            0.8399305555555555,
+            0.82
+          ],
+          "source_px": [
+            806,
+            480
+          ],
+          "shown_px": [
+            812,
+            476
+          ],
+          "sha256": "98586964a30b42c851cfb2628fd917a84b5b2c1e4a46b06405292d42141094c2",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs2.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_3",
+          "parent": "original_image",
+          "fov_original": [
+            0.6600694444444445,
+            0.4,
+            0.7800347222222223,
+            0.82
+          ],
+          "source_px": [
+            691,
+            504
+          ],
+          "shown_px": [
+            700,
+            504
+          ],
+          "sha256": "5498599f1bd585ea86204e3763f4611f03023c782fd78b9a7cc7bccece1f88ac",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs3.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_4",
+          "parent": "original_image",
+          "fov_original": [
+            0.7350694444444444,
+            0.42,
+            0.7949652777777778,
+            0.78
+          ],
+          "source_px": [
+            345,
+            432
+          ],
+          "shown_px": [
+            448,
+            560
+          ],
+          "sha256": "4121a3cf039bec8c99acf616595bf70193b78dd86860dfdc9660aba2b71e4ee1",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs4.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_5",
+          "parent": "original_image",
+          "fov_original": [
+            0.6,
+            0.42,
+            0.7,
+            0.8
+          ],
+          "source_px": [
+            576,
+            456
+          ],
+          "shown_px": [
+            588,
+            448
+          ],
+          "sha256": "e2d0e65d8f59f72dde3bf3cc85c37c403e90459d841c0cd5f43f9eacb60abc8a",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs5.jpg",
+          "public_asset": null
+        },
+        {
+          "view_id": "observation_6",
+          "parent": "original_image",
+          "fov_original": [
+            0.6,
+            0.44,
+            0.6600694444444445,
+            0.78
+          ],
+          "source_px": [
+            346,
+            408
+          ],
+          "shown_px": [
+            448,
+            532
+          ],
+          "sha256": "f225a203e4edc336738a8b85e4bc3623153b59d7a7442e9c708522dcef1c3ec9",
+          "source_path": "obs/runs/funnel_v1_20261002/l1_grok-4.7-cpa_low/obs/mme_realworld_02371/obs6.jpg",
+          "public_asset": null
+        }
+      ],
+      "model_adjudication": {
+        "verdict": "reject",
+        "reason": "Claims dark blue pants on the crosswalk man, but q2 says black and Grok itself said the color was too dark to separate. It answers D, which conflicts with the kept answer C. The blind read of the crosswalk step is only partial."
+      },
+      "reviewers_split": false,
+      "ambiguous": false,
+      "fact_statuses": [
+        "PARTIAL"
+      ],
+      "manual_verdict": null
+    }
+  ]
+}

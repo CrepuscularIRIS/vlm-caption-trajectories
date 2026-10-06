@@ -1,0 +1,662 @@
+{
+  "cons_glm__mmmu_pro_std_test_Design_69__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/academic"
+  },
+  "cons_glm__mmmu_pro_std_test_Electronics_254__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/academic"
+  },
+  "cons_glm__mme_realworld_07559__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_06335__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_08068__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_06273__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_06458__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_06957__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_16679__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/count"
+  },
+  "cons_glm__mme_realworld_02578__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/count"
+  },
+  "cons_glm__mme_realworld_04634__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/natural"
+  },
+  "cons_glm__mme_realworld_04667__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/natural"
+  },
+  "cons_glm__mme_realworld_17993__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_17881__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_14654__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_17961__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_15265__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_16772__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_17409__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_14124__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__mme_realworld_17301__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__visreason_c4_112__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/visual_puzzle"
+  },
+  "cons_glm__visreason_c9_142__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_glm/visual_puzzle"
+  },
+  "cons_gpt__mmmu_pro_std_validation_Geography_8__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mmmu_pro_std_test_Economics_102__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mmmu_pro_std_validation_Mechanical_Engineering_20__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mmmu_pro_std_test_Psychology_176__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mmmu_pro_std_validation_Pharmacy_27__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mmmu_pro_std_validation_Psychology_3__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mme_realworld_07506__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/chart_table"
+  },
+  "cons_gpt__mme_realworld_09056__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/chart_table"
+  },
+  "cons_gpt__mme_realworld_07660__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/chart_table"
+  },
+  "cons_gpt__mme_realworld_10781__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/chart_table"
+  },
+  "cons_gpt__mme_realworld_16098__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/count"
+  },
+  "cons_gpt__mme_realworld_02741__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/count"
+  },
+  "cons_gpt__mme_realworld_03038__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/count"
+  },
+  "cons_gpt__worldbench_1886__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/map"
+  },
+  "cons_gpt__worldbench_1896__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/map"
+  },
+  "cons_gpt__mme_realworld_02352__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_12984__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_22403__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_19954__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_lite_19912__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_14613__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__mme_realworld_18556__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__mme_realworld_18825__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__mme_realworld_19485__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__mme_realworld_17947__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__mme_realworld_19607__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__visreason_c9_437__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/visual_puzzle"
+  },
+  "cons_gpt__visreason_c6_52__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_gpt/visual_puzzle"
+  },
+  "cons_grok__mmmu_pro_std_test_Basic_Medical_Science_262__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/academic"
+  },
+  "cons_grok__mmmu_pro_std_test_Architecture_and_Engineering_361__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/academic"
+  },
+  "cons_grok__mme_realworld_07575__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/chart_table"
+  },
+  "cons_grok__mme_realworld_10451__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/chart_table"
+  },
+  "cons_grok__mme_realworld_08404__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/chart_table"
+  },
+  "cons_grok__mme_realworld_09348__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/chart_table"
+  },
+  "cons_grok__mme_realworld_02742__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/count"
+  },
+  "cons_grok__worldbench_1788__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/count"
+  },
+  "cons_grok__mme_realworld_20712__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__mme_realworld_20768__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__mme_realworld_11317__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__mme_realworld_lite_23038__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__mme_realworld_18786__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/text"
+  },
+  "cons_grok__mme_realworld_17498__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/text"
+  },
+  "cons_grok__mme_realworld_17322__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/text"
+  },
+  "cons_grok__mme_realworld_19652__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/text"
+  },
+  "cons_grok__mme_realworld_13747__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/text"
+  },
+  "cons_grok__visreason_c9_308__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/visual_puzzle"
+  },
+  "cons_grok__visreason_c9_310__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "cons_grok/visual_puzzle"
+  },
+  "luna_crop__mmmu_pro_std_test_Accounting_34__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/academic"
+  },
+  "luna_crop__mme_realworld_08243__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/chart_table"
+  },
+  "luna_crop__mme_realworld_10668__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/chart_table"
+  },
+  "luna_crop__worldbench_1883__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/count"
+  },
+  "luna_crop__mme_realworld_02831__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/count"
+  },
+  "luna_crop__mme_realworld_04143__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/natural"
+  },
+  "luna_crop__mme_realworld_01203__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/natural"
+  },
+  "luna_crop__mme_realworld_00099__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/natural"
+  },
+  "luna_crop__mme_realworld_lite_20837__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/natural"
+  },
+  "luna_crop__mme_realworld_lite_18497__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/text"
+  },
+  "luna_crop__mme_realworld_16923__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/text"
+  },
+  "luna_crop__visreason_c4_103__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_crop/visual_puzzle"
+  },
+  "luna_direct__mmmu_pro_std_validation_Physics_17__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/academic"
+  },
+  "luna_direct__mmmu_pro_std_validation_Architecture_and_Engineering_11__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/academic"
+  },
+  "luna_direct__mmmu_pro_std_test_Economics_149__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/academic"
+  },
+  "luna_direct__mme_realworld_06223__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/chart_table"
+  },
+  "luna_direct__mme_realworld_06502__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/chart_table"
+  },
+  "luna_direct__worldbench_1869__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/count"
+  },
+  "luna_direct__worldbench_1529__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/count"
+  },
+  "luna_direct__mme_realworld_01492__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/natural"
+  },
+  "luna_direct__worldbench_1488__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/natural"
+  },
+  "luna_direct__mme_realworld_16199__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/text"
+  },
+  "luna_direct__mme_realworld_17653__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/text"
+  },
+  "luna_direct__visreason_c10_1_8__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/visual_puzzle"
+  },
+  "luna_direct__visreason_c4_91__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "clean_candidate",
+    "stratum": "luna_direct/visual_puzzle"
+  },
+  "cons_glm__mmmu_pro_std_validation_Basic_Medical_Science_11__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/academic"
+  },
+  "cons_glm__mme_realworld_10904__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_10323__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/chart_table"
+  },
+  "cons_glm__mme_realworld_21589__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/count"
+  },
+  "cons_glm__mme_realworld_02631__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/count"
+  },
+  "cons_glm__worldbench_1865__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/map"
+  },
+  "cons_glm__mme_realworld_00585__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/natural"
+  },
+  "cons_glm__worldbench_1476__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/natural"
+  },
+  "cons_glm__mme_realworld_04241__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/natural"
+  },
+  "cons_glm__mme_realworld_01150__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/natural"
+  },
+  "cons_glm__mme_realworld_13729__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/text"
+  },
+  "cons_glm__visreason_c10_326__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/visual_puzzle"
+  },
+  "cons_glm__visreason_c4_422__glm-5.3-flash": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_glm/visual_puzzle"
+  },
+  "cons_gpt__mmmu_pro_std_test_Music_324__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__mmmu_pro_std_test_Materials_327__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/academic"
+  },
+  "cons_gpt__worldbench_1819__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/chart_table"
+  },
+  "cons_gpt__mme_realworld_21432__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/count"
+  },
+  "cons_gpt__mme_realworld_21995__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/count"
+  },
+  "cons_gpt__worldbench_0749__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_lite_22771__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_11804__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__worldbench_1030__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/natural"
+  },
+  "cons_gpt__mme_realworld_18132__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/text"
+  },
+  "cons_gpt__visreason_c4_43__gpt-5.6-sol": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/visual_puzzle"
+  },
+  "cons_gpt__visreason_c9_2_10__gpt-6-luna": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_gpt/visual_puzzle"
+  },
+  "cons_grok__mmmu_pro_std_test_Art_111__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/academic"
+  },
+  "cons_grok__mme_realworld_08360__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/chart_table"
+  },
+  "cons_grok__worldbench_0365__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/count"
+  },
+  "cons_grok__mme_realworld_02969__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/count"
+  },
+  "cons_grok__worldbench_1560__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/map"
+  },
+  "cons_grok__mme_realworld_22443__grok-4.7-cpa": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__worldbench_0337__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__worldbench_0051__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__worldbench_1090__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/natural"
+  },
+  "cons_grok__mme_realworld_19359__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/text"
+  },
+  "cons_grok__visreason_c10_1_20__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/visual_puzzle"
+  },
+  "cons_grok__visreason_c8_9__grok-4.7": {
+    "verdict": "PENDING",
+    "pool": "rejected",
+    "stratum": "cons_grok/visual_puzzle"
+  }
+}

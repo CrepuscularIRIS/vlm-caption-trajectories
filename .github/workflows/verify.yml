@@ -26,3 +26,5 @@ jobs:
         run: python scripts/build_casebook.py --check-markdown
       - name: Verify cc update and frozen 75-case sample
         run: python scripts/spotcheck_review.py --verify
+      - name: Verify consensus progress and 24 paired paths
+        run: python scripts/review_progress.py

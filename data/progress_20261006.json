@@ -1,0 +1,753 @@
+{
+  "schema": "public-progress-v1",
+  "captured_at": "2026-10-06T07:29:26-04:00",
+  "snapshot_policy": "Frozen file snapshot, not a live dashboard. Candidate counts are not accepted SFT.",
+  "inventory": {
+    "pool_rows": 20738,
+    "trajectories_total": 84880,
+    "per_model": {
+      "glm-5.3-flash": {
+        "name": "GLM 5.3 Flash",
+        "records": 20698,
+        "tasks": 20698,
+        "terminations": {
+          "abstain": 234,
+          "answer": 20195,
+          "truncated": 261,
+          "protocol_violation": 8
+        },
+        "correct": 15571,
+        "wrong": 4433,
+        "answered_unscored": 191,
+        "accuracy_of_records": 0.752,
+        "gate_fail_among_correct": {
+          "coordinate_talk": 2111,
+          "coordinate_unresolved": 10
+        },
+        "qualified": 13453,
+        "qualified_groups": 7821,
+        "direct_share": 0.133,
+        "steps_median": 2.0,
+        "steps_mean": 3.68,
+        "crops_mean": 2.68,
+        "completion_tokens_median": 1625.0,
+        "total_tokens_median": 20064.5,
+        "qualified_steps_median": 2,
+        "qualified_completion_tokens_median": 1012,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 16174,
+            "correct": 12589,
+            "qualified": 10702
+          },
+          "mmmu_pro": {
+            "records": 2252,
+            "correct": 1792,
+            "qualified": 1755
+          },
+          "visreason": {
+            "records": 923,
+            "correct": 229,
+            "qualified": 227
+          },
+          "vstar": {
+            "records": 99,
+            "correct": 94,
+            "qualified": 59
+          },
+          "worldbench": {
+            "records": 1250,
+            "correct": 867,
+            "qualified": 710
+          }
+        }
+      },
+      "gpt-6-luna": {
+        "name": "Luna (gpt-6-luna)",
+        "records": 20706,
+        "tasks": 20706,
+        "terminations": {
+          "answer": 17666,
+          "abstain": 2965,
+          "protocol_violation": 75
+        },
+        "correct": 12126,
+        "wrong": 5451,
+        "answered_unscored": 89,
+        "accuracy_of_records": 0.586,
+        "gate_fail_among_correct": {
+          "coordinate_talk": 33
+        },
+        "qualified": 12093,
+        "qualified_groups": 7150,
+        "direct_share": 0.628,
+        "steps_median": 1.0,
+        "steps_mean": 1.89,
+        "crops_mean": 0.89,
+        "completion_tokens_median": 82.0,
+        "total_tokens_median": 6720.0,
+        "qualified_steps_median": 1,
+        "qualified_completion_tokens_median": 70,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 16176,
+            "correct": 10251,
+            "qualified": 10232
+          },
+          "mmmu_pro": {
+            "records": 2258,
+            "correct": 1141,
+            "qualified": 1134
+          },
+          "visreason": {
+            "records": 923,
+            "correct": 116,
+            "qualified": 115
+          },
+          "vstar": {
+            "records": 99,
+            "correct": 76,
+            "qualified": 76
+          },
+          "worldbench": {
+            "records": 1250,
+            "correct": 542,
+            "qualified": 536
+          }
+        }
+      },
+      "grok-4.7": {
+        "name": "Grok 4.7（Cursor+xAI 两路，同一模型）",
+        "records": 20706,
+        "tasks": 20706,
+        "terminations": {
+          "answer": 19838,
+          "abstain": 868
+        },
+        "correct": 14538,
+        "wrong": 5108,
+        "answered_unscored": 192,
+        "accuracy_of_records": 0.702,
+        "gate_fail_among_correct": {
+          "coordinate_talk": 66,
+          "coordinate_unresolved": 7
+        },
+        "qualified": 14467,
+        "qualified_groups": 8127,
+        "direct_share": 0.059,
+        "steps_median": 3.0,
+        "steps_mean": 3.81,
+        "crops_mean": 2.81,
+        "completion_tokens_median": 912.0,
+        "total_tokens_median": 23384.5,
+        "qualified_steps_median": 3,
+        "qualified_completion_tokens_median": 661,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 16176,
+            "correct": 11679,
+            "qualified": 11662
+          },
+          "mmmu_pro": {
+            "records": 2258,
+            "correct": 1756,
+            "qualified": 1720
+          },
+          "visreason": {
+            "records": 923,
+            "correct": 227,
+            "qualified": 227
+          },
+          "vstar": {
+            "records": 99,
+            "correct": 95,
+            "qualified": 95
+          },
+          "worldbench": {
+            "records": 1250,
+            "correct": 781,
+            "qualified": 763
+          }
+        }
+      },
+      "k3-256k": {
+        "name": "K3（部分）",
+        "records": 144,
+        "tasks": 144,
+        "terminations": {
+          "answer": 139,
+          "abstain": 5
+        },
+        "correct": 68,
+        "wrong": 61,
+        "answered_unscored": 10,
+        "accuracy_of_records": 0.472,
+        "gate_fail_among_correct": {
+          "coordinate_talk": 6
+        },
+        "qualified": 62,
+        "qualified_groups": 62,
+        "direct_share": 0.285,
+        "steps_median": 3.5,
+        "steps_mean": 4.03,
+        "crops_mean": 3.03,
+        "completion_tokens_median": 3161.0,
+        "total_tokens_median": 27692.0,
+        "qualified_steps_median": 2.0,
+        "qualified_completion_tokens_median": 1601.0,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 42,
+            "correct": 27,
+            "qualified": 26
+          },
+          "mmmu_pro": {
+            "records": 13,
+            "correct": 5,
+            "qualified": 5
+          },
+          "visreason": {
+            "records": 61,
+            "correct": 18,
+            "qualified": 17
+          },
+          "vstar": {
+            "records": 5,
+            "correct": 5,
+            "qualified": 2
+          },
+          "worldbench": {
+            "records": 23,
+            "correct": 13,
+            "qualified": 12
+          }
+        }
+      },
+      "gpt-6.1-sol": {
+        "name": "Sol 6.1（已停，部分）",
+        "records": 1909,
+        "tasks": 1717,
+        "terminations": {
+          "answer": 1725,
+          "abstain": 184
+        },
+        "correct": 946,
+        "wrong": 696,
+        "answered_unscored": 83,
+        "accuracy_of_records": 0.496,
+        "gate_fail_among_correct": {
+          "coordinate_talk": 9,
+          "coordinate_unresolved": 1
+        },
+        "qualified": 936,
+        "qualified_groups": 820,
+        "direct_share": 0.791,
+        "steps_median": 1,
+        "steps_mean": 1.45,
+        "crops_mean": 0.45,
+        "completion_tokens_median": 140,
+        "total_tokens_median": 6185,
+        "qualified_steps_median": 1.0,
+        "qualified_completion_tokens_median": 107.0,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 718,
+            "correct": 340,
+            "qualified": 340
+          },
+          "mmmu_pro": {
+            "records": 251,
+            "correct": 178,
+            "qualified": 176
+          },
+          "visreason": {
+            "records": 382,
+            "correct": 85,
+            "qualified": 85
+          },
+          "vstar": {
+            "records": 46,
+            "correct": 45,
+            "qualified": 45
+          },
+          "worldbench": {
+            "records": 512,
+            "correct": 298,
+            "qualified": 290
+          }
+        }
+      },
+      "kimi-for-coding": {
+        "name": "K2.8（部分）",
+        "records": 11,
+        "tasks": 11,
+        "terminations": {
+          "answer": 11
+        },
+        "correct": 7,
+        "wrong": 4,
+        "answered_unscored": 0,
+        "accuracy_of_records": 0.636,
+        "gate_fail_among_correct": {},
+        "qualified": 7,
+        "qualified_groups": 7,
+        "direct_share": 0.364,
+        "steps_median": 2,
+        "steps_mean": 1.82,
+        "crops_mean": 0.82,
+        "completion_tokens_median": 383,
+        "total_tokens_median": 14807,
+        "qualified_steps_median": 1,
+        "qualified_completion_tokens_median": 383,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 10,
+            "correct": 7,
+            "qualified": 7
+          },
+          "mmmu_pro": {
+            "records": 1,
+            "correct": 0,
+            "qualified": 0
+          }
+        }
+      },
+      "gpt-5.6-sol": {
+        "name": "Sol 5.6",
+        "records": 20706,
+        "tasks": 20706,
+        "terminations": {
+          "answer": 20563,
+          "abstain": 143
+        },
+        "correct": 15226,
+        "wrong": 5098,
+        "answered_unscored": 239,
+        "accuracy_of_records": 0.735,
+        "gate_fail_among_correct": {
+          "coordinate_talk": 60,
+          "coordinate_unresolved": 6
+        },
+        "qualified": 15160,
+        "qualified_groups": 8395,
+        "direct_share": 0.608,
+        "steps_median": 1.0,
+        "steps_mean": 2.04,
+        "crops_mean": 1.04,
+        "completion_tokens_median": 160.0,
+        "total_tokens_median": 6755.0,
+        "qualified_steps_median": 1.0,
+        "qualified_completion_tokens_median": 116.0,
+        "by_bench": {
+          "mme_realworld": {
+            "records": 16176,
+            "correct": 12220,
+            "qualified": 12192
+          },
+          "mmmu_pro": {
+            "records": 2258,
+            "correct": 1819,
+            "qualified": 1799
+          },
+          "visreason": {
+            "records": 923,
+            "correct": 281,
+            "qualified": 280
+          },
+          "vstar": {
+            "records": 99,
+            "correct": 91,
+            "qualified": 89
+          },
+          "worldbench": {
+            "records": 1250,
+            "correct": 815,
+            "qualified": 800
+          }
+        }
+      }
+    },
+    "task_level": {
+      "tasks": 20706,
+      "groups": 10662,
+      "tasks_by_families_with_qualified": {
+        "0": 3019,
+        "1": 2581,
+        "2": 3828,
+        "3": 11278
+      },
+      "groups_with_2plus_families": 8359,
+      "tasks_by_material": {
+        "natural": {
+          ">=2": 4400,
+          "1": 1538,
+          "0": 1625
+        },
+        "count": {
+          "1": 441,
+          ">=2": 875,
+          "0": 324
+        },
+        "chart_table": {
+          ">=2": 3780,
+          "1": 79,
+          "0": 171
+        },
+        "text": {
+          ">=2": 3960,
+          "0": 124,
+          "1": 125
+        },
+        "academic": {
+          ">=2": 1848,
+          "1": 226,
+          "0": 262
+        },
+        "visual_puzzle": {
+          "0": 512,
+          ">=2": 239,
+          "1": 172
+        },
+        "map": {
+          ">=2": 4,
+          "0": 1
+        }
+      },
+      "by_bench": {
+        "mme_realworld": 16176,
+        "mmmu_pro": 2258,
+        "visreason": 923,
+        "vstar": 99,
+        "worldbench": 1250
+      },
+      "mmmu_vision_tasks_source_unverified": 1175,
+      "mmmu_vision_with_2plus": 937,
+      "gold_suspect": 3665
+    }
+  },
+  "initial": {
+    "tasks": 1984,
+    "new_tasks": 1724,
+    "reused": 260,
+    "decisions": {
+      "REVIEW_REJECTED": 544,
+      "AUTO_PASS_PENDING_MANUAL": 1092,
+      "DISPUTED_PENDING_MANUAL": 86,
+      "TRANSPORT_INVALID": 2
+    },
+    "dispatch": {
+      "cc-claude-sonnet-5-5": 6205,
+      "k3-256k": 184,
+      "gpt-6.1-sol": 300
+    },
+    "pools": {
+      "rejected": 536,
+      "disputed": 86,
+      "clean_candidate": 1352,
+      "review_format": 7,
+      "recovery_candidate": 1,
+      "pending": 2
+    },
+    "candidate_groups": 1352,
+    "by_model": {
+      "gpt-6-luna": {
+        "selected": 417,
+        "reused": 260,
+        "new_audited": 157,
+        "new_auto_pass": 134,
+        "pools": {
+          "clean_candidate": 394,
+          "rejected": 19,
+          "disputed": 4
+        },
+        "auto_candidates": 394,
+        "candidate_direct": 223,
+        "candidate_tool": 171,
+        "candidate_mean_steps": 1.56,
+        "candidate_material": {
+          "natural": 90,
+          "count": 26,
+          "chart_table": 105,
+          "text": 54,
+          "academic": 108,
+          "visual_puzzle": 11
+        },
+        "rejection_reasons": {
+          "key_fact_contradicted": 3,
+          "contradicted_claim": 13,
+          "leading_yes_no_fact": 1,
+          "final_blind_contradicted": 1,
+          "key_fact_insufficient": 2
+        }
+      },
+      "glm-5.3-flash": {
+        "selected": 565,
+        "reused": 0,
+        "new_audited": 565,
+        "new_auto_pass": 342,
+        "pools": {
+          "rejected": 189,
+          "clean_candidate": 342,
+          "review_format": 5,
+          "disputed": 28,
+          "recovery_candidate": 1
+        },
+        "auto_candidates": 342,
+        "candidate_direct": 2,
+        "candidate_tool": 340,
+        "candidate_mean_steps": 2.26,
+        "candidate_material": {
+          "natural": 34,
+          "count": 15,
+          "chart_table": 105,
+          "text": 164,
+          "academic": 19,
+          "visual_puzzle": 5
+        },
+        "rejection_reasons": {
+          "contradicted_claim": 104,
+          "future_or_unknown_fact_view": 12,
+          "unsupported_flip": 11,
+          "key_fact_contradicted": 25,
+          "key_fact_disputed": 11,
+          "final_blind_insufficient": 35,
+          "final_blind_contradicted": 14,
+          "key_fact_insufficient": 23,
+          "leading_yes_no_fact": 7,
+          "unsupported_hold": 5,
+          "unsupported_revise": 1,
+          "instance_switch": 4,
+          "final_blind_disputed": 4
+        }
+      },
+      "gpt-5.6-sol": {
+        "selected": 500,
+        "reused": 0,
+        "new_audited": 500,
+        "new_auto_pass": 316,
+        "pools": {
+          "clean_candidate": 316,
+          "rejected": 156,
+          "disputed": 26,
+          "review_format": 1,
+          "pending": 1
+        },
+        "auto_candidates": 316,
+        "candidate_direct": 113,
+        "candidate_tool": 203,
+        "candidate_mean_steps": 1.83,
+        "candidate_material": {
+          "natural": 79,
+          "count": 37,
+          "chart_table": 41,
+          "text": 84,
+          "academic": 49,
+          "visual_puzzle": 24,
+          "map": 2
+        },
+        "rejection_reasons": {
+          "key_fact_contradicted": 39,
+          "key_fact_disputed": 4,
+          "contradicted_claim": 77,
+          "future_or_unknown_fact_view": 9,
+          "final_blind_contradicted": 22,
+          "final_blind_disputed": 7,
+          "key_fact_insufficient": 16,
+          "leading_yes_no_fact": 4,
+          "instance_switch": 2,
+          "final_blind_insufficient": 19,
+          "unsupported_flip": 4,
+          "unsupported_hold": 2
+        }
+      },
+      "grok-4.7": {
+        "selected": 502,
+        "reused": 0,
+        "new_audited": 502,
+        "new_auto_pass": 300,
+        "pools": {
+          "clean_candidate": 300,
+          "rejected": 172,
+          "disputed": 28,
+          "review_format": 1,
+          "pending": 1
+        },
+        "auto_candidates": 300,
+        "candidate_direct": 1,
+        "candidate_tool": 299,
+        "candidate_mean_steps": 2.74,
+        "candidate_material": {
+          "natural": 80,
+          "count": 25,
+          "chart_table": 69,
+          "text": 92,
+          "academic": 28,
+          "visual_puzzle": 6
+        },
+        "rejection_reasons": {
+          "instance_switch": 2,
+          "key_fact_contradicted": 31,
+          "key_fact_disputed": 5,
+          "key_fact_insufficient": 20,
+          "contradicted_claim": 78,
+          "final_blind_disputed": 3,
+          "final_blind_contradicted": 21,
+          "final_blind_insufficient": 40,
+          "unsupported_flip": 4,
+          "future_or_unknown_fact_view": 5,
+          "unsupported_hold": 1,
+          "leading_yes_no_fact": 4,
+          "fallback_not_real": 2
+        }
+      }
+    },
+    "by_material": {
+      "academic": {
+        "clean_candidate": 204,
+        "rejected": 59,
+        "disputed": 10
+      },
+      "chart_table": {
+        "rejected": 45,
+        "clean_candidate": 320,
+        "disputed": 15,
+        "recovery_candidate": 1
+      },
+      "count": {
+        "clean_candidate": 103,
+        "rejected": 97,
+        "review_format": 3,
+        "disputed": 21
+      },
+      "map": {
+        "clean_candidate": 2,
+        "rejected": 2
+      },
+      "natural": {
+        "rejected": 201,
+        "clean_candidate": 283,
+        "disputed": 20,
+        "review_format": 3
+      },
+      "text": {
+        "clean_candidate": 394,
+        "rejected": 48,
+        "disputed": 14
+      },
+      "visual_puzzle": {
+        "rejected": 84,
+        "clean_candidate": 46,
+        "review_format": 1,
+        "pending": 2,
+        "disputed": 6
+      }
+    }
+  },
+  "eligibility": {
+    "tasks": 14169,
+    "groups": 8263,
+    "requirement": "At least two generator families with correct, CPU-passing candidates; process agreement remains separate."
+  },
+  "swap1": {
+    "planned": 515,
+    "completed": 313,
+    "remaining": 202,
+    "decisions": {
+      "AUTO_PASS_PENDING_MANUAL": 102,
+      "REVIEW_REJECTED": 167,
+      "DISPUTED_PENDING_MANUAL": 44
+    },
+    "plan": {
+      "rejected_tasks": 536,
+      "still_open": 536,
+      "outcome": {
+        "swapped": 515,
+        "no_other_candidate": 21
+      },
+      "by_model": {
+        "glm-5.3-flash": 156,
+        "gpt-6-luna": 56,
+        "gpt-5.6-sol": 120,
+        "grok-4.7": 183
+      },
+      "by_material": {
+        "natural": 192,
+        "count": 88,
+        "chart_table": 45,
+        "text": 48,
+        "academic": 59,
+        "visual_puzzle": 81,
+        "map": 2
+      }
+    },
+    "by_model": {
+      "gpt-6-luna": {
+        "REVIEW_REJECTED": 17,
+        "AUTO_PASS_PENDING_MANUAL": 16,
+        "DISPUTED_PENDING_MANUAL": 2
+      },
+      "glm-5.3-flash": {
+        "AUTO_PASS_PENDING_MANUAL": 29,
+        "REVIEW_REJECTED": 66,
+        "DISPUTED_PENDING_MANUAL": 5
+      },
+      "gpt-5.6-sol": {
+        "AUTO_PASS_PENDING_MANUAL": 21,
+        "REVIEW_REJECTED": 32,
+        "DISPUTED_PENDING_MANUAL": 4
+      },
+      "grok-4.7": {
+        "REVIEW_REJECTED": 52,
+        "DISPUTED_PENDING_MANUAL": 33,
+        "AUTO_PASS_PENDING_MANUAL": 36
+      }
+    },
+    "preliminary_additional_auto_candidates": 102,
+    "merged_into_initial_pools": false
+  },
+  "spotcheck": {
+    "total": 132,
+    "verdicts": {
+      "PENDING": 132
+    },
+    "pools": {
+      "clean_candidate": 95,
+      "rejected": 37
+    },
+    "human_queue": 93,
+    "sampling": "By tag/material: ceil(5%); minimum 2 per clean stratum and 1 per rejected stratum. Not a simple 5% sample."
+  },
+  "accepted_sft": {
+    "status": "not_frozen_or_exported",
+    "T": null,
+    "Q": null,
+    "G": null
+  },
+  "future_generation": {
+    "models": [
+      "Opus 5.5 via CC CLI",
+      "Astra"
+    ],
+    "status": "planned_not_started_by_this_publication",
+    "eligibility": "Hard, visually answerable tasks with no acceptable existing trajectory after review; preserve GT; no forced rescue of ambiguous images."
+  },
+  "provenance_file": "data/progress_provenance_20261006.json",
+  "known_gaps": {
+    "fallback_unreviewed": {
+      "initial_auto_candidates": 51,
+      "initial_by_model": {
+        "gpt-5.6-sol": 9,
+        "grok-4.7": 29,
+        "glm-5.3-flash": 5,
+        "gpt-6-luna": 8
+      },
+      "initial_by_phase": {
+        "initial_new": 43,
+        "initial_reused": 8
+      },
+      "swap_auto_candidates": 11,
+      "meaning": "Missing or invalid fallback review; not proof of a trajectory error. Review explicitly or omit from the first export."
+    },
+    "semantic_cross_path_agreement": "Answer and CPU agreement do not prove identity and process agreement across all supporting trajectories."
+  }
+}
