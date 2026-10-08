@@ -2,103 +2,109 @@
 
 **用短证据 Caption 和真实视觉动作，构建可核验的 SFT 示范。**
 
-Evidence-grounded visual trajectory construction: design, generation inventory, process review, and complete visible examples. **Model-reviewed candidates are not accepted training data. No SFT/RL gains are claimed.**
+Evidence-grounded visual trajectory construction: design, generation inventory, process review, and complete visible examples. The V2 release is **model-reviewed, not human gold**. No SFT/RL training gains are claimed.
 
-更新：**2026-10-08** · 协议：**Caption v5.1** · 当前阶段：**5,277 条 KEEP 候选已选出，验收与本版导出待收口**
+更新：**2026-10-08** · 协议：**Caption v5.1** · 当前版本：**V2 合并版，KEEP 主集 T/Q/G = 3,953/3,953/3,603**
 
 ## 先看这三处
 
-1. [数量总表：全部库存、审核覆盖与 5,277 条候选](docs/14_sft_counts_20261008.md)。这是冻结记录的离线复算，不是实时看板。
-2. [去重、Mini-o3 对照与后续多步补审建议](docs/15_review_and_multistep_plan_20261008.md)。说明为什么先审已有路径，再对明确缺口定向补生成。
-3. [六题、24 条同题四模型完整可见路径](docs/CASEBOOK_20261006.md)。历史定向案例，对照直答、实例绑定、合理搜索、错误前缀恢复和共同失败。
+1. [V2 详细报告：选材、去重、审查、模型与步数](docs/16_v2_merged_trajectories_20261008.md)。这是本版最终清单的统计。
+2. [全部候选的逐条审核表](data/v2_merged_review_table_20261008.csv)：生成器、KEEP/WEAK/BAD/UNRESOLVED、本轮判由和历史 Sonnet/Opus 等意见分别保留。
+3. [最终 KEEP 的完整可见 Caption 与动作](data/v2_merged_keep_trajectories_20261008.jsonl)。公开文本与视图索引；受限原图、题库原文和隐藏推理不上传。
 
 ## 当前可以报告什么
 
 | 层次 | 数量与状态 |
 |---|---|
-| 四主模型生成结果 | **82,816**：Luna、GLM、Sol 5.6、Grok |
-| 本轮七模型审计库存 | **86,474**：再加本轮覆盖的 Astra、Gemini、K3 结果；包括弃答、截断、失败记录 |
-| 有某种审核记录 | **14,725（17.0%）**，其中 **10,792** 有显式四档标签 |
-| 显式 KEEP | **7,330 条路径**，包含同题不同教师的候选 |
-| 当前一题一条正选 | **5,277 条 KEEP 候选 / 5,277 个任务 / 4,755 个原图组** |
-| 行为组成 | 直答 **2,229**；一次裁图 **1,800**；至少两次裁图 **1,248** |
-| 未过程审核 | **71,749** 份；包含程序门未通过和同题重复候选，并非都必须送审 |
-| 暂缓题 | **79**，不包含在 5,277 中 |
-| 验收后最终入训 T/Q/G | **尚未冻结**；这份清单还没有完成本版验收、正式导出和预处理检查 |
+| 四主模型生成库存 | 82,816：Luna、GLM、Sol 5.6、Grok；不是全部可训练 |
+| V1 历史 KEEP 基线 | 5,277 条，每题一条 |
+| CC 后续多裁图审核 | 4,750 条，KEEP 531；其中 113 条标全部 crop 有用 |
+| V2 合并待核范围 | 5,378 个任务：V1 加 101 个去重后新增任务 |
+| 本轮逐图过程复核 | 5,378/5,378；382 条复用源 hash 一致的近期实际看图记录 |
+| 本轮四档结论 | KEEP 3,960 / WEAK 1,095 / BAD 25 / UNRESOLVED 298 |
+| 最终模型审核版主集 | **T=3,953 / Q=3,953 / G=3,603**；每题一条完整路径 |
+| 主集行为组成 | 直答 2,084；一次裁图 1,119；至少两次裁图 750 |
+| 工程状态 | 全候选 5,378/5,378 CPU 预处理通过；最终导出是内容不变的合格子集 |
+| 人工金标准 / SFT 训练 | 均未完成；不能由模型审核推断学生收益 |
 
-本轮审计范围不混入 Sol 6.1、K2.8 等范围外历史试跑。历史 84,880、6,316、4,000 等数字保留各自时点和分母，不能直接相加，也不能替代当前清单。旧导出的预处理通过结果不自动覆盖这 5,277 条。
+T 是最终实际导出的完整执行路径，Q 是图片—问题去重任务，G 是已登记原图组。满足 T=Q≥G。一次路径的多个步骤、其他教师对同题的备选、多个审查者均不增加 T。
 
-## 拟入选候选来自哪些模型
+本版只收 KEEP，所有工具观察都有具体用途判由，同时保留有据直答。WEAK、BAD、未决及协议不合规项不进主集；历史标签仍保留，未被覆盖。模型审核意见并非像素真值。
 
-| 生成模型 | KEEP 候选 | 直答 | 一次裁图 | 至少两次裁图 |
+## 最终主集由哪些生成器提供
+
+| 生成模型 | 完整轨迹 | 直答 | 一次裁图 | 至少两次裁图 |
 |---|---:|---:|---:|---:|
-| Luna | 1,284 | 878 | 276 | 130 |
-| Sol 5.6 | 1,259 | 774 | 299 | 186 |
-| GLM | 925 | 66 | 585 | 274 |
-| Grok | 1,043 | 35 | 429 | 579 |
-| Astra | 443 | 314 | 110 | 19 |
-| Gemini | 293 | 142 | 93 | 58 |
-| K3 | 30 | 20 | 8 | 2 |
-| **合计** | **5,277** | **2,229** | **1,800** | **1,248** |
+| Luna | 1,113 | 839 | 205 | 69 |
+| Sol 5.6 | 1,081 | 729 | 227 | 125 |
+| GLM | 514 | 58 | 313 | 143 |
+| Grok | 587 | 30 | 203 | 354 |
+| Astra | 382 | 277 | 94 | 11 |
+| Gemini | 248 | 131 | 71 | 46 |
+| K3 | 28 | 20 | 6 | 2 |
+| **合计** | **3,953** | **2,084** | **1,119** | **750** |
 
-每题选择一条真实完整路径，不拼接模型步骤。工具路径共 3,048 条（57.8%）。按已登记任务键，没有跨模型重复收同一道题；458 个原图组包含不同问题，所以 Q 大于 G。图组用于划分隔离，不把同图多题当成独立视觉场景。
+这不是模型排行榜：各教师的分配题目、历史筛选和补生成难度不同。更强教师、更多 crop 或终答一致都不能自动覆盖过程错误。
 
-这里的 KEEP 来自不同批次的既有模型审核，不是逐条人工终裁，也不代表每条均接受相同的双模型复核。裁图次数本身不证明动作有效。
+## 核心设计与审核
 
-## 核心是什么
+每一步用短 Caption 记录当前看到了什么、属于哪个实例、什么还不确定，再采取真实动作。优先学习绑定与按需观测、保持有效证据、有据修正。原图充分时直接作答；合理搜索未命中后如实说明并换区可以保留，不强求 HOLD/REVISE。
 
-每一步用短 Caption 记录**当前看到了什么、属于哪个实例、什么还不确定**，再采取真实动作。优先学会**绑定与按需观测 → 保持有效证据 → 有据修正/回退**。原图足够时直接作答；合理搜索未命中、如实说明并换区域可以保留，不强求 HOLD/REVISE 标签。
+“所有裁图有用”包括细节读取、恢复表头行列、比较区域、信息性排除与诚实的失败搜索。它不要求每次命中，也不以几何重叠判冗余；反复放大但没有新增依据的路径不收。明确错误前缀后的恢复单列，不把完整错误前缀当干净正例。
 
-Caption / BundleAudit 规定证据、时序和监督边界；生成与审核漏斗负责整理真实示范。领域差异体现在样例中，不新增复杂的场景专用方法。答案一致性只决定审核排序，不能代替过程审核；多模型与 GT 冲突时保留 GT 并核查判分、题义和可回答性。
-
-## 接下来如何筛选与补充
+本轮 Codex 子代理查看原图与全部返回视图，逐步骤核对证据可用时间、对象绑定和动作用途。新复核不提供 GT 与历史标签，但能看到完整路径；不是隔离的 prefix 盲读，也不是多个模型族投票。历史 Sonnet 5.5、Opus 5.5 等结论另列。GT 冲突保留诊断，不按多数票改 GT。
 
 ```mermaid
 flowchart TD
-    A[已有七模型结果库存] --> B[按任务归组与离线分流]
-    B --> C[当前 5277 条 KEEP 候选]
-    C --> D[抽样验收 / 正式导出 / 本版预处理]
-    B --> E[未审的合格工具候选优先]
-    E --> F[按题审过程与实际视图]
-    F --> G{已有可用完整路径?}
-    G -->|有| H[同题择一 / 整条换选或新增任务]
-    G -->|没有| I[核判分 / 题义 / 可回答性]
-    I -->|任务清楚且确有缺口| J[建议 Gemini或K3 补充 / Astra处理残余]
-    J --> K[独立审核后择一]
-    I -->|来源或题意待核| L[诊断暂存]
+    A[V1 历史 KEEP 5277 条] --> C[每题一条：5378 个合并候选]
+    B[CC 多步补审：113 条 all_useful KEEP] --> D[101 个新增任务 / 12 条备选留档]
+    D --> C
+    C --> E[逐图复核：证据 / 绑定 / 每次裁图用途]
+    E --> F[KEEP 且所有观察有用]
+    E --> H[WEAK / BAD / 未决归档]
+    F --> I[协议、源 hash、CPU 预处理门]
+    I --> J[一题一条完整路径的 V2 主集]
 ```
 
-当前建议从库存扩大有效多步路径的审核覆盖，不按教师名字或固定 crop 数设置质量门。未审结果中 42,834 份答对且过程序门，24,291 份有裁图，10,616 份至少两次裁图；还需任务去重、来源与可回答性检查。不能直接将这些数字称为高质量多步。
+仅合并筛选已有库存，没有新增生成、训练、修改 Caption 或重标 GT。K3 旧续审仍暂停。没有为了提高多步比例而启动新一轮生成。
 
-**后续补审/补生成计划未在本次更新中启动。** 生成器的更强能力不保证更多探索；新路径确实更好时整条替换，避免同题多条进入训练。Mini-o3 的可借鉴之处及其与本项目的差异见[方案说明](docs/15_review_and_multistep_plan_20261008.md#3-mini-o3-原始构造能借鉴什么)。
+## 公开文件与复算
 
-## 公开结果与复算
-
-新增 [七模型统计](data/sft_audit_20261008.json)、[5,277 条候选元数据索引](data/selection_5277_20261008.jsonl)与[研究工作区来源哈希](data/sft_provenance_20261008.json)。索引提供题号、规范任务键、图组、生成器、审核来源、裁图数和源结果哈希；**不是 5,277 条完整训练消息或图片的数据发布**。
-
-不新增题图/crop、隐藏推理、原始 CLI 日志、账号配置或私人讨论记录。已有公开案例与合法图片归属保持原状；完整过程和视图仍在研究工作区。
+- [V2 机器可读统计](data/v2_merged_summary_20261008.json)
+- [逐条审核 JSONL](data/v2_merged_review_table_20261008.jsonl) / [CSV](data/v2_merged_review_table_20261008.csv)
+- [完整可见轨迹 JSONL](data/v2_merged_keep_trajectories_20261008.jsonl)
+- [合法持有源数据后的本地重构脚本](scripts/reconstruct_v2_export.py)
 
 ```bash
 git clone https://github.com/CrepuscularIRIS/vlm-caption-trajectories.git
 cd vlm-caption-trajectories
-python scripts/verify_sft_audit.py
-python scripts/review_progress.py
+python scripts/verify_v2_release.py
 python scripts/verify_snapshot.py
 python scripts/inspect_case.py --all
 python scripts/verify_production.py
 python scripts/build_casebook.py --check-markdown
 python scripts/spotcheck_review.py --verify
+python scripts/review_progress.py
+python scripts/verify_sft_audit.py
 ```
 
-Python 3.10+，标准库，无模型调用、网络或 GPU。PASS 表示公开元数据统计、时序与哈希一致，**不是像素真值、人工验收或训练收益**。生产源码阅读快照也不是开箱即用的完整训练框架。
+Python 3.10+，标准库，无模型调用、网络或 GPU。PASS 表示公开记录、计数、时序与 hash 一致，不是独立视觉真值或训练收益。
+
+若合法持有本项目源结果和图像，可用下面的命令核对 hash 并重构训练消息；输出目录必须位于公开仓库外。
+
+```bash
+python scripts/reconstruct_v2_export.py --workspace-root /path/to/icml --out /path/to/empty-private-export
+```
+
+本项目内部 train 标记不等于上游 benchmark 的原始 train split；进入训练的同题或同图组不能再作为独立泛化证据。公开包不授予第三方图像再分发权，详见[发布范围](docs/11_publication_and_reproduction_20261004.md)。
 
 ## 历史材料
 
-旧页保留冻结时点，数量与运行状态不代表当前状态：
+旧页保留各自时点，数量、审核状态和后续计划不能当作当前状态：
 
-- [10-06 首批审核与换选进度](docs/13_progress_20261006.md) · [同题四模型案例](docs/CASEBOOK_20261006.md)。
-- [10-04 量产审核与漏斗](docs/09_production_review_20261004.md) · [cc 补审与 75 条抽检](docs/12_cc_spotcheck_update_20261004.md) · [九题案例](docs/CASEBOOK_20261004.md) · [当时的导师问题](docs/10_mentor_questions_20261004.md)。
-- 10-02 种子批：30 题、67 份结果，16 条人工 KEEP / 可导出，CPU 预处理 16/16。旧 HOLD/REVISE/fallback 配额不再是当前构造目标，旧验收不替代新批次验收。
+- [10-08 早期库存及 5,277 候选](docs/14_sft_counts_20261008.md) · [Mini-o3 对照和当时计划](docs/15_review_and_multistep_plan_20261008.md)。历史 86,474 库存、14,725 已审及 71,749 未审是更新前快照，本轮没有重做全库存审计。
+- [10-06 首批审核进展](docs/13_progress_20261006.md) · [六题、24 条同题路径](docs/CASEBOOK_20261006.md)。
+- [10-04 量产审核](docs/09_production_review_20261004.md) · [CC 补审](docs/12_cc_spotcheck_update_20261004.md) · [九题案例](docs/CASEBOOK_20261004.md)。
 - [设计](docs/01_design.md) · [协议](docs/02_protocol.md) · [早期构造](docs/03_construction.md) · [历史结果](docs/04_results.md) · [早期问题](docs/05_open_questions.md) · [SFT/RL 衔接](docs/06_sft_rl.md) · [早期代码](docs/07_reproduction.md)。
 
-[变更记录](CHANGELOG.md) · [发布范围与图片来源](docs/11_publication_and_reproduction_20261004.md) · [反馈方式](CONTRIBUTING.md)
+[变更记录](CHANGELOG.md) · [反馈方式](CONTRIBUTING.md)

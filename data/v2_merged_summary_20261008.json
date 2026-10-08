@@ -1,0 +1,513 @@
+{
+  "updated_at": "2026-10-08T19:48:11.672971+00:00",
+  "status": "complete",
+  "candidate_T_Q_G": {
+    "T": 5378,
+    "Q": 5378,
+    "G": 4817
+  },
+  "reviewed_paths": 5378,
+  "pending_paths": 0,
+  "reviewed_total_views": 10691,
+  "reused_reviews": 382,
+  "all": {
+    "paths": 5378,
+    "quality": {
+      "KEEP": 3960,
+      "WEAK": 1095,
+      "BAD": 25,
+      "UNRESOLVED": 298,
+      "NOT_REVIEWED": 0
+    },
+    "direct": 2229,
+    "one_crop": 1800,
+    "two_plus_crops": 1349,
+    "core_ready": 3953,
+    "weak_reserve": 1089,
+    "review_hold": 311,
+    "excluded": 25,
+    "pending": 0,
+    "core_direct": 2084,
+    "core_one_crop": 1119,
+    "core_two_plus_crops": 750
+  },
+  "by_model": {
+    "Luna": {
+      "paths": 1286,
+      "quality": {
+        "KEEP": 1113,
+        "WEAK": 128,
+        "BAD": 4,
+        "UNRESOLVED": 41,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 878,
+      "one_crop": 276,
+      "two_plus_crops": 132,
+      "core_ready": 1113,
+      "weak_reserve": 128,
+      "review_hold": 41,
+      "excluded": 4,
+      "pending": 0,
+      "core_direct": 839,
+      "core_one_crop": 205,
+      "core_two_plus_crops": 69
+    },
+    "Sol 5.6": {
+      "paths": 1279,
+      "quality": {
+        "KEEP": 1081,
+        "WEAK": 116,
+        "BAD": 4,
+        "UNRESOLVED": 78,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 774,
+      "one_crop": 299,
+      "two_plus_crops": 206,
+      "core_ready": 1081,
+      "weak_reserve": 116,
+      "review_hold": 78,
+      "excluded": 4,
+      "pending": 0,
+      "core_direct": 729,
+      "core_one_crop": 227,
+      "core_two_plus_crops": 125
+    },
+    "GLM": {
+      "paths": 953,
+      "quality": {
+        "KEEP": 521,
+        "WEAK": 367,
+        "BAD": 8,
+        "UNRESOLVED": 57,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 66,
+      "one_crop": 585,
+      "two_plus_crops": 302,
+      "core_ready": 514,
+      "weak_reserve": 361,
+      "review_hold": 70,
+      "excluded": 8,
+      "pending": 0,
+      "core_direct": 58,
+      "core_one_crop": 313,
+      "core_two_plus_crops": 143
+    },
+    "Grok": {
+      "paths": 1094,
+      "quality": {
+        "KEEP": 587,
+        "WEAK": 452,
+        "BAD": 8,
+        "UNRESOLVED": 47,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 35,
+      "one_crop": 429,
+      "two_plus_crops": 630,
+      "core_ready": 587,
+      "weak_reserve": 452,
+      "review_hold": 47,
+      "excluded": 8,
+      "pending": 0,
+      "core_direct": 30,
+      "core_one_crop": 203,
+      "core_two_plus_crops": 354
+    },
+    "Astra": {
+      "paths": 443,
+      "quality": {
+        "KEEP": 382,
+        "WEAK": 5,
+        "BAD": 1,
+        "UNRESOLVED": 55,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 314,
+      "one_crop": 110,
+      "two_plus_crops": 19,
+      "core_ready": 382,
+      "weak_reserve": 5,
+      "review_hold": 55,
+      "excluded": 1,
+      "pending": 0,
+      "core_direct": 277,
+      "core_one_crop": 94,
+      "core_two_plus_crops": 11
+    },
+    "Gemini": {
+      "paths": 293,
+      "quality": {
+        "KEEP": 248,
+        "WEAK": 25,
+        "BAD": 0,
+        "UNRESOLVED": 20,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 142,
+      "one_crop": 93,
+      "two_plus_crops": 58,
+      "core_ready": 248,
+      "weak_reserve": 25,
+      "review_hold": 20,
+      "excluded": 0,
+      "pending": 0,
+      "core_direct": 131,
+      "core_one_crop": 71,
+      "core_two_plus_crops": 46
+    },
+    "K3": {
+      "paths": 30,
+      "quality": {
+        "KEEP": 28,
+        "WEAK": 2,
+        "BAD": 0,
+        "UNRESOLVED": 0,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 20,
+      "one_crop": 8,
+      "two_plus_crops": 2,
+      "core_ready": 28,
+      "weak_reserve": 2,
+      "review_hold": 0,
+      "excluded": 0,
+      "pending": 0,
+      "core_direct": 20,
+      "core_one_crop": 6,
+      "core_two_plus_crops": 2
+    }
+  },
+  "by_benchmark": {
+    "mme_realworld": {
+      "paths": 3493,
+      "quality": {
+        "KEEP": 2633,
+        "WEAK": 719,
+        "BAD": 12,
+        "UNRESOLVED": 129,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 1168,
+      "one_crop": 1370,
+      "two_plus_crops": 955,
+      "core_ready": 2626,
+      "weak_reserve": 713,
+      "review_hold": 142,
+      "excluded": 12,
+      "pending": 0,
+      "core_direct": 1130,
+      "core_one_crop": 931,
+      "core_two_plus_crops": 565
+    },
+    "mmmu_pro": {
+      "paths": 701,
+      "quality": {
+        "KEEP": 536,
+        "WEAK": 107,
+        "BAD": 2,
+        "UNRESOLVED": 56,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 547,
+      "one_crop": 97,
+      "two_plus_crops": 57,
+      "core_ready": 536,
+      "weak_reserve": 107,
+      "review_hold": 56,
+      "excluded": 2,
+      "pending": 0,
+      "core_direct": 500,
+      "core_one_crop": 13,
+      "core_two_plus_crops": 23
+    },
+    "visreason": {
+      "paths": 369,
+      "quality": {
+        "KEEP": 237,
+        "WEAK": 66,
+        "BAD": 4,
+        "UNRESOLVED": 62,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 250,
+      "one_crop": 46,
+      "two_plus_crops": 73,
+      "core_ready": 237,
+      "weak_reserve": 66,
+      "review_hold": 62,
+      "excluded": 4,
+      "pending": 0,
+      "core_direct": 204,
+      "core_one_crop": 8,
+      "core_two_plus_crops": 25
+    },
+    "vstar": {
+      "paths": 84,
+      "quality": {
+        "KEEP": 59,
+        "WEAK": 25,
+        "BAD": 0,
+        "UNRESOLVED": 0,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 9,
+      "one_crop": 49,
+      "two_plus_crops": 26,
+      "core_ready": 59,
+      "weak_reserve": 25,
+      "review_hold": 0,
+      "excluded": 0,
+      "pending": 0,
+      "core_direct": 9,
+      "core_one_crop": 39,
+      "core_two_plus_crops": 11
+    },
+    "worldbench": {
+      "paths": 731,
+      "quality": {
+        "KEEP": 495,
+        "WEAK": 178,
+        "BAD": 7,
+        "UNRESOLVED": 51,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 255,
+      "one_crop": 238,
+      "two_plus_crops": 238,
+      "core_ready": 495,
+      "weak_reserve": 178,
+      "review_hold": 51,
+      "excluded": 7,
+      "pending": 0,
+      "core_direct": 241,
+      "core_one_crop": 128,
+      "core_two_plus_crops": 126
+    }
+  },
+  "by_crop_bin": {
+    "0": {
+      "paths": 2229,
+      "quality": {
+        "KEEP": 2084,
+        "WEAK": 25,
+        "BAD": 3,
+        "UNRESOLVED": 117,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 2229,
+      "one_crop": 0,
+      "two_plus_crops": 0,
+      "core_ready": 2084,
+      "weak_reserve": 25,
+      "review_hold": 117,
+      "excluded": 3,
+      "pending": 0,
+      "core_direct": 2084,
+      "core_one_crop": 0,
+      "core_two_plus_crops": 0
+    },
+    "1": {
+      "paths": 1800,
+      "quality": {
+        "KEEP": 1119,
+        "WEAK": 590,
+        "BAD": 4,
+        "UNRESOLVED": 87,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 0,
+      "one_crop": 1800,
+      "two_plus_crops": 0,
+      "core_ready": 1119,
+      "weak_reserve": 590,
+      "review_hold": 87,
+      "excluded": 4,
+      "pending": 0,
+      "core_direct": 0,
+      "core_one_crop": 1119,
+      "core_two_plus_crops": 0
+    },
+    "2+": {
+      "paths": 1349,
+      "quality": {
+        "KEEP": 757,
+        "WEAK": 480,
+        "BAD": 18,
+        "UNRESOLVED": 94,
+        "NOT_REVIEWED": 0
+      },
+      "direct": 0,
+      "one_crop": 0,
+      "two_plus_crops": 1349,
+      "core_ready": 750,
+      "weak_reserve": 474,
+      "review_hold": 107,
+      "excluded": 18,
+      "pending": 0,
+      "core_direct": 0,
+      "core_one_crop": 0,
+      "core_two_plus_crops": 750
+    }
+  },
+  "core_ready_T_Q_G": {
+    "T": 3953,
+    "Q": 3953,
+    "G": 3603
+  },
+  "core_mentor_behaviors": {
+    "locate_then_detail": 1511,
+    "cross_region_compare_or_bind": 597,
+    "honest_miss_then_switch": 132,
+    "direct_when_sufficient": 2084
+  },
+  "reviewer_recommendations": {
+    "retain": 4001,
+    "prefer_existing_alternative": 971,
+    "recovery_only": 102,
+    "hold_for_visual_adjudication": 304
+  },
+  "record_format_errors": 0,
+  "semantic_field_flags": 0,
+  "historical_advice_available": 5372,
+  "human_acceptance": false,
+  "training_run": false,
+  "external_model_calls": 0,
+  "source_manifest_sha256": "f62f5859c38662a14e79a93f75ac7b05979bfda07d50103371f3a1e90a7833db",
+  "core_length": {
+    "steps": {
+      "n": 3953,
+      "sum": 6907,
+      "mean": 1.75,
+      "median": 1,
+      "p90": 3,
+      "max": 9
+    },
+    "crops": {
+      "n": 3953,
+      "sum": 2954,
+      "mean": 0.75,
+      "median": 0,
+      "p90": 2,
+      "max": 8
+    },
+    "processed_sequence_tokens": {
+      "n": 3953,
+      "sum": 10550689,
+      "mean": 2669.03,
+      "median": 2273,
+      "p90": 3861,
+      "max": 8162
+    },
+    "supervised_assistant_tokens": {
+      "n": 3953,
+      "sum": 639772,
+      "mean": 161.84,
+      "median": 144,
+      "p90": 317,
+      "max": 1001
+    }
+  },
+  "core_crop_histogram": {
+    "3": 152,
+    "2": 525,
+    "4": 49,
+    "6": 8,
+    "5": 14,
+    "8": 1,
+    "7": 1,
+    "1": 1119,
+    "0": 2084
+  },
+  "core_step_histogram": {
+    "4": 152,
+    "3": 525,
+    "5": 49,
+    "7": 8,
+    "6": 14,
+    "9": 1,
+    "8": 1,
+    "2": 1119,
+    "1": 2084
+  },
+  "core_by_origin": {
+    "V1": 3899,
+    "V2_increment": 54
+  },
+  "core_by_material": {
+    "text": 875,
+    "natural": 927,
+    "count": 320,
+    "academic": 558,
+    "chart_table": 1032,
+    "visual_puzzle": 237,
+    "map": 4
+  },
+  "core_by_benchmark": {
+    "mme_realworld": 2626,
+    "mmmu_pro": 536,
+    "worldbench": 495,
+    "visreason": 237,
+    "vstar": 59
+  },
+  "by_origin_disposition": {
+    "V1": {
+      "core_ready": 3899,
+      "weak_reserve": 1064,
+      "review_hold": 292,
+      "excluded": 22
+    },
+    "V2_increment": {
+      "weak_reserve": 25,
+      "core_ready": 54,
+      "review_hold": 19,
+      "excluded": 3
+    }
+  },
+  "core_groups_with_multiple_questions": 301,
+  "core_crop_gains": {
+    "new_detail": 1659,
+    "comparison_evidence": 311,
+    "honest_miss": 79,
+    "informative_negative": 231,
+    "binding_context": 674
+  },
+  "core_useful_crop_fraction": 1,
+  "reviewed_recovery_only": 102,
+  "cpu_mask_check": {
+    "status": "PASS",
+    "samples": 5378,
+    "exact_mask_and_target_passed": 5378,
+    "cache_sha256": "30ae316953d76ae4614b65570234473d89f91abc6d5ce914759949bab10594dc",
+    "raw_dataset_sha256": "d6b8b2129bcbd58989ca1891707a72ac8c382f40c7d548efac2dde1d3d08a509",
+    "check_script_sha256": "091f531847f3807ce3327e5206fc8f0b6bc4d65cd186426904ef98df6d07484d",
+    "runtime_versions": {
+      "transformers": "5.8.0",
+      "datasets": "4.0.0",
+      "torch": "2.14.0",
+      "llamafactory": "0.9.6.dev0"
+    },
+    "processor_max_pixels": 589824,
+    "processor_min_pixels": 1024,
+    "train_on_prompt": false,
+    "mask_history": false,
+    "saved_views": 10691,
+    "saved_views_above_pixel_budget": {
+      "original": 4560,
+      "crop": 1685
+    },
+    "pixel_budget_note": "View dimensions exceed the preprocessing pixel budget; no claim that student-level text or details stay readable.",
+    "no_GPU": true,
+    "no_training": true,
+    "no_image_reprocessing": true
+  },
+  "lf_summary": {
+    "samples": 5378,
+    "passed": 5378,
+    "max_tokens": 8997,
+    "mean_tokens": 2839,
+    "cutoff": 16384
+  }
+}
