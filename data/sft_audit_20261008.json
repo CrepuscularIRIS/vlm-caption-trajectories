@@ -1,0 +1,346 @@
+{
+  "date": "2026-10-08",
+  "inventory_snapshot_utc": "2026-10-08T05:25:37.425208+00:00",
+  "status": "offline_inventory_and_model_reviewed_selection; acceptance/export_pending",
+  "scope": "Four main generators plus Astra/Gemini/K3 runs included in this audit; not all historical runs.",
+  "accepted_sft": {
+    "T": null,
+    "Q": null,
+    "G": null
+  },
+  "candidate_selection": {
+    "T_candidate": 5277,
+    "Q": 5277,
+    "G": 4755,
+    "duplicate_task_rows": 0,
+    "repeated_image_groups": 458,
+    "extra_questions_beyond_one_per_group": 522,
+    "max_tasks_per_group": 17,
+    "group_task_count_histogram": {
+      "1": 4297,
+      "2": 428,
+      "3": 23,
+      "5": 2,
+      "7": 4,
+      "17": 1
+    },
+    "quality": {
+      "KEEP": 5277
+    },
+    "by_model": {
+      "Luna": {
+        "paths": 1284,
+        "direct": 878,
+        "one_crop": 276,
+        "two_plus_crops": 130
+      },
+      "Sol 5.6": {
+        "paths": 1259,
+        "direct": 774,
+        "one_crop": 299,
+        "two_plus_crops": 186
+      },
+      "GLM": {
+        "paths": 925,
+        "direct": 66,
+        "one_crop": 585,
+        "two_plus_crops": 274
+      },
+      "Grok": {
+        "paths": 1043,
+        "direct": 35,
+        "one_crop": 429,
+        "two_plus_crops": 579
+      },
+      "Astra": {
+        "paths": 443,
+        "direct": 314,
+        "one_crop": 110,
+        "two_plus_crops": 19
+      },
+      "Gemini": {
+        "paths": 293,
+        "direct": 142,
+        "one_crop": 93,
+        "two_plus_crops": 58
+      },
+      "K3": {
+        "paths": 30,
+        "direct": 20,
+        "one_crop": 8,
+        "two_plus_crops": 2
+      }
+    },
+    "by_dataset": {
+      "mme_realworld": 3392,
+      "worldbench": 731,
+      "mmmu_pro": 701,
+      "visreason": 369,
+      "vstar": 84
+    },
+    "by_material": {
+      "natural": 1329,
+      "text": 1227,
+      "count": 456,
+      "chart_table": 1156,
+      "academic": 736,
+      "visual_puzzle": 369,
+      "map": 4
+    },
+    "held_separately": 79,
+    "manifest": "data/selection_5277_20261008.jsonl",
+    "manifest_sha256": "cfd135f787a6a1cd1c3e6b53a3f87262ee9242779021c2f7cd442ff4e2ce7ef0"
+  },
+  "inventory": {
+    "total": 86474,
+    "main": 82816,
+    "supplemental": 3658,
+    "quality": {
+      "KEEP": 7330,
+      "WEAK": 2562,
+      "BAD": 663,
+      "INCOMPLETE": 2,
+      "NOT_REVIEWED": 71749,
+      "LEGACY_REJECTED": 2793,
+      "LEGACY_DISPUTED": 619,
+      "LEGACY_PASS": 483,
+      "UNRESOLVED": 237,
+      "LEGACY_OTHER": 4,
+      "DUAL_REVIEW_PENDING": 7,
+      "DUAL_PASS": 25
+    },
+    "by_model": {
+      "Luna": {
+        "paths": 20706,
+        "quality": {
+          "NOT_REVIEWED": 16911,
+          "WEAK": 323,
+          "KEEP": 1732,
+          "LEGACY_REJECTED": 1037,
+          "LEGACY_DISPUTED": 252,
+          "BAD": 72,
+          "LEGACY_PASS": 348,
+          "UNRESOLVED": 29,
+          "LEGACY_OTHER": 2
+        },
+        "termination": {
+          "answer": 17666,
+          "abstain": 2965,
+          "protocol_violation": 75
+        },
+        "crops": {
+          "1": 3042,
+          "0": 12999,
+          "2plus": 4665
+        },
+        "keep_crops": {
+          "0": 1180,
+          "1": 389,
+          "2plus": 163
+        }
+      },
+      "Sol 5.6": {
+        "paths": 20706,
+        "quality": {
+          "BAD": 104,
+          "NOT_REVIEWED": 17781,
+          "LEGACY_REJECTED": 506,
+          "KEEP": 1860,
+          "LEGACY_DISPUTED": 67,
+          "WEAK": 340,
+          "UNRESOLVED": 44,
+          "LEGACY_PASS": 3,
+          "LEGACY_OTHER": 1
+        },
+        "termination": {
+          "answer": 20563,
+          "abstain": 143
+        },
+        "crops": {
+          "0": 12584,
+          "1": 3268,
+          "2plus": 4854
+        },
+        "keep_crops": {
+          "0": 1193,
+          "2plus": 224,
+          "1": 443
+        }
+      },
+      "GLM": {
+        "paths": 20698,
+        "quality": {
+          "NOT_REVIEWED": 17770,
+          "KEEP": 1382,
+          "LEGACY_REJECTED": 643,
+          "WEAK": 497,
+          "LEGACY_DISPUTED": 146,
+          "LEGACY_PASS": 112,
+          "BAD": 119,
+          "UNRESOLVED": 29
+        },
+        "termination": {
+          "answer": 20195,
+          "abstain": 234,
+          "protocol_violation": 8,
+          "truncated": 261
+        },
+        "crops": {
+          "2plus": 10161,
+          "1": 7784,
+          "0": 2753
+        },
+        "keep_crops": {
+          "2plus": 384,
+          "1": 830,
+          "0": 168
+        }
+      },
+      "Grok": {
+        "paths": 20706,
+        "quality": {
+          "NOT_REVIEWED": 17460,
+          "LEGACY_REJECTED": 607,
+          "WEAK": 808,
+          "KEEP": 1483,
+          "LEGACY_DISPUTED": 154,
+          "UNRESOLVED": 37,
+          "BAD": 136,
+          "LEGACY_PASS": 20,
+          "LEGACY_OTHER": 1
+        },
+        "termination": {
+          "answer": 19838,
+          "abstain": 868
+        },
+        "crops": {
+          "2plus": 12464,
+          "1": 7030,
+          "0": 1212
+        },
+        "keep_crops": {
+          "2plus": 750,
+          "1": 636,
+          "0": 97
+        }
+      },
+      "Astra": {
+        "paths": 1649,
+        "quality": {
+          "KEEP": 485,
+          "WEAK": 257,
+          "BAD": 80,
+          "NOT_REVIEWED": 757,
+          "UNRESOLVED": 58,
+          "DUAL_PASS": 10,
+          "DUAL_REVIEW_PENDING": 2
+        },
+        "termination": {
+          "answer": 1367,
+          "abstain": 282
+        },
+        "crops": {
+          "0": 1003,
+          "2plus": 337,
+          "1": 309
+        },
+        "keep_crops": {
+          "0": 343,
+          "1": 115,
+          "2plus": 27
+        }
+      },
+      "Gemini": {
+        "paths": 1758,
+        "quality": {
+          "WEAK": 325,
+          "KEEP": 353,
+          "INCOMPLETE": 2,
+          "NOT_REVIEWED": 884,
+          "BAD": 146,
+          "UNRESOLVED": 37,
+          "DUAL_REVIEW_PENDING": 4,
+          "DUAL_PASS": 7
+        },
+        "termination": {
+          "answer": 1519,
+          "truncated": 143,
+          "protocol_violation": 13,
+          "abstain": 83
+        },
+        "crops": {
+          "2plus": 813,
+          "0": 636,
+          "1": 309
+        },
+        "keep_crops": {
+          "0": 179,
+          "1": 108,
+          "2plus": 66
+        }
+      },
+      "K3": {
+        "paths": 251,
+        "quality": {
+          "NOT_REVIEWED": 186,
+          "BAD": 6,
+          "WEAK": 12,
+          "KEEP": 35,
+          "UNRESOLVED": 3,
+          "DUAL_PASS": 8,
+          "DUAL_REVIEW_PENDING": 1
+        },
+        "termination": {
+          "answer": 241,
+          "abstain": 6,
+          "protocol_violation": 2,
+          "truncated": 2
+        },
+        "crops": {
+          "2plus": 132,
+          "0": 82,
+          "1": 37
+        },
+        "keep_crops": {
+          "2plus": 3,
+          "0": 21,
+          "1": 11
+        }
+      }
+    },
+    "records_with_any_review": 14725
+  },
+  "unreviewed_screen": {
+    "records": 71749,
+    "termination": {
+      "answer": 66666,
+      "abstain": 4581,
+      "protocol_violation": 98,
+      "truncated": 404
+    },
+    "corrected_cpu_candidates": 42834,
+    "corrected_cpu_tool_paths": 24291,
+    "corrected_cpu_two_plus_crop_paths": 10616,
+    "main_train_tool_candidates_without_known_multisource_flag": {
+      "paths": 22954,
+      "tasks": 12927,
+      "outside_current_selection_paths": 18038,
+      "outside_current_selection_tasks": 9864,
+      "outside_two_plus_crop_tasks": 6061,
+      "outside_two_families_previously_two_plus_crops_tasks": 4316,
+      "above_with_any_explicit_BAD_path": 16
+    },
+    "meaning": "Offline review-priority signals, not reviewed quality, confirmed difficulty, or an authorized work queue. GT conflicts, demo exposure, existing alternatives and answerability still need checking."
+  },
+  "limitations": [
+    "Labels from heterogeneous stored review regimes are not ground truth.",
+    "Unflagged means no recorded flag in available fields, not verified absence of problems.",
+    "Stored token accounting excludes unrecorded failed/rejected attempts and audit calls.",
+    "No fresh image-level adjudication, no new Qwen preprocessing run or SFT validation.",
+    "Actual task uses recorded source-image hash plus question; alias canonicalization separately reported.",
+    "Current canonical keys and registered image groups do not prove every undiscovered near-duplicate has been found.",
+    "All selected paths have a stored KEEP label; review protocols differ between batches.",
+    "Crop counts describe actions, not independently established information gain.",
+    "Candidate inventory is not a training export; earlier preprocessing passes do not transfer to this selection."
+  ]
+}

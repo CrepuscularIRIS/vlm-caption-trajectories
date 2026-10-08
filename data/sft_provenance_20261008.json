@@ -1,0 +1,12 @@
+{
+  "source_files": {
+    "reports/sft_comprehensive_audit_20261008/STATS.json": "d2abf55beb0552c68a672d0520e72dc79f031baa34a791b1b1016b56fb1a3ce7",
+    "reports/sft_comprehensive_audit_20261008/PATH_LEDGER.jsonl": "903224e2f21ccaf80f6da02ae6c4f6885e5e8b69de250eca8a3037275d24ad81",
+    "reports/sft_comprehensive_audit_20261008/TASK_LEDGER.jsonl": "ae4640596646e5e7d33febd4d29789bbbf64eb5d302d07239a50ae0e934d9fd5",
+    "obs/runs/selection_multistep_first_20261008/uncapped/SELECTION_ALL_QUALIFIED.jsonl": "f5eea6d43f181e5e22325f0e0f196d2a4d82a632e44e08eaf4611ce987df4c8f",
+    "reports/sft_comprehensive_audit_20261008/SFT_COUNTS_SIMPLE.zh.md": "73f566beedd525b3a9320f0f02e03596bcd75d3d0c6e2568eeec86ebf4cf5739",
+    "reports/sft_comprehensive_audit_20261008/SELECTION_5277_FOLLOWUP.zh.md": "c129cdd0c0e7f97e42d49d47259ad255f7442c466dbadc96348a03b93dbe4833",
+    "obs/src/build_selection_multistep_first.py": "3fb0bb4f74d4b7cd8a44f8950c245fa05516f01b9020c0299f64a2d439d44ad6"
+  },
+  "publication_scope": "Derived statistics and selected metadata only. No new images, hidden reasoning, account configuration, raw CLI logs or private mentor transcripts."
+}

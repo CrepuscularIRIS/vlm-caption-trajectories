@@ -28,3 +28,5 @@ jobs:
         run: python scripts/spotcheck_review.py --verify
       - name: Verify consensus progress and 24 paired paths
         run: python scripts/review_progress.py
+      - name: Verify October 8 inventory and one-path-per-task selection
+        run: python scripts/verify_sft_audit.py
