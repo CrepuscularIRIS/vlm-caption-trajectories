@@ -1,0 +1,196 @@
+{
+  "version": "V2.2",
+  "status": "complete_model_reviewed_not_human_gold",
+  "baseline": {
+    "T": 3979,
+    "Q": 3979,
+    "G": 3629
+  },
+  "generation": {
+    "K3_complete": 111,
+    "K3_correct": 90,
+    "K3_CPU_correct": 88,
+    "K3_HTTP_requests": 292,
+    "technical_errors": 0,
+    "all_attempts_settled": true
+  },
+  "process_reviewed": 88,
+  "actual_views": 200,
+  "quality": {
+    "BAD": 6,
+    "KEEP": 61,
+    "WEAK": 18,
+    "UNRESOLVED": 3
+  },
+  "gate_excluded_not_process_reviewed": 23,
+  "increment_KEEP": 61,
+  "increment_behavior": {
+    "direct": 31,
+    "one_crop": 20,
+    "two_plus_crops": 10
+  },
+  "final_T_Q_G": {
+    "T": 4040,
+    "Q": 4040,
+    "G": 3690
+  },
+  "needed_for_over_4000": 0,
+  "by_model": {
+    "GLM": {
+      "total": 514,
+      "two_plus_crops": 143,
+      "one_crop": 313,
+      "direct": 58
+    },
+    "Luna": {
+      "total": 1113,
+      "two_plus_crops": 69,
+      "one_crop": 205,
+      "direct": 839
+    },
+    "Grok": {
+      "total": 587,
+      "two_plus_crops": 354,
+      "one_crop": 203,
+      "direct": 30
+    },
+    "Sol 5.6": {
+      "total": 1081,
+      "two_plus_crops": 125,
+      "one_crop": 227,
+      "direct": 729
+    },
+    "Gemini": {
+      "total": 248,
+      "two_plus_crops": 46,
+      "one_crop": 71,
+      "direct": 131
+    },
+    "Astra": {
+      "total": 382,
+      "two_plus_crops": 11,
+      "one_crop": 94,
+      "direct": 277
+    },
+    "K3": {
+      "total": 115,
+      "two_plus_crops": 14,
+      "one_crop": 33,
+      "direct": 68
+    }
+  },
+  "by_benchmark": {
+    "mme_realworld": 2669,
+    "mmmu_pro": 549,
+    "worldbench": 513,
+    "visreason": 240,
+    "vstar": 69
+  },
+  "final_behavior": {
+    "two_plus_crops": 762,
+    "one_crop": 1146,
+    "direct": 2132
+  },
+  "final_lengths": {
+    "max_tokens": 8162,
+    "mean_tokens": 2665.87,
+    "max_steps": 9,
+    "mean_steps": 1.744
+  },
+  "new_CPU": {
+    "samples": 88,
+    "passed": 88,
+    "max_tokens": 8252,
+    "exact_mask_passed": 88
+  },
+  "final_dataset_sha256": "46d3c2629e8ae363291809ed4e51cecec61e048ca823a835d394ba656cd8f77f",
+  "baseline_dataset_sha256": "2fdb7100ee37a5eb0968444afc2464a4c22cd6157894bcbd8486fdbf985f6820",
+  "human_acceptance": false,
+  "training": false,
+  "GPU": false,
+  "additional_model_calls_for_review": 0,
+  "limitations": [
+    "model review, not human gold",
+    "full-path review is not temporally isolated prefix verification",
+    "different tasks, not a model ranking",
+    "student-resolution evidence legibility and training utility untested"
+  ],
+  "review_by_prior_verdict": {
+    "KEEP": {},
+    "WEAK": {
+      "BAD": 5,
+      "KEEP": 58,
+      "WEAK": 16,
+      "UNRESOLVED": 1
+    },
+    "BAD": {
+      "KEEP": 2,
+      "WEAK": 1
+    },
+    "UNRESOLVED": {
+      "KEEP": 1,
+      "WEAK": 1,
+      "UNRESOLVED": 2,
+      "BAD": 1
+    }
+  },
+  "review_by_crop_bin": {
+    "direct": {
+      "KEEP": 31,
+      "WEAK": 2,
+      "BAD": 1,
+      "UNRESOLVED": 1
+    },
+    "one_crop": {
+      "KEEP": 20,
+      "BAD": 1,
+      "WEAK": 2
+    },
+    "two_plus_crops": {
+      "BAD": 4,
+      "WEAK": 14,
+      "KEEP": 10,
+      "UNRESOLVED": 2
+    }
+  },
+  "review_by_benchmark": {
+    "mme_realworld": {
+      "WEAK": 7,
+      "KEEP": 28,
+      "BAD": 3,
+      "UNRESOLVED": 1
+    },
+    "mmmu_pro": {
+      "KEEP": 8,
+      "WEAK": 4,
+      "UNRESOLVED": 2
+    },
+    "visreason": {
+      "KEEP": 2,
+      "BAD": 1,
+      "WEAK": 2
+    },
+    "vstar": {
+      "KEEP": 8
+    },
+    "worldbench": {
+      "BAD": 2,
+      "WEAK": 5,
+      "KEEP": 15
+    }
+  },
+  "increment_mentor_behaviors": {
+    "direct_when_sufficient": 31,
+    "locate_then_detail": 25,
+    "cross_region_compare_or_bind": 15,
+    "honest_miss_then_switch": 1
+  },
+  "increment_crop_gains": {
+    "binding_context": 7,
+    "comparison_evidence": 8,
+    "new_detail": 25,
+    "informative_negative": 2
+  },
+  "exactly_one_path_per_task": true,
+  "reviewers": "five native Codex workers plus root; Q4 also handled nine Q6 tasks; one model-system review per task, no external judge"
+}

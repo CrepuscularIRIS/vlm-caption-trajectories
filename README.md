@@ -1,3 +1,18 @@
+<!-- V2.2 ADDITIVE RELEASE -->
+# V2.2 当前交付：4,040 条模型审核轨迹
+
+**T/Q/G = 4,040 / 4,040 / 3,690**。本轮K3对111题生成，88条逐图核验：KEEP 61、WEAK 18、BAD 6、UNRESOLVED 3。新增61条完整KEEP，已超过4,000；旧版本原样保留。
+
+- [完整报告与逐题判由](docs/18_v2_2_k3_topup_20261009.md)
+- [完整可见增量](data/v2_2_increment_keep_20261009.jsonl) · [88条审核表](data/v2_2_topup_review_table_20261009.csv) · [合并统计](data/v2_2_summary_20261009.json)
+- 全量为V2基线＋V2.1增量＋本次V2.2增量。`scripts/verify_v2_2_release.py`检查去重与审核门槛；`scripts/reconstruct_v2_2_export.py`在合法持有源数据后重构全量。
+
+只收KEEP，按证据需要允许直答和有效裁图；模型审核不等于人工金标准，尚无学生训练结果。本轮已收口。
+
+---
+
+以下是保留的历史快照，缺口及“当前”措辞仅指其发布时点。
+
 <!-- V2.1 ADDITIVE RELEASE -->
 # V2.1 当前交付：3,979 条模型审核轨迹
 
