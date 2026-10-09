@@ -3,6 +3,9 @@
 
 **T/Q/G = 4,040 / 4,040 / 3,690**。本轮K3对111题生成，88条逐图核验：KEEP 61、WEAK 18、BAD 6、UNRESOLVED 3。新增61条完整KEEP，已超过4,000；旧版本原样保留。
 
+- **[全量轨迹网页：逐步查看 4,040 条完整路径](https://CrepuscularIRIS.github.io/vlm-caption-trajectories/)**
+- **[完整设计、审核、模型与步数报告](docs/19_v2_2_complete_design_and_catalog_20261009.md)** · [5,503 条四档审核目录](data/v2_2_complete_inventory_20261009.csv) · [完整统计 JSON](data/v2_2_complete_statistics_20261009.json)
+- 共 **7,047 步，平均 1.74 步，中位 1 步，最长 9 步**；直答 2,132 条，一次裁图 1,146 条，至少两次裁图 762 条。每次助手 Caption＋动作/终答算一步，工具返回不另计。
 - [完整报告与逐题判由](docs/18_v2_2_k3_topup_20261009.md)
 - [完整可见增量](data/v2_2_increment_keep_20261009.jsonl) · [88条审核表](data/v2_2_topup_review_table_20261009.csv) · [合并统计](data/v2_2_summary_20261009.json)
 - 全量为V2基线＋V2.1增量＋本次V2.2增量。`scripts/verify_v2_2_release.py`检查去重与审核门槛；`scripts/reconstruct_v2_2_export.py`在合法持有源数据后重构全量。
