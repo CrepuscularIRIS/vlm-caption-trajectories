@@ -1,3 +1,18 @@
+<!-- V2.1 ADDITIVE RELEASE -->
+# V2.1 当前交付：3,979 条模型审核轨迹
+
+**T/Q/G = 3,979 / 3,979 / 3,629**。在V2的3,953条基础上新增26条K3完整KEEP路径；每题一条，基线未改。新增部分逐图复核37条：KEEP 26、WEAK 7、BAD 3、UNRESOLVED 1。还有22条合格路径的缺口，当前不宣称达到4k。
+
+- [V2.1完整报告与逐题判由](docs/17_v2_1_topup_20261008.md)
+- [26条完整可见增量](data/v2_1_increment_keep_20261008.jsonl) · [新审核表](data/v2_1_topup_review_table_20261008.csv) · [合并统计](data/v2_1_summary_20261008.json)
+- 全量组成：下方V2基线＋本次增量；用 `scripts/reconstruct_v2_1_export.py` 在合法持有源数据后重构3,979条，用 `scripts/verify_v2_1_release.py` 核对去重、计数、视图顺序与审核门槛。
+
+模型审核不等于人工金标准；没有学生训练结果。Gemini补生成分支暂停，未自动扩题或降低质量标准。
+
+---
+
+以下保留 **V2基线快照**，其中“当前”均指该基线发布时点。
+
 # VLM Caption Trajectories
 
 **用短证据 Caption 和真实视觉动作，构建可核验的 SFT 示范。**

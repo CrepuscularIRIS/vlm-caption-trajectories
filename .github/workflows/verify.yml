@@ -32,3 +32,5 @@ jobs:
         run: python scripts/verify_sft_audit.py
       - name: Verify the merged V2 KEEP release
         run: python scripts/verify_v2_release.py
+      - name: Verify the additive V2.1 KEEP release
+        run: python scripts/verify_v2_1_release.py

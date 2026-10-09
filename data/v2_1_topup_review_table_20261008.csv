@@ -1,0 +1,38 @@
+﻿audit_id,item_id,model,bench,crops,steps,verdict,advice
+T0001,worldbench_1100,K3,worldbench,0,1,KEEP,原图构图、主体清晰度和后方栖鸟遮挡共同支持飞行鹦鹉为拍摄焦点，直接回答充分可靠。
+T0002,mme_realworld_14476,K3,mme_realworld,0,1,KEEP,目标店招全文和中央建筑绑定均有直接图像依据，选C可靠且无需crop。
+T0003,mme_realworld_15133,K3,mme_realworld,1,2,KEEP,已看2图。目标位置和CONFECTIONERY字串均与独立读图一致，单次crop用于核对选项间细微拼写，答案C有据。
+T0004,vs_064,K3,vstar,1,2,WEAK,孩子卷发和目标绑定可靠，一次crop有效；反复附带“stroller”没有可见依据，属于非决定性场景误述，按完整路径质量列WEAK。
+T0005,mmmu_pro_std_validation_Music_25,K3,mmmu_pro,5,6,BAD,最终F恰好与真实大二度的major性质一致，但步骤3至终答持续把左音B♭5读成A♭5，错误前缀未恢复，不能作全路径正例。
+T0006,mme_realworld_15768,K3,mme_realworld,1,2,KEEP,已看2图。crop准确涵盖网址、文字拼写与原图独立答案一致，定位和终答A均可靠。
+T0007,mme_realworld_04556,K3,mme_realworld,0,1,KEEP,已看原图。前方信号灯绿色及道路关系清楚，直接答A有据，无需强制crop。
+T0008,mme_realworld_21337,K3,mme_realworld,5,6,WEAK,紧邻球场的南北两端各有一个红屋顶，B在这个范围下有据。首轮定位和部分分区核查有用，但重复裁剪及未证实的工商建筑身份削弱完整路径质量，主集不收。
+T0009,mme_realworld_17728,K3,mme_realworld,0,1,KEEP,按原图可辨右侧白牌蓝色电话号码及次序，第二号码与C一致，简洁直答可靠。
+T0010,mme_realworld_18806,K3,mme_realworld,1,2,KEEP,目标绑定明确，返回crop确实显示GO / WE / HO三行，终答B有据且无需额外放大。
+T0011,vs_173,K3,vstar,0,1,KEEP,原图清楚显示红车在雕塑的画面右侧，直接回答B可靠，未添加无用动作。
+T0012,mme_realworld_12935,K3,mme_realworld,1,2,KEEP,模型明确将答案绑定到货厢顶，未混入白色驾驶室。屋顶呈红褐色，B合理；单次crop用于相邻颜色和部件比较，有实际用途。
+T0013,mme_realworld_21284,K3,mme_realworld,4,5,WEAK,六艘船和右上角码头绑定有图像依据；前两次裁剪有效，后两次重复放大无新增证据。终答可靠但整条路径不满足所有crop有用的主集标准。
+T0014,vs_034,K3,vstar,2,3,KEEP,原图目标很小，两级裁图使右侧车上头盔的形状和绿色外壳可辨。候选阶段保留不确定性，终答A有据，所有crop有明确用途。
+T0015,mme_realworld_05880,K3,mme_realworld,0,1,KEEP,完整行名—单位—数值绑定清楚，Loan Term为15年，直接回答B可靠。
+T0016,mme_realworld_01064,K3,mme_realworld,2,3,KEEP,夜景原图及局部均支持多辆车和一辆公交。两次取景分别用于区分栏杆遮挡和放大公交特征；没有先把未决物体断言为公交，终答C有据。
+T0017,worldbench_0846,K3,worldbench,2,3,WEAK,两次crop均有效，终答D可支持；但终答忽略第二个红色扁杆与拉钮的类别区分，并未解释B从未决变为支持，作为完整训练路径只评WEAK，不进主集。
+T0018,mmmu_pro_std_test_Agriculture_15,K3,mmmu_pro,0,1,KEEP,已看原图。可见褐变茎部、白色绒丝及菌核样颗粒，支持C所指的一般真菌腐烂。具体病原仅作为such as举例、颗粒也保留like限定；不将此审核扩展为具体病种或地下根部状况确证。
+T0019,worldbench_0691,K3,worldbench,0,1,WEAK,人造棕榈装饰的外观支持B，其他选项有合理依据；但直接声称全图仅两车，漏掉后景第三车，降为WEAK而非完整正例。
+T0020,mme_realworld_19477,K3,mme_realworld,1,2,UNRESOLVED,有效crop读出00:04:00=4分钟；静态屏幕不能确定是总时长还是当前进度，故答案与题意绑定未决，暂不收主集。
+T0021,worldbench_1880,K3,worldbench,0,1,KEEP,内圈sol#与sol相隔5个30度位置，D有据；标签所属内圈和等分角度计算均正确，直接作答充分。
+T0022,mme_realworld_18712,K3,mme_realworld,1,2,KEEP,已看2图。正确定位左上角加粗JOURNEY，单次crop核对拼写，答案A与盲答一致。
+T0023,mmmu_pro_std_test_History_124,K3,mmmu_pro,0,1,KEEP,四地理区域与历史政权对应支持I。C字母在半岛内陆，轨迹谨慎表述为Arabian/southwest-Arabia label associated with Himyar，未虚构其位于蓝色色块内。
+T0024,mme_realworld_16791,K3,mme_realworld,1,2,KEEP,白色SUV绑定明确，圆环横条车标支持Nissan；轨迹没有冒称逐字读出模糊车标文字，选C可靠。
+T0025,mme_realworld_19749,K3,mme_realworld,0,1,KEEP,已看原图。中间两个分镜各显示一名舱内角色，跨分镜计数与位置绑定可靠，答案D（2）有据。
+T0026,visreason_c4_9,K3,visreason,4,5,BAD,已看全部5图。初始面标记和相对面正确，但后续排除关系、面身份和T方向均出现未修复的关键错误；终答A未作为独立确认依据，整条BAD。
+T0027,mmmu_pro_std_test_Basic_Medical_Science_76,K3,mmmu_pro,0,1,KEEP,左侧较低溶质、右侧较高溶质及向右水流均可见，渗透规则应用正确，A可靠。
+T0028,mme_realworld_18438,K3,mme_realworld,0,1,KEEP,粗体目标字样、旁边Zweitstimme及上方标语均与原图吻合；模型保留实际für拼写，正确区别A与C，直答充分。
+T0029,mme_realworld_22678,K3,mme_realworld,0,1,KEEP,蓝屋顶建筑和港池蓝船区分正确，目标明显处于上部，直接回答D有据。
+T0030,mme_realworld_15068,K3,mme_realworld,0,1,KEEP,已看原图。可直接核对CANYON CLUB且O并非Q，目标招牌与答案D一致。
+T0031,mmmu_pro_std_test_History_37,K3,mmmu_pro,1,2,KEEP,图示进入日本的最后一段箭头经过朝鲜半岛，直接来源与D相符。单次裁剪保留标签及箭头全段，关系绑定可靠。
+T0032,worldbench_0251,K3,worldbench,4,5,BAD,手套细节和人物绑定可靠，终答C与独立看图一致；但红衣人朝向被错判，最终用恰好两人面朝相机来否定“两人面朝相机”，决定性错误未恢复，整路径BAD。
+T0033,worldbench_1175,K3,worldbench,0,1,KEEP,原图没有可辨的整齐断面、可识别肥料或围栏；D仅称缺乏强证据，符合图像，不把虚化背景当作证明不存在人工环境。
+T0034,visreason_c9_277,K3,visreason,0,1,KEEP,示例两步逐列叠加另一方向线组，目标延续后只有B符合两格网格加两格竖线。全部图案可见，直接推理与答案可靠。
+T0035,mmmu_pro_std_validation_Biology_21,K3,mmmu_pro,0,1,KEEP,B引线与紫色细胞核绑定清楚；虽然端点位于核外层，选项无核膜且F为相应整体结构，直接回答可靠。
+T0036,mme_realworld_14246,K3,mme_realworld,2,3,WEAK,终答A由清楚可读的FRIENDS复数支持。第一crop有用；第二crop基于错误的裁边诊断，未解除实际遮挡，完整路径不达KEEP标准。
+T0037,mme_realworld_16927,K3,mme_realworld,3,4,WEAK,已看4图，红车绑定和答案B有据；前两次crop有效，第三次重复且未改善前缀可读性，按每个crop有用标准判WEAK，不进KEEP主集。
