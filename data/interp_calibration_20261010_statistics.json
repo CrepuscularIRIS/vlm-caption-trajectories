@@ -1,0 +1,86 @@
+{
+  "stage": "calibration_delivered_not_trained",
+  "generators": {
+    "gemini": {
+      "tasks": 28,
+      "requests": 35,
+      "complete_protocol_paths": 17,
+      "gt_correct_complete": 14,
+      "labels": {
+        "KEEP": 10,
+        "GATE_EXCLUDED": 11,
+        "BAD": 3,
+        "WEAK": 2,
+        "UNRESOLVED": 2
+      },
+      "keep_gt_agree": 8,
+      "selected_recovery": 1,
+      "returned_models": {
+        "gemini-3.8-flash-low": 35
+      },
+      "request_errors": 6
+    },
+    "k3": {
+      "tasks": 12,
+      "requests": 32,
+      "complete_protocol_paths": 12,
+      "gt_correct_complete": 10,
+      "labels": {
+        "KEEP": 6,
+        "UNRESOLVED": 4,
+        "WEAK": 2
+      },
+      "keep_gt_agree": 6,
+      "selected_recovery": 3,
+      "returned_models": {
+        "k3-256k": 32
+      },
+      "request_errors": 0
+    }
+  },
+  "tasks": 40,
+  "requests": 67,
+  "process_labels": {
+    "KEEP": 16,
+    "GATE_EXCLUDED": 11,
+    "BAD": 3,
+    "WEAK": 4,
+    "UNRESOLVED": 6
+  },
+  "keep_gt_agree": 14,
+  "gt_conflicting_KEEP": [
+    "C024",
+    "C028"
+  ],
+  "selected_recovery_ids": [
+    "C014",
+    "C029",
+    "C034",
+    "C037"
+  ],
+  "selected_recovery": 4,
+  "baseline_unchanged_T_Q_G": [
+    4040,
+    4040,
+    3690
+  ],
+  "paired_candidate_T_Q_G": [
+    4040,
+    4040,
+    3690
+  ],
+  "database_i_original": 4036,
+  "database_i_regenerated_context_paths": 4,
+  "human_acceptance": false,
+  "independent_blind_process_review": false,
+  "student_training": false,
+  "cpu_mask_check": {
+    "samples": 29,
+    "passed": 29,
+    "max_tokens": 6669
+  },
+  "raw_sharegpt_warning": "Stock raw JSON loading ignores assistant_supervision; use the saved masked labels or an integrated adapter. Full 4040-row training-loader integration is not tested.",
+  "api_calls_finished": true,
+  "no_pending_requests": true,
+  "old_paused_tasks_unchanged": true
+}

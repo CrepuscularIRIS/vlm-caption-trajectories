@@ -1,0 +1,41 @@
+audit_id,item_id,generator,model,intervention,termination,protocol_pass,process_verdict,gt_agree,accepted_quality_candidate,recovery_selected,recovery_kind,steps,crops,model_continuation_turns,review_summary_zh
+C001,mme_realworld_08558,gemini,gemini-3.8-flash-low,shift_region,answer,True,KEEP,1,True,False,previous_evidence_commit,3,2,1,表头Month 5与Total Views行的552在obs1可核；扰动obs2为订阅/广告区，未用其填造读数。已有证据充分后直接结束。
+C002,mme_realworld_21567,gemini,gemini-3.8-flash-low,tight_context,api_error,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C003,mme_realworld_12856,gemini,gemini-3.8-flash-low,shift_region,answer,True,BAD,1,False,False,unsupported_commit,3,2,1,obs1把骑车人及自行车截在右上边缘，未提供所声称清晰完整的车架、车把和篮子；黑色终答不能替代目标取证。
+C004,mme_realworld_17671,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,1,True,False,previous_evidence_commit,3,2,1,原图第三排第二张绿房屋与obs1对应，右墙502可读；紧框obs2截掉号码，终答正确回用obs1而非编造新视图读数。
+C005,visreason_c1_3_15,gemini,gemini-3.8-flash-low,shift_region,api_error,False,,,False,False,,4,3,2,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C006,vs_037,gemini,gemini-3.8-flash-low,tight_context,answer,True,BAD,1,False,False,fabricated_target,3,2,1,obs1/obs2只有书、红凳及杯罐陈列，没有所声称的白色圆盘绿壳时钟或纸杯蛋糕；HOLD保存了未观察到的事实。
+C007,worldbench_1858,gemini,gemini-3.8-flash-low,shift_region,answer,True,WEAK,1,False,False,previous_evidence_commit,3,2,1,原图支持最下红线更贴近上方文字，但obs1只到to infiltrate这一行，未含English-speaking Caucasian的最下红线；终答将两视图笼统并列作证。
+C008,worldbench_1978,gemini,gemini-3.8-flash-low,tight_context,answer,True,WEAK,1,False,False,previous_evidence_commit,3,2,1,原图六个视频/红进度条可见；obs1实际只包含最后两项，obs2更紧。第一步声称裁整排而动作只取末两项，终答对crop的支持范围表述过宽。
+C009,worldbench_0077,gemini,gemini-3.8-flash-low,shift_region,answer,True,KEEP,1,True,False,additional_comparison_crop,4,3,2,扰动为网站标题/广告。模型从原图自主补左侧spillway区域，obs3支持宽支架，obs1提供reservoir/power plant对照，最终绑定可靠；没有把编辑器框当正确答案提示。
+C010,mme_realworld_02637,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,1,True,False,previous_evidence_commit,3,2,1,obs1覆盖前景与弯曲路缘的12个锥桶，紧框只保留部分；终答继续使用覆盖完整的obs1计数，没有据局部crop宣称全局不存在。
+C011,mme_realworld_20790,gemini,gemini-3.8-flash-low,shift_region,api_error,False,,,False,False,,4,3,2,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C012,mme_realworld_14025,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,1,True,False,previous_evidence_commit,3,2,1,obs1保留红箭头与蓝色E的对应，obs2过紧截掉完整标牌，终答回用obs1读E，对象绑定可靠。
+C013,vs_175,gemini,gemini-3.8-flash-low,shift_region,protocol_violation,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C014,worldbench_1409,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,1,True,True,honest_miss_then_new_crop,4,3,2,obs2只有牛和鸡，模型如实说漏掉猪群，再从obs1自主选左下，obs3可核四只猪；原图全域复查未见其他猪。
+C015,worldbench_0387,gemini,gemini-3.8-flash-low,shift_region,answer,True,UNRESOLVED,1,False,False,unresolved_target,3,2,1,最远礼拜者在原图左侧柱附近，obs1主要为走动人物且左端截断；无法确认终答称obs1最左人物双膝着地的身份与可见状态。
+C016,mme_realworld_03093,gemini,gemini-3.8-flash-low,tight_context,answer,True,UNRESOLVED,1,False,False,unresolved_target,3,2,1,远处黑色立方候选很小，obs2未提供所称垃圾桶的清楚形态；目前不能可靠证明全街恰一只及其与银车的绑定。
+C017,mme_realworld_04850,gemini,gemini-3.8-flash-low,shift_region,protocol_violation,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C018,worldbench_0756,gemini,gemini-3.8-flash-low,tight_context,protocol_violation,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C019,worldbench_0450,gemini,gemini-3.8-flash-low,shift_region,api_error,False,,,False,False,,4,3,2,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C020,mme_realworld_02574,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,1,True,False,previous_evidence_commit,3,2,1,原图道路与人行道核查未见第二只狗，obs1/2共同显示单只黑色四足动物越过车道线，沿用证据作答成立。
+C021,mme_realworld_21028,gemini,gemini-3.8-flash-low,shift_region,api_error,False,,,False,False,,4,3,2,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C022,worldbench_1733,gemini,gemini-3.8-flash-low,tight_context,protocol_violation,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C023,mme_realworld_02962,gemini,gemini-3.8-flash-low,shift_region,api_error,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C024,mme_realworld_20409,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,0,False,False,intervention_not_failure,3,2,1,紧框保留了码头旁红色球场及灰色边界，属性与指定球场绑定可靠；本次扰动没有造成失败，不能算恢复示范。
+C025,worldbench_0916,gemini,gemini-3.8-flash-low,shift_region,answer,True,BAD,0,False,False,unsupported_count,3,2,1,伞的白色手柄覆盖中排右抽屉，伞面覆盖底排右与底排中抽屉，终答只计后两者，关键计数遗漏。
+C026,mme_realworld_02448,gemini,gemini-3.8-flash-low,tight_context,protocol_violation,False,,,False,False,,3,2,1,未形成合规完整路径，不作KEEP/WEAK/BAD语义判定。
+C027,mme_realworld_04700,gemini,gemini-3.8-flash-low,shift_region,answer,True,KEEP,1,True,False,previous_evidence_commit,3,2,1,原图与obs1覆盖所问右侧道路和人行道，没有紫色上衣的实际行人，广告印刷人物不能绑定成实际行人。
+C028,worldbench_0579,gemini,gemini-3.8-flash-low,tight_context,answer,True,KEEP,0,False,False,cross_region_count_binding,4,3,2,最终明确枚举牛后两人、柱旁站立者、右侧坐者四个不同实例，重叠视图中的柱旁人只计一次；先前看到三人并非最终否定三人的存在。无需为了标签强求REVISE。
+C029,mme_realworld_21382,k3,k3-256k,shift_region,answer,True,KEEP,1,True,True,honest_miss_reuse_prior,3,2,1,obs1可核红跑道内四个绿色方区，obs2纯水面；模型明确承认水面无关，再保留obs1可靠证据直接结束。
+C030,mme_realworld_01064,k3,k3-256k,tight_context,answer,True,UNRESOLVED,0,False,False,unresolved_after_search,5,4,3,如实指出右侧车辆仍不清，再换到前方/左侧，但夜景不能确认右侧是否公交车；未确认C不等于能确认E所有选项错误。
+C031,visreason_c10_199,k3,k3-256k,shift_region,answer,True,WEAK,1,False,False,insufficient_rule_after_search,5,4,3,实际线段与C候选均可查看，但连续两次generic alternative framing缺少具体缺口，旋转规则没有逐格解释匹配，不能作为干净恢复示范。
+C032,vs_034,k3,k3-256k,tight_context,answer,True,UNRESOLVED,0,False,False,unresolved_target_color,5,4,3,左侧圆物偏蓝灰，右侧另有鲜绿色头盔候选，裁图3/4仍围着左候选；无法确认题目目标及白色读法。
+C033,worldbench_1761,k3,k3-256k,shift_region,answer,True,WEAK,1,False,False,redundant_template_search,6,5,4,四个右向大箭头可由obs1和obs5计数，终答数量绑定基本成立；但三次新crop沿用同一generic模板，obs4为管线无新增箭头证据，obs3/5重叠。
+C034,worldbench_1188,k3,k3-256k,tight_context,answer,True,KEEP,1,True,True,honest_context_loss_then_compare,5,4,3,紧框obs2截掉头部帽子，模型明确承认缺口，再取蓝帽和红帽区域；obs3蓝帽向右、obs4红帽向左，可核反向，恢复与跨对象比较有教学价值。
+C035,mme_realworld_03047,k3,k3-256k,shift_region,answer,True,UNRESOLVED,1,False,False,honest_miss_but_count_unresolved,6,5,4,承认裁到天空后换区是真恢复，但obs3约七个变为四个、右侧远端锥与树干辨别不充分，obs4未增加计数证据。不能把诚实恢复直接当整条合格。
+C036,mme_realworld_20825,k3,k3-256k,tight_context,answer,True,KEEP,1,True,False,intervention_not_failure,3,2,1,紧框仍包含码头与最大绿色船，明确排除离岸浅色船和较小船；没有产生恢复需求。
+C037,vs_084,k3,k3-256k,shift_region,answer,True,KEEP,1,True,True,honest_miss_then_new_crop,4,3,2,模型承认obs2仅墙面和植被，返回原图对杯口重裁，obs3中黑色弯吸管可辨，实例与颜色绑定可靠。
+C038,worldbench_1117,k3,k3-256k,tight_context,answer,True,UNRESOLVED,1,False,False,honest_blur_but_answer_unresolved,5,4,3,右侧考拉嘴部多次放大仍模糊，模型承认模糊后查左侧，却由未看清叶片入口推成两者均未吃叶；关键动作状态没有得到可靠证据。
+C039,mme_realworld_03013,k3,k3-256k,shift_region,answer,True,KEEP,1,True,False,cross_region_exclusion_and_context_check,6,5,4,左侧卡车边界、右侧店铺前景分别排查额外犬只，再恢复工人附近上下文辨认中央牵绳犬；最终一个犬只的实例与排除范围相容。没有明确说明强插天空失败，不能当显式失败承认示范。
+C040,mme_realworld_12964,k3,k3-256k,tight_context,answer,True,KEEP,1,True,False,intervention_not_failure,3,2,1,obs2保留大客车白色车身和深色挡风玻璃，区别周边小汽车与货车成立；紧框本次有用，没有失败。

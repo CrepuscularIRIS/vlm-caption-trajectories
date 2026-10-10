@@ -1,3 +1,11 @@
+## 2026-10-10：40题恢复插值校准已交付
+
+Gemini/K3共67次请求完成40题校准：29条协议完整、KEEP16，其中14条与GT一致，严格恢复候选4条。强插动作body及EOS已通过真实token mask检查，原V2.2的 **T/Q/G=4,040/4,040/3,690** 不变；没有训练或人工验收。
+
+[详细校准报告](docs/21_interp_recovery_calibration_20261010.md) · [40题审查表](data/interp_calibration_20261010_review_table.csv) · [4条可见恢复示例](data/interp_recovery_20261010_examples.jsonl)
+
+---
+
 <!-- MENTOR GUIDANCE 2026-10-10 -->
 # 路线更新：导师指导——双数据库与 SFT→RL 计划
 
