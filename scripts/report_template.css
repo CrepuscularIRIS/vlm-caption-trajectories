@@ -1,0 +1,61 @@
+
+/* Layout: one reading column (~70ch), tables and trajectory excerpts break out to a wider measure */
+:root{
+  --bg:#f6f7f5; --paper:#ffffff; --ink:#1d2421; --muted:#5b6661; --rule:#d9dfdb;
+  --a:#2f6f5e; --a-soft:#e3efe9; --b:#9a5a1f; --b-soft:#f5ebdf; --warn:#a33a2c; --warn-soft:#f8e6e2;
+  --code:#eef1ef;
+  --f-display:"Noto Serif SC","Songti SC","STSong",serif;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141917; --paper:#1b211e; --ink:#e4e9e6; --muted:#9aa6a0; --rule:#2e3733;
+  --a:#7cc4ad; --a-soft:#1f322b; --b:#e0a466; --b-soft:#35281a; --warn:#ef8f80; --warn-soft:#3a2420;
+  --code:#222a26; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --paper:#1b211e; --ink:#e4e9e6; --muted:#9aa6a0; --rule:#2e3733;
+  --a:#7cc4ad; --a-soft:#1f322b; --b:#e0a466; --b-soft:#35281a; --warn:#ef8f80; --warn-soft:#3a2420;
+  --code:#222a26; color-scheme:dark}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15.5px;line-height:1.75}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:40px 72px}
+.col{max-width:70ch}
+header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:28px}
+.eyebrow{font-size:12.5px;letter-spacing:.08em;color:var(--muted)}
+h1{font-family:var(--f-display);font-size:30px;line-height:1.3;margin:6px 0 10px;text-wrap:balance}
+h2{font-family:var(--f-display);font-size:21px;margin:44px 0 12px;text-wrap:balance;display:flex;gap:10px;align-items:baseline}
+h2 .n{font-family:var(--f-mono);font-size:14px;color:var(--muted);font-weight:500}
+h3{font-size:16px;margin:26px 0 8px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 14px;padding-left:1.3em}
+li{margin:4px 0}
+.meta{color:var(--muted);font-size:13.5px}
+.tagA,.tagB{font-family:var(--f-mono);font-size:12.5px;font-weight:500;padding:1px 6px;border-radius:3px}
+.tagA{background:var(--a-soft);color:var(--a)} .tagB{background:var(--b-soft);color:var(--b)}
+.summary{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--a);padding:18px 20px;margin:0 0 8px}
+.summary ol{margin:0}
+.summary li{margin:8px 0}
+.tbl{overflow-x:auto;margin:10px 0 6px;background:var(--paper);border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-weight:500;color:var(--muted);font-size:12.5px;letter-spacing:.03em;background:var(--bg)}
+td{font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:13.5px}
+td:first-child{font-family:var(--f-body);font-size:14px}
+tr:last-child td{border-bottom:0}
+.hi{color:var(--a);font-weight:500} .hib{color:var(--b);font-weight:500} .bad{color:var(--warn);font-weight:500}
+.note{font-size:13px;color:var(--muted);margin:4px 0 14px}
+.callout{border:1px solid var(--warn);background:var(--warn-soft);padding:12px 16px;margin:14px 0}
+footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+code{font-family:var(--f-mono);font-size:13px;background:var(--code);padding:0 4px;border-radius:2px}
+/* Markdown-generated tables carry prose cells: wrap text, align left */
+th,td{white-space:normal;text-align:left;vertical-align:top}
+td{font-family:var(--f-body);font-size:13.5px}
+blockquote{margin:0 0 8px;background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--a);padding:14px 18px}
+blockquote p{margin:0 0 8px} blockquote ul{margin:4px 0 8px}
+pre{background:var(--code);border-left:3px solid var(--rule);padding:10px 14px;margin:10px 0 14px;overflow-x:auto}
+pre code{background:none;padding:0;font-size:12.5px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
+a{color:var(--a)}
+.toc{font-size:14px;background:var(--paper);border:1px solid var(--rule);padding:10px 16px;margin:0 0 20px}
+.toc ul{margin:0;padding-left:1.1em} .toc li{margin:2px 0}
+@media (max-width:620px){h1{font-size:25px} .wrap{padding-inline:16px}}
