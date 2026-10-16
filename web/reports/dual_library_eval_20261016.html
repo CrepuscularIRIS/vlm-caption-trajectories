@@ -124,7 +124,7 @@ code{font-family:var(--f-mono);font-size:13px;background:var(--code);padding:0 4
 </div>
 <div class="flow">
   <div class="step"><span class="k">第 k 轮 · 生成模型</span><b>示意：“我要看目标所在的区域”</b><small>写出裁图请求，框 = 目标区域</small></div>
-  <div class="step off"><span class="k">构造器替换 · 不训练</span><b>实际执行偏框</b><small>五类偏法：平移、截断、过紧、过宽、远处。这一轮整轮不计 loss，只留在历史里</small></div>
+  <div class="step off"><span class="k">构造器替换 · 不训练</span><b>实际执行偏框</b><small>四类偏法：平移、截断、过紧、远处。这一轮整轮不计 loss，只留在历史里</small></div>
   <div class="step learn"><span class="k">第 k+1 轮 · 生成模型 · 训练</span><b>示意：“SEE: miss — 这一框里没有目标”</b><small>看着真实的错误画面，写出 miss / partial 并平移或放大</small></div>
 </div>
 <div class="col">
