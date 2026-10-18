@@ -160,3 +160,8 @@
 - `v51_cc/group_stats.py`、`v51_cc/log_metrics.py`：新写的离线统计脚本，原样收录，不含路径（在服务器 `outputs/` 目录下按相对文件名运行）。
 - `scripts/grpo_kl.sh`：由服务器 `grpo_cropfloor.sh` 改出（λ 固定为 0、开 KL、run 名与 rollout 日志改为 `grpo_v3_A_kl_*`），路径按上表映射替换。
 - `scripts/wait_then_kl.sh`、`scripts/wait_then_ctrl.sh`：服务器上的接续脚本，只把项目目录替换为 `${PROJECT_DIR}`。
+
+## 2026-10-18 晚补充（二）：答案式基线
+
+- `grpo/v51_ansonly/caption_ao.py`、`test_caption_ao.py`：新写，无路径。服务器上的插件目录其余文件与 `v51_cropfloor` 相同，只有 `caption_env.py`、`easyr1_caption.py` 的协议导入改为 `caption_ao`（及一条报错文案），故未重复收录。
+- `sft/export_v22_answeronly.py`、`sft/sft_v22_answeronly.yaml`、`sft/merge_answeronly.yaml`、`grpo/scripts/grpo_ao.sh`、`chain_gpu01.sh`、`chain_gpu23.sh`：按上表映射替换路径，另加 `${LF_ENV}`、`${MODEL_DIR}`、`${CAPTION_REF_DIR}`。

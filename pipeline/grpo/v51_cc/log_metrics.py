@@ -40,6 +40,10 @@ def main(path):
     if len(cur) > 1:
         rows.append(cur)
     rows = [r for r in rows if any(k.startswith(("val", "reward", "actor", "critic")) for k in r)]
+    merged = {}
+    for r in rows:  # the last step is printed again after the final validation; merge by step
+        merged.setdefault(r["step"], {}).update(r)
+    rows = [merged[k] for k in sorted(merged)]
     keys = ["step"] + sorted({k for r in rows for k in r} - {"step"})
     w = csv.DictWriter(sys.stdout, keys)
     w.writeheader()

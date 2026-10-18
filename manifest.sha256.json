@@ -1,7 +1,7 @@
 {
   ".github/workflows/verify.yml": "2976a6f6749927b8dc6bcdeed39d0a24c24c0b37b2db6250d9cea4edeaea86a1",
   ".gitignore": "147b31a4f31808312b4997364bbafd0cbe2020ac5effd79c37f6f80370860148",
-  "CHANGELOG.md": "7f2cd68ef2d5e289ef1a1fbe3da8bb7be626809ddb6cb5d957336111a5ee76c4",
+  "CHANGELOG.md": "9f06a6fb281a7f2cc298942451b07a81cb3654f6421b9af2027a65ebcedb41d5",
   "CONTRIBUTING.md": "8df1d6ec0b466b64b70aaf836a8a9f8b47d2f54e9d310e5ccc2954fcf16f73bd",
   "README.md": "3ff9037620783e11453871988a99f157fe7cb7f56c89e432736a8fba16eccae0",
   "cases/20261004/C01_worldbench_0826.json": "1f2be2c5e5e7703e43c9204e2a5e887c1a5138bbf56058f7400b8e72a1319a88",

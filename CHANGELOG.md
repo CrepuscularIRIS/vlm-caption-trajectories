@@ -1,5 +1,10 @@
 # 变更记录
 
+## 2026-10-18 晚（二）— 答案式基线代码、分 benchmark 表与开销表
+
+- docs/26 第 4 节：答案式 SFT + RL 基线的实现与排队；第 6 节：E1 分 benchmark 表（论文格式）与训练开销表（更新次数、rollout 条数、生成 / 处理 token、GPU 小时）。
+- 新增 `pipeline/grpo/v51_ansonly/`（`caption_ao.py` 协议 + 单测）、`pipeline/sft/export_v22_answeronly.py`、`sft_v22_answeronly.yaml`、`merge_answeronly.yaml`、`pipeline/grpo/scripts/grpo_ao.sh`、`chain_gpu01.sh`、`chain_gpu23.sh`；`v51_cc/bench_table.py`、`cost_table.py`；`log_metrics.py` 合并最后一步的重复打印。
+
 ## 2026-10-18 晚 — rollout 分组统计、KL 与新基线计划
 
 - 新增 [docs/26](docs/26_cards_ab_groups_kl_20261018.md)：卡 A 第 40 步结果；全对 / 全错 / 有对有错 × 直答 / 裁图的正确率、advantage、监督 token；KL 现状与计划；两个新基线；之后的报告格式。
