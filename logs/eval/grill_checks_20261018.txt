@@ -1,0 +1,25 @@
+## 1 val keys in training logs (last val block)
+l025 val: |    accuracy_reward: 0.607 |    overall_reward: 0.587 |    reward_score: 0.587 |  val_prompt_length: |    clip_ratio: 0.0 | [
+l050 val: |    accuracy_reward: 0.602 |    overall_reward: 0.569 |    reward_score: 0.569 |  val_prompt_length: |    clip_ratio: 0.0 | [
+val parquet rows: 440
+
+## 2 E2 paired re-crop increment and false_confirm
+A_rl: covered 1968, base P(>=2 crops) 0.481, paired recrop increment 0.525, false_confirm 0.005, back_to_target|recrop 0.709
+A_fl025: covered 1894, base P(>=2 crops) 0.271, paired recrop increment 0.691, false_confirm 0.022, back_to_target|recrop 0.694
+A_fl050: covered 1914, base P(>=2 crops) 0.204, paired recrop increment 0.776, false_confirm 0.016, back_to_target|recrop 0.743
+
+## 3 redundant crops conditioned on >=2 crops
+A_sft: >=2 crops 0.232, red_any|>=2 0.070, red per crop 0.022, tokens per turn 75.2
+A_rl: >=2 crops 0.481, red_any|>=2 0.239, red per crop 0.081, tokens per turn 80.9
+A_fl025: >=2 crops 0.271, red_any|>=2 0.087, red per crop 0.021, tokens per turn 78.2
+A_fl050: >=2 crops 0.204, red_any|>=2 0.062, red per crop 0.012, tokens per turn 84.9
+
+## 4 training groups: floored mixed groups and advantage mass on direct samples (recomputed)
+l025 {'mixed': 1266, 'mixed_floored': 249, 'all_correct': 594, 'all_wrong': 120} | direct-sample advantage sum: {'mixed': -163.1, 'all_correct': 42.3, 'all_wrong': 0.0} | sum A*(k-mean k): {'mixed': -1151.8, 'all_correct': -170.6, 'all_wrong': 0.0}
+l050 {'mixed': 1286, 'mixed_floored': 257, 'all_correct': 579, 'all_wrong': 115} | direct-sample advantage sum: {'mixed': -251.4, 'all_correct': 112.0, 'all_wrong': 0.0} | sum A*(k-mean k): {'mixed': -1007.0, 'all_correct': -272.5, 'all_wrong': 0.0}
+
+## 5 per-question delta acc vs delta crops (fl050 - rl) by layer
+corr(dacc, dcrops) = -0.015
+crop cut most: n=196, mean dcrops -2.52, mean dacc -0.014
+middle: n=183, mean dcrops -0.57, mean dacc -0.014
+crop cut least: n=173, mean dcrops 0.02, mean dacc -0.025

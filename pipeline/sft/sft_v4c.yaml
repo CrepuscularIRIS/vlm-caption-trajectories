@@ -1,0 +1,53 @@
+### Database I v4 插值版 (3,040 条, 7,613 监督轮) SFT — Qwen3-VL-4B-Instruct, 2 epoch, 双卡
+### 用法: cd ${DATA_DIR}/vlm-sft-v2-2 && \
+###       CUDA_VISIBLE_DEVICES=2,3 PATH=${LF_ENV}/bin:$PATH FORCE_TORCHRUN=1 \
+###       llamafactory-cli train ${PROJECT_DIR}/sft/<this_file>.yaml
+### 注意: CWD 必须是仓库根(images/ 相对路径按 CWD 解析); GPU1 的 vLLM 保留不动
+
+### model
+model_name_or_path: ${MODEL_DIR}/Qwen3-VL-4B-Instruct  # [scrub] LLaMA-Factory does not expand env vars; substitute before use
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+
+### dataset
+dataset: caption_sft_v4c_interp_train_turnwise
+dataset_dir: ${DATA_DIR}/vlm-sft-v2-2/data
+template: qwen3_vl
+cutoff_len: 12288
+mask_history: true
+preserve_thinking: true
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+val_size: 0.02
+
+### output
+output_dir: ${OUTPUT_DIR}/sft_v4c_lora
+logging_steps: 5
+save_strategy: epoch
+save_total_limit: 2
+plot_loss: true
+report_to: none
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+flash_attn: auto
+gradient_checkpointing: true
+
+### eval
+per_device_eval_batch_size: 2
+eval_strategy: epoch

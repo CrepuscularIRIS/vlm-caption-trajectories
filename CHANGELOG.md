@@ -1,5 +1,12 @@
 # 变更记录
 
+## 2026-10-18 — 代码、日志、轨迹
+
+- 新增 `pipeline/`（协议、SFT 数据与配置、GRPO 四个变体与启动脚本、EasyR1 本地改动 diff、评测与分析脚本；路径脱敏）。
+- 新增 `logs/`（GRPO 逐步指标与解析配置 ×7，SFT 曲线 ×2，E1/E2 汇总）。
+- 新增 `trajectories/`（库 A 4,040、库 B 3,983；去题干、选项与图像；`check_public_export.py` 校验）。
+- 新增 [docs/25](docs/25_code_logs_trajectories_20261018.md) 索引；docs/22、docs/23 加 Adaptive-CoF 更正。
+
 ## 2026-10-18 — 阶段报告
 
 - 新增[阶段报告](docs/24_stage_report_20261018.md)：导师 10-16 回复逐句对应的理解、动作与结果；两轮重新设计；第二轮 E1/E2 结果与判定；目前的 7 项困难；需要导师确认的 4 个问题。数字与[导师回复记录](docs/23_mentor_guidance_20261016.md)第 7–9 节一致，无新实验。

@@ -1,0 +1,81 @@
+## E1 overall
+            n    acc  direct  crops   tokens  invalid  red_traj  red_crop
+tag                                                                      
+A_fl025  2208  0.649   0.043  1.379  188.764    0.004     0.024     0.021
+A_fl050  2208  0.647   0.030  1.226  189.949    0.005     0.013     0.012
+A_rl     2208  0.664   0.001  2.305  275.903    0.004     0.115     0.081
+A_sft    2208  0.552   0.429  1.013  160.842    0.004     0.016     0.022
+
+## E1 accuracy by layer
+tag                A_fl025  A_fl050   A_rl  A_sft
+layer                                            
+D_direct             0.823    0.806  0.825  0.718
+H_one_family         0.256    0.269  0.262  0.206
+O1_single_look       0.645    0.661  0.673  0.519
+O2_multi_or_refix    0.451    0.447  0.467  0.377
+U_unlabeled          0.884    0.860  0.887  0.805
+X_gold_suspect       0.750    0.625  0.875  0.625
+
+## E1 direct rate by layer
+tag                A_fl025  A_fl050   A_rl  A_sft
+layer                                            
+D_direct             0.086    0.065  0.006  0.603
+H_one_family         0.094    0.062  0.000  0.531
+O1_single_look       0.032    0.024  0.000  0.414
+O2_multi_or_refix    0.031    0.016  0.000  0.410
+U_unlabeled          0.000    0.000  0.000  0.212
+X_gold_suspect       0.000    0.000  0.000  0.250
+
+## SFT direct-correct subset (59 questions)
+           acc  direct   tokens
+tag                            
+A_fl025  0.864   0.161  162.297
+A_fl050  0.877   0.127  176.703
+A_rl     0.894   0.000  252.445
+A_sft    0.949   0.894   82.886
+
+## Other questions
+           acc  direct
+tag                   
+A_fl025  0.623   0.028
+A_fl050  0.619   0.018
+A_rl     0.636   0.002
+A_sft    0.504   0.374
+
+## E1 contrasts (95% cluster bootstrap)
+       contrast     metric     diff       lo       hi   n       verdict
+ A_fl025 - A_rl         ok  -0.0149  -0.0340   0.0036 552 no difference
+ A_fl025 - A_rl     direct   0.0412   0.0284   0.0556 552       differs
+ A_fl025 - A_rl    n_crops  -0.9266  -1.0386  -0.8196 552       differs
+ A_fl025 - A_rl gen_tokens -87.1386 -97.0236 -77.7228 552       differs
+A_fl025 - A_sft         ok   0.0974   0.0732   0.1211 552       differs
+A_fl025 - A_sft     direct  -0.3868  -0.4177  -0.3563 552       differs
+A_fl025 - A_sft    n_crops   0.3659   0.2959   0.4349 552       differs
+A_fl025 - A_sft gen_tokens  27.9216  20.7446  35.2070 552       differs
+ A_fl050 - A_rl         ok  -0.0172  -0.0373   0.0026 552 no difference
+ A_fl050 - A_rl     direct   0.0285   0.0178   0.0405 552       differs
+ A_fl050 - A_rl    n_crops  -1.0797  -1.1952  -0.9633 552       differs
+ A_fl050 - A_rl gen_tokens -85.9534 -96.0432 -76.0918 552       differs
+A_fl050 - A_sft         ok   0.0951   0.0718   0.1186 552       differs
+A_fl050 - A_sft     direct  -0.3995  -0.4312  -0.3675 552       differs
+A_fl050 - A_sft    n_crops   0.2129   0.1417   0.2824 552       differs
+A_fl050 - A_sft gen_tokens  29.1069  21.4165  36.9282 552       differs
+
+## E2 coverage
+{"A_rl": {"samples": 2208, "perturbed": 1968}, "A_fl025": {"samples": 2208, "perturbed": 1894}, "A_fl050": {"samples": 2208, "perturbed": 1914}}
+
+## E2 overall
+            ok   drop  recrop  back_to_target  false_confirm  extra_crops
+tag                                                                      
+A_fl025  0.657  0.023   0.953           0.661          0.022        0.932
+A_fl050  0.638  0.031   0.966           0.717          0.016        0.904
+A_rl     0.652  0.042   0.987           0.700          0.005        1.183
+
+## E2 contrasts vs A_rl (95% cluster bootstrap)
+      contrast         metric    diff      lo      hi   n       verdict
+A_fl025 - A_rl         recrop -0.0385 -0.0514 -0.0265 509       differs
+A_fl025 - A_rl back_to_target -0.0388 -0.0671 -0.0105 509       differs
+A_fl025 - A_rl           drop -0.0156 -0.0450  0.0142 509 no difference
+A_fl050 - A_rl         recrop -0.0223 -0.0314 -0.0139 513       differs
+A_fl050 - A_rl back_to_target  0.0201 -0.0058  0.0454 513 no difference
+A_fl050 - A_rl           drop -0.0136 -0.0455  0.0184 513 no difference

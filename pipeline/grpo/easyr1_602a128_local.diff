@@ -1,0 +1,72 @@
+diff --git a/verl/__init__.py b/verl/__init__.py
+index fb0cd6c..cbfc4ee 100644
+--- a/verl/__init__.py
++++ b/verl/__init__.py
+@@ -30,3 +30,19 @@ if os.getenv("USE_MODELSCOPE_HUB", "0").lower() in ["true", "y", "1"]:
+         raise ImportError("You are using the modelscope hub, please install modelscope by `pip install modelscope`.")
+ 
+     patch_hub()
++
++
++# --- caption GRPO multi-turn patch (strict: env-selected code dir) ---
++import os as _os
++_code_dir = _os.environ.get("CAPTION_GRPO_CODE")
++if _code_dir is None:
++    raise RuntimeError("CAPTION_GRPO_CODE is not set; refusing to fall back (protocol separation)")
++import sys as _sys
++if _code_dir not in _sys.path:
++    _sys.path.insert(0, _code_dir)
++try:
++    import easyr1_caption as _ec
++    _ec.install()
++    print("[caption patch] installed from", _ec.__file__, "| proto =", _ec.proto.__name__, flush=True)
++except Exception as _e:
++    raise RuntimeError(f"[caption patch] FAILED to install from {_code_dir}: {_e}") from _e
+diff --git a/verl/trainer/ray_trainer.py b/verl/trainer/ray_trainer.py
+index 78874aa..48ace5d 100644
+--- a/verl/trainer/ray_trainer.py
++++ b/verl/trainer/ray_trainer.py
+@@ -607,9 +607,15 @@ class RayPPOTrainer:
+                         reward_ref = self.reward_fn.compute_reward.remote(batch)
+ 
+                 # recompute old_log_probs
+-                with timer("old", timing_raw):
+-                    old_log_probs = self.actor_rollout_ref_wg.compute_log_probs(batch)
+-                    batch = batch.union(old_log_probs)
++                if getattr(self.config.worker.actor, "on_policy_reuse_log_probs", False):
++                    assert self.config.worker.actor.ppo_epochs == 1
++                    assert self.config.worker.actor.global_batch_size == self.config.data.rollout_batch_size
++                    batch.batch["old_log_probs"] = torch.zeros_like(batch.batch["response_mask"], dtype=torch.float32)
++                    batch.meta_info["temperature"] = self.config.worker.rollout.temperature
++                else:
++                    with timer("old", timing_raw):
++                        old_log_probs = self.actor_rollout_ref_wg.compute_log_probs(batch)
++                        batch = batch.union(old_log_probs)
+ 
+                 # compute ref_log_probs
+                 if self.use_reference_policy:
+diff --git a/verl/workers/actor/config.py b/verl/workers/actor/config.py
+index 354bd1a..d584862 100644
+--- a/verl/workers/actor/config.py
++++ b/verl/workers/actor/config.py
+@@ -115,6 +115,7 @@ class ActorConfig:
+     loss_type: str = "default"
+     """loss type: `default`, `gspo`, `cispo`"""
+     ppo_epochs: int = 1
++    on_policy_reuse_log_probs: bool = False  # 2+2 plan §6.1: 纯 on-policy 跳过 old log-prob 重算
+     """number of ppo epochs for each rollout batch"""
+     padding_free: bool = True
+     """use padding-free training"""
+diff --git a/verl/workers/actor/dp_actor.py b/verl/workers/actor/dp_actor.py
+index e5fb886..ff8d20c 100644
+--- a/verl/workers/actor/dp_actor.py
++++ b/verl/workers/actor/dp_actor.py
+@@ -255,6 +255,8 @@ class DataParallelPPOActor(BasePPOActor):
+ 
+                     # all return: (bsz, response_length)
+                     log_probs = self._forward_micro_batch(model_inputs, temperature=temperature)
++                    if getattr(self.config, "on_policy_reuse_log_probs", False):
++                        old_log_probs = log_probs.detach()  # 纯 on-policy：当前前向即 old
+ 
+                     pg_loss, pg_metrics = compute_policy_loss(
+                         old_log_probs=old_log_probs,

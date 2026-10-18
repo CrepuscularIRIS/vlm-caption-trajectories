@@ -1,0 +1,204 @@
+{
+ "generated": "2026-10-18",
+ "library_A_v2_2": {
+  "records": 4040,
+  "assistant_steps": 7047,
+  "supervised_assistant_steps": 7047,
+  "crops_total": 3007,
+  "mean_steps": 1.744,
+  "median_steps": 1.0,
+  "max_steps": 9,
+  "steps_distribution": {
+   "1": 2132,
+   "2": 1146,
+   "3": 535,
+   "4": 154,
+   "5": 49,
+   "6": 14,
+   "7": 8,
+   "8": 1,
+   "9": 1
+  },
+  "crops_distribution": {
+   "0": 2132,
+   "1": 1146,
+   "2": 535,
+   "3": 154,
+   "4": 49,
+   "5": 14,
+   "6": 8,
+   "7": 1,
+   "8": 1
+  },
+  "direct_answer": 2132,
+  "direct_answer_share": 0.5277,
+  "per_benchmark": {
+   "mme_realworld": 2669,
+   "mmmu_pro": 549,
+   "visreason": 240,
+   "vstar": 69,
+   "worldbench": 513
+  },
+  "per_material": {
+   "academic": 572,
+   "chart_table": 1038,
+   "count": 329,
+   "map": 4,
+   "natural": 959,
+   "text": 898,
+   "visual_puzzle": 240
+  },
+  "answer_kind": {
+   "bbox": 9,
+   "letter": 3937,
+   "open": 30,
+   "short": 64
+  },
+  "generators": {
+   "gemini-3.8-flash-high": 248,
+   "glm-5.3-flash": 514,
+   "gpt-5.6-sol": 1081,
+   "gpt-6-astra": 382,
+   "gpt-6-luna": 1113,
+   "grok-4.7": 330,
+   "grok-4.7-cpa": 257,
+   "k3-256k": 115
+  },
+  "skills": {
+   "commit": 4040,
+   "fallback": 126,
+   "locate": 1962,
+   "re_examine": 919
+  },
+  "final_action_answer": 4040,
+  "unparsed_assistant_turns": 0,
+  "generator_families": {
+   "Astra": 382,
+   "GLM": 514,
+   "Gemini": 248,
+   "Grok": 587,
+   "K3": 115,
+   "Luna": 1113,
+   "Sol 5.6": 1081
+  },
+  "in_sft_aligned_3983": 3983,
+  "assistant_steps_in_sft_aligned_3983": 6953,
+  "review_verdicts": {
+   "KEEP": 4040
+  },
+  "question_quotes": {
+   "question": 0,
+   "stem": 0,
+   "displayed_prompt": 0,
+   "displayed_line": 2,
+   "option": 158
+  }
+ },
+ "library_B_v4c": {
+  "records": 3983,
+  "assistant_steps": 14826,
+  "supervised_assistant_steps": 9898,
+  "crops_total": 10843,
+  "mean_steps": 3.722,
+  "median_steps": 3,
+  "max_steps": 9,
+  "steps_distribution": {
+   "1": 676,
+   "2": 585,
+   "3": 915,
+   "4": 651,
+   "5": 318,
+   "6": 306,
+   "7": 209,
+   "8": 165,
+   "9": 158
+  },
+  "crops_distribution": {
+   "0": 676,
+   "1": 585,
+   "2": 915,
+   "3": 651,
+   "4": 318,
+   "5": 306,
+   "6": 209,
+   "7": 165,
+   "8": 158
+  },
+  "direct_answer": 676,
+  "direct_answer_share": 0.1697,
+  "per_benchmark": {
+   "mme_realworld": 2653,
+   "mmmu_pro": 540,
+   "visreason": 219,
+   "vstar": 67,
+   "worldbench": 504
+  },
+  "per_material": {
+   "academic": 562,
+   "chart_table": 1038,
+   "count": 320,
+   "map": 4,
+   "natural": 943,
+   "text": 897,
+   "visual_puzzle": 219
+  },
+  "answer_kind": {
+   "bbox": 9,
+   "letter": 3893,
+   "open": 27,
+   "short": 54
+  },
+  "generators": {
+   "gpt-5.6-sol": 3422,
+   "gpt-6-astra": 48,
+   "gpt-6.1-sol": 513
+  },
+  "skills": {
+   "COMMIT": 2,
+   "SCAN": 1,
+   "SHIFT": 1,
+   "VERIFY": 1,
+   "commit": 3981,
+   "locate": 3324,
+   "narrow": 220,
+   "scan": 2079,
+   "shift": 3999,
+   "verify": 783,
+   "widen": 435
+  },
+  "final_action_answer": 3983,
+  "unparsed_assistant_turns": 0,
+  "induced_misses_total": 4928,
+  "records_with_induced_miss": 2676,
+  "induced_kinds": {
+   "clip": 1449,
+   "far": 971,
+   "shift": 1720,
+   "tight": 788
+  },
+  "arms": {
+   "plain_v6": 597,
+   "verify_each_fact_v6": 3386
+  },
+  "splits": {
+   "dev": 395,
+   "test": 415,
+   "train": 3173
+  },
+  "accepted_by": {
+   "bbox_iou": 9,
+   "frozen_scorer": 3921,
+   "open_normalized_equal": 27,
+   "option_label_not_A_to_J": 23,
+   "short_gold_words_contained": 3
+  },
+  "question_quotes": {
+   "question": 0,
+   "stem": 0,
+   "displayed_prompt": 0,
+   "displayed_line": 0,
+   "option": 174
+  }
+ },
+ "shared_items_A_B": 3983
+}
