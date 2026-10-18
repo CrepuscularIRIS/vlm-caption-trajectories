@@ -154,3 +154,9 @@
 - `v51_cc/` 是在服务器 `grpo_v51_cropcost` 上新写的插件，原样收录：新增 `counter_credit.py`、`test_counter_credit.py`、`calibrate_eps.py`；改动 `easyr1_caption.py`（记录裁图前状态、对答对轨迹跑探针、安装优势补丁）、`caption_contracts.py`（rollout 日志路径改为环境变量 `CAPTION_ROLLOUT_LOG`，日志加价格字段）、`reward_caption.py`（奖励只看正确与否）。以上文件不含任何路径。
 - `v51_cc/caption_env.py` 与 `v51_cropcost/caption_env.py` 相同（同一份脱敏版本）。
 - `scripts/grpo_cc.sh` 按上表同样的映射替换路径（cache/hf、EasyR1 目录、插件目录、outputs、datasets、EasyR1 环境）。
+
+## 2026-10-18 晚补充：统计脚本与 KL / 对照接续脚本
+
+- `v51_cc/group_stats.py`、`v51_cc/log_metrics.py`：新写的离线统计脚本，原样收录，不含路径（在服务器 `outputs/` 目录下按相对文件名运行）。
+- `scripts/grpo_kl.sh`：由服务器 `grpo_cropfloor.sh` 改出（λ 固定为 0、开 KL、run 名与 rollout 日志改为 `grpo_v3_A_kl_*`），路径按上表映射替换。
+- `scripts/wait_then_kl.sh`、`scripts/wait_then_ctrl.sh`：服务器上的接续脚本，只把项目目录替换为 `${PROJECT_DIR}`。

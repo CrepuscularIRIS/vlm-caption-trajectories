@@ -1,5 +1,12 @@
 # 变更记录
 
+## 2026-10-18 晚 — rollout 分组统计、KL 与新基线计划
+
+- 新增 [docs/26](docs/26_cards_ab_groups_kl_20261018.md)：卡 A 第 40 步结果；全对 / 全错 / 有对有错 × 直答 / 裁图的正确率、advantage、监督 token；KL 现状与计划；两个新基线；之后的报告格式。
+- 新增 `pipeline/grpo/v51_cc/group_stats.py`、`log_metrics.py`；`pipeline/grpo/scripts/grpo_kl.sh`、`wait_then_kl.sh`、`wait_then_ctrl.sh`。
+- 新增 `logs/grpo/group_stats_20261018.md`，以及卡 A / 卡 B 训练中的逐步指标（非最终）。
+- 更正：crop-floor 两组 λ 为 0.025 / 0.05。
+
 ## 2026-10-18 — CounterCredit 双通道 GRPO（卡 A / 卡 B）
 
 - 新增 `pipeline/grpo/v51_cc/`（价格通道、探针、优势补丁、单测、ε 零假设校准脚本）与 `pipeline/grpo/scripts/grpo_cc.sh`。

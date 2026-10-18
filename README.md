@@ -1,3 +1,9 @@
+## 2026-10-18 晚：rollout 分组统计、KL、两个新基线
+
+按导师要求把 rollout 分成全对 / 全错 / 有对有错三组统计：策略更新几乎全部来自有对有错组，其中直答比裁图低 11–16 个点、advantage 为负，所以裁图数在所有 run 里都上升；全错组 advantage 恒为 0。卡 A 第 40 步验证 .589（原版 GRPO-A 同步 .566）。KL 此前在所有 run 中关闭，现排队一组加 KL 的 GRPO 和一组记录 rollout 的对照重跑；新增 SFT 无 RL、答案式 SFT + RL 两个基线。 → [说明](docs/26_cards_ab_groups_kl_20261018.md)
+
+---
+
 ## 2026-10-18：两组新的 GRPO 已启动——只为"有必要且被用到"的裁图付费
 
 导师目标：准确率不降，尽量少的裁图 / recover。做法采用 CounterCredit（arXiv 2609.22910）的双通道：结果通道是原版 GRPO（不改分母）；价格通道对每次裁图比较"立刻作答 / 真实裁图 / 随机块"下正确答案的概率，只给有必要且像素被用到的裁图返现，其他裁图收小额租金，价格只减组均值、不除 std（Dr. GRPO 的做法）。卡 A 不开 dynamic sampling；卡 B 开 DAPO dynamic sampling，但只丢全错组，保留全对组（全对组正是区分多余裁图的地方）。从库 A 的 SFT 起跑，各 165 步，进行中。 → [代码](pipeline/grpo/v51_cc/)、[启动脚本](pipeline/grpo/scripts/grpo_cc.sh)

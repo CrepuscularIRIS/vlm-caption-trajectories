@@ -26,8 +26,8 @@
 | `grpo/v6/` | caption_v6（裁图预算仍取 8） | `correct` | 同上 | `grpo_v3_B`（库 B） |
 | `grpo/v51_cropcost/` | caption_v51 | `correct × (1 − 0.01 × crops)` | 同上 | `grpo_v3_A_cropcost`（第一轮裁图代价） |
 | `grpo/v51_cropfloor/` | caption_v51 | `correct × (1 − λ × crops)`，λ 取自 `CAPTION_CROP_LAMBDA` | (r−mean)/max(std, `CAPTION_STD_FLOOR`=0.25) | `grpo_v3_A_floor_l025`（λ=0.025）、`_l050`（λ=0.05）、`stopped_seed43_20261018`（λ=0 / 0.05，seed 43） |
-
 | `grpo/v51_cc/` | caption_v51 | `correct`；另有价格通道：每次裁图在调用前状态上比较 立刻作答 / 真实裁图 / 3 个随机同尺寸块 下正确选项的概率，D=真−立刻，E=真−随机，q=min(D,E)；答对且 q>ε 的裁图返现 0.5(q−ε)（上限 0.6），其余裁图各扣 0.05 | GRPO(correct) + (P − 组均值)，价格不除 std（CounterCredit, arXiv 2609.22910 的双通道） | `grpo_v3_A_cc`（卡 A）、`grpo_v3_A_cc_dsasym`（卡 B：DS 只丢全错组，`filter_high=1.01`）；ε=0.2 由 `calibrate_eps.py` 在 SFT-A 上校准 |
+| `scripts/grpo_kl.sh` | caption_v51 | `correct`（crop-floor 插件 λ=0，与原版 GRPO-A 奖励相同，并记录 rollout） | GRPO + KL loss（`low_var_kl`，`kl_coef=1e-2`） | `grpo_v3_A_kl_k1e2`（排队：卡 A 结束后由 `wait_then_kl.sh` 启动）；对照重跑 `grpo_v3_A_floor_ctrl_l000` 由 `wait_then_ctrl.sh` 在卡 B 结束后启动 |
 
 `v51` 与 `v6` 只差协议模块和 `caption_env.py` 的导入目录；`v51_cropcost` 在 `v51` 上加裁图计数与逐条 rollout 记录；`v51_cropfloor` 再加 std 下限优势。`test_reward_cropcost.py`、`test_cropfloor.py` 是 CPU 单测（`python test_*.py`，退出码 0 即通过）。
 
