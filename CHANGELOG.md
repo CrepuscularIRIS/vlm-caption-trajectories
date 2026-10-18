@@ -1,5 +1,10 @@
 # 变更记录
 
+## 2026-10-18 — CounterCredit 双通道 GRPO（卡 A / 卡 B）
+
+- 新增 `pipeline/grpo/v51_cc/`（价格通道、探针、优势补丁、单测、ε 零假设校准脚本）与 `pipeline/grpo/scripts/grpo_cc.sh`。
+- `pipeline/README.md` GRPO 表加一行；`SCRUB_NOTES.md` 补充说明。
+
 ## 2026-10-18 — 构造侧代码
 
 - 新增 `pipeline/construct/`：`src/`（题池、协议、生成、审核、筛选、库 B 插值，69 个文件，为入口脚本的完整本地依赖闭包）与 `assemble_A/`（库 A V2 合并与 V2.2 补足装配，10 个文件）；按原样收录，只做字面路径替换（`pipeline/construct/SCRUB_NOTES.md` 逐文件列出 sha256）。

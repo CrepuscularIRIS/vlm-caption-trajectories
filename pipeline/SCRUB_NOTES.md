@@ -148,3 +148,9 @@
 | `sft/sft_v4c.yaml` | `7f0410e6561da815` | `a5aae44f818beabd` | 是 |
 
 协议参考实现未复制，引用仓库已有文件：`code/reference/caption_v51.py`（`af0a4a7b6b92813f`）、`code/reference/caption_v3.py`（`9b89f09914030acd`），与服务器 GRPO 导入目录中的副本 sha256 一致。
+
+## 2026-10-18 补充：`grpo/v51_cc/` 与 `grpo/scripts/grpo_cc.sh`
+
+- `v51_cc/` 是在服务器 `grpo_v51_cropcost` 上新写的插件，原样收录：新增 `counter_credit.py`、`test_counter_credit.py`、`calibrate_eps.py`；改动 `easyr1_caption.py`（记录裁图前状态、对答对轨迹跑探针、安装优势补丁）、`caption_contracts.py`（rollout 日志路径改为环境变量 `CAPTION_ROLLOUT_LOG`，日志加价格字段）、`reward_caption.py`（奖励只看正确与否）。以上文件不含任何路径。
+- `v51_cc/caption_env.py` 与 `v51_cropcost/caption_env.py` 相同（同一份脱敏版本）。
+- `scripts/grpo_cc.sh` 按上表同样的映射替换路径（cache/hf、EasyR1 目录、插件目录、outputs、datasets、EasyR1 环境）。

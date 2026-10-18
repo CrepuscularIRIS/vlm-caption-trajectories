@@ -27,6 +27,8 @@
 | `grpo/v51_cropcost/` | caption_v51 | `correct × (1 − 0.01 × crops)` | 同上 | `grpo_v3_A_cropcost`（第一轮裁图代价） |
 | `grpo/v51_cropfloor/` | caption_v51 | `correct × (1 − λ × crops)`，λ 取自 `CAPTION_CROP_LAMBDA` | (r−mean)/max(std, `CAPTION_STD_FLOOR`=0.25) | `grpo_v3_A_floor_l025`（λ=0.025）、`_l050`（λ=0.05）、`stopped_seed43_20261018`（λ=0 / 0.05，seed 43） |
 
+| `grpo/v51_cc/` | caption_v51 | `correct`；另有价格通道：每次裁图在调用前状态上比较 立刻作答 / 真实裁图 / 3 个随机同尺寸块 下正确选项的概率，D=真−立刻，E=真−随机，q=min(D,E)；答对且 q>ε 的裁图返现 0.5(q−ε)（上限 0.6），其余裁图各扣 0.05 | GRPO(correct) + (P − 组均值)，价格不除 std（CounterCredit, arXiv 2609.22910 的双通道） | `grpo_v3_A_cc`（卡 A）、`grpo_v3_A_cc_dsasym`（卡 B：DS 只丢全错组，`filter_high=1.01`）；ε=0.2 由 `calibrate_eps.py` 在 SFT-A 上校准 |
+
 `v51` 与 `v6` 只差协议模块和 `caption_env.py` 的导入目录；`v51_cropcost` 在 `v51` 上加裁图计数与逐条 rollout 记录；`v51_cropfloor` 再加 std 下限优势。`test_reward_cropcost.py`、`test_cropfloor.py` 是 CPU 单测（`python test_*.py`，退出码 0 即通过）。
 
 启动脚本（`grpo/scripts/`）：`grpo_2plus2.sh A|B`（A/B 主实验）、`grpo_cropcost.sh`、`grpo_cropfloor.sh <TAG> <LAMBDA> <GPUS>`。`grpo_caption.sh` 是更早的试跑脚本（KL 1e-3、n=8、调用 `${PROJECT_DIR}` 顶层的旧插件），未用于上述任何 run，仅作留档。
