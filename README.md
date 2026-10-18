@@ -1,3 +1,9 @@
+## 2026-10-18：补上轨迹构造、审核与筛选代码
+
+训练之前的一半也已公开：题池、协议、多教师真实裁图生成、审核、筛选，以及库 A（4,040）和库 B（3,983）的装配脚本，共 79 个文件，只做了路径替换（`pipeline/construct/`）。附独立审查列出的已知问题。**接下来可能会重新构建轨迹里的裁图部分，方案已有。** → [构造代码说明](pipeline/construct/README.zh.md)
+
+---
+
 ## 2026-10-18：代码、训练日志与轨迹全部上传
 
 按导师要求补齐：全流程代码（`pipeline/`）、7 个 GRPO run 与 2 个 SFT run 的日志（`logs/`）、库 A 4,040 条与库 B 3,983 条轨迹（`trajectories/`，去题干与图像）。另记两点：所有 run 未开 dynamic sampling；clip-higher 配了但每批一次 on-policy 更新，从未起作用。std 下限已停用；Adaptive-CoF 不再作参考。 → [索引](docs/25_code_logs_trajectories_20261018.md)

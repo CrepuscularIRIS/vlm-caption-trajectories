@@ -8,6 +8,7 @@
 
 | 阶段 | 做什么 | 代码 |
 |---|---|---|
+| 构造 | 题池、多教师真实裁图生成、审核、筛选、库 A/B 装配 | [`construct/`](construct/README.zh.md) |
 | 0 协议 | 系统提示、动作解析（`parse_step`）、回执文本（`receipt_text`）。库 A 用 v5.1，库 B 用 v6 | `../code/reference/caption_v51.py`、`../code/reference/caption_v3.py`（v51/v6 共同依赖，仓库已有，不重复收录）；`protocol/caption_v6.py` |
 | 1 SFT 数据 | 轨迹库按"每个受监督的 assistant 轮一条样本"展开，配合 LLaMA-Factory `mask_history: true` 实现逐轮 loss 掩码 | 库 A：`sft/export_v22_turnwise.py`；库 B：`sft/export_lf_turnwise.py`（生成 `caption_sft_v4c_interp_train_turnwise.json`）；`sft/build_v4_sft.py` 是更早的合并式转换，未用于最终 B 的 SFT |
 | 2 SFT | LLaMA-Factory LoRA（r=16, α=32, lr 1e-4, 2 epoch, cutoff 12288, `mask_history`, `preserve_thinking`），之后合并为 HF 模型 | `sft/sft_v22_turnwise.yaml`（A）、`sft/sft_v4c.yaml`（B） |
