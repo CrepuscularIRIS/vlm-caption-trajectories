@@ -163,10 +163,12 @@
 
 ## 2026-10-18 晚补充（二）：答案式基线
 
-- `grpo/v51_ansonly/caption_ao.py`、`test_caption_ao.py`：新写，无路径。服务器上的插件目录其余文件与 `v51_cropfloor` 相同，只有 `caption_env.py`、`easyr1_caption.py` 的协议导入改为 `caption_ao`（及一条报错文案），故未重复收录。
+- `grpo/v51_ansonly/caption_ao.py`、`test_caption_ao.py`：新写，无路径。服务器上的插件目录其余文件与 `v51_cropfloor` 相同，只有 `caption_env.py`、`easyr1_caption.py` 的协议导入改为 `caption_ao`（及一条报错文案）。10-19 起完整收录：`caption_contracts.py`、`reward_caption.py`、`test_cropfloor.py`、`easyr1_caption.py` 与服务器原样一致；`caption_env.py` 用 `v51_cropfloor` 的脱敏版本，只改协议导入一行。
 - `sft/export_v22_answeronly.py`、`sft/sft_v22_answeronly.yaml`、`sft/merge_answeronly.yaml`、`grpo/scripts/grpo_ao.sh`、`chain_gpu01.sh`、`chain_gpu23.sh`：按上表映射替换路径，另加 `${LF_ENV}`、`${MODEL_DIR}`、`${CAPTION_REF_DIR}`。
 
 ## 2026-10-19 补充：队列脚本与只存模型
 
 - `grpo/scripts/chain_gpu01b.sh`、`chain_gpu01c.sh`、`chain_gpu01d.sh`、`chain_gpu23b.sh`、`chain_gpu23c.sh`、`evals_after_kl.sh`：服务器上实际运行过的队列脚本（b/c 两版有已记录的缺陷，d 与 23c 为修正版），按上表映射替换路径。
 - `grpo/scripts/grpo_ao.sh`、`grpo_cropfloor.sh`：10-19 起加 `trainer.save_model_only=true`（只影响答案式 GRPO 与对照重跑；之前的 crop-floor 两组保存了优化器状态）。
+
+- `grpo/scripts/cleanup_ckpt.sh`（10-19）：清理已结束 run 的 checkpoint，只保留第 160、165 步合并后的权重；路径替换另加 `${DATA_ROOT}`（服务器数据盘根目录，只用于 `df` 显示剩余空间）。

@@ -4,6 +4,7 @@
 
 - 新增 [docs/28](docs/28_review_20261019.md)：导师要求的完成情况、遇到的问题、行为统计给出的 GAP（G1–G5）、后续方向 D1–D3。
 - 新增 `pipeline/grpo/v51_cc/behavior_stats.py`（库 A SFT 数据与 E1/E2 输出的行为统计）。
+- 代码补齐：`pipeline/grpo/v51_ansonly/` 收录答案式插件全部文件（与服务器一致，`caption_env.py` 为脱敏版）；`pipeline/grpo/scripts/cleanup_ckpt.sh`。
 - 服务器清理：已结束的 7 组只保留第 160、165 步合并后的权重，删除优化器状态、中间 checkpoint 与 FSDP 分片（约 800 GB）；结果与评测不受影响。
 
 ## 2026-10-19 — 全部结果
