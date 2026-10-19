@@ -1,5 +1,13 @@
 # 变更记录
 
+## 2026-10-19 — 全部结果
+
+- 新增 [docs/27](docs/27_results_20261019.md)：E1 / E2 分 benchmark 表、与原版的配对差值、训练开销表（SFT/GRPO 更新次数、训练 token、rollout 条数、生成与处理 token、GPU 小时）、rollout 分组统计、发现与未完成项。docs/26 顶部加指向说明。
+- `logs/grpo/`：卡 A、卡 B、KL、答案式 GRPO 的最终逐步指标，对照重跑的中途指标；`group_stats_20261019.md`（8 组）。
+- `pipeline/grpo/scripts/`：实际使用的队列脚本 `chain_gpu01b/c/d.sh`、`chain_gpu23b/c.sh`、`evals_after_kl.sh`；`grpo_ao.sh` 与 `grpo_cropfloor.sh` 加 `trainer.save_model_only=true`（10-19 起，磁盘不足）。`group_stats.py` 覆盖 8 组。
+- 更正：答案式 SFT 的第一次评测 .424 作废——LLaMA-Factory 导出的 `config.json` 缺 `rope_scaling`（M-RoPE 设置），同一缺失也导致答案式 GRPO 第一次启动失败；换成库 A SFT 模型的 config（两者仅此一处不同）后重评为 .458。
+- 记录：队列脚本两次漏设评测所需环境变量、一次漏合并权重，KL 因此被我方停止两次（约 5 分钟、1 分钟）后重跑；对照重跑为让位答案式基线停止一次后重新开始。
+
 ## 2026-10-18 晚（二）— 答案式基线代码、分 benchmark 表与开销表
 
 - docs/26 第 4 节：答案式 SFT + RL 基线的实现与排队；第 6 节：E1 分 benchmark 表（论文格式）与训练开销表（更新次数、rollout 条数、生成 / 处理 token、GPU 小时）。

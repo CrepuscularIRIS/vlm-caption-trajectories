@@ -165,3 +165,8 @@
 
 - `grpo/v51_ansonly/caption_ao.py`、`test_caption_ao.py`：新写，无路径。服务器上的插件目录其余文件与 `v51_cropfloor` 相同，只有 `caption_env.py`、`easyr1_caption.py` 的协议导入改为 `caption_ao`（及一条报错文案），故未重复收录。
 - `sft/export_v22_answeronly.py`、`sft/sft_v22_answeronly.yaml`、`sft/merge_answeronly.yaml`、`grpo/scripts/grpo_ao.sh`、`chain_gpu01.sh`、`chain_gpu23.sh`：按上表映射替换路径，另加 `${LF_ENV}`、`${MODEL_DIR}`、`${CAPTION_REF_DIR}`。
+
+## 2026-10-19 补充：队列脚本与只存模型
+
+- `grpo/scripts/chain_gpu01b.sh`、`chain_gpu01c.sh`、`chain_gpu01d.sh`、`chain_gpu23b.sh`、`chain_gpu23c.sh`、`evals_after_kl.sh`：服务器上实际运行过的队列脚本（b/c 两版有已记录的缺陷，d 与 23c 为修正版），按上表映射替换路径。
+- `grpo/scripts/grpo_ao.sh`、`grpo_cropfloor.sh`：10-19 起加 `trainer.save_model_only=true`（只影响答案式 GRPO 与对照重跑；之前的 crop-floor 两组保存了优化器状态）。

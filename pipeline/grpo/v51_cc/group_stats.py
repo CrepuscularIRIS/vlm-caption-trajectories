@@ -10,12 +10,13 @@ cc_dsasym: online filter (0.01 < mean acc < 1.01) drops all-wrong groups before 
 import json, statistics as st, sys
 from collections import defaultdict
 
-RUNS = {"cc": "std", "cc_dsasym": "std", "cropcost": "std", "floor_l025": "floor", "floor_l050": "floor"}
+RUNS = {"A_cc": "std", "A_cc_dsasym": "std", "A_cropcost": "std", "A_floor_l025": "floor", "A_floor_l050": "floor",
+        "A_kl_k1e2": "floor", "AO_base": "floor", "A_floor_ctrl_l000": "floor"}  # kl / AO / ctrl use the crop-floor plugin at lambda=0
 CATS = ("all_correct", "mixed", "all_wrong")
 
 def load(tag):
     groups = defaultdict(list)
-    for line in open(f"grpo_v3_A_{tag}_rollouts.jsonl"):
+    for line in open(f"grpo_v3_{tag}_rollouts.jsonl"):
         try:
             d = json.loads(line)
         except ValueError:
@@ -35,7 +36,10 @@ def advantages(rows, mode, has_price):
     return adv
 
 for tag, mode in RUNS.items():
-    groups = load(tag)
+    try:
+        groups = load(tag)
+    except FileNotFoundError:
+        continue
     steps = {k[0] for k in groups}
     agg = defaultdict(lambda: [0, 0.0, 0.0, 0.0, 0, 0])  # n, correct, adv, |adv|, tokens, eff_tokens
     ngroups = defaultdict(int)
@@ -47,7 +51,7 @@ for tag, mode in RUNS.items():
         acc = st.mean(r["correct"] for r in rows)
         cat = "all_correct" if acc == 1 else "all_wrong" if acc == 0 else "mixed"
         ngroups[cat] += 1
-        for r, a in zip(rows, advantages(rows, mode, tag.startswith("cc"))):
+        for r, a in zip(rows, advantages(rows, mode, tag.startswith("A_cc"))):
             k = (cat, "crop" if r["crops"] > 0 else "direct")
             x = agg[k]
             x[0] += 1; x[1] += r["correct"]; x[2] += a; x[3] += abs(a)

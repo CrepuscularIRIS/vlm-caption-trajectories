@@ -53,6 +53,6 @@ python $CAPTION_GRPO_CODE/easyr1_caption.py \
     trainer.project_name=caption_2p2 trainer.experiment_name=$NAME \
     trainer.logger='["console"]' trainer.n_gpus_per_node=2 trainer.nnodes=1 \
     trainer.val_freq=40 trainer.val_generations_to_log=0 \
-    trainer.save_freq=40 \
+    trainer.save_freq=40 trainer.save_model_only=true \
     trainer.save_checkpoint_path=$CKPT \
     "${@:1}"
