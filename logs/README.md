@@ -19,7 +19,7 @@
 | `grpo_v3_A_cc_dsasym`（卡 B） | A | 同卡 A | 同卡 A；DS 只丢全错组 | 165 | 2（2,3） | 10-18 17:04 → 10-19 06:58 | A_ccb160 **.656** |
 | `grpo_v3_A_kl_k1e2` | A | `correct` | GRPO + KL（low_var_kl 0.01） | 165 | 2（0,1） | 10-19 04:41 → 14:17 | A_kl160 **.653** |
 | `grpo_v3_AO_base` | 答案式 SFT `sft_v22_answeronly` | `correct` | GRPO | 165 | 2（2,3） | 10-19 07:58 → 10:59 | AO_rl160 **.492**（AO_sft .458） |
-| `grpo_v3_A_floor_ctrl_l000` | A | `correct`（λ=0） | (r−mean)/max(std, 0.25)（混合组与原版相同） | 进行中 | 2（2,3） | 10-19 10:59 → | 对照重跑，用于分组统计 |
+| `grpo_v3_A_floor_ctrl_l000` | A | `correct`（λ=0） | (r−mean)/max(std, 0.25)（混合组与原版相同） | 165 | 2（2,3） | 10-19 10:59 → 18:49 | 对照重跑，用于分组统计（未做 E1） |
 
 - 两个 seed 43 run 位于服务器 `outputs/stopped_seed43_20261018/`，是人为停止的复跑；日志里完整打印了第 1–3 步的指标，第 4 步生成中被停止。
 - 卡 A / 卡 B 的 `_metrics.csv` 由 `pipeline/grpo/v51_cc/log_metrics.py` 从控制台日志导出（训练中导出，非最终；含 `cc/price_mean`、`cc/verified`、`cc/crops`）。rollout 分组统计见 `grpo/group_stats_20261018.md`。

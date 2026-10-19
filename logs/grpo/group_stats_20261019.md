@@ -1,4 +1,3 @@
-
 ## A_cc  (rollout steps 1-165, 1980 groups: all_correct 595 (30%), mixed 1254 (63%), all_wrong 131 (7%))
 | group | type | rollouts | acc | mean adv | mean |adv| | mean tokens | sup. tokens | eff. tokens | share of Σ|adv|·tok |
 |---|---|---|---|---|---|---|---|---|---|
@@ -69,12 +68,12 @@
 | all_wrong | direct | 9408 | 0.00 | +0.000 | 0.000 | 11 | 103576 | 0 | 0.0% |
 | all_wrong | crop | 0 | | | | | | | |
 
-## A_floor_ctrl_l000  (rollout steps 1-94, 1128 groups: all_correct 310 (27%), mixed 751 (67%), all_wrong 67 (6%))
+## A_floor_ctrl_l000  (rollout steps 1-165, 1980 groups: all_correct 610 (31%), mixed 1247 (63%), all_wrong 123 (6%))
 | group | type | rollouts | acc | mean adv | mean |adv| | mean tokens | sup. tokens | eff. tokens | share of Σ|adv|·tok |
 |---|---|---|---|---|---|---|---|---|---|
 | all_correct | direct | 508 | 1.00 | +0.000 | 0.000 | 51 | 26023 | 0 | 0.0% |
-| all_correct | crop | 4452 | 1.00 | +0.000 | 0.000 | 170 | 755476 | 0 | 0.0% |
-| mixed | direct | 1272 | 0.39 | -0.143 | 0.827 | 85 | 107778 | 107778 | 3.5% |
-| mixed | crop | 10744 | 0.54 | +0.017 | 0.757 | 275 | 2954016 | 2954016 | 96.5% |
-| all_wrong | direct | 156 | 0.00 | +0.000 | 0.000 | 93 | 14472 | 0 | 0.0% |
-| all_wrong | crop | 916 | 0.00 | +0.000 | 0.000 | 272 | 249564 | 0 | 0.0% |
+| all_correct | crop | 9252 | 1.00 | +0.000 | 0.000 | 170 | 1572634 | 0 | 0.0% |
+| mixed | direct | 1298 | 0.39 | -0.159 | 0.838 | 86 | 111146 | 111146 | 2.2% |
+| mixed | crop | 18654 | 0.55 | +0.011 | 0.746 | 281 | 5240536 | 5240536 | 97.8% |
+| all_wrong | direct | 159 | 0.00 | +0.000 | 0.000 | 96 | 15277 | 0 | 0.0% |
+| all_wrong | crop | 1809 | 0.00 | +0.000 | 0.000 | 301 | 545210 | 0 | 0.0% |
