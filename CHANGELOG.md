@@ -1,5 +1,11 @@
 # 变更记录
 
+## 2026-10-19 — 审查
+
+- 新增 [docs/28](docs/28_review_20261019.md)：导师要求的完成情况、遇到的问题、行为统计给出的 GAP（G1–G5）、后续方向 D1–D3。
+- 新增 `pipeline/grpo/v51_cc/behavior_stats.py`（库 A SFT 数据与 E1/E2 输出的行为统计）。
+- 服务器清理：已结束的 7 组只保留第 160、165 步合并后的权重，删除优化器状态、中间 checkpoint 与 FSDP 分片（约 800 GB）；结果与评测不受影响。
+
 ## 2026-10-19 — 全部结果
 
 - 新增 [docs/27](docs/27_results_20261019.md)：E1 / E2 分 benchmark 表、与原版的配对差值、训练开销表（SFT/GRPO 更新次数、训练 token、rollout 条数、生成与处理 token、GPU 小时）、rollout 分组统计、发现与未完成项。docs/26 顶部加指向说明。
