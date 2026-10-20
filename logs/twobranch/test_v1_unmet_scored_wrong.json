@@ -1,0 +1,27 @@
+{
+ "n_uids": 300,
+ "categories": {
+  "mixed": 67,
+  "direct_ok": 118,
+  "both_wrong": 83,
+  "needs_look": 32
+ },
+ "acc_direct": 0.4891666666666667,
+ "acc_crop": 0.5491666666666667,
+ "crops_crop": 1.5358333333333334,
+ "tok_direct": 62.016666666666666,
+ "tok_crop": 218.22833333333332,
+ "unmet": {
+  "direct": 52,
+  "crop": 106
+ },
+ "S1": 27,
+ "S1_null95": 14,
+ "S1_null_mean": 9.1218,
+ "S2": 0.7032967032967034,
+ "S2_n": 91,
+ "S2_null95": 0.6,
+ "S2_null_mean": 0.5005371861994972,
+ "H_S1": true,
+ "H_S2": true
+}

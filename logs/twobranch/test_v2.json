@@ -1,0 +1,104 @@
+{
+ "n_kept": 290,
+ "n_excluded": 10,
+ "excluded": [
+  {
+   "uid": "mme_16690",
+   "source": "mme_realworld",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "mme_8631",
+   "source": "mme_realworld",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "mme_8802",
+   "source": "mme_realworld",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "test_Biology_76",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "test_Chemistry_526",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "test_Finance_262",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "test_Math_270",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "test_Math_475",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "validation_Finance_29",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  },
+  {
+   "uid": "validation_Math_25",
+   "source": "mmmu_pro",
+   "unmet_direct": 0,
+   "unmet_crop": 4
+  }
+ ],
+ "categories": {
+  "mixed": 78,
+  "direct_ok": 119,
+  "both_wrong": 71,
+  "needs_look": 22
+ },
+ "by_source": {
+  "mme_realworld": {
+   "mixed": 53,
+   "direct_ok": 99,
+   "both_wrong": 26,
+   "needs_look": 19
+  },
+  "mmmu_pro": {
+   "both_wrong": 25,
+   "direct_ok": 6,
+   "mixed": 12
+  },
+  "worldbench": {
+   "both_wrong": 20,
+   "mixed": 13,
+   "needs_look": 3,
+   "direct_ok": 14
+  }
+ },
+ "pref_direct": 19,
+ "pref_crop": 10,
+ "acc_direct_met": 0.5158045977011495,
+ "acc_crop_met": 0.5951149425287355,
+ "S1": 19,
+ "S1_null95": 16,
+ "S1_null_mean": 11.0557,
+ "S2": 0.6567164179104478,
+ "S2_n": 67,
+ "S2_null95": 0.6101694915254238,
+ "S2_null_mean": 0.5000153567752317,
+ "H_S1": true,
+ "H_S2": true
+}

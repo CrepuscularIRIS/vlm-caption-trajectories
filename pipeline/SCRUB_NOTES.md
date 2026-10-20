@@ -172,3 +172,11 @@
 - `grpo/scripts/grpo_ao.sh`、`grpo_cropfloor.sh`：10-19 起加 `trainer.save_model_only=true`（只影响答案式 GRPO 与对照重跑；之前的 crop-floor 两组保存了优化器状态）。
 
 - `grpo/scripts/cleanup_ckpt.sh`（10-19）：清理已结束 run 的 checkpoint，只保留第 160、165 步合并后的权重；路径替换另加 `${DATA_ROOT}`（服务器数据盘根目录，只用于 `df` 显示剩余空间）。
+
+## 2026-10-20 补充：两分支测量与首轮价值差 GRPO
+
+- `grpo/v51_dv/`：`dv_first_turn.py`、`test_dv_first_turn.py` 新写；`easyr1_caption.py`、`caption_contracts.py` 在 `v51_cropfloor` 上加 dV 查表与首轮动作记录。四个文件与服务器 `grpo_v51_dv/` 原样一致（sha256 前 16 位 `2a27d9830d373916`、`57e9b5568229aeb0`、`ae6c0a5670190d33`、`f20a47810e6679b8`），不含路径。`caption_env.py`、`reward_caption.py`、`test_cropfloor.py` 在服务器上与 `grpo_v51_cropfloor` 相同，收录的是 `v51_cropfloor` 的版本（`caption_env.py` 为脱敏版）。
+- `grpo/scripts/grpo_dv.sh`（服务器原件 `6c0bd64b7d215b88`）：按上表映射替换路径；插件目录 `grpo_v51_dv` → `${PROJECT_DIR}/grpo/v51_dv`；dV 表路径 `<server>/myproject/evidence/...` → `${PROJECT_DIR}/evidence/...`。头部用法注释沿用 `grpo_cropfloor.sh` 的旧文字，未改；实际用法 `bash grpo_dv.sh <TAG> <LAMBDA> <GPUS> [overrides]`。
+- `eval/twobranch/eval_twobranch.py`（原件 `b35811c2707abf16`）：EasyR1 目录改为 `os.environ["EASYR1_DIR"]`，数据池默认目录改为 `os.environ["DATA_DIR"]`，文档字符串中的项目目录改为 `${PROJECT_DIR}`。
+- `eval/twobranch/compare_arms.py`（原件 `2b7ee2ffb6cf355c`）：两个 rollout 日志路径改为 `os.environ["OUTPUT_DIR"]`，并补 `import os`。
+- 其余 `eval/twobranch/` 脚本不含路径，原样收录。

@@ -20,6 +20,8 @@
 | `grpo_v3_A_kl_k1e2` | A | `correct` | GRPO + KL（low_var_kl 0.01） | 165 | 2（0,1） | 10-19 04:41 → 14:17 | A_kl160 **.653** |
 | `grpo_v3_AO_base` | 答案式 SFT `sft_v22_answeronly` | `correct` | GRPO | 165 | 2（2,3） | 10-19 07:58 → 10:59 | AO_rl160 **.492**（AO_sft .458） |
 | `grpo_v3_A_floor_ctrl_l000` | A | `correct`（λ=0） | (r−mean)/max(std, 0.25)（混合组与原版相同） | 165 | 2（2,3） | 10-19 10:59 → 18:49 | 对照重跑，用于分组统计（未做 E1） |
+| `grpo_v3_A_floor_orig_s42` | A | `correct`（λ=0） | (r−mean)/max(std, 0.25)（与原版等价） | 165 | 2（2,3） | 10-20 | 原版对照，每 40 步存权重；E1 见 docs/29 |
+| `grpo_v3_A_dv_s42` | A | `correct` | 同上 + 首轮 token 加 s·dV | 165 | 2（0,1） | 10-20 | 首轮价值差；第 160 步 **.664**（原版 .648），见 docs/29 |
 
 - 两个 seed 43 run 位于服务器 `outputs/stopped_seed43_20261018/`，是人为停止的复跑；日志里完整打印了第 1–3 步的指标，第 4 步生成中被停止。
 - 卡 A / 卡 B 的 `_metrics.csv` 由 `pipeline/grpo/v51_cc/log_metrics.py` 从控制台日志导出（训练中导出，非最终；含 `cc/price_mean`、`cc/verified`、`cc/crops`）。rollout 分组统计见 `grpo/group_stats_20261018.md`。
@@ -60,3 +62,7 @@
 | `grill_checks_20261018.txt` | 同上 | 复核检查：日志 val 值、E2 配对增量、重复裁图、训练组构成、逐题 Δacc 与 Δcrops |
 
 上述文本由 `../pipeline/eval/` 中的 `analyze_v4.py`、`compare_cropcost.py`、`grill_checks.py` 生成，已核对不含题面或绝对路径。
+
+### `twobranch/`
+
+两分支测量与 dV GRPO 对比的汇总（[docs/29](../docs/29_twobranch_dv_grpo_20261020.md)）：`per_question_v2.csv`（逐题两分支正确率、裁图数、生成 token、未满足首轮约束次数）、`test_v2.json`（分类与置换检验）、`test_v1_unmet_scored_wrong.json`（作废的第一版）、`inspection_verdicts.csv`（人工抽看判定，只含 uid / 类别 / 判定）、`dv_table.json`、`dv_summary.json`、`compare.json`（两组 E1/E2 各步与训练中按 dV 分组的首轮裁图比例）。
