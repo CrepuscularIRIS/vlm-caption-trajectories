@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 — 决策点基线（idea card 与第一次检验启动）
+
+- 新增 [docs/31](docs/31_decision_state_baselines_20261022.md)、`docs/idea_cards/`（idea card 与撞车核对）、`pipeline/grpo/v51_db/`（单测 4 项）、`pipeline/grpo/scripts/grpo_db.sh`、`pipeline/eval/db/`。
+
 ## 2026-10-22 — RLOO 对照最终结果
 
 - docs/30 第 5 节：E1 / E2 分 benchmark 表（表 7–8）、配对差值（表 9）、独立审查判定与结论；第 6 节加服务端读者一致性检查结果；`logs/rloo/compare_rloo.json`。

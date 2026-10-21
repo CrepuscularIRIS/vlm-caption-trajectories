@@ -187,3 +187,7 @@
 - `grpo/v51_dvb/`：服务器 `grpo_v51_dvb` = `grpo_v51_dv` 加 `CAPTION_DV_MODE` 版 `dv_first_turn.py`（1497b278）与测试；其余文件同 `v51_dv`（`caption_env.py` 为脱敏版）。
 - `grpo/v51_credit/`：在 `v51_cropfloor` 上改 `easyr1_caption.py`（读取 gold / 题面、rollout 后调用读者、安装信用补丁）与 `caption_contracts.py`（rollout 日志加 `cases`、`reads`）；`caption_env.py`、`reward_caption.py`、`test_cropfloor.py` 同 `v51_cropfloor`。
 - `grpo/scripts/grpo_rloo.sh`、`grpo_dvb.sh`、`reader_server.sh`：按上表映射替换路径；插件目录 `grpo_v51_cropfloor` / `grpo_v51_dvb` → `${PROJECT_DIR}/grpo/v51_cropfloor` / `v51_dvb`，模型目录 → `${MODEL_DIR}`，dV 表 → `${PROJECT_DIR}/evidence/...`。
+
+## 2026-10-22 补充：决策点基线
+
+- `grpo/v51_db/`：`db_credit.py`、`test_db_credit.py` 新写；`easyr1_caption.py`、`caption_contracts.py` 在 `v51_cropfloor` 上加分叉与日志字段；其余同 `v51_cropfloor`（`caption_env.py` 为脱敏版）。`eval/db/*.py` 新写，路径来自参数。`grpo/scripts/grpo_db.sh` 按上表映射替换路径。
