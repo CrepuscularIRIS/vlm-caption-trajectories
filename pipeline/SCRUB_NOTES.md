@@ -180,3 +180,10 @@
 - `eval/twobranch/eval_twobranch.py`（原件 `b35811c2707abf16`）：EasyR1 目录改为 `os.environ["EASYR1_DIR"]`，数据池默认目录改为 `os.environ["DATA_DIR"]`，文档字符串中的项目目录改为 `${PROJECT_DIR}`。
 - `eval/twobranch/compare_arms.py`（原件 `2b7ee2ffb6cf355c`）：两个 rollout 日志路径改为 `os.environ["OUTPUT_DIR"]`，并补 `import os`。
 - 其余 `eval/twobranch/` 脚本不含路径，原样收录。
+
+## 2026-10-21 补充：第 6 节、RLOO 对照、信用分配插件
+
+- `eval/sec6/*.py`、`eval/rloo/compare_rloo.py`、`grpo/v51_credit/tool_credit.py`、`test_tool_credit.py`、`reader_parity.py`：新写，路径来自参数或环境变量（`EASYR1_DIR`、`EVAL_DIR`、`CAPTION_GRPO_CODE`、`CAPTION_READER_URL`），原样收录。`behaviour_probe.py` 为一模型一进程的修正版（a6b36bcc）。
+- `grpo/v51_dvb/`：服务器 `grpo_v51_dvb` = `grpo_v51_dv` 加 `CAPTION_DV_MODE` 版 `dv_first_turn.py`（1497b278）与测试；其余文件同 `v51_dv`（`caption_env.py` 为脱敏版）。
+- `grpo/v51_credit/`：在 `v51_cropfloor` 上改 `easyr1_caption.py`（读取 gold / 题面、rollout 后调用读者、安装信用补丁）与 `caption_contracts.py`（rollout 日志加 `cases`、`reads`）；`caption_env.py`、`reward_caption.py`、`test_cropfloor.py` 同 `v51_cropfloor`。
+- `grpo/scripts/grpo_rloo.sh`、`grpo_dvb.sh`、`reader_server.sh`：按上表映射替换路径；插件目录 `grpo_v51_cropfloor` / `grpo_v51_dvb` → `${PROJECT_DIR}/grpo/v51_cropfloor` / `v51_dvb`，模型目录 → `${MODEL_DIR}`，dV 表 → `${PROJECT_DIR}/evidence/...`。

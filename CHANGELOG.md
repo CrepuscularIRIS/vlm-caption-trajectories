@@ -1,5 +1,10 @@
 # 变更记录
 
+## 2026-10-21 — 第 6 节结果；RLOO 对照与信用分配插件
+
+- 新增 [docs/30](docs/30_sec6_and_rl_objective_20261021.md)：按轮次拆解（表 1–2，描述性）、固定上下文行为探针（表 3–4，事先预测成立）、冻结读者门槛（表 5，不可测）、四种情况分布、导师 10-21 原话、RLOO 对照设计与训练中途数字（表 6）、四种情况信用分配的 token 规则。
+- 新增 `pipeline/eval/sec6/`、`pipeline/eval/rloo/`、`pipeline/grpo/v51_dvb/`（已停的方向 B）、`pipeline/grpo/v51_credit/`（未训练）、脚本 `grpo_dvb.sh`、`grpo_rloo.sh`、`reader_server.sh`；`logs/sec6/` 汇总 JSON。
+
 ## 2026-10-20 — 两分支首轮决策与首轮价值差 GRPO
 
 - 新增 [docs/29](docs/29_twobranch_dv_grpo_20261020.md)：导师 10-19 方案的全部步骤——两分支测量（300 题分类、置换检验、人工抽看）、2,000 题 dV 表、dV GRPO 与原版在第 40/80/120/160 步的 E1/E2 分 benchmark 对比、裁图与直答比例、训练中按 dV 分组的首轮裁图比例、训练开销、事先预测的判定。
