@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 晚 — 决策点基线门槛结果
+
+- docs/31 第 3.1–3.3 节：门槛未通过（不训练）、重叠检查、下一步选项；`logs/db/`。
+
 ## 2026-10-22 — 决策点基线（idea card 与第一次检验启动）
 
 - 新增 [docs/31](docs/31_decision_state_baselines_20261022.md)、`docs/idea_cards/`（idea card 与撞车核对）、`pipeline/grpo/v51_db/`（单测 4 项）、`pipeline/grpo/scripts/grpo_db.sh`、`pipeline/eval/db/`。

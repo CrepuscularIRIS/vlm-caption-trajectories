@@ -1,0 +1,375 @@
+{
+ "per_benchmark": {
+  "mmmu_pro": {
+   "libA_uid": 0,
+   "libA_question": 0,
+   "libA_img_h4": 19,
+   "libA_img_h8": 19,
+   "rl_pool_uid": 0,
+   "rl_pool_question": 0,
+   "rl_pool_img_h4": 0,
+   "rl_pool_img_h8": 0,
+   "n": 39
+  },
+  "mme_realworld": {
+   "libA_uid": 0,
+   "libA_question": 0,
+   "libA_img_h4": 7,
+   "libA_img_h8": 20,
+   "rl_pool_uid": 0,
+   "rl_pool_question": 13,
+   "rl_pool_img_h4": 1,
+   "rl_pool_img_h8": 5,
+   "n": 339
+  },
+  "worldbench": {
+   "libA_uid": 0,
+   "libA_question": 0,
+   "libA_img_h4": 0,
+   "libA_img_h8": 0,
+   "rl_pool_uid": 0,
+   "rl_pool_question": 0,
+   "rl_pool_img_h4": 0,
+   "rl_pool_img_h8": 0,
+   "n": 62
+  },
+  "vstar": {
+   "libA_uid": 0,
+   "libA_question": 0,
+   "libA_img_h4": 0,
+   "libA_img_h8": 0,
+   "rl_pool_uid": 0,
+   "rl_pool_question": 0,
+   "rl_pool_img_h4": 0,
+   "rl_pool_img_h8": 0,
+   "n": 112
+  }
+ },
+ "n_e1": 552,
+ "n_overlapping_e1": 40,
+ "rl_pool_items_in_libA_by_uid": 0,
+ "n_pool": 2000,
+ "n_libA": 4040,
+ "overlapping_e1": [
+  {
+   "uid": "test_History_239",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "test_Art_81",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "test_Math_115",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "test_Architecture_and_Engineering_250",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_15709",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "validation_Pharmacy_10",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 2
+  },
+  {
+   "uid": "test_Math_279",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 2
+  },
+  {
+   "uid": "mme_18583",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_5561",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 2
+  },
+  {
+   "uid": "mme_5562",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 2
+  },
+  {
+   "uid": "mme_3715",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 16
+  },
+  {
+   "uid": "validation_Diagnostics_and_Laboratory_Medicine_18",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_3713",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 18
+  },
+  {
+   "uid": "mme_3918",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 16
+  },
+  {
+   "uid": "mme_18218",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "test_Diagnostics_and_Laboratory_Medicine_32",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_3821",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 18
+  },
+  {
+   "uid": "mme_3952",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 14
+  },
+  {
+   "uid": "validation_Music_5",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "test_Manage_234",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "test_Basic_Medical_Science_262",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_15565",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_3669",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 16
+  },
+  {
+   "uid": "test_Math_492",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_2423",
+   "src": "mme_realworld",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 2
+  },
+  {
+   "uid": "test_Music_299",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "validation_Marketing_28",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "validation_Art_16",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_3919",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 18
+  },
+  {
+   "uid": "validation_Music_4",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_1109",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 18
+  },
+  {
+   "uid": "mme_3158",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 14
+  },
+  {
+   "uid": "mme_3511",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 4
+  },
+  {
+   "uid": "mme_1501",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 16
+  },
+  {
+   "uid": "test_Energy_and_Power_16",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "validation_Music_27",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  },
+  {
+   "uid": "mme_3957",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 20
+  },
+  {
+   "uid": "mme_3825",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 18
+  },
+  {
+   "uid": "mme_3688",
+   "src": "mme_realworld",
+   "ref": "rl_pool",
+   "uid_match": false,
+   "question_match": true,
+   "min_hamming": 18
+  },
+  {
+   "uid": "test_Music_60",
+   "src": "mmmu_pro",
+   "ref": "libA",
+   "uid_match": false,
+   "question_match": false,
+   "min_hamming": 0
+  }
+ ]
+}
