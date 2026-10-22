@@ -59,8 +59,16 @@ def main():
         assert re.fullmatch(r"[0-9a-f]{64}", r["source_sha256"])
         assert r["reviewed_views"]
         assert all(re.fullmatch(r"[0-9a-f]{64}", v["sha256"]) for v in r["reviewed_views"])
+        assert r["image_bytes_in_release"] is True
+        for v in r["reviewed_views"]:
+            p = ROOT / v["public_image"]
+            assert p.stat().st_size == v["bytes"] and sha(p) == v["sha256"], p
+            assert p.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n", p
         assert not {"question", "images", "system", "prompt"} & r.keys()
     assert sum(len(r["reviewed_views"]) for r in records if r["cohort"] == "utilization") == 129
+    assert sum(len(r["reviewed_views"]) for r in records if r["cohort"] == "receipt") == 147
+    images = {ROOT / v["public_image"] for r in records for v in r["reviewed_views"]}
+    assert len(images) == 274
     anchors = load(DATA / "segment_boundaries.json")
     assert len(anchors) == 13
     assert collections.Counter(a["group"] for a in anchors) == {"core": 9, "mixed": 4}
@@ -95,10 +103,12 @@ def main():
                    + list((ROOT / "pipeline/eval/mve").glob("*.py"))
                    + [ROOT / "pipeline/eval/mve/README.md", ROOT / "logs/mve/segval_summary.json",
                       ROOT / "docs/30_rl_credit_report_20261022.md"]
-                   + [p for p in logs.iterdir() if p.is_file()])
+                   + [p for p in logs.iterdir() if p.is_file()] + list(images))
     # Package contents must not include machine endpoints or source prompts.
     forbidden = ["/home/lingxufeng/", "/root/autodl-tmp/", "connect.westd.seetacloud.com", "-----BEGIN PRIVATE KEY-----"]
     for p in files:
+        if p.suffix == ".png":
+            continue
         text = p.read_text()
         assert not any(s in text for s in forbidden if p != Path(__file__).resolve()), p
         if p.suffix == ".md":
@@ -113,6 +123,7 @@ def main():
     assert load(mp) == manifest, "Release manifest differs; inspect changes before updating it."
     print(json.dumps({"review_records": 80, "core": 9, "mixed": 4,
                       "utilization_views": 129, "continuations": 832,
+                      "image_references": 276, "exact_pngs_verified": len(images),
                       "summary_recomputed": True, "release_hashes_verified": len(files),
                       "visual_truth_revalidated": False}, indent=2))
 

@@ -137,8 +137,15 @@
 
 从错题里找"caption 已经写出正确选项的文字，最终却选错"的轨迹。看图确认 13 例：清楚的 9 例，混合 4 例。典型例子：
 
-- 写出"工资是 $100"，却选了代表 $700 的 A；
-- 写出"EUR 占 50%"，却输出代表 10% 的 A。
+**例子 u39：图上的金额读对了，选项却配错。** 下图是第1次裁图之后学生实际收到的回执。第2轮写出 Employee 1 的 Total Pay 是 $100.00，随后却选 A（$700）；C 才对应 $100。点击[完整带图轨迹](../data/review_20261022/utilization/u39.md)可看初始图、裁图动作和原文。
+
+![u39 学生收到的工资表裁图：Employee 1 的 Total Pay 为 100.00](../media/review_20261022/057f6b2ec2f63c0ab027586215ebf9eded9d22d8b5691a3fef432a323820f92c.png)
+
+**例子 u17：没有裁图，caption 正确，最后答案字母错误。** 下图是学生的初始视图。它正确写出 EUR 占50%，最终却输出代表10%的 A。见[完整带图轨迹](../data/review_20261022/utilization/u17.md)。
+
+![u17 学生初始视图：EUR 占 50%](../media/review_20261022/450ad32186f134e197c2576a5dd1285b3fe23071a31574d6e53b189c414ef707.png)
+
+这些图片为当时审阅的输入PNG，未额外放大取新细节；页面可点击查看原尺寸。图片支持检查可见事实，不能单独证明某种信用分配训练有效。
 
 **分段续跑测量（冻结参数）**
 
@@ -185,6 +192,6 @@
 
 - **训练与评测代码**：`pipeline/grpo/`、`pipeline/eval/`，逐组日志在 `logs/`。
 - **诊断代码与复算命令**：[pipeline/eval/mve/README.md](../pipeline/eval/mve/README.md)。
-- **80 条看图审阅记录**（只有文字和标注，不含原图和题面）：[data/review_20261022/README.md](../data/review_20261022/README.md)。
+- **80 条带图审阅记录**（caption、动作、标注及本次实际审阅图片；不含题库完整原文）：[data/review_20261022/README.md](../data/review_20261022/README.md)。
 - **分段续跑逐次结果**：`logs/mve/segval_v1/`（第一次）、`logs/mve/segval_v2/`（修测量后）。
 - **Open Scientist 记录**：study `rl-objective-credit`，第 001–021 步。

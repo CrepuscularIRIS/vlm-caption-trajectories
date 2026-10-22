@@ -4,7 +4,7 @@
 
 - 导师第一条（干净 RLOO 对照）已完成：塌缩来自除以组内 std，换 RLOO 后不再塌缩，但裁图没有减少。
 - 导师第二条（四种情况信用分配）还没有训练；动手前做了几次诊断，遇到四个问题，请导师决定是否继续、怎么继续。
-- 材料：[诊断代码](pipeline/eval/mve/README.md) · [80 条看图审阅记录](data/review_20261022/README.md) · 分段续跑逐次结果 `logs/mve/segval_v1/`、`logs/mve/segval_v2/`。
+- 材料：[诊断代码](pipeline/eval/mve/README.md) · [80 条带图审阅记录](data/review_20261022/README.md) · 分段续跑逐次结果 `logs/mve/segval_v1/`、`logs/mve/segval_v2/`。
 
 以下为按时间保留的历史进展；"下一步/等待/当前"是各条记录发布时的状态。
 

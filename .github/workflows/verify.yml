@@ -38,3 +38,5 @@ jobs:
         run: python scripts/verify_v2_2_release.py
       - name: Verify all catalog paths, review labels and step counts
         run: python scripts/verify_trajectory_catalog.py
+      - name: Verify reviewed trajectories, exact PNGs and measurement results
+        run: python pipeline/eval/mve/verify_review_release.py

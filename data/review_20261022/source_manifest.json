@@ -14,5 +14,5 @@
   },
   "n_review_records": 80,
   "n_unique_trajectories": 79,
-  "scope": "Public caption/action traces, annotations, anchors and image identity only; no benchmark questions or image bytes."
+  "scope": "Public caption/action traces, annotations, anchors and exact reviewed PNG views; full benchmark questions omitted."
 }
