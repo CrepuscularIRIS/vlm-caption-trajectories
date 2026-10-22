@@ -1,0 +1,399 @@
+{
+ "versions": {
+  "sft_a": {
+   "config.json": "ce064a0e76621d06",
+   "tokenizer.json": "be75606093db2094"
+  },
+  "plugins": {
+   "grpo_v51/caption_env.py": "6ec561a25003c48b",
+   "grpo_v51/easyr1_caption.py": "4416324f1d69e0d5",
+   "grpo_v51/caption_contracts.py": "134baf985e4ce8d8",
+   "grpo_v51_credit/caption_env.py": "6ec561a25003c48b",
+   "grpo_v51_credit/easyr1_caption.py": "a87b86b64da4763f",
+   "grpo_v51_credit/caption_contracts.py": "85b66ee3f306baef",
+   "grpo_v51_db/caption_env.py": "6ec561a25003c48b",
+   "grpo_v51_db/easyr1_caption.py": "cc06123803dd8af0",
+   "grpo_v51_db/caption_contracts.py": "e5e9da10d8a7fdfe"
+  },
+  "easyr1_commit": "602a12820f69cf45ea98de08a63b3509313a7d02",
+  "easyr1_local_diff_sha": "6c41c076d99f17a7"
+ },
+ "four_cell_check": {
+  "after_label_never_changes_output": true,
+  "table": [
+   {
+    "case": "RR",
+    "A": 0.7,
+    "value": 0.0,
+    "value_if_after_flipped": 0.0
+   },
+   {
+    "case": "RR",
+    "A": -0.7,
+    "value": -0.7,
+    "value_if_after_flipped": -0.7
+   },
+   {
+    "case": "RW",
+    "A": 0.7,
+    "value": 0.0,
+    "value_if_after_flipped": 0.0
+   },
+   {
+    "case": "RW",
+    "A": -0.7,
+    "value": -0.7,
+    "value_if_after_flipped": -0.7
+   },
+   {
+    "case": "WR",
+    "A": 0.7,
+    "value": 0.7,
+    "value_if_after_flipped": 0.7
+   },
+   {
+    "case": "WR",
+    "A": -0.7,
+    "value": 0.0,
+    "value_if_after_flipped": 0.0
+   },
+   {
+    "case": "WW",
+    "A": 0.7,
+    "value": 0.7,
+    "value_if_after_flipped": 0.7
+   },
+   {
+    "case": "WW",
+    "A": -0.7,
+    "value": 0.0,
+    "value_if_after_flipped": 0.0
+   }
+  ]
+ },
+ "dv_centering": {
+  "centre_dV_itself": [
+   0.0,
+   0.0
+  ],
+  "centre_s_dV": [
+   [
+    0.3333,
+    0.3333,
+    -0.6667
+   ],
+   [
+    0.0,
+    0.0,
+    0.0
+   ]
+  ]
+ },
+ "token_spans": {
+  "note": "ranges are token offsets within the turn's sampled text; receipts/prompt are outside the response mask; the caption of a crop-issuing turn is written BEFORE its own receipt exists, so it can only use earlier views",
+  "spans": [
+   {
+    "uid": "mme_10189",
+    "sample": 0,
+    "turn": 1,
+    "kind": "grounding",
+    "n_tokens_text": 86,
+    "n_tokens_logged": 87,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     49
+    ],
+    "action": [
+     49,
+     86
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 0,
+    "turn": 2,
+    "kind": "answer",
+    "n_tokens_text": 67,
+    "n_tokens_logged": 68,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     61
+    ],
+    "action": [
+     61,
+     67
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 1,
+    "turn": 1,
+    "kind": "grounding",
+    "n_tokens_text": 86,
+    "n_tokens_logged": 87,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     48
+    ],
+    "action": [
+     48,
+     86
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 1,
+    "turn": 2,
+    "kind": "answer",
+    "n_tokens_text": 54,
+    "n_tokens_logged": 55,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     48
+    ],
+    "action": [
+     48,
+     54
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 2,
+    "turn": 1,
+    "kind": "grounding",
+    "n_tokens_text": 94,
+    "n_tokens_logged": 95,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     56
+    ],
+    "action": [
+     56,
+     94
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 2,
+    "turn": 2,
+    "kind": "grounding",
+    "n_tokens_text": 128,
+    "n_tokens_logged": 129,
+    "word_header": [
+     0,
+     9
+    ],
+    "caption": [
+     9,
+     90
+    ],
+    "action": [
+     90,
+     128
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 2,
+    "turn": 3,
+    "kind": "answer",
+    "n_tokens_text": 80,
+    "n_tokens_logged": 81,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     74
+    ],
+    "action": [
+     74,
+     80
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 3,
+    "turn": 1,
+    "kind": "grounding",
+    "n_tokens_text": 92,
+    "n_tokens_logged": 93,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     55
+    ],
+    "action": [
+     55,
+     92
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 3,
+    "turn": 2,
+    "kind": "grounding",
+    "n_tokens_text": 165,
+    "n_tokens_logged": 166,
+    "word_header": [
+     0,
+     9
+    ],
+    "caption": [
+     9,
+     128
+    ],
+    "action": [
+     128,
+     165
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10189",
+    "sample": 3,
+    "turn": 3,
+    "kind": "answer",
+    "n_tokens_text": 106,
+    "n_tokens_logged": 107,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     100
+    ],
+    "action": [
+     100,
+     106
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10688",
+    "sample": 0,
+    "turn": 1,
+    "kind": "grounding",
+    "n_tokens_text": 93,
+    "n_tokens_logged": 94,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     56
+    ],
+    "action": [
+     56,
+     93
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10688",
+    "sample": 0,
+    "turn": 2,
+    "kind": "grounding",
+    "n_tokens_text": 89,
+    "n_tokens_logged": 90,
+    "word_header": [
+     0,
+     9
+    ],
+    "caption": [
+     9,
+     54
+    ],
+    "action": [
+     54,
+     89
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10688",
+    "sample": 0,
+    "turn": 3,
+    "kind": "grounding",
+    "n_tokens_text": 97,
+    "n_tokens_logged": 98,
+    "word_header": [
+     0,
+     9
+    ],
+    "caption": [
+     9,
+     60
+    ],
+    "action": [
+     60,
+     97
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   },
+   {
+    "uid": "mme_10688",
+    "sample": 0,
+    "turn": 4,
+    "kind": "answer",
+    "n_tokens_text": 179,
+    "n_tokens_logged": 180,
+    "word_header": [
+     0,
+     7
+    ],
+    "caption": [
+     7,
+     173
+    ],
+    "action": [
+     173,
+     179
+    ],
+    "end_token": "<|im_end|> sampled by the policy (logged n_tokens includes it)"
+   }
+  ]
+ },
+ "unestablished_claims": [
+  "E[A*N] sign = update direction of crop probability (docs/29, docs/30): correlational only",
+  "E[c^2] = gradient variance (DB gate): second moment of a coefficient, not of c*score",
+  "RR = redundant, WW = necessary-but-failed (frozen-reader cases): labels, not verified causes",
+  "prefill letter agreement .777 = prefill bias: needs a natural-vs-natural agreement reference",
+  "DB gate failure = method failure: the method was never trained"
+ ],
+ "kept_records": "DB gate failure (t-db-wave1) kept as recorded; thresholds unchanged"
+}
