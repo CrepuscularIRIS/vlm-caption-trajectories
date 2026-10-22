@@ -1,6 +1,6 @@
 # Pro 设计入口：从优势估计转向动作选择监督
 
-2026-10-22。用户授权公开本交接包并发送给网页 ChatGPT Pro。当前状态：**材料已整理，等待 Pro 设计回复**。本包不表示训练获批或研究假设成立。
+2026-10-22。用户授权公开本交接包并发送给网页 ChatGPT Pro。当前状态：**已发送给 Pro，等待完整设计回复**。本包不表示训练获批或研究假设成立。
 
 ## 阅读顺序
 
@@ -10,6 +10,8 @@
 4. [58 张机制卡](mechanism_cards/)：优先 K11、K19、K36；K17/K18/K22/K25/K46 作区分参考。完整卡已提供，按相关性阅读，不要求拼接所有卡。
 5. [14 个父 pattern 总表](patterns/parent/overview.md)与[19 个子 pattern 总表](patterns/sub/overview.md)：两层全文均在相应目录。优先 diagnose_then_target、repair_degenerate_signal、manufacture_contrastive_pairs、reward_explicit_intermediates、decompose_and_reward_parts。
 6. [来源与 SHA256 清单](SOURCE_MANIFEST.json)：保留抽取记录来源与本次发布版本。
+
+[实际发送的提示词](SENT_PROMPT.md)已单独保存。
 
 ## 核心任务
 
