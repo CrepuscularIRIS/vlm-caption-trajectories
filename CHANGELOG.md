@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 — 导师要求逐条核对
+
+- 新增 [docs/33](docs/33_mentor_requirements_audit_20261022.md)。改正：docs/29 与 README 的"人工抽看"（实为 AI 只读文字）；docs/30 加 RLOO 开销表 9b；docs/31 加门槛开销；docs/32 加两点说明。
+
 ## 2026-10-22 — 给导师的进展总结
 
 - 新增 [docs/32](docs/32_mentor_update_20261022.md)。
