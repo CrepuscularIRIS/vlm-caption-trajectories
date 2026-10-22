@@ -191,3 +191,5 @@
 ## 2026-10-22 补充：决策点基线
 
 - `grpo/v51_db/`：`db_credit.py`、`test_db_credit.py` 新写；`easyr1_caption.py`、`caption_contracts.py` 在 `v51_cropfloor` 上加分叉与日志字段；其余同 `v51_cropfloor`（`caption_env.py` 为脱敏版）。`eval/db/*.py` 新写，路径来自参数。`grpo/scripts/grpo_db.sh` 按上表映射替换路径。
+
+- 10-22：`grpo/v51_credit/tool_credit.py` 只在模块文档字符串中加了更正说明（规则实际只分两格），代码未改；它与服务器副本 `9b6c5876…` 只差这段说明。

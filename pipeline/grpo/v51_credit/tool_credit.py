@@ -1,5 +1,10 @@
 """Four-case tool credit (mentor 10-21): which tokens receive the outcome signal.
 
+CORRECTION 2026-10-22 (external review, verified): turn_value() maps WR and WW to max(A,0) and RR and RW to min(A,0),
+so the rule depends ONLY on the before-crop reader label; the after-crop label never changes the output. It is a
+two-cell gate (before wrong -> keep positive credit only; before right -> keep negative credit only), not a four-case
+attribution, and it exempts every WW. Never trained; kept as a documented counter-example, not a method.
+
 For every executed crop k of a training rollout, a frozen pixel-only reader R (Qwen3-VL-4B-Instruct served by vLLM,
 same prompt as the offline gate frozen_reader.py: question with options, the views available, assistant turn
 prefilled '<answer>(') reads the views before crop k (initial view + crops 1..k-1) and after it (+ crop k). Its answer

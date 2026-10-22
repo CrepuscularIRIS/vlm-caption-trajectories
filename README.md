@@ -1,6 +1,6 @@
 ## 2026-10-22：汇总报告（供导师查阅）
 
-按导师要求的格式（论文式分 benchmark 表、每组训练 token / 更新次数 / rollout 开销、两个基础 baseline）汇总所有 RL 组。结论：advantage 的形式能解释塌缩（除以组内 std），解释不了效率问题——两种 advantage 都没减少裁图；剩下的更可能是信用分配（待检验的假设，描述性证据见第 5 节）。同配方两次运行 E1 相差 1.6 个点，2 个点以内的差别要谨慎。 → [汇总报告](docs/34_report_for_mentor_20261022.md)
+按导师要求的格式（论文式分 benchmark 表、每组训练 token / 更新次数 / rollout 开销、两个基础 baseline）汇总所有 RL 组。结论：advantage 的形式能解释塌缩（除以组内 std），解释不了效率问题——两种 advantage 都没减少裁图；advantage 本身是信用的载体，要区分估计器、路由和目标；下一步先做冻结 SFT-A 的配对回执诊断（不训练）。同配方两次运行 E1 相差 1.6 个点，2 个点以内的差别要谨慎。 → [汇总报告](docs/34_report_for_mentor_20261022.md)
 
 ---
 
