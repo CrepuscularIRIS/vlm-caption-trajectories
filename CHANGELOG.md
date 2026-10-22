@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 — 分段价值诊断结果
+
+- docs/36 第 6 节；`logs/mve/segval_summary.json`；`pipeline/eval/mve/segment_value.py`、`summarize_segment.py`。
+
 ## 2026-10-22 — 看图核对结果与更正
 
 - docs/36：40 例模型看图核对，13 例适用（主诊断 9、混合 4），门槛满足；更正三处过强说法（"三种 RL 目标都没让它减少"、"RLOO 给整条轨迹负值"、"价值不上升 ⇒ 能力问题"）；切分改为按句子。
