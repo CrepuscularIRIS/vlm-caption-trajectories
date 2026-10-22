@@ -1,0 +1,575 @@
+{
+  "scope": "design and historical extraction snapshots; no new paper verification or experiments",
+  "files": [
+    {
+      "source": "lark/decision_loss_pattern_match_20261022/README.md",
+      "published": "MENTOR_INTERPRETATION.md",
+      "source_sha256": "3f5773ffef6d2a3d96705e63c0751746197e10f454c04badff315e2946339272",
+      "published_sha256": "25951e7723c79e4dd059f82362952ebd2478d60776566c1a70bb1102b1c24f01"
+    },
+    {
+      "source": "lark/decision_loss_pattern_match_20261022/PRO_DESIGN_BRIEF.md",
+      "published": "PRO_DESIGN_BRIEF.md",
+      "source_sha256": "b28ce4536f40db5e744d9c75c67e7a8e428c8b081c7e682f1fee216cd37d5b46",
+      "published_sha256": "11b67ab3de7f39cc263167bf718e982c5670405710f20b5f8e7bbb6297ad2064"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K01-privileged-teacher-student-distillation.md",
+      "published": "mechanism_cards/K01-privileged-teacher-student-distillation.md",
+      "source_sha256": "6fe7ca2a7b9d06b0250ffd7515ef7dd452fae5d9f9fc56688fdc99191f3e8143",
+      "published_sha256": "6fe7ca2a7b9d06b0250ffd7515ef7dd452fae5d9f9fc56688fdc99191f3e8143"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K02-teacher-student-discriminator.md",
+      "published": "mechanism_cards/K02-teacher-student-discriminator.md",
+      "source_sha256": "a4eeb2113127f959682be2e420adcc9b9ed382d298b5336102435359d276d8e5",
+      "published_sha256": "a4eeb2113127f959682be2e420adcc9b9ed382d298b5336102435359d276d8e5"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K03-asymmetric-privileged-critic.md",
+      "published": "mechanism_cards/K03-asymmetric-privileged-critic.md",
+      "source_sha256": "10184c3f22e0d481f6c82466431570f46b713498f26303b521305b232bcda6e8",
+      "published_sha256": "10184c3f22e0d481f6c82466431570f46b713498f26303b521305b232bcda6e8"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K04-privileged-evaluator-reward.md",
+      "published": "mechanism_cards/K04-privileged-evaluator-reward.md",
+      "source_sha256": "5f6b909836ef00b3b9ef3ea7cd8c797ed8036f40dfc50d43e974dd7d1d2503e3",
+      "published_sha256": "5f6b909836ef00b3b9ef3ea7cd8c797ed8036f40dfc50d43e974dd7d1d2503e3"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K05-screen-privileged-signal-before-training.md",
+      "published": "mechanism_cards/K05-screen-privileged-signal-before-training.md",
+      "source_sha256": "09b56a4f1360d8826886ae0e048809f91002665078c9e9024a63f2c379f5e8e9",
+      "published_sha256": "09b56a4f1360d8826886ae0e048809f91002665078c9e9024a63f2c379f5e8e9"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K06-auxiliary-heads-on-training-only-targets.md",
+      "published": "mechanism_cards/K06-auxiliary-heads-on-training-only-targets.md",
+      "source_sha256": "57376c466c7e62f7a212b8010dc67e8cc32aa8d1b082e3c5fb8c1c4cbaa91fc5",
+      "published_sha256": "57376c466c7e62f7a212b8010dc67e8cc32aa8d1b082e3c5fb8c1c4cbaa91fc5"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K07-reward-looking-at-gt-target-location.md",
+      "published": "mechanism_cards/K07-reward-looking-at-gt-target-location.md",
+      "source_sha256": "0fd800bf3878a2ac4ebafd2de0b5f7505f2a4ff79c4c7333a9abc058f9dc09a1",
+      "published_sha256": "0fd800bf3878a2ac4ebafd2de0b5f7505f2a4ff79c4c7333a9abc058f9dc09a1"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K08-rule-based-box-rewards.md",
+      "published": "mechanism_cards/K08-rule-based-box-rewards.md",
+      "source_sha256": "71c45bf6f9d1f46d07aa597eb45c14801acf6b2863e1a626c3892ca8075edf83",
+      "published_sha256": "71c45bf6f9d1f46d07aa597eb45c14801acf6b2863e1a626c3892ca8075edf83"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K09-drop-cot-for-perception-tasks.md",
+      "published": "mechanism_cards/K09-drop-cot-for-perception-tasks.md",
+      "source_sha256": "5527c80723a4a52accf83f4a2dc4eb3cf2c5519908ad5e1666c3f344e8762784",
+      "published_sha256": "5527c80723a4a52accf83f4a2dc4eb3cf2c5519908ad5e1666c3f344e8762784"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K10-tool-use-bonus-against-collapse.md",
+      "published": "mechanism_cards/K10-tool-use-bonus-against-collapse.md",
+      "source_sha256": "509798a4bf4f17d384312862a2956abc3962d5035ddd0fe2dffbf342039ad8d4",
+      "published_sha256": "509798a4bf4f17d384312862a2956abc3962d5035ddd0fe2dffbf342039ad8d4"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K11-benefit-conditioned-tool-reward.md",
+      "published": "mechanism_cards/K11-benefit-conditioned-tool-reward.md",
+      "source_sha256": "2ff5e17dc9c5f1f278e8a7ce8975fc53492b69918305fd5c4c010faa2ddb0d53",
+      "published_sha256": "2ff5e17dc9c5f1f278e8a7ce8975fc53492b69918305fd5c4c010faa2ddb0d53"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K12-tool-trajectory-cold-start.md",
+      "published": "mechanism_cards/K12-tool-trajectory-cold-start.md",
+      "source_sha256": "b7d78d3ce3b25b728fdec4064dd70ed84a88b7b1e85928bcb4785eb3337898a7",
+      "published_sha256": "b7d78d3ce3b25b728fdec4064dd70ed84a88b7b1e85928bcb4785eb3337898a7"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K13-text-rendering-to-text-reasoner-traces.md",
+      "published": "mechanism_cards/K13-text-rendering-to-text-reasoner-traces.md",
+      "source_sha256": "b99d06a8d0a913bf335c29467ed52dadca1ec91ca2b8190764f163aaf92e6aaa",
+      "published_sha256": "b99d06a8d0a913bf335c29467ed52dadca1ec91ca2b8190764f163aaf92e6aaa"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K14-blind-reasoner-perception-reward.md",
+      "published": "mechanism_cards/K14-blind-reasoner-perception-reward.md",
+      "source_sha256": "1b81b7e01af64a39e2471da3081174ee298f8cd57cd8970c13f79ab296074731",
+      "published_sha256": "1b81b7e01af64a39e2471da3081174ee298f8cd57cd8970c13f79ab296074731"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K15-visual-dependency-data-filter.md",
+      "published": "mechanism_cards/K15-visual-dependency-data-filter.md",
+      "source_sha256": "6fa1bb2f4d0efd33da890889ece57d832786ce6e8d0080260f0726f8f9d36c80",
+      "published_sha256": "6fa1bb2f4d0efd33da890889ece57d832786ce6e8d0080260f0726f8f9d36c80"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K16-pass-rate-item-selection.md",
+      "published": "mechanism_cards/K16-pass-rate-item-selection.md",
+      "source_sha256": "3d076ce7e4514930441a6c240b667e1b5bfb90aaf1ff6b620fd705aa6d5fed87",
+      "published_sha256": "3d076ce7e4514930441a6c240b667e1b5bfb90aaf1ff6b620fd705aa6d5fed87"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K17-token-visual-dependency-weighting.md",
+      "published": "mechanism_cards/K17-token-visual-dependency-weighting.md",
+      "source_sha256": "31aef2eb5980a1fb7a108e61c83ac9c8d91517e9ab888e5ad05585cfc403afab",
+      "published_sha256": "31aef2eb5980a1fb7a108e61c83ac9c8d91517e9ab888e5ad05585cfc403afab"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K18-image-contrast-auxiliary-loss.md",
+      "published": "mechanism_cards/K18-image-contrast-auxiliary-loss.md",
+      "source_sha256": "9178260f1acb159082f9edb7f0cca244aaa07e6fe2d7bf79314e8640ba84075b",
+      "published_sha256": "9178260f1acb159082f9edb7f0cca244aaa07e6fe2d7bf79314e8640ba84075b"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K19-monte-carlo-step-labels.md",
+      "published": "mechanism_cards/K19-monte-carlo-step-labels.md",
+      "source_sha256": "293ccee48e76b944d144384294bce365a5907cab0bca805345e59a6d563b63d5",
+      "published_sha256": "293ccee48e76b944d144384294bce365a5907cab0bca805345e59a6d563b63d5"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K20-synthetic-negatives-by-gold-edit.md",
+      "published": "mechanism_cards/K20-synthetic-negatives-by-gold-edit.md",
+      "source_sha256": "56d8fcb298703cb3ce02f010a3c537ad8cfad13875e4504c58982ce71a90271f",
+      "published_sha256": "56d8fcb298703cb3ce02f010a3c537ad8cfad13875e4504c58982ce71a90271f"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K21-verifier-best-of-n.md",
+      "published": "mechanism_cards/K21-verifier-best-of-n.md",
+      "source_sha256": "65efe71e5c18dd93d6e9fe92556682fd1440b0fdde5facf90cd042dac46d711e",
+      "published_sha256": "65efe71e5c18dd93d6e9fe92556682fd1440b0fdde5facf90cd042dac46d711e"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K22-process-reward-inside-rl.md",
+      "published": "mechanism_cards/K22-process-reward-inside-rl.md",
+      "source_sha256": "408b4f8da0191b43a62f8b80eb029ffcee37a12273950fd1a145018236936193",
+      "published_sha256": "408b4f8da0191b43a62f8b80eb029ffcee37a12273950fd1a145018236936193"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K23-generative-prm-with-rationale.md",
+      "published": "mechanism_cards/K23-generative-prm-with-rationale.md",
+      "source_sha256": "c3f5997f6e79dd46bfb2dc628bb9d34a37c41ad41a4e358c54f518a84da71b26",
+      "published_sha256": "c3f5997f6e79dd46bfb2dc628bb9d34a37c41ad41a4e358c54f518a84da71b26"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K24-match-visual-facts-to-reference.md",
+      "published": "mechanism_cards/K24-match-visual-facts-to-reference.md",
+      "source_sha256": "018972847e152461a8391b34fdfb369257a7c6cd54990e153616d3406031be85",
+      "published_sha256": "018972847e152461a8391b34fdfb369257a7c6cd54990e153616d3406031be85"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K25-probe-the-policy-on-its-own-trace.md",
+      "published": "mechanism_cards/K25-probe-the-policy-on-its-own-trace.md",
+      "source_sha256": "1214661b72713603b8d893db88395424a52de20570347b23f3b7c169a6534749",
+      "published_sha256": "1214661b72713603b8d893db88395424a52de20570347b23f3b7c169a6534749"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K26-protect-important-parameters.md",
+      "published": "mechanism_cards/K26-protect-important-parameters.md",
+      "source_sha256": "ea9035ddf9a3559772e9c729b7d7cc30ba7e52c4e3be0189fd8d3cd8f83891f9",
+      "published_sha256": "ea9035ddf9a3559772e9c729b7d7cc30ba7e52c4e3be0189fd8d3cd8f83891f9"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K27-restrict-update-scope.md",
+      "published": "mechanism_cards/K27-restrict-update-scope.md",
+      "source_sha256": "554eb5c244ff584cd8bae9456f1febfd232d6ed22bf47efc1714ac14f27f57f7",
+      "published_sha256": "554eb5c244ff584cd8bae9456f1febfd232d6ed22bf47efc1714ac14f27f57f7"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K28-diversify-data-against-format-overfit.md",
+      "published": "mechanism_cards/K28-diversify-data-against-format-overfit.md",
+      "source_sha256": "769538491be04d6d590454695f91f5a75c62e932a032159bdd8b4b79571773e8",
+      "published_sha256": "769538491be04d6d590454695f91f5a75c62e932a032159bdd8b4b79571773e8"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K29-stored-logit-consistency-replay.md",
+      "published": "mechanism_cards/K29-stored-logit-consistency-replay.md",
+      "source_sha256": "393c58a7e2156c263fe460bb5337c846c3ee0d3769bb6f1da4c8996304e21783",
+      "published_sha256": "393c58a7e2156c263fe460bb5337c846c3ee0d3769bb6f1da4c8996304e21783"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K30-on-policy-data-forgets-less.md",
+      "published": "mechanism_cards/K30-on-policy-data-forgets-less.md",
+      "source_sha256": "e4244099555789883b275eef26f1c2a092e4cc268b76a4b54a00099b01cf1969",
+      "published_sha256": "e4244099555789883b275eef26f1c2a092e4cc268b76a4b54a00099b01cf1969"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K31-swap-sft-for-rl-on-perception-data.md",
+      "published": "mechanism_cards/K31-swap-sft-for-rl-on-perception-data.md",
+      "source_sha256": "b8ea40f53e4c44d8d1a999e9bf65832f1bb30960fb2e4b08e5518af434399f53",
+      "published_sha256": "b8ea40f53e4c44d8d1a999e9bf65832f1bb30960fb2e4b08e5518af434399f53"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K32-capability-staged-training.md",
+      "published": "mechanism_cards/K32-capability-staged-training.md",
+      "source_sha256": "f9cbfe5139f24115cc9971e5bbb06f4b033d8571d956367075f40db6f14671b2",
+      "published_sha256": "f9cbfe5139f24115cc9971e5bbb06f4b033d8571d956367075f40db6f14671b2"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K33-evidence-aware-input-perturbation.md",
+      "published": "mechanism_cards/K33-evidence-aware-input-perturbation.md",
+      "source_sha256": "51feec281427e76cd54166dacb5a343b755cb658fdae57effd951f20642e7736",
+      "published_sha256": "51feec281427e76cd54166dacb5a343b755cb658fdae57effd951f20642e7736"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K34-human-vqa-in-instruction-tuning.md",
+      "published": "mechanism_cards/K34-human-vqa-in-instruction-tuning.md",
+      "source_sha256": "2760e0e87bb1cf14ae19215d9c069ebb33ccb78b08324c8bb48f621d5a3f85c4",
+      "published_sha256": "2760e0e87bb1cf14ae19215d9c069ebb33ccb78b08324c8bb48f621d5a3f85c4"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K35-synthetic-proxy-task-rlvr.md",
+      "published": "mechanism_cards/K35-synthetic-proxy-task-rlvr.md",
+      "source_sha256": "3de5df7503fb5f169d0057a511774319689239dbfb859b0b9ae37b0f911bea9f",
+      "published_sha256": "3de5df7503fb5f169d0057a511774319689239dbfb859b0b9ae37b0f911bea9f"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K36-minimal-difference-preference-pairs.md",
+      "published": "mechanism_cards/K36-minimal-difference-preference-pairs.md",
+      "source_sha256": "6c22fb8e651d719bec7f3118ad97c9f3e1584a8f72e26673e0d67469e6cd9147",
+      "published_sha256": "6c22fb8e651d719bec7f3118ad97c9f3e1584a8f72e26673e0d67469e6cd9147"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K37-self-generated-rationale-sft.md",
+      "published": "mechanism_cards/K37-self-generated-rationale-sft.md",
+      "source_sha256": "3f6ccef3364e413b0e9bbf985df05f42adbb0647b6b6ff1a0cc30a78dc911560",
+      "published_sha256": "3f6ccef3364e413b0e9bbf985df05f42adbb0647b6b6ff1a0cc30a78dc911560"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K38-export-post-trained-model-outputs.md",
+      "published": "mechanism_cards/K38-export-post-trained-model-outputs.md",
+      "source_sha256": "ed1ebaa2083a6eb3464d69f489c26b24bb3427ffa3fdd8e50954e0ea22be0f29",
+      "published_sha256": "ed1ebaa2083a6eb3464d69f489c26b24bb3427ffa3fdd8e50954e0ea22be0f29"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K39-llm-judge-answer-reward.md",
+      "published": "mechanism_cards/K39-llm-judge-answer-reward.md",
+      "source_sha256": "9ef14bfbe13ca2191b713f176866c3a67658ae6a47a4ec7490627dca2b610a29",
+      "published_sha256": "9ef14bfbe13ca2191b713f176866c3a67658ae6a47a4ec7490627dca2b610a29"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K40-consistency-gated-reward.md",
+      "published": "mechanism_cards/K40-consistency-gated-reward.md",
+      "source_sha256": "51d33ff7e0fe65512f82725988e114697bb3aa84c3b766c81686d0093a65f90c",
+      "published_sha256": "51d33ff7e0fe65512f82725988e114697bb3aa84c3b766c81686d0093a65f90c"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K41-coordinate-format-reward-in-cot.md",
+      "published": "mechanism_cards/K41-coordinate-format-reward-in-cot.md",
+      "source_sha256": "3ad4c8ec769119f7cb3010f2c31a41a8ff36a4210e3c44d3532644f2d47344c0",
+      "published_sha256": "3ad4c8ec769119f7cb3010f2c31a41a8ff36a4210e3c44d3532644f2d47344c0"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K42-reinject-visual-tokens-during-decoding.md",
+      "published": "mechanism_cards/K42-reinject-visual-tokens-during-decoding.md",
+      "source_sha256": "5243f6e380054e055212da228eac67ea26d4b0bb5082cd9d0e5e6bebd781bc00",
+      "published_sha256": "5243f6e380054e055212da228eac67ea26d4b0bb5082cd9d0e5e6bebd781bc00"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K43-verifier-triggered-local-repair.md",
+      "published": "mechanism_cards/K43-verifier-triggered-local-repair.md",
+      "source_sha256": "96ebfc45f9fde09a1c8242d4ca7df085c7639a51e71f42358f986f54a86d015a",
+      "published_sha256": "96ebfc45f9fde09a1c8242d4ca7df085c7639a51e71f42358f986f54a86d015a"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K44-rl-trained-judge.md",
+      "published": "mechanism_cards/K44-rl-trained-judge.md",
+      "source_sha256": "56973f8bf1b971d3a5cad78f177393ea97c40a3de47ba6baff3093e6c8779e74",
+      "published_sha256": "56973f8bf1b971d3a5cad78f177393ea97c40a3de47ba6baff3093e6c8779e74"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K45-modality-ablation-diagnostics.md",
+      "published": "mechanism_cards/K45-modality-ablation-diagnostics.md",
+      "source_sha256": "f03ea48b95f7b706c950d4034f6ba0347ecd12c11ecec9bcfdf559a110c4c0fc",
+      "published_sha256": "f03ea48b95f7b706c950d4034f6ba0347ecd12c11ecec9bcfdf559a110c4c0fc"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K46-tool-protocol-gap-diagnostics.md",
+      "published": "mechanism_cards/K46-tool-protocol-gap-diagnostics.md",
+      "source_sha256": "daadf973aa93b2db21eb4e5a4d2c9c85f3374f2000e75b1cb3a1956f8053b502",
+      "published_sha256": "daadf973aa93b2db21eb4e5a4d2c9c85f3374f2000e75b1cb3a1956f8053b502"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K47-attention-share-diagnostics.md",
+      "published": "mechanism_cards/K47-attention-share-diagnostics.md",
+      "source_sha256": "27e859b2af0da08939f7f5e675a2d419f2fa19b553591e207e60655e0849e1fd",
+      "published_sha256": "27e859b2af0da08939f7f5e675a2d419f2fa19b553591e207e60655e0849e1fd"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K48-privileged-on-policy-self-distillation.md",
+      "published": "mechanism_cards/K48-privileged-on-policy-self-distillation.md",
+      "source_sha256": "3208fb0cf6b13bc720d31a8489aa5d354bcfc5a4b06a8b99908b28e9d65b44ae",
+      "published_sha256": "3208fb0cf6b13bc720d31a8489aa5d354bcfc5a4b06a8b99908b28e9d65b44ae"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K49-privileged-context-design.md",
+      "published": "mechanism_cards/K49-privileged-context-design.md",
+      "source_sha256": "986748370dfc12d1727d542a60714a0ea2a9704f8c6ea02f457512cc8a75c6ee",
+      "published_sha256": "986748370dfc12d1727d542a60714a0ea2a9704f8c6ea02f457512cc8a75c6ee"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K50-gate-distillation-signal-per-token.md",
+      "published": "mechanism_cards/K50-gate-distillation-signal-per-token.md",
+      "source_sha256": "c4f2160cc00b7af6db5bcce8be7f6a2dfea0d5dff8780ddfaba2941b76ba484c",
+      "published_sha256": "c4f2160cc00b7af6db5bcce8be7f6a2dfea0d5dff8780ddfaba2941b76ba484c"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K51-privileged-teacher-discrepancy-diagnostics.md",
+      "published": "mechanism_cards/K51-privileged-teacher-discrepancy-diagnostics.md",
+      "source_sha256": "a7b1267904a8bb521f1d6f26be0de4795d1440654e94685e29a484abef598220",
+      "published_sha256": "a7b1267904a8bb521f1d6f26be0de4795d1440654e94685e29a484abef598220"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K52-region-to-image-distillation.md",
+      "published": "mechanism_cards/K52-region-to-image-distillation.md",
+      "source_sha256": "685e992857f8e6839a086bbac99d8624eba6e1c6f163a710304c38c12f036b7b",
+      "published_sha256": "685e992857f8e6839a086bbac99d8624eba6e1c6f163a710304c38c12f036b7b"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K53-symbolic-failure-decomposition.md",
+      "published": "mechanism_cards/K53-symbolic-failure-decomposition.md",
+      "source_sha256": "6cf509767b4e28576387b48853fab060f13bc026ccbaf6e4dcb0a40c126f6119",
+      "published_sha256": "6cf509767b4e28576387b48853fab060f13bc026ccbaf6e4dcb0a40c126f6119"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K54-fisher-information-next-best-view.md",
+      "published": "mechanism_cards/K54-fisher-information-next-best-view.md",
+      "source_sha256": "a0ffb880e33dd8c5edf7424f47dfa1011315dd4e436c99baf9beba57b27ed904",
+      "published_sha256": "a0ffb880e33dd8c5edf7424f47dfa1011315dd4e436c99baf9beba57b27ed904"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K55-vlm-reward-model-invariance-tuning.md",
+      "published": "mechanism_cards/K55-vlm-reward-model-invariance-tuning.md",
+      "source_sha256": "70ee263ccca57a89db52df6fe6ad0af2363f8582316c236f2e08d8f543da9411",
+      "published_sha256": "70ee263ccca57a89db52df6fe6ad0af2363f8582316c236f2e08d8f543da9411"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K56-cross-modal-prediction-curiosity.md",
+      "published": "mechanism_cards/K56-cross-modal-prediction-curiosity.md",
+      "source_sha256": "3c753b57d54a1ea5c18f76a2965e1c9b48332a4e62523f9257e691f663847311",
+      "published_sha256": "3c753b57d54a1ea5c18f76a2965e1c9b48332a4e62523f9257e691f663847311"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K57-decouple-answer-authority.md",
+      "published": "mechanism_cards/K57-decouple-answer-authority.md",
+      "source_sha256": "cf125a76ae3daad72b3fd6faa9c8a987ad2797e50e27db04f1eb33c54734eb11",
+      "published_sha256": "cf125a76ae3daad72b3fd6faa9c8a987ad2797e50e27db04f1eb33c54734eb11"
+    },
+    {
+      "source": ".forge/domains/vlm-post-training/v1/cards/K58-token-level-reward-model.md",
+      "published": "mechanism_cards/K58-token-level-reward-model.md",
+      "source_sha256": "704f696cd71d9490d0dc2e2027ae456ccb391b61c0ef33d723d39575e60250a5",
+      "published_sha256": "704f696cd71d9490d0dc2e2027ae456ccb391b61c0ef33d723d39575e60250a5"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/adapt_interface_not_backbone.md",
+      "published": "patterns/parent/adapt_interface_not_backbone.md",
+      "source_sha256": "ae726c155ae218c98f5df0fc8ff64f73b5bbef5ca3fe8f6f908701a6b1fbd6ed",
+      "published_sha256": "ae726c155ae218c98f5df0fc8ff64f73b5bbef5ca3fe8f6f908701a6b1fbd6ed"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/cheap_verifiable_proxy_reward.md",
+      "published": "patterns/parent/cheap_verifiable_proxy_reward.md",
+      "source_sha256": "4cb9405ced990e43e90879fcaa7786eb359cc493d9e087eb700c8599fc7eef24",
+      "published_sha256": "4cb9405ced990e43e90879fcaa7786eb359cc493d9e087eb700c8599fc7eef24"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/closed_self_verified_loop.md",
+      "published": "patterns/parent/closed_self_verified_loop.md",
+      "source_sha256": "acfba47c71ea564397f47dace7152b84898f2578933274859137dfa7280cdc46",
+      "published_sha256": "acfba47c71ea564397f47dace7152b84898f2578933274859137dfa7280cdc46"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/constrain_what_changes.md",
+      "published": "patterns/parent/constrain_what_changes.md",
+      "source_sha256": "b9acc7d55abe40e95e479f48ca63b095996f4e81e58e0a14e1db9372c68bef5b",
+      "published_sha256": "b9acc7d55abe40e95e479f48ca63b095996f4e81e58e0a14e1db9372c68bef5b"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/decompose_and_reward_parts.md",
+      "published": "patterns/parent/decompose_and_reward_parts.md",
+      "source_sha256": "7aa18ac2bdbd02c0d0cb0e2269b6c0c95322853e410b932a8b42e33a6cd15dbb",
+      "published_sha256": "7aa18ac2bdbd02c0d0cb0e2269b6c0c95322853e410b932a8b42e33a6cd15dbb"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/dedicated_state_carrier.md",
+      "published": "patterns/parent/dedicated_state_carrier.md",
+      "source_sha256": "83914fa87c0f1a5fc660615bbabb6c6dd970e02e769d9973cf4a66d39e94f9c5",
+      "published_sha256": "83914fa87c0f1a5fc660615bbabb6c6dd970e02e769d9973cf4a66d39e94f9c5"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/diagnose_then_target.md",
+      "published": "patterns/parent/diagnose_then_target.md",
+      "source_sha256": "edf200a04a4055c22a7bc00979460c7578f5f4ffd84e5bd431a05727e9e2e420",
+      "published_sha256": "edf200a04a4055c22a7bc00979460c7578f5f4ffd84e5bd431a05727e9e2e420"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/distill_internal_property.md",
+      "published": "patterns/parent/distill_internal_property.md",
+      "source_sha256": "0a8c142e30c33cb1e016d48d5bbd896ac66680f84813ce1d17517b98a46e77f4",
+      "published_sha256": "0a8c142e30c33cb1e016d48d5bbd896ac66680f84813ce1d17517b98a46e77f4"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/manufacture_contrastive_pairs.md",
+      "published": "patterns/parent/manufacture_contrastive_pairs.md",
+      "source_sha256": "1625f0eda7529c1663279e2f2a98f0474840b11ae9365a69f7d1c9df3ff94214",
+      "published_sha256": "1625f0eda7529c1663279e2f2a98f0474840b11ae9365a69f7d1c9df3ff94214"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/measure_example_utility.md",
+      "published": "patterns/parent/measure_example_utility.md",
+      "source_sha256": "877b2c8f402ecfe61f014920a420ed4b0d1046fc2621fa8b9325abe33e4cee7c",
+      "published_sha256": "877b2c8f402ecfe61f014920a420ed4b0d1046fc2621fa8b9325abe33e4cee7c"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/overview.md",
+      "published": "patterns/parent/overview.md",
+      "source_sha256": "f02e3669d4771a93b6cd39da5c4aad8649f915dfe2df25d2fcfb76f3277af3e9",
+      "published_sha256": "f02e3669d4771a93b6cd39da5c4aad8649f915dfe2df25d2fcfb76f3277af3e9"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/privileged_proxy_synthesis.md",
+      "published": "patterns/parent/privileged_proxy_synthesis.md",
+      "source_sha256": "1543e4a80958dd9ca8c162e1de539d8e8c58c918dda856f3cbfac5038f71360f",
+      "published_sha256": "1543e4a80958dd9ca8c162e1de539d8e8c58c918dda856f3cbfac5038f71360f"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/repair_degenerate_signal.md",
+      "published": "patterns/parent/repair_degenerate_signal.md",
+      "source_sha256": "7ba5b252ecaf61f4326923257ecbc5a1d0ef6780e4ec0f966f200cc2d2819adf",
+      "published_sha256": "7ba5b252ecaf61f4326923257ecbc5a1d0ef6780e4ec0f966f200cc2d2819adf"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/reward_explicit_intermediates.md",
+      "published": "patterns/parent/reward_explicit_intermediates.md",
+      "source_sha256": "1a7b098ef618d88ab298e85147d05ba8c765393f9efbe3feeb58f9eeb6e58cfc",
+      "published_sha256": "1a7b098ef618d88ab298e85147d05ba8c765393f9efbe3feeb58f9eeb6e58cfc"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/parent/unify_into_shared_format.md",
+      "published": "patterns/parent/unify_into_shared_format.md",
+      "source_sha256": "b89b3186e01cb037f6f0935eeb4fe67c5e9c1e331756af850d58f75922dfa781",
+      "published_sha256": "b89b3186e01cb037f6f0935eeb4fe67c5e9c1e331756af850d58f75922dfa781"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C00.md",
+      "published": "patterns/sub/C00.md",
+      "source_sha256": "6731b67ec18086277fbbfd912ab65f36cbc3f364aea3ae5467bae2d781dfb0d2",
+      "published_sha256": "6731b67ec18086277fbbfd912ab65f36cbc3f364aea3ae5467bae2d781dfb0d2"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C01.md",
+      "published": "patterns/sub/C01.md",
+      "source_sha256": "e3e5e8a866c61a5e8ae3f89d8a51c5a093bfc0e7db8e918c0483e469862324b8",
+      "published_sha256": "e3e5e8a866c61a5e8ae3f89d8a51c5a093bfc0e7db8e918c0483e469862324b8"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C02.md",
+      "published": "patterns/sub/C02.md",
+      "source_sha256": "a18753cc64347f4f2a123fa488e36e232c2a5b0671d8f255e3257e1849c81a74",
+      "published_sha256": "a18753cc64347f4f2a123fa488e36e232c2a5b0671d8f255e3257e1849c81a74"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C03.md",
+      "published": "patterns/sub/C03.md",
+      "source_sha256": "3fd5c0516ade2ffec9257a1f25ea25feda98b91c8f2072323bdb5b4ebbd8fdec",
+      "published_sha256": "3fd5c0516ade2ffec9257a1f25ea25feda98b91c8f2072323bdb5b4ebbd8fdec"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C04.md",
+      "published": "patterns/sub/C04.md",
+      "source_sha256": "0523dd2e3d5bd68967dee4a0e53381e6ce5cc13f3b6c96f311070992d61e734e",
+      "published_sha256": "0523dd2e3d5bd68967dee4a0e53381e6ce5cc13f3b6c96f311070992d61e734e"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C05.md",
+      "published": "patterns/sub/C05.md",
+      "source_sha256": "dff13805a21e8be6e50c505f84ac6a8b2c9788924fa3925a24aa3bcbd0a17a90",
+      "published_sha256": "dff13805a21e8be6e50c505f84ac6a8b2c9788924fa3925a24aa3bcbd0a17a90"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C06.md",
+      "published": "patterns/sub/C06.md",
+      "source_sha256": "084192ae89025ded28a5276d0e0c2cab50ed3fd012e47f0289ac3a44e0fc2e6b",
+      "published_sha256": "084192ae89025ded28a5276d0e0c2cab50ed3fd012e47f0289ac3a44e0fc2e6b"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C07.md",
+      "published": "patterns/sub/C07.md",
+      "source_sha256": "4d91c58e371c57e0d9df8894fed567e2abc26de89c61b58946e43800c1df5d26",
+      "published_sha256": "4d91c58e371c57e0d9df8894fed567e2abc26de89c61b58946e43800c1df5d26"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C08.md",
+      "published": "patterns/sub/C08.md",
+      "source_sha256": "e51174bd6825576220d816cdb4c6f1a5a356dfbf2a95f9daef5b483e4298a4af",
+      "published_sha256": "e51174bd6825576220d816cdb4c6f1a5a356dfbf2a95f9daef5b483e4298a4af"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C09.md",
+      "published": "patterns/sub/C09.md",
+      "source_sha256": "b08b845b8165931ef754aaef5b8675eba351d25678d794da54d4e896e74d8523",
+      "published_sha256": "b08b845b8165931ef754aaef5b8675eba351d25678d794da54d4e896e74d8523"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C10.md",
+      "published": "patterns/sub/C10.md",
+      "source_sha256": "99477b1ddd0715c1dbbde3d723e5082810f4449f2da2010834a5159034ba5e29",
+      "published_sha256": "99477b1ddd0715c1dbbde3d723e5082810f4449f2da2010834a5159034ba5e29"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C11.md",
+      "published": "patterns/sub/C11.md",
+      "source_sha256": "08dc9706eb83a79350d2452b58588f852bb1381ed563fa602510ef5f747da0de",
+      "published_sha256": "08dc9706eb83a79350d2452b58588f852bb1381ed563fa602510ef5f747da0de"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C12.md",
+      "published": "patterns/sub/C12.md",
+      "source_sha256": "078b4bdaad9309eef71df8fe2532e4995933f1ba2fd33a40f5b4a3ea75a34bf3",
+      "published_sha256": "078b4bdaad9309eef71df8fe2532e4995933f1ba2fd33a40f5b4a3ea75a34bf3"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C13.md",
+      "published": "patterns/sub/C13.md",
+      "source_sha256": "0a2ebbfa2cad8d695859d4895d1238fa7b2e950df2a1a61087d6fa7dbd8eeabc",
+      "published_sha256": "0a2ebbfa2cad8d695859d4895d1238fa7b2e950df2a1a61087d6fa7dbd8eeabc"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C14.md",
+      "published": "patterns/sub/C14.md",
+      "source_sha256": "b4cd39769d6eb8b6b4acdfbcefd85a3c0626f79190d6aa64a5208f44ac594c30",
+      "published_sha256": "b4cd39769d6eb8b6b4acdfbcefd85a3c0626f79190d6aa64a5208f44ac594c30"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C15.md",
+      "published": "patterns/sub/C15.md",
+      "source_sha256": "644b612b2138cc39f559a132d1915b477a0de2446b674dea1de45cba4d3d7a18",
+      "published_sha256": "644b612b2138cc39f559a132d1915b477a0de2446b674dea1de45cba4d3d7a18"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C16.md",
+      "published": "patterns/sub/C16.md",
+      "source_sha256": "a96a17250b6747065487390968a3c92cdadebbdb2d6f5577838e64e1f2220745",
+      "published_sha256": "a96a17250b6747065487390968a3c92cdadebbdb2d6f5577838e64e1f2220745"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C17.md",
+      "published": "patterns/sub/C17.md",
+      "source_sha256": "4b547f4abf3ea68b1b7cfb4a57d6679aedc8d9aede7cf06d9798d3ffb18ff7e0",
+      "published_sha256": "4b547f4abf3ea68b1b7cfb4a57d6679aedc8d9aede7cf06d9798d3ffb18ff7e0"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/C18.md",
+      "published": "patterns/sub/C18.md",
+      "source_sha256": "3beacaf7b1db536ee9a6cb81617f7a3ebf6bfbd08705318c636581f847ee73c5",
+      "published_sha256": "3beacaf7b1db536ee9a6cb81617f7a3ebf6bfbd08705318c636581f847ee73c5"
+    },
+    {
+      "source": "reports/vlm_pattern_induction_20261018/cards/sub/overview.md",
+      "published": "patterns/sub/overview.md",
+      "source_sha256": "730a7c7a25101c4f5a4d4dea0c0e8fe0391132fb9e4ee8298d772070829df98f",
+      "published_sha256": "730a7c7a25101c4f5a4d4dea0c0e8fe0391132fb9e4ee8298d772070829df98f"
+    }
+  ]
+}
