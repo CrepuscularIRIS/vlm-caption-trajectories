@@ -1,5 +1,10 @@
 # 变更记录
 
+## 2026-10-22 — 修测量后重跑分段价值诊断（v2）
+
+- docs/36 第 7 节；`logs/mve/segval_v2/`；`pipeline/eval/mve/segment_value_v2.py`、`summarize_segment_v2.py`。切点对齐 token、对照改为遮盖正确选项文字；判定仍为竞争解释成立。
+- `manifest.sha256.json`：同步 README.md（上一提交改了 README 未更新清单）与 CHANGELOG.md 的哈希。
+
 ## 2026-10-22 — 分段价值诊断结果
 
 - docs/36 第 6 节；`logs/mve/segval_summary.json`；`pipeline/eval/mve/segment_value.py`、`summarize_segment.py`。

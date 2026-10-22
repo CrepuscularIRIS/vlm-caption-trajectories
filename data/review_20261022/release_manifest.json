@@ -92,13 +92,15 @@
   "logs/mve/segval_v1/README.md": "9055adb397e51fe8221e9e81784fa026cc42d5bde1aa069da454c74dc3e30252",
   "logs/mve/segval_v1/runs_r1.jsonl": "ef3648aa38a44ba8ce8ad75f6079c54c95f6f3028f77d8f7b6d6df018a9c032d",
   "logs/mve/segval_v1/runs_sft.jsonl": "942e66295878d03727fb61da448a0cd421dc652f90993be9cbf2c1d9b73e4696",
-  "pipeline/eval/mve/README.md": "e8fea150dad4097f5480817c460cacf55c008092d1f52fc8e9db03da5ddf1f31",
+  "pipeline/eval/mve/README.md": "0122c67fe4e91ceb9b2a7161b2ac97f2d67acf0fe0a72913f441202fc3a5f2cb",
   "pipeline/eval/mve/audit_a.py": "a010aeede05d0813e033f3a109594d8b13e34b15e064c7048bc1a98d8fcd6449",
   "pipeline/eval/mve/build_case_pages.py": "1ac5e9a2d6fff52a7bfa5ee3bbca027db81f4de6176ac9af4721557671122c7f",
   "pipeline/eval/mve/build_review.py": "096b6b5fa71fe501f90438940a1858e8bc08e6bc9c33da215e3f9613c2c361c4",
   "pipeline/eval/mve/export_review_release.py": "71ea7186e47e1bc18faeefaea563a50eca4658b47fa768b4e2b180dbd3abc63d",
   "pipeline/eval/mve/mine_utilization.py": "98c2217cdc8f81e4df1b85cc8ef1341a681b034265e6ef866990bf14e34d418d",
   "pipeline/eval/mve/segment_value.py": "1d425799c3f7699835fec1b401794332fcd5a4ffad686b6d6025cbb20afa6a35",
+  "pipeline/eval/mve/segment_value_v2.py": "f56c131693ab9a0f7fd8123dc97462c13c3a3571f8349a2f6590d275ac89731c",
   "pipeline/eval/mve/summarize_segment.py": "ede4e941073f4f432524c18f7d9d722cc4a237769c4f6ac079a4b328af6bb758",
+  "pipeline/eval/mve/summarize_segment_v2.py": "77c39397e148de26056c820cc1148fa5ebb14b7047c333e1da1084403e4c817d",
   "pipeline/eval/mve/verify_review_release.py": "8e224d5a97c82966255d83753ea91f5d4b7603baa3936c922e9c41a1cd79c2e8"
 }

@@ -10,6 +10,8 @@
 | `build_case_pages.py` | 重放动作、生成学生输入图像审阅页 | 已执行；公开包不含原图/题库原文 |
 | `segment_value.py` | 13例的P0/P1/P1c/P2续跑 | v1历史实现，存在主报告列出的测量问题；不在此次发布中悄悄修写历史代码 |
 | `summarize_segment.py` | 按病例计算均值和bootstrap区间 | 可在CPU上从公开832行逐次结果重算 |
+| `segment_value_v2.py` | v2：token对齐切点 P1t/P2t，遮盖正确选项文字的对照 P1m | 已执行（docs/36 第7节）；816行 |
+| `summarize_segment_v2.py` | v2 汇总（S2m = V(P1t) − V(P1m)） | CPU 可从 `logs/mve/segval_v2/runs_*.jsonl` 重算，结果与 `summary.json` 一致 |
 | `export_review_release.py` | 从本地源轨迹及人工写入的模型审阅标签生成公开包 | CPU；白名单导出，不自动看图或产生标签 |
 | `verify_review_release.py` | 验证记录、锚点、哈希、逐次结果及汇总 | CPU；结构/数字复核，不是视觉真值验证 |
 
