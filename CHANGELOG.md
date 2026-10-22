@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 — 看图核对结果与更正
+
+- docs/36：40 例模型看图核对，13 例适用（主诊断 9、混合 4），门槛满足；更正三处过强说法（"三种 RL 目标都没让它减少"、"RLOO 给整条轨迹负值"、"价值不上升 ⇒ 能力问题"）；切分改为按句子。
+
 ## 2026-10-22 — 决策记录 D
 
 - 新增 [docs/36](docs/36_decision_existing_evidence_20261022.md)、`pipeline/eval/mve/mine_utilization.py`、`build_case_pages.py`、`logs/mve/utilization_mined_summary.json`。
