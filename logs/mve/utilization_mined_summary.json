@@ -1,0 +1,206 @@
+{
+ "rule_doc": "Zero-GPU mining of 'existing-evidence utilization' failure candidates by a text rule (precedes a model/human check).\nFor every trajectory with a parsed final answer that is WRONG, compare the option TEXTS with the policy's own captions\n(all <think> blocks):\n  gold_stated_answered_wrong   the gold option's text appears in a caption, the final letter is not gold\n                               (candidate 'read right, used wrong': option mapping / binding / goal drift)\n  wrong_text_followed          the chosen (wrong) option's text appears in a caption and the gold text does not\n                               (candidate reading error or misleading evidence followed)\n  neither                      no option text matched\nOption texts are usable only when distinctive: >= 3 characters after normalisation, not a substring of another option\nand no other option a substring of it, and not a generic 'not feature / cannot determine' option. Trajectories whose\ngold or chosen option is not distinctive are counted as 'not_checkable'. A text match is NOT a verified case: it is a\ncandidate list for the image check. Counts describe the scanned sets only.\nSets: SFT-A crop-branch and direct-branch trajectories on 2,000 RL-pool questions (fixed SFT-A), and E1 trajectories at\nstep 160 of r1 (RLOO lambda 0.01), r0 (RLOO lambda 0) and the GRPO orig rerun.\nWrites mined_summary.json, candidates.jsonl (one line per candidate trajectory, with the rule), review_sample.json\n(fixed sample: 20 SFT-A + 20 r1 gold_stated_answered_wrong candidates, seed 20261022, distinct uids) and\nquestions.json (uid -> question text with options, gold) for the reviewers.\n",
+ "sets": {
+  "sft_crop": {
+   "counts": {
+    "n": 7393,
+    "wrong": 2590,
+    "wrong_text_followed": 692,
+    "right": 4682,
+    "gold_stated_answered_wrong": 369,
+    "neither": 551,
+    "not_checkable": 978,
+    "no_answer": 121
+   },
+   "share_of_checkable_wrong": {
+    "gold_stated_answered_wrong": 0.229,
+    "wrong_text_followed": 0.429,
+    "neither": 0.342
+   },
+   "by_source": {
+    "mme_realworld": {
+     "wrong_text_followed": 588,
+     "gold_stated_answered_wrong": 265,
+     "neither": 455,
+     "not_checkable": 569
+    },
+    "mmmu_pro": {
+     "not_checkable": 211,
+     "wrong_text_followed": 38,
+     "gold_stated_answered_wrong": 8,
+     "neither": 35
+    },
+    "worldbench": {
+     "neither": 61,
+     "not_checkable": 198,
+     "gold_stated_answered_wrong": 96,
+     "wrong_text_followed": 66
+    }
+   }
+  },
+  "sft_direct": {
+   "counts": {
+    "n": 7545,
+    "wrong": 3452,
+    "wrong_text_followed": 1338,
+    "right": 4023,
+    "gold_stated_answered_wrong": 171,
+    "neither": 629,
+    "not_checkable": 1314,
+    "no_answer": 70
+   },
+   "share_of_checkable_wrong": {
+    "gold_stated_answered_wrong": 0.08,
+    "wrong_text_followed": 0.626,
+    "neither": 0.294
+   },
+   "by_source": {
+    "mme_realworld": {
+     "wrong_text_followed": 1199,
+     "gold_stated_answered_wrong": 100,
+     "neither": 490,
+     "not_checkable": 723
+    },
+    "mmmu_pro": {
+     "not_checkable": 358,
+     "neither": 69,
+     "wrong_text_followed": 38,
+     "gold_stated_answered_wrong": 10
+    },
+    "worldbench": {
+     "neither": 70,
+     "not_checkable": 233,
+     "gold_stated_answered_wrong": 61,
+     "wrong_text_followed": 101
+    }
+   }
+  },
+  "r1_160": {
+   "counts": {
+    "n": 2208,
+    "right": 1465,
+    "wrong": 720,
+    "not_checkable": 321,
+    "neither": 119,
+    "gold_stated_answered_wrong": 100,
+    "wrong_text_followed": 180,
+    "no_answer": 23
+   },
+   "share_of_checkable_wrong": {
+    "gold_stated_answered_wrong": 0.251,
+    "wrong_text_followed": 0.451,
+    "neither": 0.298
+   },
+   "by_source": {
+    "mme_realworld": {
+     "not_checkable": 170,
+     "neither": 75,
+     "gold_stated_answered_wrong": 55,
+     "wrong_text_followed": 124
+    },
+    "mmmu_pro": {
+     "not_checkable": 68,
+     "neither": 18,
+     "wrong_text_followed": 7
+    },
+    "worldbench": {
+     "not_checkable": 83,
+     "gold_stated_answered_wrong": 23,
+     "neither": 21,
+     "wrong_text_followed": 26
+    },
+    "vstar": {
+     "gold_stated_answered_wrong": 22,
+     "wrong_text_followed": 23,
+     "neither": 5
+    }
+   }
+  },
+  "r0_160": {
+   "counts": {
+    "n": 2208,
+    "right": 1439,
+    "wrong": 757,
+    "not_checkable": 323,
+    "neither": 126,
+    "gold_stated_answered_wrong": 126,
+    "wrong_text_followed": 182,
+    "no_answer": 12
+   },
+   "share_of_checkable_wrong": {
+    "gold_stated_answered_wrong": 0.29,
+    "wrong_text_followed": 0.419,
+    "neither": 0.29
+   },
+   "by_source": {
+    "mme_realworld": {
+     "not_checkable": 176,
+     "neither": 85,
+     "gold_stated_answered_wrong": 56,
+     "wrong_text_followed": 109
+    },
+    "mmmu_pro": {
+     "not_checkable": 69,
+     "neither": 20,
+     "gold_stated_answered_wrong": 3,
+     "wrong_text_followed": 8
+    },
+    "worldbench": {
+     "not_checkable": 78,
+     "gold_stated_answered_wrong": 36,
+     "neither": 19,
+     "wrong_text_followed": 28
+    },
+    "vstar": {
+     "gold_stated_answered_wrong": 31,
+     "wrong_text_followed": 37,
+     "neither": 2
+    }
+   }
+  },
+  "orig_160": {
+   "counts": {
+    "n": 2208,
+    "right": 1431,
+    "wrong": 752,
+    "neither": 133,
+    "gold_stated_answered_wrong": 120,
+    "not_checkable": 321,
+    "wrong_text_followed": 178,
+    "no_answer": 25
+   },
+   "share_of_checkable_wrong": {
+    "gold_stated_answered_wrong": 0.278,
+    "wrong_text_followed": 0.413,
+    "neither": 0.309
+   },
+   "by_source": {
+    "mme_realworld": {
+     "neither": 89,
+     "gold_stated_answered_wrong": 60,
+     "not_checkable": 172,
+     "wrong_text_followed": 115
+    },
+    "mmmu_pro": {
+     "not_checkable": 74,
+     "neither": 21,
+     "wrong_text_followed": 8,
+     "gold_stated_answered_wrong": 2
+    },
+    "worldbench": {
+     "not_checkable": 75,
+     "gold_stated_answered_wrong": 27,
+     "wrong_text_followed": 27,
+     "neither": 21
+    },
+    "vstar": {
+     "gold_stated_answered_wrong": 31,
+     "wrong_text_followed": 28,
+     "neither": 2
+    }
+   }
+  }
+ },
+ "n_candidates": 3456,
+ "n_review_sample": 40
+}

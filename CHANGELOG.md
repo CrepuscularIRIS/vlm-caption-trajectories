@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 — 决策记录 D
+
+- 新增 [docs/36](docs/36_decision_existing_evidence_20261022.md)、`pipeline/eval/mve/mine_utilization.py`、`build_case_pages.py`、`logs/mve/utilization_mined_summary.json`。
+
 ## 2026-10-22 — 看图标注结果
 
 - docs/35：Codex 模型看图标注（非人工）结果、门槛未过、观察到的"已有证据利用"类失败与限制；`logs/mve/annotation_summary_codex.json`。

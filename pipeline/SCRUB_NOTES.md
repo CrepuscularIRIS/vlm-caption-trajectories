@@ -194,3 +194,4 @@
 
 - 10-22：`grpo/v51_credit/tool_credit.py` 只在模块文档字符串中加了更正说明（规则实际只分两格），代码未改；它与服务器副本 `9b6c5876…` 只差这段说明。
 - 10-22：`eval/mve/audit_a.py`、`build_review.py` 新写；项目目录、数据目录与 EasyR1 目录改为 `PROJECT_DIR` / `DATA_DIR` / `EASYR1_DIR` 环境变量。
+- 10-22：`eval/mve/mine_utilization.py`、`build_case_pages.py` 新写；数据池目录改为 `DATA_DIR`。
