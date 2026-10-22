@@ -1,0 +1,18 @@
+{
+  "source_hashes": {
+    "annotations/mve_prep_20261022_codex/annotation.csv": "d937e9432fc360f690a48df27e6a1b129e06c264f15d44f2d08d232e5e5aa8fb",
+    "annotations/mve_prep_20261022_codex/server_sha256.json": "1522a429e60a1d23b1696596ab142c6971623722cf759faf8768dea7b8b337f6",
+    "annotations/mve_prep_20261022_codex/summary.json": "8b68ab6850b896987fbb72571a65bff97f9ae13957e6d2a5af4399aabf6262c3",
+    "trajectories_20261022/sft_twobranch_1700/traj_A_sft_crop.jsonl": "8fb3fd79e02b4519af261d73225e1de52a38fde647db8c0ce95c549366bfbad1",
+    "trajectories_20261022/sft_twobranch_300/traj_A_sft_crop.jsonl": "f6804effd5c596515e41c96d7611c6586c3d6f85fb23f511327f7e2ad68fe993",
+    "annotations/utilization_20261022_codex/annotation_template.csv": "42955ff9f5aec9f9f47334b0429a27964ae953a6a8079eb385515c13ad294b58",
+    "annotations/utilization_20261022_codex/remote_image_hashes.json": "17e3900459442a38c43b574e087f3cdc5ca49cb43c75ff71fbbac5c940a3f0a0",
+    "annotations/utilization_20261022_codex/summary.json": "91c3302a48a7144385db098b16ce4e78a560d7d529f8d924f0f8c5919dbdf75b",
+    "trajectories_20261022/sft_twobranch_1700/traj_A_sft_direct.jsonl": "1afb8f58c01fb861735d4fab35d359996101829ffea5376b0211a94d16c1dd02",
+    "trajectories_20261022/sft_twobranch_300/traj_A_sft_direct.jsonl": "359e9002e9b62fc45f6dfca28cb22667556edab11debecf483e974672642f7f8",
+    "trajectories_20261022/e1_step160/traj_r1_160.jsonl": "f0697d5be87bea30f04a76d3ae2c3525c1a90e545b835b623423c8d52aa01a55"
+  },
+  "n_review_records": 80,
+  "n_unique_trajectories": 79,
+  "scope": "Public caption/action traces, annotations, anchors and image identity only; no benchmark questions or image bytes."
+}

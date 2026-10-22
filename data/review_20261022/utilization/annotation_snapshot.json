@@ -1,0 +1,76 @@
+{
+  "status": "complete_model_reviewed_not_human_gold",
+  "annotator": "current Codex assistant; no independently verified Astra model identity",
+  "source_commit": "529dd8e539e7756309af9b6ec55e422556d5cfab",
+  "reviewed_cases": 40,
+  "reviewed_input_views": 129,
+  "sample_sets": {
+    "sft_crop": 10,
+    "sft_direct": 10,
+    "r1_160": 20
+  },
+  "gold_fact_labels": {
+    "n": 21,
+    "y": 15,
+    "unclear": 4
+  },
+  "eligible": 13,
+  "eligible_by_set": {
+    "sft_crop": 3,
+    "sft_direct": 4,
+    "r1_160": 6
+  },
+  "core": [
+    "u01",
+    "u04",
+    "u06",
+    "u11",
+    "u17",
+    "u28",
+    "u37",
+    "u38",
+    "u39"
+  ],
+  "mixed": [
+    "u12",
+    "u14",
+    "u33",
+    "u36"
+  ],
+  "excluded": [
+    "u00",
+    "u02",
+    "u03",
+    "u05",
+    "u07",
+    "u08",
+    "u09",
+    "u10",
+    "u13",
+    "u15",
+    "u16",
+    "u18",
+    "u19",
+    "u20",
+    "u21",
+    "u22",
+    "u23",
+    "u24",
+    "u25",
+    "u26",
+    "u27",
+    "u29",
+    "u30",
+    "u31",
+    "u32",
+    "u34",
+    "u35"
+  ],
+  "core_case_count_gate_8_met": true,
+  "human_review_completed": false,
+  "probe_executed": false,
+  "training_executed": false,
+  "selection_warning": "Purposefully mined wrong-answer candidates; not a prevalence sample, not evidence of change across RL objectives.",
+  "blinding": "Gold/rule revealed after recording visual observations. Generated final answer was visible. Some images had been seen in prior review.",
+  "rendering": "Browser screenshots of server-served actual-input image files; no image files copied into repository."
+}

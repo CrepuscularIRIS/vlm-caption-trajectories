@@ -1,0 +1,36 @@
+{
+  "review_status": "complete_model_reviewed_not_human_gold",
+  "review_date": "2026-10-22",
+  "source_commit": "b62c0a0536732f0021d5588150a7e2f160a2798f",
+  "n_states": 40,
+  "n_blind_fact_records": 39,
+  "blind_exception": [
+    "s00"
+  ],
+  "category_counts": {
+    "no_evidence_or_misleading": 10,
+    "unknown": 9,
+    "redundant": 19,
+    "necessary": 1,
+    "evidence_not_used": 1
+  },
+  "strata": {
+    "first_wrong": 12,
+    "follow_wrong": 12,
+    "follow_right": 8,
+    "first_right": 8
+  },
+  "eligible_positive_controls": [
+    "s10"
+  ],
+  "old_wrong_new_needed_fact_candidates": [
+    "s23"
+  ],
+  "strict_eligible_old_wrong": [],
+  "threshold": 8,
+  "strict_count": 0,
+  "generous_candidate_count": 1,
+  "decision": "this_batch_insufficient_to_test",
+  "gpu_jobs_launched": false,
+  "shared_open_scientist_records_modified": false
+}

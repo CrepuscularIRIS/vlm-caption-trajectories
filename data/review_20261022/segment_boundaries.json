@@ -1,0 +1,431 @@
+[
+  {
+    "id": "u01",
+    "group": "core",
+    "case": {
+      "id": "u01",
+      "set": "sft_crop",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_14796",
+      "sample_idx": 3,
+      "source": "mme_realworld",
+      "gold": "B",
+      "pred": "A",
+      "n_crops": 2,
+      "replay_ok": true,
+      "n_views": 3
+    },
+    "fact_turn": 1,
+    "fact_verbatim": "The image shows two jars of sauce; the brand appears as “BEERENBERG” on each label, while “CHORIZO” and “PAELLA” are also visible.",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      154
+    ],
+    "decisive_error_turn": 3,
+    "error_verbatim": "That matches option A;",
+    "error_char_range_in_rendered_turn": [
+      144,
+      166
+    ],
+    "fact_turn_text": "<think>\nStep 1 | locate\nThe image shows two jars of sauce; the brand appears as “BEERENBERG” on each label, while “CHORIZO” and “PAELLA” are also visible. I will inspect the brand text closely to distinguish spellings, as option C differs by one letter.\n</think>\n<grounding>{\"bbox_2d\":[0.13,0.32,0.44,0.52],\"source\":\"original_image\"}</grounding>",
+    "error_turn_text": "<think>\nStep 3 | commit\nBoth jars’ labels read “BEERENBERG,” with “CHICKEN CHORIZO PAELLA” as the product line [observation_1] [observation_2]. That matches option A; the other options differ by spelling or are unsupported.\n</think>\n<answer>A</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u04",
+    "group": "core",
+    "case": {
+      "id": "u04",
+      "set": "sft_crop",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_13755",
+      "sample_idx": 0,
+      "source": "mme_realworld",
+      "gold": "A",
+      "pred": "C",
+      "n_crops": 1,
+      "replay_ok": true,
+      "n_views": 2
+    },
+    "fact_turn": 2,
+    "fact_verbatim": "The yellow panel reads \"Jm Martinswinkel\" and the pink panel reads \"Mühlen Kölsch\" [observation_1].",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      123
+    ],
+    "decisive_error_turn": 2,
+    "error_verbatim": "matching option C.",
+    "error_char_range_in_rendered_turn": [
+      167,
+      185
+    ],
+    "fact_turn_text": "<think>\nStep 2 | commit\nThe yellow panel reads \"Jm Martinswinkel\" and the pink panel reads \"Mühlen Kölsch\" [observation_1]. The larger text is on the yellow building, matching option C.\n</think>\n<answer>C</answer>",
+    "error_turn_text": "<think>\nStep 2 | commit\nThe yellow panel reads \"Jm Martinswinkel\" and the pink panel reads \"Mühlen Kölsch\" [observation_1]. The larger text is on the yellow building, matching option C.\n</think>\n<answer>C</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u06",
+    "group": "core",
+    "case": {
+      "id": "u06",
+      "set": "sft_crop",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_17412",
+      "sample_idx": 2,
+      "source": "mme_realworld",
+      "gold": "A",
+      "pred": "B",
+      "n_crops": 3,
+      "replay_ok": true,
+      "n_views": 4
+    },
+    "fact_turn": 4,
+    "fact_verbatim": "The car’s rear plate reads CD 90 D4 U across its two rows.",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      82
+    ],
+    "decisive_error_turn": 4,
+    "error_verbatim": "This matches option (B).",
+    "error_char_range_in_rendered_turn": [
+      83,
+      107
+    ],
+    "fact_turn_text": "<think>\nStep 4 | commit\nThe car’s rear plate reads CD 90 D4 U across its two rows. This matches option (B).\n</think>\n<answer>B</answer>",
+    "error_turn_text": "<think>\nStep 4 | commit\nThe car’s rear plate reads CD 90 D4 U across its two rows. This matches option (B).\n</think>\n<answer>B</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u11",
+    "group": "core",
+    "case": {
+      "id": "u11",
+      "set": "sft_direct",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_15173",
+      "sample_idx": 0,
+      "source": "mme_realworld",
+      "gold": "A",
+      "pred": "B",
+      "n_crops": 0,
+      "replay_ok": true,
+      "n_views": 1
+    },
+    "fact_turn": 1,
+    "fact_verbatim": "The man wearing glasses is near the lower-right foreground; the black billboard directly above him reads “CASA ANGEL” [original_image].",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      159
+    ],
+    "decisive_error_turn": 1,
+    "error_verbatim": "This matches option B.",
+    "error_char_range_in_rendered_turn": [
+      160,
+      182
+    ],
+    "fact_turn_text": "<think>\nStep 1 | commit\nThe man wearing glasses is near the lower-right foreground; the black billboard directly above him reads “CASA ANGEL” [original_image]. This matches option B.\n</think>\n<answer>B</answer>",
+    "error_turn_text": "<think>\nStep 1 | commit\nThe man wearing glasses is near the lower-right foreground; the black billboard directly above him reads “CASA ANGEL” [original_image]. This matches option B.\n</think>\n<answer>B</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u12",
+    "group": "mixed",
+    "case": {
+      "id": "u12",
+      "set": "sft_direct",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_18047",
+      "sample_idx": 1,
+      "source": "mme_realworld",
+      "gold": "A",
+      "pred": "D",
+      "n_crops": 0,
+      "replay_ok": true,
+      "n_views": 1
+    },
+    "fact_turn": 1,
+    "fact_verbatim": "\"2445, 9911136191\"",
+    "fact_char_range_in_rendered_turn": [
+      147,
+      165
+    ],
+    "decisive_error_turn": 1,
+    "error_verbatim": "visibly shows the number 92459911",
+    "error_char_range_in_rendered_turn": [
+      64,
+      97
+    ],
+    "fact_turn_text": "<think>\nStep 1 | commit\nThe bag held by the person on the right visibly shows the number 92459911, along with the visible text \"New Seelampur\" and \"2445, 9911136191\" [original_image]. The matching option is (D).\n</think>\n<answer>D</answer>",
+    "error_turn_text": "<think>\nStep 1 | commit\nThe bag held by the person on the right visibly shows the number 92459911, along with the visible text \"New Seelampur\" and \"2445, 9911136191\" [original_image]. The matching option is (D).\n</think>\n<answer>D</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u14",
+    "group": "mixed",
+    "case": {
+      "id": "u14",
+      "set": "sft_direct",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_14978",
+      "sample_idx": 2,
+      "source": "mme_realworld",
+      "gold": "C",
+      "pred": "A",
+      "n_crops": 0,
+      "replay_ok": true,
+      "n_views": 1
+    },
+    "fact_turn": 1,
+    "fact_verbatim": "The pink bottle in the middle of the image has red text reading “Glossier” and “Coconut Balm dotcom” [original_image].",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      142
+    ],
+    "decisive_error_turn": 1,
+    "error_verbatim": "red text reading “Glossier”",
+    "error_char_range_in_rendered_turn": [
+      71,
+      98
+    ],
+    "fact_turn_text": "<think>\nStep 1 | commit\nThe pink bottle in the middle of the image has red text reading “Glossier” and “Coconut Balm dotcom” [original_image].\n</think>\n<answer>A</answer>",
+    "error_turn_text": "<think>\nStep 1 | commit\nThe pink bottle in the middle of the image has red text reading “Glossier” and “Coconut Balm dotcom” [original_image].\n</think>\n<answer>A</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u17",
+    "group": "core",
+    "case": {
+      "id": "u17",
+      "set": "sft_direct",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_6105",
+      "sample_idx": 2,
+      "source": "mme_realworld",
+      "gold": "B",
+      "pred": "A",
+      "n_crops": 0,
+      "replay_ok": true,
+      "n_views": 1
+    },
+    "fact_turn": 1,
+    "fact_verbatim": "The “CURRENT ASSETS BY CURRENCY” pie diagram shows a label “EUR 50%” [original_image].",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      110
+    ],
+    "decisive_error_turn": 1,
+    "error_verbatim": "<answer>A</answer>",
+    "error_char_range_in_rendered_turn": [
+      210,
+      228
+    ],
+    "fact_turn_text": "<think>\nStep 1 | commit\nThe “CURRENT ASSETS BY CURRENCY” pie diagram shows a label “EUR 50%” [original_image]. The other options are for different currencies: USD 25%, GBP 10%, CHF 7%, CNY 5%, JPY 3%.\n</think>\n<answer>A</answer>",
+    "error_turn_text": "<think>\nStep 1 | commit\nThe “CURRENT ASSETS BY CURRENCY” pie diagram shows a label “EUR 50%” [original_image]. The other options are for different currencies: USD 25%, GBP 10%, CHF 7%, CNY 5%, JPY 3%.\n</think>\n<answer>A</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u28",
+    "group": "core",
+    "case": {
+      "id": "u28",
+      "set": "r1_160",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "vstar_118",
+      "sample_idx": 1,
+      "source": "vstar",
+      "gold": "A",
+      "pred": "B",
+      "n_crops": 2,
+      "replay_ok": true,
+      "n_views": 3
+    },
+    "fact_turn": 1,
+    "fact_verbatim": "The dog appears in the lower-right foreground, while the motorcycle is a small object near the bottom center-left, so I’ll inspect the lower-left area to confirm both.",
+    "fact_char_range_in_rendered_turn": [
+      111,
+      278
+    ],
+    "decisive_error_turn": 3,
+    "error_verbatim": "while the dog is in the lower-left foreground beside the water [observation_2].",
+    "error_char_range_in_rendered_turn": [
+      98,
+      177
+    ],
+    "fact_turn_text": "<think>\nStep 1 | locate\nI need the dog and motorcycle in the same frame to compare their horizontal positions. The dog appears in the lower-right foreground, while the motorcycle is a small object near the bottom center-left, so I’ll inspect the lower-left area to confirm both.\n</think>\n<grounding>{\"bbox_2d\":[0.20,0.50,0.50,0.90],\"source\":\"original_image\"}</grounding>",
+    "error_turn_text": "<think>\nStep 3 | commit\nThe motorcycle is near the center-left of the full scene [observation_1], while the dog is in the lower-left foreground beside the water [observation_2]. From the camera view, the motorcycle is to the right of the dog.\n</think>\n<answer>B</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u33",
+    "group": "mixed",
+    "case": {
+      "id": "u33",
+      "set": "r1_160",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_10890",
+      "sample_idx": 0,
+      "source": "mme_realworld",
+      "gold": "C",
+      "pred": "A",
+      "n_crops": 7,
+      "replay_ok": true,
+      "n_views": 8
+    },
+    "fact_turn": 8,
+    "fact_verbatim": "The Total Non Current Assets row reads 696.25, 692.50, 986.88, 981.25, 975.63, 970.00, 964.38, 958.75, 953.13, 947.50, 941.88, 936.25, 930.63, 925.00, 919.38, 913.75, 908, across the monthly columns.",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      223
+    ],
+    "decisive_error_turn": 8,
+    "error_verbatim": "August (1-Aug-21) is 970.00, higher than",
+    "error_char_range_in_rendered_turn": [
+      224,
+      264
+    ],
+    "fact_turn_text": "<think>\nStep 8 | commit\nThe Total Non Current Assets row reads 696.25, 692.50, 986.88, 981.25, 975.63, 970.00, 964.38, 958.75, 953.13, 947.50, 941.88, 936.25, 930.63, 925.00, 919.38, 913.75, 908, across the monthly columns. August (1-Aug-21) is 970.00, higher than February (1-Feb-21) 692.50, March (1-Mar-21) 986.88, and November (1-Nov-21) 941.88.\n</think>\n<answer>A</answer>",
+    "error_turn_text": "<think>\nStep 8 | commit\nThe Total Non Current Assets row reads 696.25, 692.50, 986.88, 981.25, 975.63, 970.00, 964.38, 958.75, 953.13, 947.50, 941.88, 936.25, 930.63, 925.00, 919.38, 913.75, 908, across the monthly columns. August (1-Aug-21) is 970.00, higher than February (1-Feb-21) 692.50, March (1-Mar-21) 986.88, and November (1-Nov-21) 941.88.\n</think>\n<answer>A</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u36",
+    "group": "mixed",
+    "case": {
+      "id": "u36",
+      "set": "r1_160",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "worldbench_337",
+      "sample_idx": 0,
+      "source": "worldbench",
+      "gold": "D",
+      "pred": "A",
+      "n_crops": 3,
+      "replay_ok": true,
+      "n_views": 4
+    },
+    "fact_turn": 2,
+    "fact_verbatim": "The right-side tables show a laptop and folders, but no protein shaker or book on those workstations [observation_1].",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      141
+    ],
+    "decisive_error_turn": 2,
+    "error_verbatim": "no protein shaker",
+    "error_char_range_in_rendered_turn": [
+      77,
+      94
+    ],
+    "fact_turn_text": "<think>\nStep 2 | locate\nThe right-side tables show a laptop and folders, but no protein shaker or book on those workstations [observation_1]. I will scan further along the right wall to check the remaining tables.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.45,0.75,1.0],\"source\":\"original_image\"}</grounding>",
+    "error_turn_text": "<think>\nStep 2 | locate\nThe right-side tables show a laptop and folders, but no protein shaker or book on those workstations [observation_1]. I will scan further along the right wall to check the remaining tables.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.45,0.75,1.0],\"source\":\"original_image\"}</grounding>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u37",
+    "group": "core",
+    "case": {
+      "id": "u37",
+      "set": "r1_160",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_14356",
+      "sample_idx": 1,
+      "source": "mme_realworld",
+      "gold": "A",
+      "pred": "B",
+      "n_crops": 1,
+      "replay_ok": true,
+      "n_views": 2
+    },
+    "fact_turn": 2,
+    "fact_verbatim": "The bold line on the bottle reads “PORCA DE MURCA,” with the smaller text “DOURO” directly beneath it [observation_1].",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      142
+    ],
+    "decisive_error_turn": 2,
+    "error_verbatim": "This matches option B.",
+    "error_char_range_in_rendered_turn": [
+      143,
+      165
+    ],
+    "fact_turn_text": "<think>\nStep 2 | commit\nThe bold line on the bottle reads “PORCA DE MURCA,” with the smaller text “DOURO” directly beneath it [observation_1]. This matches option B.\n</think>\n<answer>B</answer>",
+    "error_turn_text": "<think>\nStep 2 | commit\nThe bold line on the bottle reads “PORCA DE MURCA,” with the smaller text “DOURO” directly beneath it [observation_1]. This matches option B.\n</think>\n<answer>B</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u38",
+    "group": "core",
+    "case": {
+      "id": "u38",
+      "set": "r1_160",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_5562",
+      "sample_idx": 0,
+      "source": "mme_realworld",
+      "gold": "B",
+      "pred": "C",
+      "n_crops": 6,
+      "replay_ok": true,
+      "n_views": 7
+    },
+    "fact_turn": 7,
+    "fact_verbatim": "In the Per Share Data table, the DPS (Net) row reads 1.50, 1.50, 1.60, 2.39, 2.81, 3.15, 3.53, 3.95 under FY 2018–FY 2025.",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      146
+    ],
+    "decisive_error_turn": 7,
+    "error_verbatim": "FY 2021 is Forecast, and the value is 2.81, matching option C.",
+    "error_char_range_in_rendered_turn": [
+      147,
+      209
+    ],
+    "fact_turn_text": "<think>\nStep 7 | commit\nIn the Per Share Data table, the DPS (Net) row reads 1.50, 1.50, 1.60, 2.39, 2.81, 3.15, 3.53, 3.95 under FY 2018–FY 2025. FY 2021 is Forecast, and the value is 2.81, matching option C.\n</think>\n<answer>C</answer>",
+    "error_turn_text": "<think>\nStep 7 | commit\nIn the Per Share Data table, the DPS (Net) row reads 1.50, 1.50, 1.60, 2.39, 2.81, 3.15, 3.53, 3.95 under FY 2018–FY 2025. FY 2021 is Forecast, and the value is 2.81, matching option C.\n</think>\n<answer>C</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  },
+  {
+    "id": "u39",
+    "group": "core",
+    "case": {
+      "id": "u39",
+      "set": "r1_160",
+      "rule": "gold_stated_answered_wrong",
+      "uid": "mme_7235",
+      "sample_idx": 1,
+      "source": "mme_realworld",
+      "gold": "C",
+      "pred": "A",
+      "n_crops": 1,
+      "replay_ok": true,
+      "n_views": 2
+    },
+    "fact_turn": 2,
+    "fact_verbatim": "In [observation_1], the Category 1 table’s Employee 1 row shows $100.00 in the Total Pay column.",
+    "fact_char_range_in_rendered_turn": [
+      24,
+      120
+    ],
+    "decisive_error_turn": 2,
+    "error_verbatim": "This matches option (A).",
+    "error_char_range_in_rendered_turn": [
+      121,
+      145
+    ],
+    "fact_turn_text": "<think>\nStep 2 | commit\nIn [observation_1], the Category 1 table’s Employee 1 row shows $100.00 in the Total Pay column. This matches option (A).\n</think>\n<answer>A</answer>",
+    "error_turn_text": "<think>\nStep 2 | commit\nIn [observation_1], the Category 1 table’s Employee 1 row shows $100.00 in the Total Pay column. This matches option (A).\n</think>\n<answer>A</answer>",
+    "token_boundaries_verified": false,
+    "warning": "Use exact raw assistant message and original tokenizer to resolve prefix. Do not train on rendered page, gold, or review notes. Mixed cases are not clean value-rise-then-fall evidence."
+  }
+]

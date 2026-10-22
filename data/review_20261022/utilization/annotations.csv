@@ -1,0 +1,41 @@
+id,gold_fact_correctly_stated_in_caption (y/n/unclear),statement_is_assertion_not_rejection (y/n/unclear),failure_type (option_mapping|row_column_binding|goal_drift|misread_existing_evidence|hallucinated_receipt|rule_false_positive|other),turn_where_correct_fact_first_stated,turn_where_error_enters,eligible_for_segment_value_MVE (y/n),notes
+u00,n,n,rule_false_positive,NA,1,n,1.SHAZAM只在候选对比和not the first line中出现；未断言它是所问层的文字。第二层/第二行混淆从turn1开始。
+u01,y,y,option_mapping,1,3,y,BEERENBERG品牌从turn1明确，三个视图支持；turn3同时区分品牌/产品名却选A产品。turn1比较C拼写已有目标漂移风险，决定性错配在3。
+u02,n,n,rule_false_positive,NA,1,n,DDV仅turn2候选比较；turn1裁错广告板，turn3把帐篷文字归到不含该词的view2。未出现正确目标断言。
+u03,n,y,row_column_binding,NA,1,n,turn3确实列举107.2%，但未绑定2027/WPI；同时错写109.2并试图绑定到2027。图示2027=107.2%、2030=113.7%。严格目标事实未成立，单个数字出现不计。
+u04,y,y,option_mapping,2,2,y,正确Jm Martinswinkel后选C近似错拼。须在同一turn2内切事实句之后、matching option C之前，整轮边界不可用；前次s09已见同图。
+u05,unclear,y,option_mapping,2,2,n,文本断言PROGRESSIVE FIELD后选C=PROGRESS FIELD；view1只证实PROGRESSIVE，不含FIELD，完整短语无法从本包独立确认，严格暂缓。
+u06,y,y,option_mapping,4,4,y,view3支持CD90/D4U，底排略模糊但C非D明确；turn4完整读对后选B=DD90D4U。需轮内切分。
+u07,n,y,rule_false_positive,NA,2,n,kidneys只是turn1一般解剖描述，未断言肾异常增大；后续假设脾大。不能把提到器官当答对事实；片中病理真值未独立专业确认，定位左右混淆风险从2明显。
+u08,n,y,misread_existing_evidence,NA,1,n,WAM出现但被断言为black，正确目标属性未成立；HSSS红底白字被当红字。turn2还把全文归到仅含边缘的回执。
+u09,n,n,rule_false_positive,NA,2,n,正确Press P&B Books仅复述Option C，正文坚持POB，&误读O。不是已认定正确事实后遗失。
+u10,y,y,other,1,NA,n,caption明确major second，但diatonic并非它的逻辑否定；选项分类维度重叠，不能作为干净价值下降病例。
+u11,y,y,option_mapping,1,1,y,CASA ANGEL图文一致，下一句B对应ANGLE；直答轮内边界，不能按工具轮切。
+u12,y,y,misread_existing_evidence,1,1,y,图中9911136191被肯定列出，选92459911；错误断言早于正确数字。可诊断混合事实前缀，但不能叫干净先对后错，须标错误先于事实。
+u13,n,y,misread_existing_evidence,NA,1,n,SC1标签出现但配40%错误（图约49%），从未断言SC1最高；未成立正确目标事实。
+u14,y,y,goal_drift,1,1,y,coconut balm dotcom被肯定写出但同时把Glossier归红字并选品牌，属于混合属性绑定；首个错误与事实同句，保留混合病例标识，底行靠包边。
+u15,n,y,misread_existing_evidence,NA,1,n,正确候选Class section只是列举；断言四项light orange一致与图不符，未认定粗黑差异。
+u16,n,n,rule_false_positive,NA,1,n,DATE OF EXPIRY在明确否定范围内，非正确粗体断言。
+u17,y,y,option_mapping,1,1,y,EUR50%图文清楚一致却答A=10%；错误在answer token，caption币种数值均匹配。
+u18,n,n,rule_false_positive,NA,1,n,正确候选只在None of枚举中被拒绝；目标牌未确认。
+u19,unclear,y,option_mapping,1,1,n,VITTORIO到D=VITTORIA文本错配明确；图上铭文过小，关键字尾不能可靠独立确认，不借地标知识判读，暂缓严格入组。
+u20,n,n,rule_false_positive,NA,5,n,回执1/4刹车灯可见，但单帧不能独立确定停/动；stopped仅在t5 rather than stopped or parked中被否定，未正确断言gold状态。
+u21,n,y,row_column_binding,NA,1,n,t1枚举选项并把第二排当最上排；t2 LAN WILSON在左下是部分正确定位，未绑定第四本/目标；回执3为横放书堆，无WORLD，t4 WORLD→DECEPTION还有虚构回执及映射。非已完整陈述目标事实。
+u22,n,n,rule_false_positive,NA,1,n,t1定位牙科牌，t3转向foot locker；回执3确有foot locker，gold字符串只在t4 None ... matches的排除列表。目标定位失败，不是正确目标事实被丢弃。
+u23,n,n,misread_existing_evidence,NA,2,n,回执1/2横跨掌面的拇指甲可见；t2/t3明确否定thumbnail可见，并把其他手指名称绑定混乱。字符串命中非正向正确事实。
+u24,n,n,rule_false_positive,NA,2,n,t1 whether moving or stationary是疑问，t3 not moving or stopped是否定；从未正向陈述gold运动。近处van/远处truck可能对象错绑，单帧不能独立判定真实运动，不纳入利用诊断。
+u25,n,n,goal_drift,NA,1,n,t1把比较红truck改为red-roof building；t3 check right side为搜索计划非关系断言。回执2/4白红车辆在红货车右侧，t5反说left。
+u26,n,y,misread_existing_evidence,NA,2,n,题问不含哪种颜色；gold为Purple，caption t2/t3声称purple存在，未陈述purple缺失。左后包装绿斑可见，否定green属误读；仅匹配颜色词忽略题目极性。
+u27,n,n,hallucinated_receipt,NA,8,n,正确手指名仅t1比较候选枚举；重复局部裁图丢失全手，回执7无拇指却被t8引用为拇指最低角依据。t1左右手称谓也不准确；无正确目标事实断言。
+u28,y,y,row_column_binding,1,3,y,t1正确断言全图dog lower-right、motorcycle center-left，视觉确认并足以导出left。t3将回执2的局部lower-left与全图center-left比较导致right；跨视图坐标系绑定失败，非字母映射。
+u29,n,n,rule_false_positive,NA,1,n,回执4左下滚轮箱可见；t1/3/5误定位右侧，t7断言right。left只在left-right position提问中出现，无正确关系断言；定位与重复取错区为主。
+u30,unclear,y,goal_drift,NA,1,n,女性白色腕表在回执1/3/7可见；t4仅称woman small light band，部分正确但未确认watch/white。t1目标先错指男子，t8虚构其黑表并否定他人表；white字符串来自枚举/否定。保守不计入完整事实病例。
+u31,y,y,other,4,NA,n,回执3同一标志同时含CAF和COUPE D AFRIQUE DES NATIONS，caption全读对并选后者；gold A但B也为真实标志文字，目标范围歧义。不能作为明确利用失败；t1定位偏差与最终判分分开。
+u32,n,n,rule_false_positive,NA,2,n,t2/t3对ring key/paddle/Sprite均是否定；绿瓶样物可见但品牌不能独立确认。无正确目标断言；容器/盖的部分观察不等于已辨出Sprite。
+u33,y,y,row_column_binding,8,1,y,t8第一句正确抄出整行，且后明确March986.88；但August实际958.75被错绑为June970，又说970高于986.88。同轮混合列绑定和数值比较失败。t1 row53误定位属此前错误，诊断应在t8句内切分，不能当纯净先对后错轨迹。
+u34,n,n,goal_drift,NA,1,n,t1即将guard替换为铜像士兵；回执1–3均为铜像。white在t3被否定，blue在t4修饰天空。dark→C另有映射错，但不是已读对目标手套事实。
+u35,unclear,y,misread_existing_evidence,NA,2,n,车外壁/架/柄绿，内面灰白；t2只正确陈述green frame/handles，却把内面白色概括为桶体。属于部分正确属性+部位归属错误，不是完整目标颜色已正确断言；保守排除门槛。
+u36,y,y,misread_existing_evidence,2,2,y,题问缺失物，t2 no ... book是与gold一致的肯定性缺失断言，不能因语法否定排除；但同句no protein shaker错误（黑摇杯在回执1/3清楚），t4又说有书。混合病例，不当纯净V先升后降。
+u37,y,y,goal_drift,2,2,y,回执1与t2第一句都明确DOURO在粗体PORCA DE MURCA下；随后This matches option B选择了上方粗体品牌。正确目标关系后转选另一文字，适合句内切分；同时具有选项映射错误。
+u38,y,y,row_column_binding,7,7,y,t7首句完整正确抄出DPS Net八年有序数列并说明FY2018–2025；第四个FY2021为2.39。下一句改取2.81（下一年Net/同年Gross），选C。可在首句后切分，与仅孤立出现数值的u03不同。
+u39,y,y,option_mapping,2,2,y,回执1明确Employee1 TotalPay100.00，t2首句读数及绑定均对；下一句100→A，实际C才是100。清楚的句内选项映射失败。

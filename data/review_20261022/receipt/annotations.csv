@@ -1,0 +1,41 @@
+id,new_fact_visible_in_T (text or none),fact_needed_for_answer (y/n/unclear),student_wrote_fact_correctly_after_T (y/n/unclear),later_misuse_of_fact (y/n/unclear),category (redundant|necessary|evidence_not_used|no_evidence_or_misleading|unknown),eligible_for_MVE (y/n),notes
+s00,none,n,unclear,unclear,no_evidence_or_misleading,n,焦点T截断网址；下一轮正确指出截断。最终文字正确拼出respuesta却选择拼作ruspuesta的C，属选项匹配错误，但发生在后续未展示回执后，非焦点T证据。s00标签曾意外提前暴露，不计盲审。
+s01,none,unclear,unclear,unclear,unknown,n,原视图已有行人与货车相对位置；T未增加可确认的运动/碰撞证据。旧续写推导留在原地，gold为加速避免碰撞；单帧不足以独立裁定该因果动作。
+s02,none,n,unclear,unclear,no_evidence_or_misleading,n,T未包含目标招牌；学生正确识别未取到文字，紧接着重复同一框。最终RIC?D声称来自后续未展示回执，不能归到T。
+s03,none,n,unclear,unclear,redundant,n,shakes原图/C已能读，T未提供新增所需文字。旧续写准确读出shakes但gold为drinks；属于对象-文字对应/选项语义问题，不能用gold反推T获取失败。
+s04,none,n,unclear,unclear,redundant,n,T重复view1/3路面，没有所需自车部件。学生承认未找到后继续裁；最终使用卡车/红灯上下文答对，不证明焦点裁图有效。
+s05,none,n,unclear,unclear,redundant,n,T比C清晰但C仍可逐位辨认63333835；学生读写和选项均正确。不能作为新增必要事实的失败样本。
+s06,none,n,unclear,unclear,redundant,n,T/C无额外细节且裁掉节点4、E。最终把C的节点1当C/E共同祖先，且node1与选项A=3不符；属关系推理及选项映射错误，不是新证据获取。
+s07,"JOHOR, MALAYSIA；Shek Tong Tsui / 石塘咀",n,n,unclear,no_evidence_or_misleading,n,T比C清晰，但新增文字不是所问数字牌。学生直接声称T绿牌清楚写142；T并无此数字，属于回执幻读。
+s08,none,n,unclear,unclear,redundant,n,106.842.792在T/C均能读，与旧view1列头正确绑定；仅放大/清晰度收益。
+s09,none,n,unclear,unclear,redundant,n,学生写对Martinswinkel，却选拼写Martinswinrel的C；选项匹配错误。T/C均足够，不能把终答错误归为获取不足。
+s10,第二行FILMNÄCHTE-的Ä/A字形可分辨，而非U,y,y,n,necessary,y,T关键元音/变音符比C清楚，学生正确使用。可作正确使用对照，不计旧错门槛。
+s11,none,n,unclear,unclear,redundant,n,Aug/Month8=3188在旧view1已有；T重复。续写正确答3188但仍同时声称1870绑定Aug，推理自相矛盾，最终正确不能洗掉错误绑定。
+s12,none,unclear,unclear,unclear,unknown,n,车头/亮灯T与C均见；运动状态缺时间证据。下一轮承认不能确认，最终答对但来自后续未展示回执；不计新增事实。
+s13,none,n,unclear,unclear,no_evidence_or_misleading,n,T没有完整DELAWARE BAY，学生却声称T清晰显示全文；原图可支持答案，终答正确但回执归因不实。
+s14,none,n,unclear,unclear,redundant,n,VOL在T/C都可辨，学生只声称可见VOL并推断Volvo，范围诚实；未证明新增必要细节。
+s15,none,n,unclear,unclear,redundant,n,Jeep在T/C均可辨；学生正确读写使用，新增信息不足。
+s16,none,n,unclear,unclear,redundant,n,学生先读对35556，后把首个数据列当Period0而非Period1，选160000；T去掉列头促成绑定风险，但C同样有该数，不能计新证据。题中Tier未指定亦有歧义。
+s17,侧盖BONNEVILLE / T120 Black字样,unclear,n,y,unknown,n,新增型号文字可见，但学生称油箱制造商DONNEVILLE，位置/拼写均有问题；题把型号当manufacturer且选项拼写疑似有误。gold=A不消除这些问题。
+s18,none,n,unclear,unclear,redundant,n,T/C均明确211；正确读写且选对。
+s19,none,n,unclear,unclear,no_evidence_or_misleading,n,裁到Jan-Oct错表；学生准确读-47却主动排除题目明确要求的October表，原图该值-35清楚。上下文绑定错误，非新增证据。
+s20,none,n,unclear,unclear,redundant,n,T只是view4树干地面的重复放大；学生却称远处物体是小shelter并归给T。答案正确但T没有该证据。
+s21,none,unclear,unclear,unclear,unknown,n,左路缘SUV与ego lane前方白轿车存在目标混淆；旧续写还将parked等同stopped。T/C未提供可辨运动增量，不能用于干净信用诊断。
+s22,none,n,unclear,unclear,redundant,n,"T/C均可读2,518,228与30-Jun-29对应；学生正确使用，新增事实未确认。"
+s23,上缘第三组小黄字DPW，左邻PBJ!、右邻2016,y,n,y,evidence_not_used,n,T中DPW逐字清楚，C小黄字合糊；学生只关注PBJ!并把第三组文字误解成PBJ内第三字母。旧答错，可计新增必要事实候选；题英文third English letter有歧义须标注。 最终审定：保留候选，但题意待核定，eligible=n；宽松计数最多1，严格计数0。
+s24,none,n,unclear,unclear,no_evidence_or_misleading,n,焦点T未包含金额列，1000在另一项目名Caged Cart中；学生声称Dispenser=1000，属于错误行绑定/无证据金额。
+s25,none,unclear,unclear,unclear,unknown,n,T/C均模糊且运动需时间证据；旧续写把多辆cars/trucks一并当many parked，不构成可独立确认的新证据失用。
+s26,none,unclear,unclear,unclear,unknown,n,搜索框不在原始画面中，T/C无新信息。学生把结果标题当搜索输入，并最终输出未提供的E；题目需推断来源而非直接OCR，不宜入干净MVE。
+s27,none,n,unclear,unclear,no_evidence_or_misleading,n,学生正确指出T价格裁断；后续读出Happy Pig8.99却把9.49绑定Hogs Burger，并称A=Hogs Burger（实际A=Happy Pig）。目标未取到加行/选项错配。
+s28,none,n,unclear,unclear,no_evidence_or_misleading,n,学生正确指出T仅午餐时间，但随后重复搜索错误角落直至UNCLEAR；真正日期位于纸张上缘。焦点T无日期事实。
+s29,none,unclear,unclear,unclear,redundant,n,T/C无新细节。学生把两个可选时间当两次reservation，把+100奖励当扣费，并称400-4×100未耗尽；虽然gold=C，语义/算术解释有问题，不适合诊断。
+s30,none,n,unclear,unclear,redundant,n,T更清楚但C已可读SOLI/DARI/TAT，学生正确读出并选B；无明确新增必要事实。
+s31,none,n,unclear,unclear,redundant,n,原图完整Fairfield Park；T/C均截成Fairfie...，学生承认右边裁断并正确选D。
+s32,none,unclear,unclear,unclear,unknown,n,T/C无可确认的新运动证据。后续文本在stationary/straight间未决而选B，gold C；后续图像未包含于本审阅包，不能据文字确认其内容。
+s33,none,n,unclear,unclear,redundant,n,预标记无增益，逐图确认。PIZZA在原图与view1已可读，T/C也可辨；旧续写却说红字OFF，T中并无OFF，gold A old C。属于已有证据读错/绑定错，非新证据对照。
+s34,none,n,unclear,unclear,no_evidence_or_misleading,n,T/C裁掉年份轴与低值柱。续写称本图cuts off at 2026但图内无年份；之后2026所以2027推理自相矛盾，old A gold B。原图选项范围最低2028；全图2025更低，题意须限定选项。
+s35,none,unclear,unclear,unclear,unknown,n,预标记T/C相同确认。学生编造图上不存在的Dniester/Ardahan/Romanian河名并把into改out；原图两条河接入海但题面flow out有歧义，gold C不能作为流向核验。
+s36,none,n,unclear,unclear,redundant,n,原图/view1/C已有300–350的柱顶；T并未补年份轴。学生把低于350读成高于350，old D gold C。适合已有证据利用错误示例，不适合T/C新增证据门槛。
+s37,none,unclear,unclear,unclear,unknown,n,T较锐但无新运动信息；前后文本先无蓝车后又称蓝车已停，车辆身份和parked/moving都未解决。old A gold D，单帧与拼接不能独立验证gold。
+s38,none,unclear,unclear,unclear,no_evidence_or_misleading,n,预标记T/C无增益确认，focal只是已见图注。学生反复找不存在的时间表，最终编造11.8/7.9/9.0/14.2天。图示流程复杂度不能直接确定平均时间，gold B亦非独立实测时间证据。
+s39,none,n,unclear,unclear,redundant,n,75.50在原图/view1/C已清楚。学生明确知道sale75.50却回答normal89，偏离current问题；T normal价右端仍裁断，所谓full panel不实。old B gold A。

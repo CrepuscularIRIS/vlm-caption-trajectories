@@ -1,5 +1,7 @@
 # 配对回执诊断的准备：工作包 A（零 GPU 审查）与 B（看图审阅材料）（2026-10-22）
 
+> 阅读导航（本次发布补充）：[测量主报告](37_measurement_story_20261022.md)解释这项检查在解决什么问题；[40 个焦点状态的完整文字轨迹与标注](../data/review_20261022/README.md)现已公开。以下“等待转向”的下一步属于当时记录，后续已见 docs/36；新细节配对回执诊断仍未运行。
+
 这是 [docs/34 第 6 节](34_report_for_mentor_20261022.md)方案的前两步，在 Open Scientist study `rl-objective-credit` 中记为诊断步骤 011，没有用 GPU。
 
 ## A：零 GPU 审查（`logs/mve/audit_a.json`，代码 `pipeline/eval/mve/audit_a.py`）
