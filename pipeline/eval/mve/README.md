@@ -1,6 +1,6 @@
 # MVE：问题、代码、可复核材料
 
-先读[测量主报告](../../../docs/37_measurement_story_20261022.md)。本目录包含历史测量实现，不意味着每个设计已通过或应继续运行。
+先读[进展报告](../../../docs/30_rl_credit_report_20261022.md)。本目录包含历史测量实现，不意味着每个设计已通过或应继续运行。
 
 | 文件 | 职责 | 状态 |
 |---|---|---|
@@ -8,9 +8,9 @@
 | `build_review.py` | 选40个焦点状态；构造真实T与已有像素C | 已执行；看图门槛没过，后续配对回执GPU测量未启动 |
 | `mine_utilization.py` | 文本规则挖掘，选择另一批40病例 | 候选产生器，不是视觉正确性标签 |
 | `build_case_pages.py` | 重放动作、生成学生输入图像审阅页 | 已执行；公开包不含原图/题库原文 |
-| `segment_value.py` | 13例的P0/P1/P1c/P2续跑 | v1历史实现，存在主报告列出的测量问题；不在此次发布中悄悄修写历史代码 |
+| `segment_value.py` | 13例的P0/P1/P1c/P2续跑 | v1历史实现，存在进展报告列出的测量问题；不在此次发布中悄悄修写历史代码 |
 | `summarize_segment.py` | 按病例计算均值和bootstrap区间 | 可在CPU上从公开832行逐次结果重算 |
-| `segment_value_v2.py` | v2：token对齐切点 P1t/P2t，遮盖正确选项文字的对照 P1m | 已执行（docs/36 第7节）；816行 |
+| `segment_value_v2.py` | v2：token对齐切点 P1t/P2t，遮盖正确选项文字的对照 P1m | 已执行（进展报告第 3 节问题 4）；816行 |
 | `summarize_segment_v2.py` | v2 汇总（S2m = V(P1t) − V(P1m)） | CPU 可从 `logs/mve/segval_v2/runs_*.jsonl` 重算，结果与 `summary.json` 一致 |
 | `export_review_release.py` | 从本地源轨迹及人工写入的模型审阅标签生成公开包 | CPU；白名单导出，不自动看图或产生标签 |
 | `verify_review_release.py` | 验证记录、锚点、哈希、逐次结果及汇总 | CPU；结构/数字复核，不是视觉真值验证 |

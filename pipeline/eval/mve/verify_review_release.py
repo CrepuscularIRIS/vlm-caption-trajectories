@@ -94,7 +94,7 @@ def main():
     files = sorted([p for p in DATA.rglob("*") if p.is_file() and p.name != "release_manifest.json"]
                    + list((ROOT / "pipeline/eval/mve").glob("*.py"))
                    + [ROOT / "pipeline/eval/mve/README.md", ROOT / "logs/mve/segval_summary.json",
-                      ROOT / "docs/37_measurement_story_20261022.md"]
+                      ROOT / "docs/30_rl_credit_report_20261022.md"]
                    + [p for p in logs.iterdir() if p.is_file()])
     # Package contents must not include machine endpoints or source prompts.
     forbidden = ["/home/lingxufeng/", "/root/autodl-tmp/", "connect.westd.seetacloud.com", "-----BEGIN PRIVATE KEY-----"]

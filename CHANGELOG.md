@@ -1,5 +1,9 @@
 # 变更记录
 
+## 2026-10-22 — 合并 docs/30–37 为一份报告
+
+- 新增 [docs/30_rl_credit_report_20261022.md](docs/30_rl_credit_report_20261022.md)：RLOO 对照结果（E1/E2 分 benchmark、开销）、信用分配前的四个诊断问题、走偏的地方、请导师决定的三个选项。删除原 docs/30–37（保留在 git 历史），README 入口与各处链接改指新报告。以下旧条目中的 docs/30–37 编号指已删除的旧文件。
+
 ## 2026-10-22 — 修测量后重跑分段价值诊断（v2）
 
 - docs/36 第 7 节；`logs/mve/segval_v2/`；`pipeline/eval/mve/segment_value_v2.py`、`summarize_segment_v2.py`。切点对齐 token、对照改为遮盖正确选项文字；判定仍为竞争解释成立。
@@ -15,7 +19,7 @@
 
 ## 2026-10-22 — 决策记录 D
 
-- 新增 [docs/36](docs/36_decision_existing_evidence_20261022.md)、`pipeline/eval/mve/mine_utilization.py`、`build_case_pages.py`、`logs/mve/utilization_mined_summary.json`。
+- 新增 [docs/36](docs/30_rl_credit_report_20261022.md)、`pipeline/eval/mve/mine_utilization.py`、`build_case_pages.py`、`logs/mve/utilization_mined_summary.json`。
 
 ## 2026-10-22 — 看图标注结果
 
@@ -23,7 +27,7 @@
 
 ## 2026-10-22 — 配对回执诊断准备
 
-- 新增 [docs/35](docs/35_receipt_mve_prep_20261022.md)、`pipeline/eval/mve/`、`logs/mve/`（审查结果、40 个状态的记录与标注表；图像留在服务器）。
+- 新增 [docs/35](docs/30_rl_credit_report_20261022.md)、`pipeline/eval/mve/`、`logs/mve/`（审查结果、40 个状态的记录与标注表；图像留在服务器）。
 
 ## 2026-10-22 — 采纳外部复核（Pro + Codex），核对源码后改正
 
@@ -31,7 +35,7 @@
 
 ## 2026-10-22 — 给导师的汇总报告
 
-- 新增 [docs/34](docs/34_report_for_mentor_20261022.md)：全部 RL 组的 E1 / E2 分 benchmark 表、训练开销表、"是否是 advantage 的问题"的证据表、四种情况信用分配的现状与下一步、请导师确认的三点。
+- 新增 [docs/34](docs/30_rl_credit_report_20261022.md)：全部 RL 组的 E1 / E2 分 benchmark 表、训练开销表、"是否是 advantage 的问题"的证据表、四种情况信用分配的现状与下一步、请导师确认的三点。
 
 ## 2026-10-22 — 第三节方案定稿
 
@@ -43,11 +47,11 @@
 
 ## 2026-10-22 — 导师要求逐条核对
 
-- 新增 [docs/33](docs/33_mentor_requirements_audit_20261022.md)。改正：docs/29 与 README 的"人工抽看"（实为 AI 只读文字）；docs/30 加 RLOO 开销表 9b；docs/31 加门槛开销；docs/32 加两点说明。
+- 新增 [docs/33](docs/30_rl_credit_report_20261022.md)。改正：docs/29 与 README 的"人工抽看"（实为 AI 只读文字）；docs/30 加 RLOO 开销表 9b；docs/31 加门槛开销；docs/32 加两点说明。
 
 ## 2026-10-22 — 给导师的进展总结
 
-- 新增 [docs/32](docs/32_mentor_update_20261022.md)。
+- 新增 [docs/32](docs/30_rl_credit_report_20261022.md)。
 
 ## 2026-10-22 晚 — 决策点基线门槛结果
 
@@ -55,7 +59,7 @@
 
 ## 2026-10-22 — 决策点基线（idea card 与第一次检验启动）
 
-- 新增 [docs/31](docs/31_decision_state_baselines_20261022.md)、`docs/idea_cards/`（idea card 与撞车核对）、`pipeline/grpo/v51_db/`（单测 4 项）、`pipeline/grpo/scripts/grpo_db.sh`、`pipeline/eval/db/`。
+- 新增 [docs/31](docs/30_rl_credit_report_20261022.md)、`docs/idea_cards/`（idea card 与撞车核对）、`pipeline/grpo/v51_db/`（单测 4 项）、`pipeline/grpo/scripts/grpo_db.sh`、`pipeline/eval/db/`。
 
 ## 2026-10-22 — RLOO 对照最终结果
 
@@ -63,7 +67,7 @@
 
 ## 2026-10-21 — 第 6 节结果；RLOO 对照与信用分配插件
 
-- 新增 [docs/30](docs/30_sec6_and_rl_objective_20261021.md)：按轮次拆解（表 1–2，描述性）、固定上下文行为探针（表 3–4，事先预测成立）、冻结读者门槛（表 5，不可测）、四种情况分布、导师 10-21 原话、RLOO 对照设计与训练中途数字（表 6）、四种情况信用分配的 token 规则。
+- 新增 [docs/30](docs/30_rl_credit_report_20261022.md)：按轮次拆解（表 1–2，描述性）、固定上下文行为探针（表 3–4，事先预测成立）、冻结读者门槛（表 5，不可测）、四种情况分布、导师 10-21 原话、RLOO 对照设计与训练中途数字（表 6）、四种情况信用分配的 token 规则。
 - 新增 `pipeline/eval/sec6/`、`pipeline/eval/rloo/`、`pipeline/grpo/v51_dvb/`（已停的方向 B）、`pipeline/grpo/v51_credit/`（未训练）、脚本 `grpo_dvb.sh`、`grpo_rloo.sh`、`reader_server.sh`；`logs/sec6/` 汇总 JSON。
 
 ## 2026-10-20 — 两分支首轮决策与首轮价值差 GRPO

@@ -134,7 +134,7 @@ def main():
                 for p in ["P0", "P1", "P1c", "P2"]:
                     v = record["v1_measurement"][p]
                     lines += [f"| {p} | {round(v['V']*v['n'])}/{v['n']} | {v['V']:.4f} |"]
-                lines += ["", "前缀定义及测量局限见[导师说明](../../../docs/37_measurement_story_20261022.md)。"]
+                lines += ["", "前缀定义及测量局限见[导师说明](../../../docs/30_rl_credit_report_20261022.md)。"]
             lines += ["", "## 本次实际审阅的视图索引", "", "原图与回执保留在受控源数据包；哈希用于确认材料身份，不替代看图。", "",
                       "| 视图 | SHA-256 |", "|---|---|"]
             lines += [f"| {v['path']} | `{v['sha256']}` |" for v in record["reviewed_views"]]
@@ -149,7 +149,7 @@ def main():
     dump(out / "source_manifest.json", {"source_hashes": inputs, "n_review_records": 80,
          "n_unique_trajectories": len({(r['source_file'], r['case']['uid'], str(r['case']['sample_idx'])) for r in allrows}),
          "scope": "Public caption/action traces, annotations, anchors and image identity only; no benchmark questions or image bytes."})
-    rows = ["# 80 个审阅记录：轨迹与逐题标注", "", "先读[导师说明](../../docs/37_measurement_story_20261022.md)，再按病例查看。", "",
+    rows = ["# 80 个审阅记录：轨迹与逐题标注", "", "先读[进展报告](../../docs/30_rl_credit_report_20261022.md)，再按病例查看。", "",
             "s00–s39 检验获取新细节；u00–u39 检验利用已有证据。两批可能复用同一题/轨迹，不能当作 80 个独立样本。", "",
             "本目录公开学生完整可见 caption、裁图动作、独立标注、13 个分段锚点和视图哈希；沿用仓库既有数据边界，不分发题库原文与图像。", "",
             "这是文本与审阅结论的可复核包；完整视觉复核需合法持有源数据，并使用 build_review.py / build_case_pages.py 重建视图。", "",

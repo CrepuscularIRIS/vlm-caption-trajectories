@@ -69,4 +69,4 @@
 
 ### `sec6/`
 
-第 6 节汇总（[docs/30](../docs/30_sec6_and_rl_objective_20261021.md)）：`turn_decomp.json`（按轮次拆解）、`probe_summary.json`（固定上下文探针）、`reader_summary.json`（冻结读者门槛）、`four_case.json`（裁图前后读者对错的四种情况）。
+第 6 节汇总（原 docs/30，现并入[进展报告](../docs/30_rl_credit_report_20261022.md)）：`turn_decomp.json`（按轮次拆解）、`probe_summary.json`（固定上下文探针）、`reader_summary.json`（冻结读者门槛）、`four_case.json`（裁图前后读者对错的四种情况）。
