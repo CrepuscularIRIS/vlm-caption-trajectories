@@ -1,5 +1,11 @@
 # 变更记录
 
+## 2026-10-23 — 三组信用/动作训练结果
+
+- [docs/30](docs/30_rl_credit_report_20261022.md) 第 0 节与新增第 7 节：四种情况信用（否定：裁图 +0.54/题，准确率不变）、零信用对照（预注册 H 成立，但因零信用比 r1 低 2.5 点）、首动作监督（否定：U_choice −0.025 [−0.034, −0.018]；直接作答变多但不分状态）。原第 7 节"材料在哪里"改为第 8 节。
+- 代码：`pipeline/grpo/v51_fc/`、`v51_fcz/`、`v52_dl/`（含两份预注册与执行偏差），启动脚本 `pipeline/grpo/scripts/{grpo_fc,fc_remote,grpo_fcz,fcz_remote,grpo_dl,dl_remote}.sh`；路径按 `pipeline/SCRUB_NOTES.md` 替换，`v52_dl` 的 Python 路径改读环境变量（标 `[scrub]`）。
+- 汇总：`logs/fc/compare_fc.json`、`logs/fcz/compare_fcz.json`、`logs/dl/compare_dl.json`（只含指标与 uid，无题面、无模型输出）。
+
 ## 2026-10-22 — 合并 docs/30–37 为一份报告
 
 - 新增 [docs/30_rl_credit_report_20261022.md](docs/30_rl_credit_report_20261022.md)：RLOO 对照结果（E1/E2 分 benchmark、开销）、信用分配前的四个诊断问题、走偏的地方、请导师决定的三个选项。删除原 docs/30–37（保留在 git 历史），README 入口与各处链接改指新报告。以下旧条目中的 docs/30–37 编号指已删除的旧文件。

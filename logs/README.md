@@ -70,3 +70,11 @@
 ### `sec6/`
 
 第 6 节汇总（原 docs/30，现并入[进展报告](../docs/30_rl_credit_report_20261022.md)）：`turn_decomp.json`（按轮次拆解）、`probe_summary.json`（固定上下文探针）、`reader_summary.json`（冻结读者门槛）、`four_case.json`（裁图前后读者对错的四种情况）。
+
+### `fc/`、`fcz/`、`dl/`（10-22/23，见 docs/30 第 7 节）
+
+| 文件 | 内容 |
+|---|---|
+| `fc/compare_fc.json` | 四种情况信用 vs r1/r0：E1/E2 第 80/160 步的准确率、裁图、直接作答，配对 bootstrap；训练窗口与 `[fc_credit]`/`[fc_forks]` 汇总 |
+| `fcz/compare_fcz.json` | 零信用 vs 四种情况（及 r1）：同上；预注册判定 |
+| `dl/compare_dl.json` | 首动作监督 vs β=0 对照：U_choice（逐状态 p 与 δ，按 uid）、clean/E2/恢复、训练日志摘要、预注册判定 |
