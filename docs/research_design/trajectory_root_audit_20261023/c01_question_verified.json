@@ -1,0 +1,9 @@
+{
+  "uid": "mme_6116",
+  "source": "val.parquet env_head/env_tail and reward_model; CPU read from existing server data",
+  "data_file_sha256": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+  "env_head": "Question: What is the range data of 1Q-2019 in Longterm Liabilities in the Balance structure, IQ-2019 diagram?\n(A) $1.36M\n(B) $1.38M\n(C) $4.21M\n(D) $2.83M\n(E) This image doesn't feature the data.\nOriginal image [original_image]. Source pixels: 1481x791, shown at full resolution.\nImage [original_image]:",
+  "env_tail": "\n\nStep: 1\nAvailable views: original_image.\nRemaining crop calls: 8.",
+  "ground_truth": "B",
+  "note": "Stored prompt text reproduced verbatim. The phrase shown at full resolution is prompt text, not verification of actual resolution. Reconstructed original PNG is 1056x558 before final processor."
+}

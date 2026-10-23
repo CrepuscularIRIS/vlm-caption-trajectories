@@ -1,0 +1,20 @@
+{
+  "status": "response_complete_collected",
+  "conversation_url": "https://chatgpt.com/c/6ad96787-973c-83e9-9908-78255aab2397",
+  "mode": "Pro",
+  "input_commit": "0dfac43aed8f65a641f9a322c5f37863d8d84579",
+  "prompt_sha256": "230f45efde5c4ac5f2da7caf93b3f3bacea9b55a003252485d5718429ab6019f",
+  "visual_cases": 10,
+  "uids": 8,
+  "view_positions": 49,
+  "unique_pngs": 37,
+  "new_model_samples": 0,
+  "training_jobs": 0,
+  "gpu_calls": 0,
+  "public_analysis_reproduced": true,
+  "all_view_hashes_and_executed_boxes_verified": true,
+  "response_sha256": "ab3766125ade7381b8c9638687876b3ef7b8d15bee913f160687e1e51f8e3f98",
+  "response_characters": 18373,
+  "completed_utc": "2026-10-23T13:35:54.115040+00:00",
+  "page_completion_signal": "Response complete"
+}
