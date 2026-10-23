@@ -36,6 +36,6 @@
 - [三轮失败实验总报告](../../30_rl_credit_report_20261022.md)
 - [前轮 Pro 设计全文](../decision_loss_redesign_20261022/PRO_RESPONSE.md) 与 [读解/门槛](../decision_loss_redesign_20261022/READOUT.md)
 - [导师意图整理](../decision_loss_20261022/MENTOR_INTERPRETATION.md)
-- [最初决策点基线](../../31_decision_state_baselines_20261022.md)
+- 决策点基线历史以总报告和前轮设计中的归档说明为准；旧 docs/31 路径当前不存在，不作为可读输入。
 
 所有模型意见为咨询输入，不能替代实际图像审查、counterfactual rollout 或实验。Open Scientist 记录由 CC 管理，本轮不写共享 study。
