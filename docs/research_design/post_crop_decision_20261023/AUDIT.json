@@ -1,0 +1,81 @@
+{
+  "scope": "point metrics only; no new sampling or bootstrap",
+  "input_sha256": {
+    "audit_states.json": "5c2ae008a53a98c6790f96c2455023a92dc0f4e0dcb560afe08a2ff71fa0e491",
+    "score_ref.json": "2a1dedc5972e2af0a13d415a1697c01ee18d571dc6fa7b014e1e2c1a0256e695"
+  },
+  "states": 64,
+  "complete_unique_action_k": true,
+  "decompose": {
+    "mean_D": -0.468125,
+    "mean_dY": -0.4765625,
+    "mean_cost_part": 0.008437500000000011,
+    "D_pos": 5,
+    "D_neg": 46,
+    "D_zero": 13,
+    "D_pos_with_dY_pos": 4,
+    "D_pos_cost_only": 1,
+    "D_pos_with_dY_neg": 0,
+    "mean_acc_answer": 0.08984375,
+    "mean_acc_crop": 0.56640625,
+    "mean_crops_crop_branch": 1.80859375
+  },
+  "positive_states": [
+    {
+      "uid": "test_Math_492",
+      "D": 0.505,
+      "z": 16.071430206300192
+    },
+    {
+      "uid": "test_Biology_60",
+      "D": 1.0,
+      "z": 15.535716652870633
+    },
+    {
+      "uid": "vstar_133",
+      "D": 0.26,
+      "z": -30.714284181668518
+    },
+    {
+      "uid": "mme_3952",
+      "D": 0.25,
+      "z": -28.66071474554019
+    },
+    {
+      "uid": "worldbench_448",
+      "D": 0.012500000000000011,
+      "z": -25.714284062389424
+    }
+  ],
+  "positive_high_z_gt14": 2,
+  "all_high_z_gt14": [
+    {
+      "uid": "test_Math_492",
+      "D": 0.505,
+      "z": 16.071430206300192
+    },
+    {
+      "uid": "test_Biology_60",
+      "D": 1.0,
+      "z": 15.535716652870633
+    },
+    {
+      "uid": "validation_Agriculture_22",
+      "D": 0.0,
+      "z": 14.464286208154363
+    }
+  ],
+  "crop_branch_counts": {
+    "0": 3,
+    "1": 158,
+    "2": 50,
+    "3": 17,
+    "4": 9,
+    "5": 6,
+    "6": 4,
+    "7": 8,
+    "8": 1
+  },
+  "threshold": -20.535712838191557,
+  "same_table_oracle_minus_threshold": 0.0081640625
+}
