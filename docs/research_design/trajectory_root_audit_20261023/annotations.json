@@ -1,0 +1,815 @@
+{
+  "reviewer": "Codex model-assisted visual audit; not human gold",
+  "non_blind": true,
+  "retrospective_selection": true,
+  "env_sha256": "6ec561a25003c48b7f18cc62c23738492c124dbbe3046be9bbbd29f676a9f22c",
+  "process_image_source_sha256": "070c886633334ad264bce7cbbfe9ce115794e6e54297f2ba912d90b1051f5aec",
+  "cases": [
+    {
+      "id": "c00",
+      "uid": "worldbench_1341",
+      "condition": "clean",
+      "sample_idx": 3,
+      "stratum": "long",
+      "annotation": "不可获取的信息 / 答对但论据不成立",
+      "observation": "题目要求通知栏关闭后的主屏幕位置；当前只有静态通知栏图。原图及七次回执的 PNG 哈希完全相同。crop 不能执行 swipe-up。末轮把 SportsCenter 和天气应用的绿色图标位置写成事实，引用 original_image，但图上没有这些主屏幕位置。答案 C 被计为正确。",
+      "limits": "支持工具能力与证据需求不匹配、结果奖励不能验证论据；不能据此估计全库比例，也不能证明省略某次重复观察绝不影响随机续写。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            271.0,
+            480.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 3,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 4,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 5,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 6,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 7,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c01",
+      "uid": "mme_6116",
+      "condition": "clean",
+      "sample_idx": 3,
+      "stratum": "long",
+      "annotation": "先找错区域，后来拿到证据仍读错并错配选项",
+      "observation": "原图上方绿色条对应 1Q-2019 Long-term Liabilities=$1.38M。回执1–5围绕下方 Balance Sheet，回执6只包含4Q条；回执7已清楚包含1Q绿色$1.38M及图例。末轮却写$1.32M，并选A（A实际为$1.36M，B为$1.38M）。",
+      "limits": "同一轨迹同时有定位、读数和数值到选项绑定失败；不能归为单一 stopping 问题。并不证明改信用分配无效。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "shown_wh": [
+            1056,
+            558
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            1481.0,
+            791.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "shown_wh": [
+            952,
+            448
+          ],
+          "box_abs": [
+            0,
+            396,
+            844,
+            791
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "shown_wh": [
+            476,
+            448
+          ],
+          "box_abs": [
+            0,
+            396,
+            415,
+            791
+          ]
+        },
+        {
+          "view": 3,
+          "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+          "shown_wh": [
+            1344,
+            438
+          ],
+          "box_abs": [
+            0,
+            514,
+            844,
+            791
+          ]
+        },
+        {
+          "view": 4,
+          "sha256": "51ef843ab865ecd7c1eeaaf4d59d9ab3c88c352de4a8f6569666401249d8034c",
+          "shown_wh": [
+            448,
+            476
+          ],
+          "box_abs": [
+            0,
+            356,
+            415,
+            791
+          ]
+        },
+        {
+          "view": 5,
+          "sha256": "fc4340f40c2a2869e8daa310c00ab6b28f7f7d04b984fd9907bdd587fdceac35",
+          "shown_wh": [
+            868,
+            448
+          ],
+          "box_abs": [
+            0,
+            356,
+            844,
+            791
+          ]
+        },
+        {
+          "view": 6,
+          "sha256": "b1bdbce37de56e826ee6a1da358f833d063840ceff1b056b30ef2e3c189339d3",
+          "shown_wh": [
+            840,
+            560
+          ],
+          "box_abs": [
+            0,
+            237,
+            844,
+            791
+          ]
+        },
+        {
+          "view": 7,
+          "sha256": "7e2a7f0940f170f710e07272e90d9ab45d8a2604324934365908f1b1114f877b",
+          "shown_wh": [
+            616,
+            700
+          ],
+          "box_abs": [
+            0,
+            95,
+            622,
+            791
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c02",
+      "uid": "mme_3688",
+      "condition": "clean",
+      "sample_idx": 1,
+      "stratum": "repeat_or_full",
+      "annotation": "重复整图 / 运动状态证据不足",
+      "observation": "首裁为道路下半部；第二裁与原图 PNG 完全相同。末轮根据镜头平、路空推断直行且正常速度，答案被判正确。",
+      "limits": "静态画面提供道路布局，不能直接测量实际速度。任务为预测行为，仍可能允许场景推断；不把本例强判为不可回答。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+          "shown_wh": [
+            1024,
+            575
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            1600.0,
+            900.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "0a090071cef53ab37bdc2f7004d942cad4ea5acd1c58622434ede800b97988d9",
+          "shown_wh": [
+            1449,
+            406
+          ],
+          "box_abs": [
+            0,
+            450,
+            1600,
+            900
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+          "shown_wh": [
+            1024,
+            575
+          ],
+          "box_abs": [
+            0,
+            0,
+            1600,
+            900
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c03",
+      "uid": "mme_3918",
+      "condition": "clean",
+      "sample_idx": 1,
+      "stratum": "repeat_or_full",
+      "annotation": "目标信息未找到 / 搜索终止条件失效候选",
+      "observation": "七次裁图遍历道路、树木和楼房，没有出现模型反复寻找的驾驶舱/速度显示。最终以没看到速度或转向证据选E，答案错误。",
+      "limits": "像是不断搜索当前画面没有的线索；但预测行为可能依据道路几何。不能证明全局能力不足，亦不能证明早点停会正确。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "shown_wh": [
+            1024,
+            575
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            1600.0,
+            900.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "shown_wh": [
+            1036,
+            448
+          ],
+          "box_abs": [
+            640,
+            522,
+            1520,
+            900
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "shown_wh": [
+            1024,
+            575
+          ],
+          "box_abs": [
+            0,
+            0,
+            1600,
+            900
+          ]
+        },
+        {
+          "view": 3,
+          "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+          "shown_wh": [
+            560,
+            728
+          ],
+          "box_abs": [
+            1040,
+            0,
+            1600,
+            720
+          ]
+        },
+        {
+          "view": 4,
+          "sha256": "b2d158dd72ed4bdf7154681a8908b090e680ba1749c10027638091e0d469ce21",
+          "shown_wh": [
+            731,
+            806
+          ],
+          "box_abs": [
+            0,
+            0,
+            800,
+            900
+          ]
+        },
+        {
+          "view": 5,
+          "sha256": "9dbb1e842d4f70809d6ac5115e1928a8eaab79583719b56d7ace78c92e73867b",
+          "shown_wh": [
+            692,
+            852
+          ],
+          "box_abs": [
+            320,
+            0,
+            1040,
+            900
+          ]
+        },
+        {
+          "view": 6,
+          "sha256": "c1f943cd851b6293c8ffd6eef6363504659950230452dde30f4bf292be1157c7",
+          "shown_wh": [
+            644,
+            896
+          ],
+          "box_abs": [
+            560,
+            0,
+            1200,
+            900
+          ]
+        },
+        {
+          "view": 7,
+          "sha256": "5bd2c80bd17439723bedbd56cd9ff050dbf36b217553d7df72577aaaef2d8a6e",
+          "shown_wh": [
+            1115,
+            528
+          ],
+          "box_abs": [
+            0,
+            135,
+            1600,
+            900
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c04",
+      "uid": "vstar_121",
+      "condition": "clean",
+      "sample_idx": 1,
+      "stratum": "confirm_then_answer",
+      "annotation": "关系证据可见 / 停止机会候选",
+      "observation": "原图已可见钟在中间、红背包在右侧；首裁只放大钟；第二裁将钟和背包同时包含，最终关系正确。",
+      "limits": "第二裁方便同图比较但是否提高本模型成功率未知。存在停止候选状态，不是已证明的冗余。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "fed353c3f95557268585ba51f55d38a29ca8c80374aee8106c26cfaaa2a833d0",
+          "shown_wh": [
+            936,
+            629
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            2250.0,
+            1500.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "ab0560b3b004a421301f374dca8f0886b40feb3897cc433e3c726372799e3dd3",
+          "shown_wh": [
+            672,
+            448
+          ],
+          "box_abs": [
+            788,
+            600,
+            1350,
+            975
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "5bbf64b2df3b2bb6e0aa3d0af33b113436f189c305b65615e528c913343474a1",
+          "shown_wh": [
+            1254,
+            470
+          ],
+          "box_abs": [
+            0,
+            600,
+            2025,
+            1350
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c05",
+      "uid": "mme_6927",
+      "condition": "clean",
+      "sample_idx": 2,
+      "stratum": "confirm_then_answer",
+      "annotation": "关键词分类假阳性 / 回执逐步补齐证据",
+      "observation": "首裁只含行名和Total，目标月份被裁掉；第二裁包含30/nov/22、Mo-1、Year1表头，但目标数值行不在其中；第三裁才清楚包含 Base Rental Income 的88,789，需结合前一张表头定位。",
+      "limits": "caption中confirms描述表头已核实，不等于裁图意图是冗余确认。不能因下一轮答对就把第三裁判为多余；原图可读性仍可能允许更早回答。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "72cf5a099bbab838c028c57d992c0ef7dcc3366a24cd12e69abc4d19fc178f6f",
+          "shown_wh": [
+            955,
+            617
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            1350.0,
+            879.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "f1773712ce7d7d519d22494e790c08006590f8b64bd5ef4fe4f7a846557aed12",
+          "shown_wh": [
+            1344,
+            438
+          ],
+          "box_abs": [
+            27,
+            0,
+            567,
+            176
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "8e1cec236bfc6d76d7dd7d748e74579db8bdbf02353064cb960d71fde16db635",
+          "shown_wh": [
+            1939,
+            304
+          ],
+          "box_abs": [
+            0,
+            0,
+            783,
+            123
+          ]
+        },
+        {
+          "view": 3,
+          "sha256": "ec5105b76481b5ee08aa81e0bc508b22a7904cc03b6451c3a980cafa3c95f7ff",
+          "shown_wh": [
+            1583,
+            372
+          ],
+          "box_abs": [
+            0,
+            44,
+            1012,
+            281
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c06",
+      "uid": "vstar_135",
+      "condition": "clean",
+      "sample_idx": 3,
+      "stratum": "nested_zoom",
+      "annotation": "局部辨认与跨视图关系绑定",
+      "observation": "原图远处人物很小；首裁能看到白裤人物和右边蓝衣骑车者；两个嵌套裁分别放大人物及骑车者，最终左侧关系正确。",
+      "limits": "有合理细节辨认作用，但原首裁已可见关系；必须测本模型条件价值才能判断后两裁是否值得。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "320b95815b77e5e22d354e4505d5be77144a442cd6c20b6a5af1b69bb3a24a30",
+          "shown_wh": [
+            891,
+            661
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "a64e476e8b7e4a1bd51a5eb57d23a20421ad9c49061c67b6ec29ef42e8a7e74f",
+          "shown_wh": [
+            1204,
+            448
+          ],
+          "box_abs": [
+            0,
+            330,
+            400,
+            480
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "ded796ff197ab2f8b442c7599490f3e9da29c3dfa5e145f39c8405406ab6ef08",
+          "shown_wh": [
+            560,
+            280
+          ],
+          "box_abs": [
+            120,
+            382,
+            260,
+            450
+          ]
+        },
+        {
+          "view": 3,
+          "sha256": "224865b589b3e7d9b5d3e3baf5aebcd61dcaf6588e3c492ca7135e0ec9a8c1a9",
+          "shown_wh": [
+            392,
+            224
+          ],
+          "box_abs": [
+            280,
+            367,
+            380,
+            423
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c07",
+      "uid": "vstar_181",
+      "condition": "clean",
+      "sample_idx": 0,
+      "stratum": "nested_zoom",
+      "annotation": "已有证据后的放大 / 停止机会候选",
+      "observation": "首裁已能见白气球较高、红气球较低，第二裁进一步放大，最终答案正确。",
+      "limits": "是可能提前停止的清晰候选，仍缺同状态停止续写。末轮“同一骑车者”附加断言没有由本审查确认，不影响上下关系判断。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "b78a042f67808dd6d4f15d6f8a0a47248ace7cc24700a78313086754f718aec2",
+          "shown_wh": [
+            936,
+            629
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            2250.0,
+            1500.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "33f20ca5bf1cd805c9db88f813f45715cb078312349fafa39bceb8b52600dbc7",
+          "shown_wh": [
+            1130,
+            521
+          ],
+          "box_abs": [
+            450,
+            450,
+            1912,
+            1125
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "53af286d555659d47fc3e0761d9a8ba28d88d32b0b3e36687617eee2fc4516ad",
+          "shown_wh": [
+            672,
+            504
+          ],
+          "box_abs": [
+            1181,
+            450,
+            1839,
+            956
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e08",
+      "uid": "worldbench_1341",
+      "condition": "e2",
+      "sample_idx": 3,
+      "stratum": "paired_e2_long_case",
+      "annotation": "同题另一自然轨迹 / 不可获取信息仍被当作可见",
+      "observation": "仍只有通知栏截图，裁上下区域无法关闭面板。末轮把它叫完整主屏幕，断言没有绿色图标，答UNCLEAR。",
+      "limits": "这不是经过验证的诚实拒答：其主屏幕断言也无依据。与c00的得分差不等于recover因果效应；两条首轮文本并不相同。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            271.0,
+            480.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            5,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "shown_wh": [
+            448,
+            784
+          ],
+          "box_abs": [
+            0,
+            0,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 3,
+          "sha256": "608c1943a31008ba12766db184a8ed4c033965bc5ec1fc601c48ee9195ce0846",
+          "shown_wh": [
+            448,
+            644
+          ],
+          "box_abs": [
+            0,
+            96,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 4,
+          "sha256": "34d06fd0f1da5f324edc49e090115ad923d2b922a93acb2d8caec591069db18b",
+          "shown_wh": [
+            728,
+            448
+          ],
+          "box_abs": [
+            0,
+            312,
+            271,
+            480
+          ]
+        },
+        {
+          "view": 5,
+          "sha256": "dafe97291a900efe9f3da45737cc2160fa30a5ebf2388616592cc97cfb868274",
+          "shown_wh": [
+            448,
+            476
+          ],
+          "box_abs": [
+            0,
+            24,
+            271,
+            312
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e09",
+      "uid": "mme_6116",
+      "condition": "e2",
+      "sample_idx": 3,
+      "stratum": "paired_e2_long_case",
+      "annotation": "偏移框意外改善定位",
+      "observation": "该轨迹原请求下半部表格；E2执行框移至上方Balance Structure，绿色1Q条$1.38M及图例清楚可见。下一轮正确读取并选B。",
+      "limits": "E2可偶然提供更有用证据，不一定总是破坏。与c01首轮文本不同，不是严格配对反事实；本例正确不需要后续recover。",
+      "views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "shown_wh": [
+            1056,
+            558
+          ],
+          "box_abs": [
+            0.0,
+            0.0,
+            1481.0,
+            791.0
+          ]
+        },
+        {
+          "view": 1,
+          "sha256": "999d1e3b8773eb391967afa903b0c29f96da8f80af94ffa836edb62fcd8953e3",
+          "shown_wh": [
+            980,
+            448
+          ],
+          "box_abs": [
+            0,
+            8,
+            844,
+            396
+          ]
+        }
+      ]
+    }
+  ]
+}

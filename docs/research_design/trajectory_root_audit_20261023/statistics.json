@@ -1,0 +1,135 @@
+{
+  "source_sha256": {
+    "clean": "f0697d5be87bea30f04a76d3ae2c3525c1a90e545b835b623423c8d52aa01a55",
+    "e2": "d2659b74d17b62ef75a7aec1b7c4de63e39e3eb1768abe8fdbd031c08ee77f04"
+  },
+  "descriptive_not_counterfactual": true,
+  "clean": {
+    "rows": 2208,
+    "uids": 552,
+    "samples_per_uid": {
+      "4": 552
+    },
+    "n_crops_hist": {
+      "0": 5,
+      "1": 1178,
+      "2": 469,
+      "3": 215,
+      "4": 127,
+      "5": 65,
+      "6": 53,
+      "7": 91,
+      "8": 5
+    },
+    "ok_vs_strict_disagree": 5,
+    "strict_accuracy": 0.6612318840579711,
+    "any_protocol_error_trajectories": 19,
+    "groups_by_success_count": {
+      "0": 83,
+      "1": 62,
+      "2": 66,
+      "3": 93,
+      "4": 248
+    },
+    "by_question_success": {
+      "0": {
+        "uids": 83,
+        "later_crops": 494,
+        "long_trajectories_ge7": 24
+      },
+      "1": {
+        "uids": 62,
+        "later_crops": 480,
+        "long_trajectories_ge7": 25
+      },
+      "2": {
+        "uids": 66,
+        "later_crops": 408,
+        "long_trajectories_ge7": 21
+      },
+      "3": {
+        "uids": 93,
+        "later_crops": 424,
+        "long_trajectories_ge7": 8
+      },
+      "4": {
+        "uids": 248,
+        "later_crops": 580,
+        "long_trajectories_ge7": 18
+      }
+    },
+    "long_has_successful_sibling": 66,
+    "long_wrong_has_short_correct_sibling": 27
+  },
+  "e2": {
+    "rows": 2208,
+    "uids": 552,
+    "samples_per_uid": {
+      "4": 552
+    },
+    "n_crops_hist": {
+      "0": 5,
+      "1": 80,
+      "2": 907,
+      "3": 532,
+      "4": 267,
+      "5": 158,
+      "6": 92,
+      "7": 145,
+      "8": 22
+    },
+    "ok_vs_strict_disagree": 5,
+    "strict_accuracy": 0.6508152173913043,
+    "any_protocol_error_trajectories": 16,
+    "groups_by_success_count": {
+      "0": 87,
+      "1": 67,
+      "2": 65,
+      "3": 87,
+      "4": 246
+    },
+    "by_question_success": {
+      "0": {
+        "uids": 87,
+        "later_crops": 768,
+        "long_trajectories_ge7": 20
+      },
+      "1": {
+        "uids": 67,
+        "later_crops": 695,
+        "long_trajectories_ge7": 28
+      },
+      "2": {
+        "uids": 65,
+        "later_crops": 716,
+        "long_trajectories_ge7": 38
+      },
+      "3": {
+        "uids": 87,
+        "later_crops": 849,
+        "long_trajectories_ge7": 36
+      },
+      "4": {
+        "uids": 246,
+        "later_crops": 1860,
+        "long_trajectories_ge7": 45
+      }
+    },
+    "long_has_successful_sibling": 140,
+    "long_wrong_has_short_correct_sibling": 53
+  },
+  "paired": {
+    "first_generated_turn_text_identical": 1045,
+    "outcomes_clean_e2": {
+      "1->1": 1235,
+      "0->1": 207,
+      "1->0": 230,
+      "0->0": 536
+    },
+    "e2_perturb_ok": {
+      "False": 234,
+      "True": 1969,
+      "None": 5
+    }
+  }
+}
