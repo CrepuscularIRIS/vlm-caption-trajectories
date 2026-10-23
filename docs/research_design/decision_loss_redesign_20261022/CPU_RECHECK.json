@@ -1,0 +1,46 @@
+{
+  "status": "descriptive_reanalysis_not_causal_test",
+  "source": "logs/dl/compare_dl.json",
+  "source_sha256": "6fe6bd031d8f115ffd6e3960c2ca7526148e299a3cbb784c95bd1728d34d1743",
+  "n": 64,
+  "U_choice": -0.025413631839951017,
+  "p_increase_vs_ref": {
+    "0": 64,
+    "1e-06": 61,
+    "0.001": 61,
+    "0.01": 58
+  },
+  "finite_main_logits": 61,
+  "audit_BCE_derivative_of_common_logit_offset": {
+    "ref": -0.00816406715983188,
+    "main": 0.017651065073696372,
+    "ctrl": -0.008164069023112024
+  },
+  "constant_logit_offset_description": {
+    "fit_criterion": "cross_entropy(p_main, sigmoid(logit(p_ctrl)+b)); no reward labels used",
+    "b": 22.590350710682984,
+    "probability_rmse": 0.139509017494197,
+    "unchanged_control_probability_rmse": 0.10047034361128288,
+    "strict_rank_reversals": 222
+  },
+  "threshold_and_oracle_descriptions": {
+    "p_ref": {
+      "best_same_table_threshold_score": 0.023515625,
+      "same_table_oracle_score": 0.0316796875,
+      "same_table_oracle_minus_threshold": 0.0081640625,
+      "epsilon_0_1_scaled_gap": 0.00081640625
+    },
+    "p_ctrl": {
+      "best_same_table_threshold_score": 0.023515625,
+      "same_table_oracle_score": 0.0316796875,
+      "same_table_oracle_minus_threshold": 0.0081640625,
+      "epsilon_0_1_scaled_gap": 0.00081640625
+    }
+  },
+  "limits": [
+    "Audit-state scalar derivatives are not actual training gradients or optimizer steps.",
+    "Constant-offset fitting is descriptive, not a causal decomposition.",
+    "Threshold and oracle both use the same noisy K4 audit gaps: not a population upper bound or held-out test.",
+    "No claim of accuracy non-inferiority, training mechanism identification, or new-head effectiveness."
+  ]
+}

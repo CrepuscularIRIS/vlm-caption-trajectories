@@ -1,0 +1,10 @@
+{
+  "status": "response_complete",
+  "model": "Pro",
+  "input_commit": "5c63a2803f3a4fe2f5105e461aafc780aa03e031",
+  "completed_at": "2026-10-23T04:15:51.327Z",
+  "raw_response_sha256": "91c138fef0cf683e6e15fc683ab3b32aef397f19b3bba0ab38314f3383d6fb4c",
+  "raw_response_chars": 22342,
+  "gpu_experiments_run_by_codex": false,
+  "scope": "design consultation and CPU recomputation of published data"
+}
