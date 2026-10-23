@@ -1,0 +1,15 @@
+{
+  "mode": "Pro (5 of 5)",
+  "tab_id": "409451803",
+  "status": "response_complete",
+  "url": "https://chatgpt.com/c/6adb92f6-e274-83ea-9d36-b93b2e6f84a1",
+  "input_commit": "a0c597f875cc79fdea29ea8c1db3b19cf12c8d1e",
+  "scope": "later redundant steps; no new experiments",
+  "sent_at_utc": "2026-10-23T17:02:36.043Z",
+  "completed_at_utc": "2026-10-23T17:27:55.799Z",
+  "completion_evidence": "Visible Response complete; assistant Copy captured 20111 characters; completed.png and RESPONSE_AX.txt",
+  "response_sha256": "3f77169dd398a3ac1c24e2a2a8e6f021163372b0a2ce8b6abf5f10739d50d22b",
+  "prompt_sha256": "9b232873551058c60db524598d3b3797f470512dea6e2394074852364938bbfe",
+  "public_evidence_note": "Exact prompt and copied final response archived alongside this receipt. Completion screenshot and AX snapshot retained locally, not published with unrelated browser UI.",
+  "reading_scope_note": "Reading ledger is the consultant report, not independent verification of every paper by Codex."
+}
