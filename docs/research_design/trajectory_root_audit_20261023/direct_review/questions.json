@@ -1,0 +1,82 @@
+[
+  {
+    "uid": "mme_6927",
+    "dataset": "val",
+    "data_file_sha256": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+    "env_head": "Question: What's the data of Base Rental Income in 30/nov/22 Mo-1 Year 1 in the table Monthly CF Projections?\n(A) 88968\n(B) 85946\n(C) 88789\n(D) 84873\n(E) This image doesn't feature the data.\nOriginal image [original_image]. Source pixels: 1350x879, shown at full resolution.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "C"
+    }
+  },
+  {
+    "uid": "mme_6116",
+    "dataset": "val",
+    "data_file_sha256": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+    "env_head": "Question: What is the range data of 1Q-2019 in Longterm Liabilities in the Balance structure, IQ-2019 diagram?\n(A) $1.36M\n(B) $1.38M\n(C) $4.21M\n(D) $2.83M\n(E) This image doesn't feature the data.\nOriginal image [original_image]. Source pixels: 1481x791, shown at full resolution.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "B"
+    }
+  },
+  {
+    "uid": "mme_3918",
+    "dataset": "val",
+    "data_file_sha256": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+    "env_head": "Question: This image shows the front view of the ego car. Predict the behavior of the ego vehicle.\n(A) The ego vehicle is steering to the right. The ego vehicle is driving fast.\n(B) The ego vehicle is slightly steering to the left. The ego vehicle is driving very fast.\n(C) The ego vehicle is steering to the right. The ego vehicle is driving slowly.\n(D) The ego vehicle is slightly steering to the right. The ego vehicle is driving with normal speed.\n(E) All the above answers are wrong.\nOriginal image [original_image]. Source pixels: 1600x900, shown at full resolution.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "D"
+    }
+  },
+  {
+    "uid": "worldbench_1341",
+    "dataset": "val",
+    "data_file_sha256": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+    "env_head": "Question: If the notification panel is closed by swiping up, which corners of the home screen will show apps with green icons?\n(A) Top left, top right\n(B) Top right, bottom right\n(C) Top left, bottom left\n(D) Bottom left, bottom right\nOriginal image [original_image]. Source pixels: 271x480, shown enlarged 1.7x.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "C"
+    }
+  },
+  {
+    "uid": "mme_3688",
+    "dataset": "val",
+    "data_file_sha256": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+    "env_head": "Question: This image shows the front view of the ego car. Predict the behavior of the ego vehicle.\n(A) The ego vehicle is steering to the right. The ego vehicle is driving fast.\n(B) The ego vehicle is going straight. The ego vehicle is driving fast.\n(C) The ego vehicle is slightly steering to the right. The ego vehicle is driving very fast.\n(D) The ego vehicle is steering to the left. The ego vehicle is driving with normal speed.\n(E) All the above answers are wrong.\nOriginal image [original_image]. Source pixels: 1600x900, shown at full resolution.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "D"
+    }
+  },
+  {
+    "uid": "vstar_181",
+    "dataset": "vstar_holdout",
+    "data_file_sha256": "1c20b41df52e0c3f922fa5b30e67615805935af713719eab846d2bf9c0abcb70",
+    "env_head": "Question: Is the red balloon above or below the white balloon?\n(A) below\n(B) above\nAnswer with the option's letter from the given choices directly.\nOriginal image [original_image]. Source pixels: 2250x1500, shown reduced to 76%.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "A"
+    }
+  },
+  {
+    "uid": "vstar_121",
+    "dataset": "vstar_holdout",
+    "data_file_sha256": "1c20b41df52e0c3f922fa5b30e67615805935af713719eab846d2bf9c0abcb70",
+    "env_head": "Question: Is the red backpack on the left or right side of the clock?\n(A) right\n(B) left\nAnswer with the option's letter from the given choices directly.\nOriginal image [original_image]. Source pixels: 2250x1500, shown reduced to 76%.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "A"
+    }
+  },
+  {
+    "uid": "vstar_135",
+    "dataset": "vstar_holdout",
+    "data_file_sha256": "1c20b41df52e0c3f922fa5b30e67615805935af713719eab846d2bf9c0abcb70",
+    "env_head": "Question: Is the person with white trousers on the left or right side of the person in blue?\n(A) right\n(B) left\nAnswer with the option's letter from the given choices directly.\nOriginal image [original_image]. Source pixels: 2000x1500, shown reduced to 81%.\nImage [original_image]:",
+    "ground_truth": {
+      "style": "rule",
+      "ground_truth": "B"
+    }
+  }
+]

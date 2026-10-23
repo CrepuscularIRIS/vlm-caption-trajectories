@@ -8,6 +8,8 @@
 
 **Pro已完整返回**：[审查后的下一步建议](READOUT.md) · [完整回复](PRO_RESPONSE.md) · [完成回执](RESPONSE_RECEIPT.json)。
 
+**新增直接逐轮审查**：[49轮证据—陈述—动作核对](direct_review/README.md)。本次发现中间取景前的错误陈述、正确描述下的无效动作，以及 c02 最终字母正确但文字与选项矛盾；是同一批病例的深化，不是新增独立样本。
+
 ## 请先看三个案例
 
 全部10条、49个视图位置（37张不同PNG）、逐轮原文与注释：[CASES.md](CASES.md)。每个图保留框、尺寸和哈希：[annotations.json](annotations.json)。8条clean、2条对应E2，8个不同题目；不是40题全量标注，也不能估计总体失败占比。

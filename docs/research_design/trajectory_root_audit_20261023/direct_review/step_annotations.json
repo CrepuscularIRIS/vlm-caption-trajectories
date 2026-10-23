@@ -1,0 +1,3018 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-23",
+  "reviewer": "Codex visual and text review; not human gold",
+  "selection": "Existing purposive 10-trajectory sample; 8 UIDs; not a prevalence sample",
+  "source_selected_sha256": "110a8ad11e6c4242a0aa2383c3da38f533bbfefc2ac1928ebc798d08d70945bc",
+  "source_view_manifest_sha256": "a7d96a02195f2f2d909c8a525c98026cd2488cefe33b38ce529da7d7bbe9bc06",
+  "scope": {
+    "trajectories": 10,
+    "unique_uids": 8,
+    "turns": 49,
+    "crop_actions": 39,
+    "final_answers": 10,
+    "view_positions": 49,
+    "distinct_pngs_inspected": 37
+  },
+  "boundary": "At Step s in these traces only views 0..s-1 are available. The receipt from that step is future evidence. PNG reconstruction is not exact production vision-token replay. All causal utilities remain unknown.",
+  "status_definition": {
+    "supported": "Focal concrete statement has image/text support; not approval of every token or action.",
+    "refuted": "At least one focal assertion conflicts with visible evidence or verified option text.",
+    "mixed": "Supported elements plus ambiguity, minor transcription errors or unverified inference.",
+    "insufficient": "Available evidence does not establish the focal claim."
+  },
+  "rows": [
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe visible sports widgets show Athletics and Blue Jays with yellow and blue icons, Twins with red, and Giants with an orange/red icon [original_image]. The corner question is about apps appearing after closing the notification panel, so I need to check the home screen layout, not just the widget.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe visible sports widgets show Athletics and Blue Jays with yellow and blue icons, Twins with red, and Giants with an orange/red icon [original_image]. The corner question is about apps appearing after closing the notification panel, so I need to check the home screen layout, not just the widget.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "识别为体育组件，且知道问题问关闭通知面板后的主屏幕；当前图未显示该主屏幕。",
+      "action_return_judgment": "请求整图，回执与原图同一 PNG 哈希；crop 不能执行上滑关闭面板。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | fallback\nThe crop shows only the notification panel and widgets [observation_1], not the underlying home screen where app icons would appear. I need a wider view of the full screen to identify the green icon apps and their corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | fallback\nThe crop shows only the notification panel and widgets [observation_1], not the underlying home screen where app icons would appear. I need a wider view of the full screen to identify the green icon apps and their corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "fallback",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "正确说回执只有通知面板，没有下层主屏幕。",
+      "action_return_judgment": "仍请求整图；像素不变，无法实现所说的更宽视野。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | locate\nThe full view is still the notification panel [observation_2]. I need the home screen beneath it to see the app icons and their respective corners [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 3 | locate\nThe full view is still the notification panel [observation_2]. I need the home screen beneath it to see the app icons and their respective corners [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 3,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 3,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "仍正确识别通知面板，所需主屏幕没有出现。",
+      "action_return_judgment": "重复整图；没有新像素。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 4,
+      "source_round": 3,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 4 | locate\nThe notification panel remains the only visible element [observation_3]. I need the full home screen without the panel to identify the apps and their green icon corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 4 | locate\nThe notification panel remains the only visible element [observation_3]. I need the full home screen without the panel to identify the apps and their green icon corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 4,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 4,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "仍正确说只有通知面板；不是中间 caption 已把它读成主屏幕。",
+      "action_return_judgment": "重复整图；没有新像素。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 5,
+      "source_round": 4,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 4,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 5 | locate\nThe visible elements remain the notification panel and widgets [observation_4]. I need the home screen corners to identify the green icon apps after the panel is closed.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 5 | locate\nThe visible elements remain the notification panel and widgets [observation_4]. I need the home screen corners to identify the green icon apps after the panel is closed.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 5,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 5,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "通知面板与组件的描述符合图像。",
+      "action_return_judgment": "重复整图；不能揭示被遮挡内容。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 6,
+      "source_round": 5,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 4,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 5,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 6 | locate\nThe notification panel and widgets are still visible [observation_5]. I need the home screen layout to locate the app icons and their corner positions.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 6 | locate\nThe notification panel and widgets are still visible [observation_5]. I need the home screen layout to locate the app icons and their corner positions.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 6,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 6,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "正确保留“仍是通知面板”的描述。",
+      "action_return_judgment": "重复整图；无法改变界面状态。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 7,
+      "source_round": 6,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 4,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 5,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 6,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 7 | locate\nThe visible region is still the notification panel [observation_6]. I need the full home screen below it to identify the app icons and their respective corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 7 | locate\nThe visible region is still the notification panel [observation_6]. I need the full home screen below it to identify the app icons and their respective corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 7,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 7,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "正确说当前区域仍是通知面板。",
+      "action_return_judgment": "第七裁仍同一图；正确描述未转化为可行的新动作。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c00",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 8,
+      "source_round": 7,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 4,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 5,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 6,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 7,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 8 | commit\nThe visible apps include Athletics (yellow icon), Blue Jays (blue icon), Twins (red icon), and Giants (orange/red icon) [original_image]. With the notification panel closed, SportsCenter appears in the top-left corner and the weather app in the bottom-left corner, both with green icons [original_image].\n</think>\n<answer>C</answer>",
+      "text_in_history": "<think>\nStep 8 | commit\nThe visible apps include Athletics (yellow icon), Blue Jays (blue icon), Twins (red icon), and Giants (orange/red icon) [original_image]. With the notification panel closed, SportsCenter appears in the top-left corner and the weather app in the bottom-left corner, both with green icons [original_image].\n</think>\n<answer>C</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 8,
+        "behavior": "commit",
+        "answer": "C",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "insufficient",
+      "evidence_judgment": "SportsCenter 顶左、天气底左且两者绿色的主屏幕布局，没有任何视图支持。把球队组件称作 apps 也混淆层级。",
+      "action_return_judgment": "输出 C 与标签一致；这不能证明解释、视觉依据或此前裁图合理。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe Balance Structure table contains a Long-term Liabilities section under 1Q-2019, with a range value in parentheses. I need a closer crop to read the exact amount. [original_image]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe Balance Structure table contains a Long-term Liabilities section under 1Q-2019, with a range value in parentheses. I need a closer crop to read the exact amount. [original_image]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.5,
+          0.57,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        396,
+        844,
+        791
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+        "image": "../images/6247a680003d63e0.png",
+        "box_abs": [
+          0,
+          396,
+          844,
+          791
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "问题指上方 Balance Structure 条形图；模型说成下方表格中的括号范围，原图没有它所说的这一目标表格条目。",
+      "action_return_judgment": "首裁落入下方 Balance Sheet，漏掉上方目标 1Q 条。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | fallback\nThe crop clipped the Long-term Liabilities section, so I will shift left and enlarge the balance sheet rows. [observation_1]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,0.28,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | fallback\nThe crop clipped the Long-term Liabilities section, so I will shift left and enlarge the balance sheet rows. [observation_1]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,0.28,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.5,
+          0.28,
+          1.0
+        ],
+        "behavior": "fallback",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        396,
+        415,
+        791
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+        "image": "../images/1c37a6ddc4e66f3c.png",
+        "box_abs": [
+          0,
+          396,
+          415,
+          791
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "回执确实不含目标长期负债值，但“被裁掉所以左移”没有定位依据。",
+      "action_return_judgment": "声称 enlarge，实际归一化宽度由 .57 变 .28，反而更窄；仍在下表。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "image": "../images/1c37a6ddc4e66f3c.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | locate\nThe Long-term Liabilities section is visible, but the parenthetical range values are cut off. I will widen the view to include the 1Q-2019 range column. [observation_2]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.65,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 3 | locate\nThe Long-term Liabilities section is visible, but the parenthetical range values are cut off. I will widen the view to include the 1Q-2019 range column. [observation_2]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.65,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 3,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.65,
+          0.57,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        514,
+        844,
+        791
+      ],
+      "returned_view": {
+        "view": 3,
+        "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+        "image": "../images/5a59f3c3638ffbbc.png",
+        "box_abs": [
+          0,
+          514,
+          844,
+          791
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 2 的标签是 Long-term Assets 和 Current Liabilities，不是所说的 Long-term Liabilities。右侧数值被截断是真的，但对象认错。",
+      "action_return_judgment": "以错误的行身份为依据扩宽下表；新回执仍非目标图表。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 4,
+      "source_round": 3,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "image": "../images/1c37a6ddc4e66f3c.png"
+        },
+        {
+          "view": 3,
+          "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+          "image": "../images/5a59f3c3638ffbbc.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 4 | fallback\nThe crop ended at the asset rows and missed the Long-term Liabilities values. I will shift left to include the liability headers. [observation_3]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.45,0.28,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 4 | fallback\nThe crop ended at the asset rows and missed the Long-term Liabilities values. I will shift left to include the liability headers. [observation_3]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.45,0.28,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 4,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.45,
+          0.28,
+          1.0
+        ],
+        "behavior": "fallback",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        356,
+        415,
+        791
+      ],
+      "returned_view": {
+        "view": 4,
+        "sha256": "51ef843ab865ecd7c1eeaaf4d59d9ab3c88c352de4a8f6569666401249d8034c",
+        "image": "../images/51ef843ab865ecd7.png",
+        "box_abs": [
+          0,
+          356,
+          415,
+          791
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "view 3 确实没有目标长期负债数值；但并非“止于资产行”：其下还显示 Current Liabilities 及数值。",
+      "action_return_judgment": "向左缩窄下表，未转向上方条形图。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 5,
+      "source_round": 4,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "image": "../images/1c37a6ddc4e66f3c.png"
+        },
+        {
+          "view": 3,
+          "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+          "image": "../images/5a59f3c3638ffbbc.png"
+        },
+        {
+          "view": 4,
+          "sha256": "51ef843ab865ecd7c1eeaaf4d59d9ab3c88c352de4a8f6569666401249d8034c",
+          "image": "../images/51ef843ab865ecd7.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 5 | locate\nThe Long-term Liabilities section is now visible, but the 1Q-2019 values are still clipped. I will widen the view to include the full 1Q-2019 column. [observation_4]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.45,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 5 | locate\nThe Long-term Liabilities section is now visible, but the 1Q-2019 values are still clipped. I will widen the view to include the full 1Q-2019 column. [observation_4]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.45,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 5,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.45,
+          0.57,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        356,
+        844,
+        791
+      ],
+      "returned_view": {
+        "view": 5,
+        "sha256": "fc4340f40c2a2869e8daa310c00ab6b28f7f7d04b984fd9907bdd587fdceac35",
+        "image": "../images/fc4340f40c2a2869.png",
+        "box_abs": [
+          0,
+          356,
+          844,
+          791
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 4 仍是长期资产/流动负债；“长期负债已可见”为错。1Q 数值右侧被截断是真的。",
+      "action_return_judgment": "扩宽同一下表，继续沿用错误目标。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 6,
+      "source_round": 5,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "image": "../images/1c37a6ddc4e66f3c.png"
+        },
+        {
+          "view": 3,
+          "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+          "image": "../images/5a59f3c3638ffbbc.png"
+        },
+        {
+          "view": 4,
+          "sha256": "51ef843ab865ecd7c1eeaaf4d59d9ab3c88c352de4a8f6569666401249d8034c",
+          "image": "../images/51ef843ab865ecd7.png"
+        },
+        {
+          "view": 5,
+          "sha256": "fc4340f40c2a2869e8daa310c00ab6b28f7f7d04b984fd9907bdd587fdceac35",
+          "image": "../images/fc4340f40c2a2869.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 6 | locate\nThe Long-term Assets values are visible, but the liability rows and 1Q-2019 range are cut off at the right edge. I will shift the crop left to include the liability headers. [observation_5]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.3,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 6 | locate\nThe Long-term Assets values are visible, but the liability rows and 1Q-2019 range are cut off at the right edge. I will shift the crop left to include the liability headers. [observation_5]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.3,0.57,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 6,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.3,
+          0.57,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        237,
+        844,
+        791
+      ],
+      "returned_view": {
+        "view": 6,
+        "sha256": "b1bdbce37de56e826ee6a1da358f833d063840ceff1b056b30ef2e3c189339d3",
+        "image": "../images/b1bdbce37de56e82.png",
+        "box_abs": [
+          0,
+          237,
+          844,
+          791
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 5 的 1Q 列完整可见，且有流动负债行；不是所说的 1Q 范围在右边被截掉。目标长期负债值在另一幅图。",
+      "action_return_judgment": "文本说 shift left，框左边界一直为 0；实际向上扩展，得到 4Q 条及表格。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 7,
+      "source_round": 6,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "image": "../images/1c37a6ddc4e66f3c.png"
+        },
+        {
+          "view": 3,
+          "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+          "image": "../images/5a59f3c3638ffbbc.png"
+        },
+        {
+          "view": 4,
+          "sha256": "51ef843ab865ecd7c1eeaaf4d59d9ab3c88c352de4a8f6569666401249d8034c",
+          "image": "../images/51ef843ab865ecd7.png"
+        },
+        {
+          "view": 5,
+          "sha256": "fc4340f40c2a2869e8daa310c00ab6b28f7f7d04b984fd9907bdd587fdceac35",
+          "image": "../images/fc4340f40c2a2869.png"
+        },
+        {
+          "view": 6,
+          "sha256": "b1bdbce37de56e826ee6a1da358f833d063840ceff1b056b30ef2e3c189339d3",
+          "image": "../images/b1bdbce37de56e82.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 7 | re_examine\nThe 1Q-2019 column is visible but clipped at the right edge, so the range values need a tighter crop. [observation_6]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.12,0.42,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 7 | re_examine\nThe 1Q-2019 column is visible but clipped at the right edge, so the range values need a tighter crop. [observation_6]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.12,0.42,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 7,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.12,
+          0.42,
+          1.0
+        ],
+        "behavior": "re_examine",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        95,
+        622,
+        791
+      ],
+      "returned_view": {
+        "view": 7,
+        "sha256": "7e2a7f0940f170f710e07272e90d9ab45d8a2604324934365908f1b1114f877b",
+        "image": "../images/7e2a7f0940f170f7.png",
+        "box_abs": [
+          0,
+          95,
+          622,
+          791
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 6 下方表格的 1Q 列仍完整；上方只有 4Q 条，尚未取得目标 1Q 条。不能把二者混成“1Q 列右侧被截”。",
+      "action_return_judgment": "本次向上移动终于纳入目标 1Q 条；结果有效不使此前理由变正确。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c01",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 8,
+      "source_round": 7,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6247a680003d63e0db993de2e7e65a25ae43c0a51e7bdbf56e637854a20ecaea",
+          "image": "../images/6247a680003d63e0.png"
+        },
+        {
+          "view": 2,
+          "sha256": "1c37a6ddc4e66f3c322f33ed4b4837216effb992b43ce01c6cd52ccb4f09de58",
+          "image": "../images/1c37a6ddc4e66f3c.png"
+        },
+        {
+          "view": 3,
+          "sha256": "5a59f3c3638ffbbcf8e745cd079044c308eebd07ce22b754a7fd502a57465df6",
+          "image": "../images/5a59f3c3638ffbbc.png"
+        },
+        {
+          "view": 4,
+          "sha256": "51ef843ab865ecd7c1eeaaf4d59d9ab3c88c352de4a8f6569666401249d8034c",
+          "image": "../images/51ef843ab865ecd7.png"
+        },
+        {
+          "view": 5,
+          "sha256": "fc4340f40c2a2869e8daa310c00ab6b28f7f7d04b984fd9907bdd587fdceac35",
+          "image": "../images/fc4340f40c2a2869.png"
+        },
+        {
+          "view": 6,
+          "sha256": "b1bdbce37de56e826ee6a1da358f833d063840ceff1b056b30ef2e3c189339d3",
+          "image": "../images/b1bdbce37de56e82.png"
+        },
+        {
+          "view": 7,
+          "sha256": "7e2a7f0940f170f710e07272e90d9ab45d8a2604324934365908f1b1114f877b",
+          "image": "../images/7e2a7f0940f170f7.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 8 | commit\nIn the Balance Structure, 1Q-2019 bar for Long-term Liabilities shows $1.32M. [observation_7] This corresponds to option A.\n</think>\n<answer>A</answer>",
+      "text_in_history": "<think>\nStep 8 | commit\nIn the Balance Structure, 1Q-2019 bar for Long-term Liabilities shows $1.32M. [observation_7] This corresponds to option A.\n</think>\n<answer>A</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 8,
+        "behavior": "commit",
+        "answer": "A",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 7 绿色 1Q Long-term Liabilities 是 $1.38M，不是 $1.32M；完整题面 A=$1.36M，B=$1.38M。因此同时有读数错和文字—选项绑定错。",
+      "action_return_judgment": "答 A；此末轮错误发生在全部七裁之后，不能用于解释此前多裁的原因。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c02",
+      "uid": "mme_3688",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+          "image": "../images/a3ca6ed85ee6321d.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe ego-car front is the camera viewpoint, and the road ahead is empty except for a distant truck and buildings [original_image]. The camera angle is nearly head-on, so the vehicle’s steering and speed come from its pose rather than the scene. I will inspect the road markings and horizon to infer direction and speed.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe ego-car front is the camera viewpoint, and the road ahead is empty except for a distant truck and buildings [original_image]. The camera angle is nearly head-on, so the vehicle’s steering and speed come from its pose rather than the scene. I will inspect the road markings and horizon to infer direction and speed.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        450,
+        1600,
+        900
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "0a090071cef53ab37bdc2f7004d942cad4ea5acd1c58622434ede800b97988d9",
+        "image": "../images/0a090071cef53ab3.png",
+        "box_abs": [
+          0,
+          450,
+          1600,
+          900
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "原图确有远处卡车；通过姿态/道路推测行为是推断，不是图上直接测得速度。",
+      "action_return_judgment": "裁下半幅道路；卡车仍在回执顶部可见。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c02",
+      "uid": "mme_3688",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+          "image": "../images/a3ca6ed85ee6321d.png"
+        },
+        {
+          "view": 1,
+          "sha256": "0a090071cef53ab37bdc2f7004d942cad4ea5acd1c58622434ede800b97988d9",
+          "image": "../images/0a090071cef53ab3.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | locate\nThe road ahead is clear with no other vehicles, and the camera appears nearly head-on [observation_1]. To predict ego behavior, I need the cam’s pitch/roll and whether the camera is aligned ahead or tilted toward the left/right curb.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | locate\nThe road ahead is clear with no other vehicles, and the camera appears nearly head-on [observation_1]. To predict ego behavior, I need the cam’s pitch/roll and whether the camera is aligned ahead or tilted toward the left/right curb.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        1600,
+        900
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+        "image": "../images/a3ca6ed85ee6321d.png",
+        "box_abs": [
+          0,
+          0,
+          1600,
+          900
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 1 顶部仍有卡车，no other vehicles 与图不符。",
+      "action_return_judgment": "改裁整图，回到原始视野；是否有助于重新推断未测。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c02",
+      "uid": "mme_3688",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+          "image": "../images/a3ca6ed85ee6321d.png"
+        },
+        {
+          "view": 1,
+          "sha256": "0a090071cef53ab37bdc2f7004d942cad4ea5acd1c58622434ede800b97988d9",
+          "image": "../images/0a090071cef53ab3.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a3ca6ed85ee6321d304a78fbbd4170b54c950c21fe3a2b5ea0bba4bb20bbb712",
+          "image": "../images/a3ca6ed85ee6321d.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | commit\nThe camera is level and aimed ahead, with no visible turning or leaning [observation_2]. The road ahead is empty [observation_1], so the ego vehicle is going straight and driving at normal speed.\n</think>\n<answer>D</answer>",
+      "text_in_history": "<think>\nStep 3 | commit\nThe camera is level and aimed ahead, with no visible turning or leaning [observation_2]. The road ahead is empty [observation_1], so the ego vehicle is going straight and driving at normal speed.\n</think>\n<answer>D</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 3,
+        "behavior": "commit",
+        "answer": "D",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "道路为空的说法不符图；更关键是文字结论 going straight and normal speed，而 D 原文是 steering to the left and normal speed。",
+      "action_return_judgment": "D 被标签判对，但文字与所选选项相冲突；不能当作推理正确的正例。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe forward roadway is visible in [original_image], with lane markings and distant vehicles. I need the driver’s perspective and vehicle-side camera to judge steering and speed.\n</think>\n<grounding>{\"bbox_2d\":[0.40,0.58,0.95,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe forward roadway is visible in [original_image], with lane markings and distant vehicles. I need the driver’s perspective and vehicle-side camera to judge steering and speed.\n</think>\n<grounding>{\"bbox_2d\":[0.40,0.58,0.95,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.4,
+          0.58,
+          0.95,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        640,
+        522,
+        1520,
+        900
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+        "image": "../images/6c30874ee7145d47.png",
+        "box_abs": [
+          640,
+          522,
+          1520,
+          900
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "前方道路及远车可见；题面已经说明是 ego front view。额外索求侧面相机并非现有工具能力。",
+      "action_return_judgment": "裁右下道路，不会提供一个新相机视点。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | locate\n[observation_1] shows a forward roadway and lane markings, but no vehicle or speed indicator. I need the camera field around the ego vehicle.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | locate\n[observation_1] shows a forward roadway and lane markings, but no vehicle or speed indicator. I need the camera field around the ego vehicle.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        1600,
+        900
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+        "image": "../images/da941a5f9f1fe680.png",
+        "box_abs": [
+          0,
+          0,
+          1600,
+          900
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "回执没有自车仪表/速度读数；vehicle 若指所有车辆则不准确，若指自车则成立，保留歧义。",
+      "action_return_judgment": "整图不能补拍自车外观；道路场景仍可用于预测，不能据缺仪表宣布题目不可答。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | locate\n[observation_2] shows the forward roadway and distant traffic, with no obvious camera side view or speed indicator. I need a camera crop to bind steering direction.\n</think>\n<grounding>{\"bbox_2d\":[0.65,0.0,1.0,0.8],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 3 | locate\n[observation_2] shows the forward roadway and distant traffic, with no obvious camera side view or speed indicator. I need a camera crop to bind steering direction.\n</think>\n<grounding>{\"bbox_2d\":[0.65,0.0,1.0,0.8],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 3,
+        "source": "original_image",
+        "bbox": [
+          0.65,
+          0.0,
+          1.0,
+          0.8
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        1040,
+        0,
+        1600,
+        720
+      ],
+      "returned_view": {
+        "view": 3,
+        "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+        "image": "../images/1ec92d5615bf0e9c.png",
+        "box_abs": [
+          1040,
+          0,
+          1600,
+          720
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "整图确实没有侧面相机视图或速度指示。",
+      "action_return_judgment": "转裁右侧建筑/交通，未说明为何该区域能提供所需信号。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 4,
+      "source_round": 3,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 3,
+          "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+          "image": "../images/1ec92d5615bf0e9c.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 4 | locate\n[observation_3] shows distant oncoming traffic and the building, but no camera-side view of the ego vehicle. I need a camera crop near the dashboard or steering area.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.5,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 4 | locate\n[observation_3] shows distant oncoming traffic and the building, but no camera-side view of the ego vehicle. I need a camera crop near the dashboard or steering area.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.5,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 4,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          0.5,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        800,
+        900
+      ],
+      "returned_view": {
+        "view": 4,
+        "sha256": "b2d158dd72ed4bdf7154681a8908b090e680ba1749c10027638091e0d469ce21",
+        "image": "../images/b2d158dd72ed4bdf.png",
+        "box_abs": [
+          0,
+          0,
+          800,
+          900
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "右侧回执有建筑与远车，没有自车侧视图。",
+      "action_return_judgment": "想找仪表盘，却裁左侧树木/路缘，目标与可执行取景不一致。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 5,
+      "source_round": 4,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 3,
+          "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+          "image": "../images/1ec92d5615bf0e9c.png"
+        },
+        {
+          "view": 4,
+          "sha256": "b2d158dd72ed4bdf7154681a8908b090e680ba1749c10027638091e0d469ce21",
+          "image": "../images/b2d158dd72ed4bdf.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 5 | locate\n[observation_4] shows the left roadway edge and trees, but no camera-side view of the ego vehicle. I need a camera crop at the front or dashboard.\n</think>\n<grounding>{\"bbox_2d\":[0.2,0.0,0.65,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 5 | locate\n[observation_4] shows the left roadway edge and trees, but no camera-side view of the ego vehicle. I need a camera crop at the front or dashboard.\n</think>\n<grounding>{\"bbox_2d\":[0.2,0.0,0.65,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 5,
+        "source": "original_image",
+        "bbox": [
+          0.2,
+          0.0,
+          0.65,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        320,
+        0,
+        1040,
+        900
+      ],
+      "returned_view": {
+        "view": 5,
+        "sha256": "9dbb1e842d4f70809d6ac5115e1928a8eaab79583719b56d7ace78c92e73867b",
+        "image": "../images/9dbb1e842d4f7080.png",
+        "box_abs": [
+          320,
+          0,
+          1040,
+          900
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "左侧回执是树木和道路边缘，没有所需仪表。",
+      "action_return_judgment": "继续裁偏左区域，仍不能产生缺失的仪表视点。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 6,
+      "source_round": 5,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 3,
+          "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+          "image": "../images/1ec92d5615bf0e9c.png"
+        },
+        {
+          "view": 4,
+          "sha256": "b2d158dd72ed4bdf7154681a8908b090e680ba1749c10027638091e0d469ce21",
+          "image": "../images/b2d158dd72ed4bdf.png"
+        },
+        {
+          "view": 5,
+          "sha256": "9dbb1e842d4f70809d6ac5115e1928a8eaab79583719b56d7ace78c92e73867b",
+          "image": "../images/9dbb1e842d4f7080.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 6 | locate\n[observation_5] shows the left roadway edge and trees, but the ego vehicle is not visible in this camera crop. I need the front camera view to bind steering direction.\n</think>\n<grounding>{\"bbox_2d\":[0.35,0.0,0.75,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 6 | locate\n[observation_5] shows the left roadway edge and trees, but the ego vehicle is not visible in this camera crop. I need the front camera view to bind steering direction.\n</think>\n<grounding>{\"bbox_2d\":[0.35,0.0,0.75,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 6,
+        "source": "original_image",
+        "bbox": [
+          0.35,
+          0.0,
+          0.75,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        560,
+        0,
+        1200,
+        900
+      ],
+      "returned_view": {
+        "view": 6,
+        "sha256": "c1f943cd851b6293c8ffd6eef6363504659950230452dde30f4bf292be1157c7",
+        "image": "../images/c1f943cd851b6293.png",
+        "box_abs": [
+          560,
+          0,
+          1200,
+          900
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "回执以树木/左侧路缘为主，自车本体不在图中。",
+      "action_return_judgment": "再找 front camera view，但已有原图本身就是前视图；裁中心道路。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 7,
+      "source_round": 6,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 3,
+          "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+          "image": "../images/1ec92d5615bf0e9c.png"
+        },
+        {
+          "view": 4,
+          "sha256": "b2d158dd72ed4bdf7154681a8908b090e680ba1749c10027638091e0d469ce21",
+          "image": "../images/b2d158dd72ed4bdf.png"
+        },
+        {
+          "view": 5,
+          "sha256": "9dbb1e842d4f70809d6ac5115e1928a8eaab79583719b56d7ace78c92e73867b",
+          "image": "../images/9dbb1e842d4f7080.png"
+        },
+        {
+          "view": 6,
+          "sha256": "c1f943cd851b6293c8ffd6eef6363504659950230452dde30f4bf292be1157c7",
+          "image": "../images/c1f943cd851b6293.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 7 | locate\n[observation_6] shows the forward roadway and distant traffic, but no camera-side view of the ego vehicle. I need a camera crop at the front or dashboard.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.15,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 7 | locate\n[observation_6] shows the forward roadway and distant traffic, but no camera-side view of the ego vehicle. I need a camera crop at the front or dashboard.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.15,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 7,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.15,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        135,
+        1600,
+        900
+      ],
+      "returned_view": {
+        "view": 7,
+        "sha256": "5bd2c80bd17439723bedbd56cd9ff050dbf36b217553d7df72577aaaef2d8a6e",
+        "image": "../images/5bd2c80bd1743972.png",
+        "box_abs": [
+          0,
+          135,
+          1600,
+          900
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "中心回执有道路与远车，没有自车侧面或仪表。",
+      "action_return_judgment": "改近整图继续找仪表；几何操作仍无法更换相机。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c03",
+      "uid": "mme_3918",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 8,
+      "source_round": 7,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 1,
+          "sha256": "6c30874ee7145d47a2fd7b445232eb49e526e0c362e738eb92c62f614093e4fd",
+          "image": "../images/6c30874ee7145d47.png"
+        },
+        {
+          "view": 2,
+          "sha256": "da941a5f9f1fe680d8cbba8e3e0cff432180f63461dfba9801a93d0158493709",
+          "image": "../images/da941a5f9f1fe680.png"
+        },
+        {
+          "view": 3,
+          "sha256": "1ec92d5615bf0e9c8395f87adf4566534af64f56db8fdaf1bfbaa593b38f460c",
+          "image": "../images/1ec92d5615bf0e9c.png"
+        },
+        {
+          "view": 4,
+          "sha256": "b2d158dd72ed4bdf7154681a8908b090e680ba1749c10027638091e0d469ce21",
+          "image": "../images/b2d158dd72ed4bdf.png"
+        },
+        {
+          "view": 5,
+          "sha256": "9dbb1e842d4f70809d6ac5115e1928a8eaab79583719b56d7ace78c92e73867b",
+          "image": "../images/9dbb1e842d4f7080.png"
+        },
+        {
+          "view": 6,
+          "sha256": "c1f943cd851b6293c8ffd6eef6363504659950230452dde30f4bf292be1157c7",
+          "image": "../images/c1f943cd851b6293.png"
+        },
+        {
+          "view": 7,
+          "sha256": "5bd2c80bd17439723bedbd56cd9ff050dbf36b217553d7df72577aaaef2d8a6e",
+          "image": "../images/5bd2c80bd1743972.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 8 | commit\nThe roadway ahead is clear in [observation_7], with no vehicle or speed indicator visible. The camera shows no steering or speed-related detail, so the answer is not among the listed choices.\n</think>\n<answer>E</answer>",
+      "text_in_history": "<think>\nStep 8 | commit\nThe roadway ahead is clear in [observation_7], with no vehicle or speed indicator visible. The camera shows no steering or speed-related detail, so the answer is not among the listed choices.\n</think>\n<answer>E</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 8,
+        "behavior": "commit",
+        "answer": "E",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "insufficient",
+      "evidence_judgment": "缺少直接速度/转向仪表不推出所有行为选项都错；任务是预测，并未要求必须读取仪表。",
+      "action_return_judgment": "选择 E（标签 D）；不能只凭这条轨迹认定底模绝不会该题或训练能修复。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c04",
+      "uid": "vstar_121",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "fed353c3f95557268585ba51f55d38a29ca8c80374aee8106c26cfaaa2a833d0",
+          "image": "../images/fed353c3f9555726.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nA red backpack is visible on the right side of the scene [original_image]. I need to locate the clock and compare their horizontal positions.\n</think>\n<grounding>{\"bbox_2d\":[0.35,0.40,0.6,0.65],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nA red backpack is visible on the right side of the scene [original_image]. I need to locate the clock and compare their horizontal positions.\n</think>\n<grounding>{\"bbox_2d\":[0.35,0.40,0.6,0.65],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.35,
+          0.4,
+          0.6,
+          0.65
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        788,
+        600,
+        1350,
+        975
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "ab0560b3b004a421301f374dca8f0886b40feb3897cc433e3c726372799e3dd3",
+        "image": "../images/ab0560b3b004a421.png",
+        "box_abs": [
+          788,
+          600,
+          1350,
+          975
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "原图右侧红背包可见，需要明确钟的位置。",
+      "action_return_judgment": "首裁包含钟而不含右侧红背包。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c04",
+      "uid": "vstar_121",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "fed353c3f95557268585ba51f55d38a29ca8c80374aee8106c26cfaaa2a833d0",
+          "image": "../images/fed353c3f9555726.png"
+        },
+        {
+          "view": 1,
+          "sha256": "ab0560b3b004a421301f374dca8f0886b40feb3897cc433e3c726372799e3dd3",
+          "image": "../images/ab0560b3b004a421.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | locate\nThe clock is in the center-left of this crop [observation_1]. The red backpack is still visible farther right in the main hall, so I need a wider view to confirm its position relative to the clock.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.4,0.9,0.9],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | locate\nThe clock is in the center-left of this crop [observation_1]. The red backpack is still visible farther right in the main hall, so I need a wider view to confirm its position relative to the clock.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.4,0.9,0.9],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.4,
+          0.9,
+          0.9
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        600,
+        2025,
+        1350
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "5bbf64b2df3b2bb6e0aa3d0af33b113436f189c305b65615e528c913343474a1",
+        "image": "../images/5bbf64b2df3b2bb6.png",
+        "box_abs": [
+          0,
+          600,
+          2025,
+          1350
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "模型已说钟在较左处、红背包 farther right；综合原图和 view 1，关系符合图像。背包不在 view 1，但原图仍在历史中，不能因此判幻觉。",
+      "action_return_judgment": "仍要求 wider view to confirm；第二裁把二者放进同一视图。这是停止候选，不是已证明的冗余。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c04",
+      "uid": "vstar_121",
+      "sample_idx": 1,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "fed353c3f95557268585ba51f55d38a29ca8c80374aee8106c26cfaaa2a833d0",
+          "image": "../images/fed353c3f9555726.png"
+        },
+        {
+          "view": 1,
+          "sha256": "ab0560b3b004a421301f374dca8f0886b40feb3897cc433e3c726372799e3dd3",
+          "image": "../images/ab0560b3b004a421.png"
+        },
+        {
+          "view": 2,
+          "sha256": "5bbf64b2df3b2bb6e0aa3d0af33b113436f189c305b65615e528c913343474a1",
+          "image": "../images/5bbf64b2df3b2bb6.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | commit\nThe red backpack is on the right side of the image, while the clock is on the center-left [observation_2]. Therefore, the backpack is on the right side of the clock.\n</think>\n<answer>A</answer>",
+      "text_in_history": "<think>\nStep 3 | commit\nThe red backpack is on the right side of the image, while the clock is on the center-left [observation_2]. Therefore, the backpack is on the right side of the clock.\n</think>\n<answer>A</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 3,
+        "behavior": "commit",
+        "answer": "A",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 2 同时显示钟和右侧红背包，关系 right 与 A 一致。",
+      "action_return_judgment": "答 A；此前强制停止能否同样答对仍未知。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c05",
+      "uid": "mme_6927",
+      "sample_idx": 2,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "72cf5a099bbab838c028c57d992c0ef7dcc3366a24cd12e69abc4d19fc178f6f",
+          "image": "../images/72cf5a099bbab838.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe Monthly CF Projections header lists Revenue rows under 31/out/22 through 31/mar/3, including a (t) Base Rental Income row. I need the value under 30/nov/22, Year 1 to distinguish (t) from the nearby Physical Vacancy and Bad Debt rows [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.02,0.00,0.42,0.20],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe Monthly CF Projections header lists Revenue rows under 31/out/22 through 31/mar/3, including a (t) Base Rental Income row. I need the value under 30/nov/22, Year 1 to distinguish (t) from the nearby Physical Vacancy and Bad Debt rows [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.02,0.00,0.42,0.20],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.02,
+          0.0,
+          0.42,
+          0.2
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        27,
+        0,
+        567,
+        176
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "f1773712ce7d7d519d22494e790c08006590f8b64bd5ef4fe4f7a846557aed12",
+        "image": "../images/f1773712ce7d7d51.png",
+        "box_abs": [
+          27,
+          0,
+          567,
+          176
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "目标行/月份定位合理；(t) 应为 (+)，文字中 31/mar/3 也不是精确转录，但不影响识别本题目标。",
+      "action_return_judgment": "第一裁只取到总额和左侧，未取到目标月值。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c05",
+      "uid": "mme_6927",
+      "sample_idx": 2,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "72cf5a099bbab838c028c57d992c0ef7dcc3366a24cd12e69abc4d19fc178f6f",
+          "image": "../images/72cf5a099bbab838.png"
+        },
+        {
+          "view": 1,
+          "sha256": "f1773712ce7d7d519d22494e790c08006590f8b64bd5ef4fe4f7a846557aed12",
+          "image": "../images/f1773712ce7d7d51.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | locate\nThe crop shows the Base Rental Income row total but cuts off the header and adjacent month columns [observation_1]. I need the yearly column headers and the 30/nov/22 cell within that row.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.58,0.14],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | locate\nThe crop shows the Base Rental Income row total but cuts off the header and adjacent month columns [observation_1]. I need the yearly column headers and the 30/nov/22 cell within that row.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.58,0.14],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          0.58,
+          0.14
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        783,
+        123
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "8e1cec236bfc6d76d7dd7d748e74579db8bdbf02353064cb960d71fde16db635",
+        "image": "../images/8e1cec236bfc6d76.png",
+        "box_abs": [
+          0,
+          0,
+          783,
+          123
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 1 有 Base Rental Income 总额，但目标月份列不在回执内；不是已经读到 88,789。",
+      "action_return_judgment": "第二裁补到 30/nov/22、Mo-1、Year 1 表头，但数值行仍不在回执内。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c05",
+      "uid": "mme_6927",
+      "sample_idx": 2,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "72cf5a099bbab838c028c57d992c0ef7dcc3366a24cd12e69abc4d19fc178f6f",
+          "image": "../images/72cf5a099bbab838.png"
+        },
+        {
+          "view": 1,
+          "sha256": "f1773712ce7d7d519d22494e790c08006590f8b64bd5ef4fe4f7a846557aed12",
+          "image": "../images/f1773712ce7d7d51.png"
+        },
+        {
+          "view": 2,
+          "sha256": "8e1cec236bfc6d76d7dd7d748e74579db8bdbf02353064cb960d71fde16db635",
+          "image": "../images/8e1cec236bfc6d76.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | locate\nThe header confirms 30/nov/22 is Mo - 1, Year 1, and the Revenue rows begin near the left [observation_2]. I can now bind the Base Rental Income amount to that month-column position.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.05,0.75,0.32],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 3 | locate\nThe header confirms 30/nov/22 is Mo - 1, Year 1, and the Revenue rows begin near the left [observation_2]. I can now bind the Base Rental Income amount to that month-column position.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.05,0.75,0.32],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 3,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.05,
+          0.75,
+          0.32
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        44,
+        1012,
+        281
+      ],
+      "returned_view": {
+        "view": 3,
+        "sha256": "ec5105b76481b5ee08aa81e0bc508b22a7904cc03b6451c3a980cafa3c95f7ff",
+        "image": "../images/ec5105b76481b5ee.png",
+        "box_abs": [
+          0,
+          44,
+          1012,
+          281
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 2 确认的是目标列日期/年月身份，不是已确认目标数值。",
+      "action_return_judgment": "第三裁包含目标行 88,789；必须结合前一视图的列位置绑定。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c05",
+      "uid": "mme_6927",
+      "sample_idx": 2,
+      "condition": "clean",
+      "step": 4,
+      "source_round": 3,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "72cf5a099bbab838c028c57d992c0ef7dcc3366a24cd12e69abc4d19fc178f6f",
+          "image": "../images/72cf5a099bbab838.png"
+        },
+        {
+          "view": 1,
+          "sha256": "f1773712ce7d7d519d22494e790c08006590f8b64bd5ef4fe4f7a846557aed12",
+          "image": "../images/f1773712ce7d7d51.png"
+        },
+        {
+          "view": 2,
+          "sha256": "8e1cec236bfc6d76d7dd7d748e74579db8bdbf02353064cb960d71fde16db635",
+          "image": "../images/8e1cec236bfc6d76.png"
+        },
+        {
+          "view": 3,
+          "sha256": "ec5105b76481b5ee08aa81e0bc508b22a7904cc03b6451c3a980cafa3c95f7ff",
+          "image": "../images/ec5105b76481b5ee.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 4 | commit\nThe Base Rental Income row under 30/nov/22, Year 1 shows 88,789 [observation_3]. This matches option C.\n</think>\n<answer>C</answer>",
+      "text_in_history": "<think>\nStep 4 | commit\nThe Base Rental Income row under 30/nov/22, Year 1 shows 88,789 [observation_3]. This matches option C.\n</think>\n<answer>C</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 4,
+        "behavior": "commit",
+        "answer": "C",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 3 的 Base Rental Income 目标列为 88,789，结合 view 2 日期，对应 C。",
+      "action_return_judgment": "正确跨视图绑定；说明 confirm 关键词不能直接作为多余裁图标签。原图也含数据，未证明每裁因果必要。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c06",
+      "uid": "vstar_135",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "320b95815b77e5e22d354e4505d5be77144a442cd6c20b6a5af1b69bb3a24a30",
+          "image": "../images/320b95815b77e5e2.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe people are small figures along the far shoreline on the left side of the image [original_image]. I will inspect that band to distinguish the blue- and white-trousered individuals.\n</think>\n<grounding>{\"bbox_2d\":[0,0.22,0.2,0.32],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe people are small figures along the far shoreline on the left side of the image [original_image]. I will inspect that band to distinguish the blue- and white-trousered individuals.\n</think>\n<grounding>{\"bbox_2d\":[0,0.22,0.2,0.32],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.22,
+          0.2,
+          0.32
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        330,
+        400,
+        480
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "a64e476e8b7e4a1bd51a5eb57d23a20421ad9c49061c67b6ec29ef42e8a7e74f",
+        "image": "../images/a64e476e8b7e4a1b.png",
+        "box_abs": [
+          0,
+          330,
+          400,
+          480
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "人群在左侧远岸是对的；blue- and white-trousered 的措辞可能将“穿蓝衣者”改成“蓝裤者”，不据此推定后续身份错误。",
+      "action_return_judgment": "先取远岸人物带，包含白裤者和蓝衣骑车者。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c06",
+      "uid": "vstar_135",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "320b95815b77e5e22d354e4505d5be77144a442cd6c20b6a5af1b69bb3a24a30",
+          "image": "../images/320b95815b77e5e2.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a64e476e8b7e4a1bd51a5eb57d23a20421ad9c49061c67b6ec29ef42e8a7e74f",
+          "image": "../images/a64e476e8b7e4a1b.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | locate\nThe distant shoreline contains several people, including a cyclist in blue and a person in white trousers [observation_1]. I will zoom in on the central figures to confirm their positions and clothing.\n</think>\n<grounding>{\"bbox_2d\":[0.3,0.35,0.65,0.8],\"source\":\"observation_1\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | locate\nThe distant shoreline contains several people, including a cyclist in blue and a person in white trousers [observation_1]. I will zoom in on the central figures to confirm their positions and clothing.\n</think>\n<grounding>{\"bbox_2d\":[0.3,0.35,0.65,0.8],\"source\":\"observation_1\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "observation_1",
+        "bbox": [
+          0.3,
+          0.35,
+          0.65,
+          0.8
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        120,
+        382,
+        260,
+        450
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "ded796ff197ab2f8b442c7599490f3e9da29c3dfa5e145f39c8405406ab6ef08",
+        "image": "../images/ded796ff197ab2f8.png",
+        "box_abs": [
+          120,
+          382,
+          260,
+          450
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 1 确有白裤站立者与右侧蓝衣骑车者。",
+      "action_return_judgment": "嵌套裁中央人物以辨认白裤；尚未明确写出两人左右关系。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c06",
+      "uid": "vstar_135",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "320b95815b77e5e22d354e4505d5be77144a442cd6c20b6a5af1b69bb3a24a30",
+          "image": "../images/320b95815b77e5e2.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a64e476e8b7e4a1bd51a5eb57d23a20421ad9c49061c67b6ec29ef42e8a7e74f",
+          "image": "../images/a64e476e8b7e4a1b.png"
+        },
+        {
+          "view": 2,
+          "sha256": "ded796ff197ab2f8b442c7599490f3e9da29c3dfa5e145f39c8405406ab6ef08",
+          "image": "../images/ded796ff197ab2f8.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | locate\nThe two central figures are seen from behind: one in dark clothing and the other in white trousers [observation_2]. Next I will inspect the cyclist in blue to distinguish him from the standing people.\n</think>\n<grounding>{\"bbox_2d\":[0.7,0.25,0.95,0.62],\"source\":\"observation_1\"}</grounding>",
+      "text_in_history": "<think>\nStep 3 | locate\nThe two central figures are seen from behind: one in dark clothing and the other in white trousers [observation_2]. Next I will inspect the cyclist in blue to distinguish him from the standing people.\n</think>\n<grounding>{\"bbox_2d\":[0.7,0.25,0.95,0.62],\"source\":\"observation_1\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 3,
+        "source": "observation_1",
+        "bbox": [
+          0.7,
+          0.25,
+          0.95,
+          0.62
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        280,
+        367,
+        380,
+        423
+      ],
+      "returned_view": {
+        "view": 3,
+        "sha256": "224865b589b3e7d9b5d3e3baf5aebcd61dcaf6588e3c492ca7135e0ec9a8c1a9",
+        "image": "../images/224865b589b3e7d9.png",
+        "box_abs": [
+          280,
+          367,
+          380,
+          423
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 2 显示深色衣者与白裤者；计划再核对蓝衣骑车者。",
+      "action_return_judgment": "裁 view 1 右侧，回执显示蓝衣骑车者。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c06",
+      "uid": "vstar_135",
+      "sample_idx": 3,
+      "condition": "clean",
+      "step": 4,
+      "source_round": 3,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "320b95815b77e5e22d354e4505d5be77144a442cd6c20b6a5af1b69bb3a24a30",
+          "image": "../images/320b95815b77e5e2.png"
+        },
+        {
+          "view": 1,
+          "sha256": "a64e476e8b7e4a1bd51a5eb57d23a20421ad9c49061c67b6ec29ef42e8a7e74f",
+          "image": "../images/a64e476e8b7e4a1b.png"
+        },
+        {
+          "view": 2,
+          "sha256": "ded796ff197ab2f8b442c7599490f3e9da29c3dfa5e145f39c8405406ab6ef08",
+          "image": "../images/ded796ff197ab2f8.png"
+        },
+        {
+          "view": 3,
+          "sha256": "224865b589b3e7d9b5d3e3baf5aebcd61dcaf6588e3c492ca7135e0ec9a8c1a9",
+          "image": "../images/224865b589b3e7d9.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 4 | commit\nThe cyclist in blue is on the right side of the distant shoreline, and the person in white trousers is farther left [observation_3] [observation_2]. Therefore the person in white trousers is on the left side of the blue cyclist.\n</think>\n<answer>B</answer>",
+      "text_in_history": "<think>\nStep 4 | commit\nThe cyclist in blue is on the right side of the distant shoreline, and the person in white trousers is farther left [observation_3] [observation_2]. Therefore the person in white trousers is on the left side of the blue cyclist.\n</think>\n<answer>B</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 4,
+        "behavior": "commit",
+        "answer": "B",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "supported",
+      "evidence_judgment": "综合 view 1 的共同坐标与 view 2/3 的身份，白裤者在蓝衣骑车者左侧，B 正确。",
+      "action_return_judgment": "身份对比的合理例子；不据审查者早已看出位置认定后两裁无效。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c07",
+      "uid": "vstar_181",
+      "sample_idx": 0,
+      "condition": "clean",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "b78a042f67808dd6d4f15d6f8a0a47248ace7cc24700a78313086754f718aec2",
+          "image": "../images/b78a042f67808dd6.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe cyclists occupy the roadway; small balloons appear mid-park among them, but their colors and one another’s positions are too small to bind reliably in the full view [original_image]. I will inspect the central roadway for the balloons and their relation.\n</think>\n<grounding>{\"bbox_2d\":[0.2,0.3,0.85,0.75],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe cyclists occupy the roadway; small balloons appear mid-park among them, but their colors and one another’s positions are too small to bind reliably in the full view [original_image]. I will inspect the central roadway for the balloons and their relation.\n</think>\n<grounding>{\"bbox_2d\":[0.2,0.3,0.85,0.75],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.2,
+          0.3,
+          0.85,
+          0.75
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        450,
+        450,
+        1912,
+        1125
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "33f20ca5bf1cd805c9db88f813f45715cb078312349fafa39bceb8b52600dbc7",
+        "image": "../images/33f20ca5bf1cd805.png",
+        "box_abs": [
+          450,
+          450,
+          1912,
+          1125
+        ]
+      },
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "原图有骑车人和小气球；模型说 mid-park，场景实际为城市道路，非关键位置关系错误。",
+      "action_return_judgment": "首裁放大到红白气球和骑车人。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c07",
+      "uid": "vstar_181",
+      "sample_idx": 0,
+      "condition": "clean",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "b78a042f67808dd6d4f15d6f8a0a47248ace7cc24700a78313086754f718aec2",
+          "image": "../images/b78a042f67808dd6.png"
+        },
+        {
+          "view": 1,
+          "sha256": "33f20ca5bf1cd805c9db88f813f45715cb078312349fafa39bceb8b52600dbc7",
+          "image": "../images/33f20ca5bf1cd805.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | locate\nThe roadway contains several small balloons, including white and red ones among the cyclists [observation_1]. I will zoom the upper roadway section to distinguish the two balloons and compare their positions.\n</think>\n<grounding>{\"bbox_2d\":[0.5,0.0,0.95,0.75],\"source\":\"observation_1\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | locate\nThe roadway contains several small balloons, including white and red ones among the cyclists [observation_1]. I will zoom the upper roadway section to distinguish the two balloons and compare their positions.\n</think>\n<grounding>{\"bbox_2d\":[0.5,0.0,0.95,0.75],\"source\":\"observation_1\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "observation_1",
+        "bbox": [
+          0.5,
+          0.0,
+          0.95,
+          0.75
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        1181,
+        450,
+        1839,
+        956
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "53af286d555659d47fc3e0761d9a8ba28d88d32b0b3e36687617eee2fc4516ad",
+        "image": "../images/53af286d555659d4.png",
+        "box_abs": [
+          1181,
+          450,
+          1839,
+          956
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 1 已同时显示红白气球；本轮只说要比较位置，并未像 c04 明确断言正确关系。",
+      "action_return_judgment": "再次放大同一区域；审查者可见 below，不等于模型此刻停止能答对。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "c07",
+      "uid": "vstar_181",
+      "sample_idx": 0,
+      "condition": "clean",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "b78a042f67808dd6d4f15d6f8a0a47248ace7cc24700a78313086754f718aec2",
+          "image": "../images/b78a042f67808dd6.png"
+        },
+        {
+          "view": 1,
+          "sha256": "33f20ca5bf1cd805c9db88f813f45715cb078312349fafa39bceb8b52600dbc7",
+          "image": "../images/33f20ca5bf1cd805.png"
+        },
+        {
+          "view": 2,
+          "sha256": "53af286d555659d47fc3e0761d9a8ba28d88d32b0b3e36687617eee2fc4516ad",
+          "image": "../images/53af286d555659d4.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | commit\nIn [observation_2], the red balloon is below and to the right of the white balloon, both attached to the same cyclist near the upper roadway. The red balloon is therefore below the white balloon.\n</think>\n<answer>A</answer>",
+      "text_in_history": "<think>\nStep 3 | commit\nIn [observation_2], the red balloon is below and to the right of the white balloon, both attached to the same cyclist near the upper roadway. The red balloon is therefore below the white balloon.\n</think>\n<answer>A</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 3,
+        "behavior": "commit",
+        "answer": "A",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "mixed",
+      "evidence_judgment": "红球在白球下方且偏右可见，A 一致；both attached to the same cyclist 的归属无法从这些图可靠核定。",
+      "action_return_judgment": "答案关系有图支持，附带归属仍为 unknown，不把整段认作全真。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e08",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe visible sports widgets show Athletics and Blue Jays with yellow and blue icons, Twins with red, and Giants with an orange/red icon [original_image]. The corner question is about apps appearing after closing the notification panel, so I need the home screen layout.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,0.99],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe visible sports widgets show Athletics and Blue Jays with yellow and blue icons, Twins with red, and Giants with an orange/red icon [original_image]. The corner question is about apps appearing after closing the notification panel, so I need the home screen layout.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.01,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          0.99
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        5,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+        "image": "../images/066f5842e70adf24.png",
+        "box_abs": [
+          0,
+          5,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "与 c00 同样识别体育组件及关闭面板后的问题，目标主屏幕当前未显示。",
+      "action_return_judgment": "首裁执行框经 E2 改写；回执仍是通知面板，不能当作自动切换界面。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e08",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+          "image": "../images/066f5842e70adf24.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | fallback\nThe crop shows only the notification panel and sports widgets [observation_1], not the home screen where app icons would appear. I need a wider view of the full screen to identify the green icon apps and their corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 2 | fallback\nThe crop shows only the notification panel and sports widgets [observation_1], not the home screen where app icons would appear. I need a wider view of the full screen to identify the green icon apps and their corners.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 2,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "behavior": "fallback",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        0,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 2,
+        "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+        "image": "../images/a42e7b10b8b1c621.png",
+        "box_abs": [
+          0,
+          0,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "正确说回执是通知面板而非主屏幕。",
+      "action_return_judgment": "请求整图；仍同一面板。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e08",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 3,
+      "source_round": 2,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+          "image": "../images/066f5842e70adf24.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 3 | locate\nThe full view shows only the notification panel and sports widgets, with no visible app icons [observation_2]. I need the home screen below the panel, including the dock, to identify green icon apps.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.2,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 3 | locate\nThe full view shows only the notification panel and sports widgets, with no visible app icons [observation_2]. I need the home screen below the panel, including the dock, to identify green icon apps.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.2,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 3,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.2,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        96,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 3,
+        "sha256": "608c1943a31008ba12766db184a8ed4c033965bc5ec1fc601c48ee9195ce0846",
+        "image": "../images/608c1943a31008ba.png",
+        "box_abs": [
+          0,
+          96,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "supported",
+      "evidence_judgment": "正确说整图只有面板和组件；主屏幕 apps 未显示。",
+      "action_return_judgment": "转裁面板下部，无法关闭面板。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e08",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 4,
+      "source_round": 3,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+          "image": "../images/066f5842e70adf24.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "608c1943a31008ba12766db184a8ed4c033965bc5ec1fc601c48ee9195ce0846",
+          "image": "../images/608c1943a31008ba.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 4 | locate\nThe home screen crop shows only the weather and SportsCenter widgets, with no app icons visible [observation_3]. I need the app dock at the bottom to identify green icon apps.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.65,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 4 | locate\nThe home screen crop shows only the weather and SportsCenter widgets, with no app icons visible [observation_3]. I need the app dock at the bottom to identify green icon apps.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.65,1.0,1.0],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 4,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.65,
+          1.0,
+          1.0
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        312,
+        271,
+        480
+      ],
+      "returned_view": {
+        "view": 4,
+        "sha256": "34d06fd0f1da5f324edc49e090115ad923d2b922a93acb2d8caec591069db18b",
+        "image": "../images/34d06fd0f1da5f32.png",
+        "box_abs": [
+          0,
+          312,
+          271,
+          480
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 3 仍为通知面板下半部，却改称 home screen crop。天气/体育组件仍可见的子陈述是对的。",
+      "action_return_judgment": "据此向下找 app dock；回执实为 Twins/Giants 比赛组件和面板底部。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e08",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 5,
+      "source_round": 4,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+          "image": "../images/066f5842e70adf24.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "608c1943a31008ba12766db184a8ed4c033965bc5ec1fc601c48ee9195ce0846",
+          "image": "../images/608c1943a31008ba.png"
+        },
+        {
+          "view": 4,
+          "sha256": "34d06fd0f1da5f324edc49e090115ad923d2b922a93acb2d8caec591069db18b",
+          "image": "../images/34d06fd0f1da5f32.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 5 | locate\nThe dock shows only the Twins and Giants sports apps, with red and orange/red icons [observation_4]. I still need the full home screen above the dock to identify any green icon apps.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.05,1.0,0.65],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 5 | locate\nThe dock shows only the Twins and Giants sports apps, with red and orange/red icons [observation_4]. I still need the full home screen above the dock to identify any green icon apps.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.05,1.0,0.65],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 5,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.05,
+          1.0,
+          0.65
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        24,
+        271,
+        312
+      ],
+      "returned_view": {
+        "view": 5,
+        "sha256": "dafe97291a900efe9f3da45737cc2160fa30a5ebf2388616592cc97cfb868274",
+        "image": "../images/dafe97291a900efe.png",
+        "box_abs": [
+          0,
+          24,
+          271,
+          312
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 4 的 Twins/Giants 是球队比分条目，不是 dock 上的两个 sports apps。",
+      "action_return_judgment": "又裁上方找主屏幕；错误界面身份已进入后续取景理由。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e08",
+      "uid": "worldbench_1341",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 6,
+      "source_round": 5,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 1,
+          "sha256": "066f5842e70adf242044a6183325555542d979cf7a15733e2dcfd2ec4d470959",
+          "image": "../images/066f5842e70adf24.png"
+        },
+        {
+          "view": 2,
+          "sha256": "a42e7b10b8b1c6219bdcceef5de4490dcaf77d28fbe3e1ef791c16d672b131c8",
+          "image": "../images/a42e7b10b8b1c621.png"
+        },
+        {
+          "view": 3,
+          "sha256": "608c1943a31008ba12766db184a8ed4c033965bc5ec1fc601c48ee9195ce0846",
+          "image": "../images/608c1943a31008ba.png"
+        },
+        {
+          "view": 4,
+          "sha256": "34d06fd0f1da5f324edc49e090115ad923d2b922a93acb2d8caec591069db18b",
+          "image": "../images/34d06fd0f1da5f32.png"
+        },
+        {
+          "view": 5,
+          "sha256": "dafe97291a900efe9f3da45737cc2160fa30a5ebf2388616592cc97cfb868274",
+          "image": "../images/dafe97291a900efe.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 6 | commit\nThe full home screen contains no green icon apps; visible icons are yellow, blue, red, and orange/red [observation_3, observation_4, observation_5]. Therefore no corners show green icon apps, and the answer is not among the listed choices.\n</think>\n<answer>UNCLEAR</answer>",
+      "text_in_history": "<think>\nStep 6 | commit\nThe full home screen contains no green icon apps; visible icons are yellow, blue, red, and orange/red [observation_3, observation_4, observation_5]. Therefore no corners show green icon apps, and the answer is not among the listed choices.\n</think>\n<answer>UNCLEAR</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 6,
+        "behavior": "commit",
+        "answer": "UNCLEAR",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "view 3/4/5 都不展示关闭后的完整主屏幕，“full home screen contains no green apps”没有依据。",
+      "action_return_judgment": "答 UNCLEAR 不是被核实的正确拒答；与 c00 的正确标签不能直接比较为能力变好/变坏。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e09",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 1,
+      "source_round": 0,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 1 | locate\nThe Balance Structure table contains a Long-term Liabilities section under 1Q-2019, with a range value in parentheses. I need a closer crop to read the exact amount. [original_image]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.5,0.57,0.99],\"source\":\"original_image\"}</grounding>",
+      "text_in_history": "<think>\nStep 1 | locate\nThe Balance Structure table contains a Long-term Liabilities section under 1Q-2019, with a range value in parentheses. I need a closer crop to read the exact amount. [original_image]\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.01,0.57,0.5],\"source\":\"original_image\"}</grounding>",
+      "requested_action": {
+        "kind": "grounding",
+        "step": 1,
+        "source": "original_image",
+        "bbox": [
+          0.0,
+          0.5,
+          0.57,
+          0.99
+        ],
+        "behavior": "locate",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": [
+        0,
+        8,
+        844,
+        396
+      ],
+      "returned_view": {
+        "view": 1,
+        "sha256": "999d1e3b8773eb391967afa903b0c29f96da8f80af94ffa836edb62fcd8953e3",
+        "image": "../images/999d1e3b8773eb39.png",
+        "box_abs": [
+          0,
+          8,
+          844,
+          396
+        ]
+      },
+      "focal_claim_status": "refuted",
+      "evidence_judgment": "仍将上方图表问题说成表格中括号范围，理由同 c01 Step 1。",
+      "action_return_judgment": "请求下方表格，但 E2 实际框上移到目标条形图；是扰动改善取景，不是模型自主 recover。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    },
+    {
+      "case_id": "e09",
+      "uid": "mme_6116",
+      "sample_idx": 3,
+      "condition": "e2",
+      "step": 2,
+      "source_round": 1,
+      "available_views": [
+        {
+          "view": 0,
+          "sha256": "d87cdacc186433b5f5f6f28a41b35b67aa98de6bb8a0da0f45adc612a98cdb9a",
+          "image": "../images/d87cdacc186433b5.png"
+        },
+        {
+          "view": 1,
+          "sha256": "999d1e3b8773eb391967afa903b0c29f96da8f80af94ffa836edb62fcd8953e3",
+          "image": "../images/999d1e3b8773eb39.png"
+        }
+      ],
+      "generated_text": "<think>\nStep 2 | commit\nIn the Balance Structure, IQ-2019 diagram, the Long-term Liabilities range is $1.38M [observation_1]. This matches option B.\n</think>\n<answer>B</answer>",
+      "text_in_history": "<think>\nStep 2 | commit\nIn the Balance Structure, IQ-2019 diagram, the Long-term Liabilities range is $1.38M [observation_1]. This matches option B.\n</think>\n<answer>B</answer>",
+      "requested_action": {
+        "kind": "answer",
+        "step": 2,
+        "behavior": "commit",
+        "answer": "B",
+        "errors": [],
+        "updates": []
+      },
+      "executed_box_abs": null,
+      "returned_view": null,
+      "focal_claim_status": "supported",
+      "evidence_judgment": "view 1 目标绿色 1Q 条为 $1.38M，B=$1.38M，读数与绑定一致。",
+      "action_return_judgment": "一裁后答 B；不能从该自然配对估计同一前缀改变定位的因果效果。",
+      "causal_crop_utility": "not_identified",
+      "diagnostic_use": "review_only_not_training_target"
+    }
+  ]
+}
