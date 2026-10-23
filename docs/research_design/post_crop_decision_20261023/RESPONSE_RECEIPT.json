@@ -1,0 +1,13 @@
+{
+  "status": "response_complete",
+  "mode": "Pro",
+  "url": "https://chatgpt.com/c/6ad96787-973c-83e9-9908-78255aab2397",
+  "input_commit": "63c28ef843f1fa19f296eef0cf20a64cc8ebfa61",
+  "completed_utc": "2026-10-23T08:02:29.299Z",
+  "raw_characters": 20382,
+  "raw_response_sha256": "691b78bdf067531c91d8645474fbd877fafb1a624f10bc31d2ed7da5127ef664",
+  "prompt_sha256": "da453c3fb225904e709b6c1c3c21a5c26964e0a4b90cfc7824836f4d2aefccd0",
+  "published_response_rendering": "math delimiters changed; provenance header added",
+  "study_written": false,
+  "gpu_jobs_started": false
+}

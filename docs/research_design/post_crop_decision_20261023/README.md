@@ -1,6 +1,10 @@
 # 下一轮 Pro 输入：第一次裁图后，何时已经足够？
 
-状态：设计咨询；停止首轮 Stage 1 的决定保留。未经用户/导师新安排，不采样、不训练、不启动小头。先读 [工程与建模教训](LESSONS.md)，再读 [Stage 0](../../../logs/dl/stage0/README.md)。数据基线 `5399cba`。
+**已完成 Pro 咨询；先看 [结论与下一步](READOUT.md)，另有 [完整回复](PRO_RESPONSE.md)、[实际提示词](SENT_PROMPT.md)和[完成回执](RESPONSE_RECEIPT.json)。**
+
+以下保留发送时的问题包。状态：设计咨询；停止首轮 Stage 1 的决定保留。未经用户/导师新安排，不采样、不训练、不启动小头。先读 [工程与建模教训](LESSONS.md)，再读 [Stage 0](../../../logs/dl/stage0/README.md)。数据基线 `5399cba`。
+
+补充：[后续奖励与势能的代数核对](ALGEBRA.md)。这是 Codex 自查，不改变已发送的输入提交。
 
 ## 要解决的一个问题
 

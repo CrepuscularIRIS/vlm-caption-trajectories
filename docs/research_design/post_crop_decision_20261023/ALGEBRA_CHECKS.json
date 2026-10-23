@@ -1,0 +1,11 @@
+{
+  "scope": "algebra numerical spot checks, not runtime/optimization validation",
+  "five_way_KL_identity_abs_error": 4.163336342344337e-17,
+  "scalar_gradient_abs_error": 1.397632010124994e-12,
+  "history_cost_example": {
+    "original_D": 2.0300000000000006e-05,
+    "future_only_D": -2.9999999999999645e-05
+  },
+  "K4_negative_accuracy_gap_best_cost_bound": -0.16999999999999998,
+  "pro_max_generated_assistant_tokens": 368640
+}
