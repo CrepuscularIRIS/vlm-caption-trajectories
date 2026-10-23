@@ -1,0 +1,10 @@
+{
+  "source_commit": "3d7a7ba60922ef75205c5af8539356608efc4389",
+  "case": "c02",
+  "uid": "mme_3688",
+  "D": "(D) The ego vehicle is steering to the left. The ego vehicle is driving with normal speed.",
+  "other_uid": "mme_3918",
+  "other_D": "(D) The ego vehicle is slightly steering to the right. The ego vehicle is driving with normal speed.",
+  "verdict": "A mixed two UIDs; original c02 left-turn annotation is correct about option text",
+  "scope": "Question/annotation join only; no new image review."
+}
