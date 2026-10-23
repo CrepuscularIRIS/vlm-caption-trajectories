@@ -1,0 +1,284 @@
+{
+ "clean": {
+  "trajectories": 2208,
+  "accuracy": 0.6634963768115942,
+  "crops_per_q": 2.0783514492753623,
+  "share_ge2_crops": 0.4642210144927536,
+  "cap_hits": 96,
+  "first_crop_full_image": 77,
+  "later_crops": 2386,
+  "later_crops_in_cap_hit_traj": 581,
+  "acc_by_n_crops": {
+   "0": {
+    "n": 5,
+    "acc": 0.2
+   },
+   "1": {
+    "n": 1178,
+    "acc": 0.7682512733446519
+   },
+   "2": {
+    "n": 469,
+    "acc": 0.5927505330490405
+   },
+   "3": {
+    "n": 215,
+    "acc": 0.5488372093023256
+   },
+   "4": {
+    "n": 127,
+    "acc": 0.5275590551181102
+   },
+   "5": {
+    "n": 65,
+    "acc": 0.5230769230769231
+   },
+   "6": {
+    "n": 53,
+    "acc": 0.4339622641509434
+   },
+   "7": {
+    "n": 96,
+    "acc": 0.40625
+   }
+  },
+  "turn2_behavior": {
+   "commit": 1178,
+   "locate": 496,
+   "re_examine": 294,
+   "fallback": 234,
+   "None": 1
+  },
+  "later_geometry": {
+   "new_region": {
+    "n": 864,
+    "share": 0.36211232187761944,
+    "traj_acc": 0.5578703703703703
+   },
+   "zoom_into_crop": {
+    "n": 429,
+    "share": 0.17979882648784576,
+    "traj_acc": 0.4522144522144522
+   },
+   "shifted_overlap": {
+    "n": 394,
+    "share": 0.16512992455993294,
+    "traj_acc": 0.47715736040609136
+   },
+   "shrink_from_original": {
+    "n": 289,
+    "share": 0.12112321877619447,
+    "traj_acc": 0.5051903114186851
+   },
+   "widen": {
+    "n": 225,
+    "share": 0.09430008382229674,
+    "traj_acc": 0.5466666666666666
+   },
+   "full_image": {
+    "n": 95,
+    "share": 0.039815590947191955,
+    "traj_acc": 0.28421052631578947
+   },
+   "repeat_same_region": {
+    "n": 90,
+    "share": 0.037720033528918694,
+    "traj_acc": 0.4666666666666667
+   }
+  },
+  "later_intent_keywords": {
+   "closer/enlarge/read": 582,
+   "confirm/verify": 347,
+   "other/rest/another": 193,
+   "wider/whole": 102,
+   "compare/reference": 70
+  },
+  "after_confirm_crop_next_kind": {
+   "answer": 208,
+   "grounding": 137,
+   "None": 2
+  },
+  "revisit_nonadjacent_iou_gt_.8": {
+   "n=3,none": {
+    "n": 206,
+    "acc": 0.5485436893203883
+   },
+   "n=3,revisit": {
+    "n": 9,
+    "acc": 0.5555555555555556
+   },
+   "n=4,none": {
+    "n": 117,
+    "acc": 0.5213675213675214
+   },
+   "n=4,revisit": {
+    "n": 10,
+    "acc": 0.6
+   },
+   "n=5,none": {
+    "n": 54,
+    "acc": 0.48148148148148145
+   },
+   "n=5,revisit": {
+    "n": 11,
+    "acc": 0.7272727272727273
+   },
+   "n=6,none": {
+    "n": 48,
+    "acc": 0.4791666666666667
+   },
+   "n=6,revisit": {
+    "n": 5,
+    "acc": 0.0
+   },
+   "n=7,none": {
+    "n": 73,
+    "acc": 0.4520547945205479
+   },
+   "n=7,revisit": {
+    "n": 23,
+    "acc": 0.2608695652173913
+   }
+  }
+ },
+ "e2_first_crop_shifted": {
+  "trajectories": 2208,
+  "accuracy": 0.6530797101449275,
+  "crops_per_q": 3.2115036231884058,
+  "share_ge2_crops": 0.9615036231884058,
+  "cap_hits": 167,
+  "first_crop_full_image": 75,
+  "later_crops": 4888,
+  "later_crops_in_cap_hit_traj": 1024,
+  "acc_by_n_crops": {
+   "0": {
+    "n": 5,
+    "acc": 0.4
+   },
+   "1": {
+    "n": 80,
+    "acc": 0.5375
+   },
+   "2": {
+    "n": 907,
+    "acc": 0.7442116868798236
+   },
+   "3": {
+    "n": 532,
+    "acc": 0.6296992481203008
+   },
+   "4": {
+    "n": 267,
+    "acc": 0.6067415730337079
+   },
+   "5": {
+    "n": 158,
+    "acc": 0.5253164556962026
+   },
+   "6": {
+    "n": 92,
+    "acc": 0.6304347826086957
+   },
+   "7": {
+    "n": 167,
+    "acc": 0.5029940119760479
+   }
+  },
+  "turn2_behavior": {
+   "fallback": 1701,
+   "locate": 313,
+   "re_examine": 107,
+   "commit": 82
+  },
+  "later_geometry": {
+   "new_region": {
+    "n": 2728,
+    "share": 0.55810147299509,
+    "traj_acc": 0.6422287390029325
+   },
+   "shifted_overlap": {
+    "n": 664,
+    "share": 0.13584288052373159,
+    "traj_acc": 0.5451807228915663
+   },
+   "shrink_from_original": {
+    "n": 506,
+    "share": 0.10351882160392799,
+    "traj_acc": 0.5395256916996047
+   },
+   "widen": {
+    "n": 465,
+    "share": 0.09513093289689034,
+    "traj_acc": 0.6473118279569893
+   },
+   "zoom_into_crop": {
+    "n": 357,
+    "share": 0.07303600654664484,
+    "traj_acc": 0.6106442577030813
+   },
+   "repeat_same_region": {
+    "n": 101,
+    "share": 0.020662847790507366,
+    "traj_acc": 0.44554455445544555
+   },
+   "full_image": {
+    "n": 67,
+    "share": 0.013707037643207857,
+    "traj_acc": 0.31343283582089554
+   }
+  },
+  "later_intent_keywords": {
+   "closer/enlarge/read": 1209,
+   "confirm/verify": 519,
+   "other/rest/another": 226,
+   "wider/whole": 169,
+   "compare/reference": 107
+  },
+  "after_confirm_crop_next_kind": {
+   "answer": 311,
+   "grounding": 208
+  },
+  "revisit_nonadjacent_iou_gt_.8": {
+   "n=3,none": {
+    "n": 530,
+    "acc": 0.6320754716981132
+   },
+   "n=3,revisit": {
+    "n": 2,
+    "acc": 0.0
+   },
+   "n=4,none": {
+    "n": 260,
+    "acc": 0.6115384615384616
+   },
+   "n=4,revisit": {
+    "n": 7,
+    "acc": 0.42857142857142855
+   },
+   "n=5,none": {
+    "n": 145,
+    "acc": 0.5241379310344828
+   },
+   "n=5,revisit": {
+    "n": 13,
+    "acc": 0.5384615384615384
+   },
+   "n=6,none": {
+    "n": 80,
+    "acc": 0.625
+   },
+   "n=6,revisit": {
+    "n": 12,
+    "acc": 0.6666666666666666
+   },
+   "n=7,none": {
+    "n": 134,
+    "acc": 0.5223880597014925
+   },
+   "n=7,revisit": {
+    "n": 33,
+    "acc": 0.42424242424242425
+   }
+  }
+ }
+}
