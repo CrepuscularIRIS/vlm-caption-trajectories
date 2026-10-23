@@ -1,0 +1,173 @@
+{
+ "input_sha256": {
+  "audit_states.json": "5c2ae008a53a98c6790f96c2455023a92dc0f4e0dcb560afe08a2ff71fa0e491",
+  "grpo_v3_A_dl_main_forks.jsonl.948294": "ad5b7c9c424bed89f224d5b42ac6eed73cd7139da30bbb6172c92c8ed51c161b",
+  "grpo_v3_A_dl_main_forks.jsonl.949089": "5fb65715bd384f0f447de9dc03c33c6d6b7b2ef449f616aeff9ae9b79d6f8150",
+  "score_ctrl.json": "76b586cfb2ce7c5bd3fe46592cf56cbf54bc06863f48fa3786effde62806351f",
+  "score_main.json": "e281381e9dca004893e5cc9a3b407af3a65bd183ebf4c49c1a57399333bfc8b1",
+  "score_ref.json": "2a1dedc5972e2af0a13d415a1697c01ee18d571dc6fa7b014e1e2c1a0256e695"
+ },
+ "inputs": {
+  "audit_states": 64,
+  "train_states": 240,
+  "audit_invalid_forks": 13
+ },
+ "reliability": {
+  "audit_ref": {
+   "(0, 1)|(2, 3)": {
+    "pearson": 0.7051138852392695,
+    "spearman": 0.6827182838817325,
+    "spearman_brown_4": 0.8270578186515966,
+    "signal_var_est": 0.16397193080357142,
+    "var_D_full": 0.1984156746031746,
+    "signal_share_of_D_full": 0.8264061351579726,
+    "sign_agree_both_nonzero": [
+     40,
+     43
+    ],
+    "pearson_ci95": [
+     0.5257134178145232,
+     0.8305651896357208
+    ]
+   },
+   "(0, 2)|(1, 3)": {
+    "pearson": 0.6561523093273292,
+    "spearman": 0.6988911286480313,
+    "spearman_brown_4": 0.7923816011751179,
+    "signal_var_est": 0.15642601686507937,
+    "var_D_full": 0.1984156746031746,
+    "signal_share_of_D_full": 0.7883752993705094,
+    "sign_agree_both_nonzero": [
+     39,
+     41
+    ],
+    "pearson_ci95": [
+     0.4734838334923076,
+     0.7955313197080448
+    ]
+   },
+   "(0, 3)|(1, 2)": {
+    "pearson": 0.7113062845333316,
+    "spearman": 0.677745350544729,
+    "spearman_brown_4": 0.8313021356399715,
+    "signal_var_est": 0.16422867683531747,
+    "var_D_full": 0.1984156746031746,
+    "signal_share_of_D_full": 0.8277001157482639,
+    "sign_agree_both_nonzero": [
+     40,
+     42
+    ],
+    "pearson_ci95": [
+     0.5320466997617961,
+     0.834103575905577
+    ]
+   }
+  },
+  "train_main": {
+   "(0, 1)|(2, 3)": {
+    "pearson": 0.6961850730300605,
+    "spearman": 0.7199467217331443,
+    "spearman_brown_4": 0.8208833860168305,
+    "signal_var_est": 0.1770341579497908,
+    "var_D_full": 0.2156782670850767,
+    "signal_share_of_D_full": 0.820825205721621,
+    "sign_agree_both_nonzero": [
+     133,
+     149
+    ],
+    "pearson_ci95": [
+     0.622980030933812,
+     0.7610788922433048
+    ]
+   },
+   "(0, 2)|(1, 3)": {
+    "pearson": 0.7135152764560061,
+    "spearman": 0.7338030053000059,
+    "spearman_brown_4": 0.8328087718386038,
+    "signal_var_est": 0.17943342573221757,
+    "var_D_full": 0.2156782670850767,
+    "signal_share_of_D_full": 0.8319494966149652,
+    "sign_agree_both_nonzero": [
+     134,
+     148
+    ],
+    "pearson_ci95": [
+     0.644807742903518,
+     0.7739479671352629
+    ]
+   },
+   "(0, 3)|(1, 2)": {
+    "pearson": 0.6776443421164106,
+    "spearman": 0.685714082350332,
+    "spearman_brown_4": 0.8078522069362295,
+    "signal_var_est": 0.17380861227336122,
+    "var_D_full": 0.2156782670850767,
+    "signal_share_of_D_full": 0.8058698478173533,
+    "sign_agree_both_nonzero": [
+     133,
+     148
+    ],
+    "pearson_ci95": [
+     0.6001222513379341,
+     0.7458112318188896
+    ]
+   }
+  }
+ },
+ "decompose": {
+  "audit_ref": {
+   "mean_D": -0.468125,
+   "mean_dY": -0.4765625,
+   "mean_cost_part": 0.008437500000000011,
+   "D_pos": 5,
+   "D_neg": 46,
+   "D_zero": 13,
+   "D_pos_with_dY_pos": 4,
+   "D_pos_cost_only": 1,
+   "D_pos_with_dY_neg": 0,
+   "mean_acc_answer": 0.08984375,
+   "mean_acc_crop": 0.56640625,
+   "mean_crops_crop_branch": 1.80859375
+  },
+  "train_main": {
+   "mean_D": -0.44566666666666666,
+   "mean_dY": -0.45416666666666666,
+   "mean_cost_part": 0.008500000000000008,
+   "D_pos": 30,
+   "D_neg": 172,
+   "D_zero": 38,
+   "D_pos_with_dY_pos": 23,
+   "D_pos_cost_only": 7,
+   "D_pos_with_dY_neg": 0,
+   "mean_acc_answer": 0.12604166666666666,
+   "mean_acc_crop": 0.5802083333333333,
+   "mean_crops_crop_branch": 1.584375
+  }
+ },
+ "room_audit_ref": {
+  "in_sample": {
+   "oracle": 0.0316796875,
+   "best_threshold": 0.023515625,
+   "threshold": -20.535712838191557,
+   "oracle_minus_threshold": 0.0081640625,
+   "always_answer": -0.468125
+  },
+  "cross_fit": {
+   "oracle_from_fit": 0.008398437500000001,
+   "threshold": 0.0196875,
+   "always_answer": -0.468125,
+   "oracle_minus_threshold": {
+    "mean": -0.011289062499999999,
+    "ci95": [
+     -0.038359375,
+     0.011953125
+    ]
+   },
+   "thresholds": [
+    -20.535712838191557,
+    -23.214286804201038
+   ]
+  },
+  "takeover_10pct_scale": 0.1
+ }
+}
