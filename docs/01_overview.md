@@ -195,7 +195,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
 | H2（6k） | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | 排队（B5 之后） |
 | B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
-| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-25 02:08 重启，`b4_6k_m1`：update micro batch 2 → 1，其余不变；验证集 422 题）。第一次（`b4_6k`）在第 7 步 CUDA OOM 退出，见 §5.2 |
+| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-25 07:27 第三次启动，`b4_6k_r3`，见 §5.2） |
 | B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练中**（10-25 04:45 开始，47 步，验证集 422 题） |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | X1 | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
@@ -266,6 +266,10 @@ B2 的 2,208 条轨迹按最后一轮分类：
 - 时间均为北京时间。预计完成时间 = 每步时间 × 47，再加上验证和保存；实际以训练日志为准。
 - 之前按“到收敛为止”启动的两组（12:50 / 13:18）已在导师 10-24 回复后停止，没有使用它们的结果。
 - 8k 题池的两组（13:53 启动）在 17:57 停止（B4 完成 10 步，B6 完成 21 步），没有使用它们的结果。
+- B4 启动记录（只改工程设置；题池、奖励、学习率、步数、rollout 数、batch 不变）：
+  1. `b4_6k`（10-24 17:58）：第 7 步 update_actor 中 `torch.OutOfMemoryError`，见上。
+  2. `b4_6k_m1`（10-25 02:08，update micro batch 2 → 1）：完成 11 步后，第 12 步 compute_log_probs 中 Ray worker 退出（`ActorDiedError`，exit type `SYSTEM_ERROR`，worker stderr 中没有 Python 报错），没有 checkpoint。
+  3. `b4_6k_r3`（10-25 07:27）：另把 experience micro batch 4 → 2，每 5 步保存一次完整 checkpoint，异常退出后用同一输出目录续跑（EasyR1 `find_last_checkpoint`）。
 - B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
 
