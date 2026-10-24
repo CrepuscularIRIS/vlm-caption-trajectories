@@ -1,75 +1,80 @@
-# Probe 阶段实验协议（请导师确认）2026-10-24
+# Probe 阶段实验协议与当前运行（请导师确认）2026-10-24
 
-**定位：** 现在还是 Probe 阶段，方法没有定型。这一轮目标只有两个：
-1. 按 10-23 的意见把 baseline 系列补齐；
-2. 把 setting 修正后的标准 GRPO 跑到收敛附近。
+**定位：** 现在还是 Probe 阶段，方法没有定型。这一轮按导师 10-23 的意见做三件事：
+1. 先修复代码审查发现的问题（[docs/40](40_known_issues_20261024.md)）；
+2. 补齐 baseline 系列；
+3. 把 RL 规模拉上去，用标准 GRPO 训练到接近收敛。
 
-模型只有 4B，所以每组用半个 Mini-o3 的规模、2 张卡，不追全量复现。
+单 seed。每组 2 张卡，两组同时跑。
 
-导师原话逐条见 `lark/mentor_words_20261024/导师原话_全量.md`（M01–M18），逐条对账见 [docs/38](38_mentor_requirements_audit_20261024.md)。
+## 1. 共同 RL 配置
 
-## 1. 共同 RL 配置（所有 RL 组相同，只改各组自己的开关）
+训练代码 `pipeline/grpo/v51fix/` 是在原版 GRPO 代码（`grpo/v51`）上的最小修改：
+- 拒绝越界 bbox；
+- 增加 token 账本；
+- 保存完整 checkpoint，可以续训。
 
-| 项 | Mini-o3（论文 / repo） | 我们的 Probe 配置 | 说明 |
-|---|---|---|---|
-| 底座 | Qwen2.5-VL-7B | Qwen3-VL-4B（A-SFT ckpt 或原模型） | 模型小一半 |
-| GPU | 64 张（8×8） | **2 张** RTX PRO 6000 96GB / 组 | 4 张卡同时跑 2 组；update micro 2、experience micro 4 |
-| RL 数据 | VisualProbe 4k + DeepEyes 8k | 自有 8k 题池（已去掉 V*、E1 评测题及近重复图） | 未用他们的数据 |
-| 每步 | 256 题 × 16 条 | **128 题 × 16 条** | 用步数换批大小 |
-| 组筛选 | rejection sample：零方差组丢掉再补批 | 不筛选（`online_filtering=false`） | **不同** |
-| mini-batch / 每步更新次数 | 32 / 8 | 32 / **4** | 更新是真正 off-policy 的，clip 生效 |
-| 步数 | 曲线约 200 步 | **200 步**（约 3.2 个 epoch，800 次更新） | 题目曝光量约为 Mini-o3 的一半 |
-| lr / KL / entropy | 1e-6 / 无 / 无 | 1e-6 / 无 / 无 | 同 Mini-o3；KL 见 §4 Q1 |
-| clip low / high | .2 / .3 | .2 / .3 | 同 |
-| max_grad_norm | 1.0（verl 默认） | 1.0 | 旧配置 0.1 每步都被裁 |
-| 训练时轮数上限 | 6 个生成轮（最多成功裁图 5 次） | 6 裁上限，但第 7 裁执行后才截断，且同时作用于验证（docs/40 I7，待修） | **不同** |
-| 超轮 / 超长轨迹 | over-turn masking：A·M | 同样置零，不贡献梯度 | 已实现（`CAPTION_MASK_TERMINALS`） |
-| 每轮生成上限 | 8,192 token | 640 token | **不同** |
-| 图像像素 / 总预算 | 2M px / 32K | 589k px / 4k prompt + 7k response（含多轮回执与视觉 token） | **不同** |
-| loss 聚合 | 每个 micro 内 token 平均，micro 等权 | 按全 mini-batch 有效 token 加权 | 不同（变长 / 掩码轨迹下权重不一样） |
-| 奖励 | LLM judge | 选择题精确匹配 | 不给格式分，不给标签分 |
-| 评测 | 多次采样 | 正式表用 greedy + 分 benchmark；E1 继续报告 T=.7×4 | 见 §3 |
+之前借鉴 Mini-o3 加的“训练 6 裁上限 + 超轮 mask”已经删除，回到原协议。
 
-**更正（docs/40 I11）：** 这不是 Mini-o3 的等价复现或半规模复现，只是借鉴了它的一部分参数：每步多次更新、clip .2/.3、无 KL、grad norm 1.0、超轮轨迹做 mask。
+| 项 | 旧配置（10-16 → 10-22 的各组） | 现在 |
+|---|---|---|
+| 每步 | 12 题 × 16 条 | **128 题 × 16 条** |
+| 每步更新次数 | 1 次（PPO 比值恒为 1，clip 从未生效） | **4 次**（mini-batch 32 题），clip 生效 |
+| 步数 / 更新次数 | 165 / 165 | **200 / 800** |
+| 题目曝光 | 1,980 次（2k 题池） | **25,600 次**（8k 题池，约 3.2 个 epoch） |
+| max_grad_norm | 0.1（165/165 步都被裁） | **1.0**（冒烟 step 1 的 grad_norm 为 0.87，不再被裁） |
+| 不变的部分 | 标准 GRPO、只用正确性奖励、无 KL、不开动态采样、lr 1e-6、clip .2/.3、caption 协议每轮 640 token、8 次裁图预算 | 同左 |
 
-组筛选、每轮 token 预算、轮数语义、loss 聚合、分辨率、奖励都和 Mini-o3 不同。Mini-o3-7B 作为外部模型，按它自己的原生协议单独评测。
+这套配置借鉴了 Mini-o3 的一部分做法（每步多次更新、clip .2/.3、grad norm 1.0），**不是它的复现**。组筛选、token 预算、分辨率、奖励都不同；Mini-o3-7B 作为外部模型，按它自己的协议单独评测。
 
-## 2. 实验组
+## 2. 实验组与状态
 
-| ID | 条件 | 起点 | 需训练 | 状态 |
+| ID | 条件 | 起点 | 训练 | 状态 |
 |---|---|---|---|---|
-| B0 | Base direct（无工具 prompt） | 原模型 | 否 | E1 .490 |
-| B1 | Base + 原生 zoom 工具 | 原模型 | 否 | E1 .554 |
-| B2 | Base zero-shot + caption 协议 | 原模型 | 否 | E1 .033（93% 不符格式） |
-| B3 | Base + SFT | A-SFT | 否 | E1 .552 |
-| **B4** | Base + SFT + GRPO（标准 GRPO） | A-SFT | 是 | **2 卡运行中** |
-| B5 | Base + GRPO（无 SFT） | 原模型 | 是 | 待确认工具格式（§4 Q2） |
-| B6 | Base + GRPO without tool | 原模型，direct prompt | 是 | 待排 |
+| B0 | Base direct（无工具 prompt） | 原模型 | 否 | 旧分数 .490 作废（题面被截断，docs/40 I13），待重跑 |
+| B1 | Base + 原生 zoom 工具 | 原模型 | 否 | 旧分数 .554 作废（I1 + I13），待重跑 |
+| B2 | Base zero-shot + caption 协议 | 原模型 | 否 | 旧分数 .033 作废（I2：越界框被执行成角落裁图），待重跑 |
+| B3 | Base + SFT | A-SFT | 否 | 待按统一预算重测 |
+| **B4** | Base + SFT + GRPO | A-SFT | 是 | 冒烟中（step 1 正常）；冒烟与续训检查通过后，GPU0,1 自动开始 200 步 |
+| B5 | Base + GRPO（无 SFT） | 原模型 | 是 | 待定（§4 Q2） |
+| **B6** | Base + GRPO without tool | 原模型，direct prompt | 是 | 冒烟中（step 1 正常）；检查通过后，GPU2,3 自动开始 200 步 |
 | B7 / B8 | AdaptVision / CounterCredit | 同底座适配 | 是 | 待适配 |
-| D1 | DAPO（DS + clip-higher）+ crop 惩罚 | A-SFT | 是 | 10-18 欠账 |
-| D2 | Dr.GRPO（去 std）+ L_budget | A-SFT | 是 | 10-18 欠账 |
-| D3 | 首动作监督（完整 run） | A-SFT | 是 | 10-22 欠账 |
-| X1 / X2 | Mini-o3-7B、DeepEyes-7B | 官方权重 | 否 | 下载中 |
+| X1 / X2 | Mini-o3-7B、DeepEyes-7B | 官方权重 | 否 | Mini-o3 已下载 |
 
-RL 组共 9 个（B4–B8，D1–D3）。每批 2 组同时跑，单 seed。
+B0–B3 用同一套 runner 和预算重跑：上下文 32k，累计生成 8,192 token。所有条件都用同一个评分脚本（`pipeline/eval/baselines/summarize.py`）。
 
-## 3. 报告口径（每组相同）
+## 3. 报告口径
 
 - **一张 trade-off 图**：
   - 横轴为成本：每题首裁、每题后续裁图（分开画）、每题处理的总 token；
-  - 纵轴为准确率。
-- **表格分下游 benchmark**：V*、HR-Bench 4K/8K、MME-RealWorld（干净子集）、VisualProbe。
-- **训练账单**：每组报告训练 token、更新次数、rollout 条数和 GPU 时。
+  - 纵轴为准确率；
+  - 失败和截断的轨迹也计入成本。
+- **表格分下游 benchmark。**
+- **训练账单**：每组报告训练 token、更新次数、rollout 条数和 GPU 时。每条训练轨迹都记录生成 token 和处理 token。
 
-## 4. 请导师确认的问题
+## 4. 实测时间（2 卡 / 组，冒烟 step 1）
 
-1. **KL**：B4–D3 默认关闭 KL，和 Mini-o3 一致。需要加 KL 吗（例如 0.01）？
-2. **B5（无 SFT 的 GRPO）的工具格式**：原模型在 caption 协议下 93% 不符合格式，奖励几乎全为 0。
-   - 我们建议 B5 用原模型自带的 zoom 工具格式（B1 的格式），
-   - 否则这一组只能得到“学不会格式”这一个结论。
-3. **规模**：Probe 阶段每组 128×16×200 步、2 卡，这个规模可以吗？等 B4 收敛后再决定是否放大到完整的 256×16。
-4. **顺序**：先跑 B4+B6，再跑 D1+D2，再跑 B5+D3，最后跑 B7/B8。这个顺序可以吗？
+| 阶段 | B4（SFT+GRPO，带裁图） | B6（无工具） |
+|---|---:|---:|
+| rollout 生成 | 509 s | 286 s |
+| 旧策略 log-prob | 181 s | 104 s |
+| 策略更新（4 次） | 616 s | 345 s |
+| **每步合计**（不含存 checkpoint） | **约 22 分钟** | **约 12 分钟** |
+| **200 步** | **约 3.1 天** | **约 1.7 天** |
 
-## 5. 时间
+B4 慢，是因为多轮带图序列更长，而且更新时每卡 micro batch 只能放 2 条。
 
-按 B4 前几步的实测耗时填写（待填）。
+## 5. 请导师确认
+
+1. **B4 步数**：
+   - 200 步约 3.1 天；
+   - 150 步约 2.3 天，仍有 600 次更新，是旧配置的 3.6 倍；
+   - 也可以先让 B4 用 4 张卡，单组速度约翻倍，但 B6 要排到后面。
+   - 哪种更合适？
+2. **B5（无 SFT 的 GRPO）**：原模型在 caption 协议下几乎不按格式输出，GRPO 的奖励可能全是 0、没有梯度。
+   - 用 caption 协议，冒烟一步看奖励分布？
+   - 还是改用原模型自带的 zoom 工具格式？
+3. **KL**：目前和原版一样不开 KL。需要加吗？
+4. **之后的顺序**：
+   - B4 + B6 → B0–B3 重跑（推理）→ B5 → B7/B8 → 外部模型。
+   - 10-18 / 10-22 欠的 DAPO、Dr.GRPO + L_budget、首动作监督完整版排在 baseline 之后。

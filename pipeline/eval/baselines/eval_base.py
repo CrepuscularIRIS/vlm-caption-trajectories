@@ -17,6 +17,7 @@ Usage (GPU server):
   python eval_base.py --mode direct|native --model <Qwen3-VL-4B-Instruct> --code-dir <grpo_v51> \
       --tag B0_direct --out-dir evidence/baselines_20261024 [--limit 8]
 """
+from full_question import full_question
 import argparse
 import hashlib
 import json
@@ -58,7 +59,7 @@ from verl.utils.dataset import process_image  # noqa: E402
 from caption_contracts import raw_image_prompt  # noqa: E402
 from traj_utils import stable_seed  # noqa: E402
 
-MAX_LEN, MAX_NEW, MAX_GEN_TOTAL = 32768, 2048, 8192
+MAX_LEN, MAX_GEN_TOTAL = 32768, 8192  # one budget for every runner: a turn may use all remaining generation
 MIN_PX, MAX_PX = 1024, 589824
 DIRECT_SUFFIX = ("\nThink step by step about the image, then give the final answer as the option letter "
                  "in the form <answer>X</answer>.")
@@ -156,7 +157,7 @@ if jsonl.exists():
         done.add((r["uid"], r["sample_idx"]))
 
 header = dict(tag=a.tag, mode=a.mode, model=a.model, pool=a.pool, samples=a.samples, seed_base=a.seed_base,
-              n_questions=len(df), temperature=a.temperature, top_p=1.0, max_new_tokens=MAX_NEW,
+              n_questions=len(df), temperature=a.temperature, top_p=1.0, max_new_tokens="remaining",
               max_gen_total=MAX_GEN_TOTAL, max_model_len=MAX_LEN, min_px=MIN_PX, max_px=MAX_PX,
               max_crops=a.max_crops if a.mode == "native" else 0,
               system=NATIVE_SYSTEM if a.mode == "native" else None,
@@ -180,7 +181,7 @@ class State:
         self.row, self.s_idx, self.uid = row, s_idx, row["uid"]
         gt = row["reward_model"]["ground_truth"] if isinstance(row["reward_model"], dict) else row["reward_model"]
         self.gt = str(gt).strip().upper()
-        q = row["extra_info"]["question"]
+        q = full_question(row["env_head"])
         self.raw_imgs = [Image.open(row["images"][0]).convert("RGB")]
         self.proc_imgs = [process_image(self.raw_imgs[0], MIN_PX, MAX_PX)]
         user = [{"type": "image"}, {"type": "text", "text": q + (NATIVE_SUFFIX if a.mode == "native" else DIRECT_SUFFIX)}]
@@ -215,7 +216,7 @@ def advance(states):
             text = proc.apply_chat_template(st.msgs, tools=tools, add_generation_prompt=True, tokenize=False)
             enc = proc(images=st.proc_imgs, text=[text], add_special_tokens=False, return_tensors="pt")
             ids = enc["input_ids"][0].tolist()
-            budget = min(MAX_NEW, MAX_GEN_TOTAL - st.gen_tokens, MAX_LEN - len(ids))
+            budget = min(MAX_GEN_TOTAL - st.gen_tokens, MAX_LEN - len(ids))
             if budget < 64:
                 finish(st, "overlong")
                 continue
@@ -240,29 +241,32 @@ def advance(states):
             st.gen_tokens += len(out.token_ids)
             turn = dict(round=len(st.turns), text=tg, finish=out.finish_reason, n_tokens=len(out.token_ids))
             st.turns.append(turn)
-            call = TOOL_RE.search(tg) if a.mode == "native" else None
-            if call is None:
+            calls = TOOL_RE.findall(tg) if a.mode == "native" else []
+            if not calls:
                 finish(st, "answer" if out.finish_reason != "length" else "truncated", tg)
                 continue
             if st.crops >= a.max_crops:
                 finish(st, "crop_budget", tg)
                 continue
-            try:
-                args = json.loads(call.group(1)).get("arguments", {})
-                idx = int(args.get("img_idx", 0))
-                crop, box = zoom(st.raw_imgs[idx], args["bbox_2d"])
-            except Exception as e:  # invalid call: tell the model, as Qwen-Agent does
-                turn["tool_error"] = f"{type(e).__name__}:{e}"
-                st.msgs.append({"role": "assistant", "content": tg})
-                st.msgs.append({"role": "tool", "content": [{"type": "text", "text": f"Error: {e}"}]})
-                continue
-            st.crops += 1
-            st.boxes.append(dict(img_idx=idx, box=box, size=list(crop.size)))
-            turn["tool"] = dict(img_idx=idx, bbox_2d=args["bbox_2d"], box_abs=box)
-            st.raw_imgs.append(crop)
-            st.proc_imgs.append(process_image(crop, MIN_PX, MAX_PX))
             st.msgs.append({"role": "assistant", "content": tg})
-            st.msgs.append({"role": "tool", "content": [{"type": "image"}]})
+            turn["tools"] = []
+            for raw in calls:  # the chat template allows several calls per turn: run all, in order
+                try:
+                    if st.crops >= a.max_crops:
+                        raise ValueError("crop budget exhausted")
+                    args = json.loads(raw).get("arguments", {})
+                    idx = int(args.get("img_idx", 0))
+                    crop, box = zoom(st.raw_imgs[idx], args["bbox_2d"])
+                except Exception as e:  # invalid call: tell the model, as Qwen-Agent does
+                    turn["tools"].append(dict(error=f"{type(e).__name__}:{e}"))
+                    st.msgs.append({"role": "tool", "content": [{"type": "text", "text": f"Error: {e}"}]})
+                    continue
+                st.crops += 1
+                st.boxes.append(dict(img_idx=idx, box=box, size=list(crop.size)))
+                turn["tools"].append(dict(img_idx=idx, bbox_2d=args["bbox_2d"], box_abs=box))
+                st.raw_imgs.append(crop)
+                st.proc_imgs.append(process_image(crop, MIN_PX, MAX_PX))
+                st.msgs.append({"role": "tool", "content": [{"type": "image"}]})
         except Exception as e:
             st.error = f"step:{type(e).__name__}:{e}"
             finish(st, "error")

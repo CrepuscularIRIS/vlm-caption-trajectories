@@ -1,5 +1,12 @@
 # 变更记录
 
+## 2026-10-24 — 修复代码，B4/B6 按导师 10-23 放大规模
+
+- 新训练代码 `pipeline/grpo/v51fix/`：在原版 GRPO（`v51`）上拒绝越界 bbox、增加 token 账本、保存完整 checkpoint；删除之前加的 6 裁上限和 mask。启动脚本为 `pipeline/grpo/scripts/grpo_v51fix*.sh`。
+- 评测：`pipeline/eval/baselines/`。一轮中的全部 tool_call 依次执行；统一预算 32k / 8192；用 `full_question.py` 恢复完整题面（Codex 复审发现原题面截到 200 字，docs/40 I13）；所有条件用同一个评分脚本 `summarize.py`。
+- docs/39 改为当前运行状态：128×16、每步 4 次更新、200 步、grad norm 1.0；实测 B4 约 22 分钟/步，B6 约 12 分钟/步；列出请导师确认的 4 个问题。docs/40 更新各项修复状态。
+- 旧 B0/B1/B2 分数作废，待重跑。
+
 ## 2026-10-24 — 整理仓库：旧文档归档，新入口，已知问题台账
 
 - docs/01–36、CASEBOOK、SPOTCHECK、idea_cards、research_design、旧 README 全部移入 `docs/archive/`（`git mv`，内容不变，相对链接按新位置重写；改前改后断链都是 0）。对照表见 `docs/archive/README.md`。
