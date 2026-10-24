@@ -57,10 +57,11 @@ Step N | re_examine
 | seed | 42（单 seed） |
 | 硬件 | 每组 2 张 RTX PRO 6000 96GB |
 
-**训练长度：**
-- 每 25 步在 440 道验证题上验证一次，并保存完整 checkpoint。
-- 从第 150 步起，如果最近 3 次验证的均值比再之前 3 次的均值高不到 0.01，就在保存完 checkpoint 后停止。上限 300 步。
-- 这条规则在开跑前写定，代码见 `plateau_stop.py`。
+**训练长度：RL 题池每道题过一遍，不重复。**
+- 步数 = 题池大小 ÷ 每步题数 = 8,000 ÷ 128 → **62 步**。
+- EasyR1 会丢掉最后不满一批的题，所以一遍覆盖 7,936 题，有 64 题（0.8%）不在这一遍里。
+- 第 25、50 步和最后一步各验证一次（440 道验证题），并保存完整 checkpoint。
+- 启动参数：`trainer.total_epochs=1`（不设 `max_steps`），warmup 是 62 步的 5%。
 
 每步时间和配置见 §2.4。
 
@@ -79,19 +80,16 @@ Step N | re_examine
 
 旧配置（每步 12 题 × 16 条 = 192 条轨迹，2 张卡）每步约 140 秒。
 
-**时间：**
+**时间**（一遍 = 62 步，另有 3 次验证和 3 次保存）：
 
 | | B4（A-SFT + GRPO，带裁图） | B6（原模型 + GRPO，无工具） |
 |---|---:|---:|
-| 每步 | 20–22 分钟 | 约 12 分钟 |
-| 到第 150 步（停止规则最早生效） | 约 51–55 小时 | 约 30 小时 |
-| 到第 300 步（上限） | 约 102–110 小时 | 约 60 小时 |
+| 每步 | 20–22 分钟 | 10–12 分钟 |
+| 一遍（62 步） | 约 21–23 小时 | 约 10.5–12.5 小时 |
 
-另外每 25 步还有一次验证（440 题）和一次 checkpoint 保存。
+**部署**：每组 2 张卡，两组同时跑。目前每组的 2 张卡都在 rollout（vLLM）和训练（FSDP）之间轮流使用。
 
-**部署**：为了能同时做多组实验，每组用 2 张卡，4 张卡同时跑两组（现在是 B6 + 之后的 B4）。
-
-**决定训练开销的设置**（[`grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh)）：
+**决定训练开销的设置**（[`grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh)，加上一遍的覆盖参数）：
 
 ```bash
 data.train_files=.../grpo_caption_v51_8k/train.parquet   # 8,000 题的题池
@@ -101,15 +99,17 @@ worker.actor.global_batch_size=32                         # mini-batch 32 题 �
 data.max_response_length=7168                             # 多轮总响应预算（含工具回执）
 worker.actor.micro_batch_size_per_device_for_update=2
 worker.actor.micro_batch_size_per_device_for_experience=4
-worker.rollout.gpu_memory_utilization=0.45                # 2 卡上 vLLM 与训练共用显存
+worker.rollout.gpu_memory_utilization=0.45                # vLLM 与训练共用显存
 trainer.n_gpus_per_node=2
-trainer.max_steps=300 trainer.val_freq=25 trainer.save_freq=25   # 上限 300 步，每 25 步验证并保存
+trainer.total_epochs=1 trainer.max_steps=null             # 题池过一遍：8000 // 128 = 62 步
+trainer.val_freq=25 trainer.save_freq=25
 ```
 
-**还不清楚的问题：**
-1. 要训练到收敛，每步应该用多少题、每题多少条 rollout、每步更新几次，才算合理？
-2. 需要的步数和时间，主要由什么决定：题目的选择（8k 题池的组成；A-SFT 在第 1 步训练题上的 rollout 准确率是 .549），还是 rollout 的配置（128 × 16）？
-3. 2 卡一组、两组并行，与 4 卡跑一组相比，哪种更合适？
+**导师 10-24 的回复（此后作为通用 RL 配置）：**
+
+> 训练时间主要是和我们在RL阶段投入的样本数对齐，所以取决于这个设定。假设我们现在rl 2k samples，按现在的设定其实150+ step就已经把每道题都过了一遍。不同于sft阶段，假设sft训练2epoch就是把相同的训练样本重复过两遍，rl阶段通常不需要重复去过题库。那么这种情况下只要你的rl steps能够覆盖所有rl samples，就算跑完了一个周期。你可以把rl samples样本量提上去，然后可以算一下所需要的steps，只需要跑满就可以了，不用重复刷。另外2 * 2的配置是合理的，一组双卡然后里面一张做rollout一张做反向传播，这个是没问题的。
+
+题池大小选 8k（过滤后可用的题共 13,074 道）。
 
 ### 2.5 评测
 
@@ -162,15 +162,11 @@ def valid_bbox(b):
     return 0.0 <= x0 < x1 <= 1.0 and 0.0 <= y0 < y1 <= 1.0
 ```
 
-停止规则（`plateau_stop.py`，开跑前写定）：
+训练步数（EasyR1 的计算，`ray_trainer.py`；训练 dataloader 设置 `drop_last=True`）：
 
 ```python
-MIN_STEP, WINDOW, MIN_GAIN = 150, 3, 0.01
-# vals = [(step, val_accuracy), ...]，每 25 步一个点
-if vals[-1][0] >= MIN_STEP and len(vals) >= 2 * WINDOW:
-    gain = mean(vals[-3:]) - mean(vals[-6:-3])
-    if gain < MIN_GAIN:
-        ...  # 等这一步的 checkpoint 保存完，再停止本 run 的进程
+# 不设 max_steps 时
+self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 8000 // 128 * 1 = 62
 ```
 
 ## 4. 正在进行的实验
@@ -183,8 +179,8 @@ if vals[-1][0] >= MIN_STEP and len(vals) >= 2 * WINDOW:
 | B3 | A-SFT | — | **完成** |
 | H1 | 答案式 SFT | — | **完成** |
 | H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成** |
-| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练中**（10-24 12:50 开始，见 §5.2） |
-| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-24 13:18 开始，见 §5.2） |
+| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练中**（10-24 13:53 开始，题池一遍 62 步，见 §5.2） |
+| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-24 13:53 开始，题池一遍 62 步，见 §5.2） |
 | B5 | 原模型直接 GRPO（caption 协议） | — | B6 之后 |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | X1 / X2 | Mini-o3-7B、DeepEyes-7B | — | 未开始（Mini-o3 权重已下载） |
@@ -229,20 +225,18 @@ B2 的 2,208 条轨迹按最后一轮分类：
 
 ### 5.2 训练（进行中）
 
-| 组 | GPU | 开始时间 | 每步时间（冒烟第 1 步） | 第 150 步（最早可停） | 第 300 步（上限） |
-|---|---|---|---:|---:|---:|
-| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 12:50 | 约 12 分钟 | 约 30 小时 | 约 60 小时 |
-| B4 A-SFT + GRPO | 0, 1 | 10-24 13:18 | 20–22 分钟 | 约 51–55 小时 | 约 102–110 小时 |
+| 组 | GPU | 开始时间 | 步数 | 每步时间 | 预计完成 |
+|---|---|---|---:|---:|---|
+| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 13:53 | 62 | 10–12 分钟 | 10-25 约 00:40–03:00 |
+| B4 A-SFT + GRPO | 0, 1 | 10-24 13:53 | 62 | 20–22 分钟 | 10-25 约 11:00–13:00 |
 
-- 时间均为北京时间。
-- 天数按冒烟第 1 步的耗时乘以步数折算，**另外**每 25 步还有一次验证和一次 checkpoint 保存。实际时间以训练日志为准。
-- B6 正式训练实测：第 1 步 727 s，第 2 步 614 s（含 rollout、log-prob、更新）；第 0 步（训练前）验证准确率 .470。
-- 每 25 步的验证准确率出来后填在这里。
+- 时间均为北京时间。预计完成时间 = 每步时间 × 62，再加上 3 次验证和保存；实际以训练日志为准。
+- 之前按“到收敛为止”启动的两组（12:50 / 13:18）已在导师 10-24 回复后停止，没有使用它们的结果。
+- 第 25、50、62 步的验证准确率出来后填在这里。
 
 ## 6. 还没弄清的问题
 
-训练配置与时间的问题见 §2.4。
 
 1. 原模型在 caption 协议下，为什么近一半轨迹给出 0–1000 尺度的框，另有 830 条既不裁图也不写 `<answer>`？
-2. B4 和 B6 在多少步达到平台？平台时的准确率和裁图成本是多少？
+2. B4 和 B6 过完一遍题池后，准确率和裁图成本分别是多少？
 3. 不做 SFT 的 B5，在 caption 协议下能否得到非零奖励？
