@@ -1,30 +1,22 @@
-# 项目总览：我们在做什么、怎么设计、代码在哪、接下来做什么（2026-10-24）
+# 实验报告（2026-10-24）
 
-本页是当前唯一的阅读入口。之前的分析与计划都已归档到 `docs/archive/`，只作记录。代码层面的已知问题与修复状态见 [docs/02](02_known_issues.md)。
+本页只写配置、正在进行的实验和统计结果，不写结论和原因解释。还没弄清的地方写成问题，放在 §6。代码层面的已知问题与修复状态见 [docs/02](02_known_issues.md)。之前的全部报告已归档到 [docs/archive/](archive/README.md)。
 
-## 1. 在做什么
+## 1. 任务
 
-让 **Qwen3-VL-4B** 在视觉问答里**自主地**做到两件事：
-- 看原图就够时直接回答；
-- 不够时裁图补看，补看时只裁真正有用的区域。
+导师的目标（10-18 原话）：
+- “希望一个 Base model 最少要具备这些最基础的行为，而且是自主的”；
+- “在这个基础上，模型可以达到最佳的 tradeoff between performance and efficiency”。
 
-目标是 **性能与效率的最好 trade-off**：
-- 性能 = 最终准确率；
-- 效率 = 用尽量少的裁图和处理 token 完成任务。
+做法：
+- **SFT**：在 Qwen3-VL-4B 上，用我们构造的“短证据 caption + 真实裁图”轨迹训练。
+- **RL**：在 SFT 之后用 GRPO 系列方法训练。
 
-尽量不掉准确率，同时减少无效的裁图和 recover。
-
-做法分两段：
-1. **SFT 教行为**：用我们构造的“短证据 caption + 真实裁图”轨迹，让模型学会这些基础行为。
-2. **RL 优化权衡**：在 SFT 之上用 GRPO 系列方法，让模型自己决定什么时候裁、裁哪里、什么时候停。
-
-现阶段是 **Probe**：方法还没有定型。先把 baseline 系列和标准 GRPO 在修正后的设置下跑充分，再在此基础上做方法。
-
-## 2. 设计
+## 2. 设置
 
 ### 2.1 交互协议（caption v5.1）
 
-模型每一步输出一个短证据块，再加一个动作：
+每一步的格式：
 
 ```text
 <think>
@@ -34,152 +26,123 @@ Step N | re_examine
 <grounding>{"bbox_2d":[x1,y1,x2,y2],"source":"observation_k"}</grounding>
 ```
 
-- 动作只有两种：
-  - `<grounding>` 裁图：坐标是相对于某个已有视图的 [0,1] 框；环境回到原图全分辨率重新裁取，并返回新视图。
-  - `<answer>X</answer>` 终答。
-- 每步标一个行为：locate / re_examine / fallback 对应裁图，commit / abstain 对应终答。
-- 最多裁图 8 次，可以 0 次直接回答。
-- 越界或倒置的框会被拒绝，轨迹以非法动作结束，不会被压成角落裁图。
-- 协议定义与解析：[`code/reference/caption_v51.py`](../code/reference/caption_v51.py)；完整说明见 [archive/02](archive/02_protocol.md)。
+- 动作只有两种：`<grounding>` 裁图，或 `<answer>X</answer>` 终答。
+- 裁图框是相对于某个已有视图的 [0,1] 坐标。环境回到原图全分辨率重新裁取，并把新视图返回给模型。
+- 最多裁图 8 次。
+- 越界或倒置的框会被拒绝，这条轨迹以非法动作结束。
+- 定义见 [`code/reference/caption_v51.py`](../code/reference/caption_v51.py)。
 
-### 2.2 SFT 数据（库 A）
+### 2.2 SFT
 
-- 题目来源：MME-RealWorld、MMMU-Pro、WorldBench、V*。
-- 多个教师模型生成真实的裁图轨迹，再经过逐图审核，只保留所有观察都有用的 KEEP 轨迹。
-- 库 A 共 4,040 条（V2.2），可在[网页目录](https://CrepuscularIRIS.github.io/vlm-caption-trajectories/)逐条查看。
-- SFT 用其中与插值库 B 对齐的 3,983 题、6,953 个监督轮，训练 2 个 epoch，得到 **A-SFT** checkpoint。
-- 轨迹文件：[`trajectories/`](../trajectories/)（已去掉题干和图像）。
+- 库 A 共 4,040 条轨迹（V2.2，多个教师模型生成，经过逐图审核），可在[网页目录](https://CrepuscularIRIS.github.io/vlm-caption-trajectories/)查看。
+- SFT 使用其中 3,983 题，共 6,953 个监督轮，训练 2 个 epoch，得到 **A-SFT**。
+- 答案式 SFT（H1 的起点）：同样的题和图，监督目标只有最终答案。
 
-### 2.3 RL
-
-- **起点**：A-SFT（或对照组的原模型）。
-- **题池**：8,000 题，来自同一批 benchmark 来源，已去掉 V* 和内部评测集 E1 的题。
-- **奖励**：只看最终答案是否正确（1 / 0）；不给格式分、标签分或过程分。
-- **标准 GRPO 配置**（基础对照）：
+### 2.3 RL（标准 GRPO）
 
 | 项 | 值 |
 |---|---|
+| 题池 | 8,000 题：MME-RealWorld 5,975，MMMU-Pro 1,064，WorldBench 961 |
 | 每步 | 128 题 × 16 条 rollout |
 | 每步更新 | 4 次（mini-batch 32 题） |
 | 学习率 | 1e-6，warmup 5%，之后恒定 |
 | clip | .2 / .3 |
 | max_grad_norm | 1.0 |
-| KL / 动态采样 | 均不开 |
+| KL / 动态采样 | 不开 / 不开 |
 | 温度 | .7 |
-| 序列预算 | 每轮 640 token，总响应 7,168 token（含工具回执） |
+| 奖励 | 答对 1，答错 0 |
+| caption 训练的序列预算 | 每轮 640 token，总响应 7,168 token（含工具回执） |
+| 无工具训练的序列预算 | 响应 4,096 token |
 | 图像上限 | 589,824 像素 |
-| seed | 单 seed |
+| seed | 42（单 seed） |
+| 硬件 | 每组 2 张 RTX PRO 6000 96GB |
 
-- **训练长度**：训练到收敛为止。每 25 步在 440 道验证题上测一次。从第 150 步起，如果最近 3 次验证的均值比再之前 3 次只多不到 1 个点，就判为平台并停止。上限 300 步。保留验证分最高的 checkpoint。
-- **硬件**：每组 2 张 RTX PRO 6000（96GB），4 张卡同时跑两组。实测每步时间：带裁图的 B4 约 22 分钟，无工具的 B6 约 12 分钟。
+**训练长度：**
+- 每 25 步在 440 道验证题上验证一次，并保存完整 checkpoint。
+- 从第 150 步起，如果最近 3 次验证的均值比再之前 3 次的均值高不到 0.01，就在保存完 checkpoint 后停止。上限 300 步。
+- 这条规则在开跑前写定，代码见 `plateau_stop.py`。
 
-### 2.4 评测与成本口径
+**冒烟实测的每步时间**（第 1 步，不含保存）：
 
-- **内部评测集 E1**：552 题，由 440 道分层验证题和 112 道 V* 留出题组成，每题采样 4 次（T = .7）。它是开发和比较用的集合，**不是独立测试集**（见 §6）。
-- **预算**：所有条件统一为上下文 32k、累计生成 8,192 token。
-- **评分**：所有条件用同一个评分脚本，截断或出错都算错。
-- **报告内容**：
-  - 分 benchmark 的准确率；
-  - 每题首裁率、每题后续裁图数（两者分开）；
-  - 每题处理的总 token（每轮完整输入，包括重复的历史和图像，加上生成）。
-- 所有结果最终画在**一张 trade-off 图**上，训练成本另列一张表。
+| 组 | rollout | 旧策略 log-prob | 更新 | 合计 |
+|---|---:|---:|---:|---:|
+| B4（caption） | 509 s | 181 s | 616 s | 约 22 分钟 |
+| B6（无工具） | 286 s | 104 s | 345 s | 约 12 分钟 |
+
+### 2.4 评测
+
+- **E1**：552 题（440 道分层验证题 + 112 道 V* 留出题），每题采样 4 次，T = .7。
+- **预算**：上下文 32,768，累计生成 8,192 token，每轮可以用完剩余预算。
+- **评分**：所有条件用同一个脚本。答案取最后一个 `<answer>X</answer>`（`\boxed{}` 和 “answer is X” 作为备选）。截断或出错计为错误。
+- **成本**：
+  - 首裁率：至少裁过一次的轨迹比例；
+  - 后续裁图：每题 max(裁图数 − 1, 0)；
+  - 每题处理 token：每轮完整输入（包括重复的历史和图像 token）加生成，累计。
+- **数据身份**：
+  - 8k 题池含 700 道 MMMU-Pro 官方 test 来源题；
+  - A-SFT 的训练数据含官方 V*（191 题）中的 67 题；
+  - E1 的 112 道 V* 与这 67 题不重合。
 
 ## 3. 代码
 
 | 路径 | 内容 |
 |---|---|
-| [`pipeline/grpo/v51fix/`](../pipeline/grpo/v51fix/) | RL 代码：在原版 [`v51`](../pipeline/grpo/v51/) 上加了越界框拒绝、逐轨迹成本账本、完整 checkpoint |
-| ↳ `easyr1_caption.py` | 多轮裁图 rollout（接入 EasyR1） |
-| ↳ `caption_env.py` | 裁图环境 |
-| ↳ `reward_caption.py` / `reward_direct.py` | 正确性奖励（caption / 无工具） |
-| ↳ `training_ledger.py` | 每条训练轨迹的裁图数、生成 token、处理 token |
-| [`pipeline/grpo/scripts/grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh) | caption GRPO 启动脚本（§2.3 的参数都在这里） |
-| [`pipeline/grpo/scripts/grpo_v51fix_notool.sh`](../pipeline/grpo/scripts/grpo_v51fix_notool.sh) | 无工具 GRPO 启动脚本（EasyR1 原生单轮） |
-| [`pipeline/grpo/easyr1_602a128_local.diff`](../pipeline/grpo/easyr1_602a128_local.diff) | 我们对 EasyR1 的本地改动 |
+| [`pipeline/grpo/v51fix/`](../pipeline/grpo/v51fix/) | RL：多轮裁图 rollout、裁图环境、奖励、逐轨迹成本记录 |
+| [`pipeline/grpo/scripts/grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh) | caption GRPO 启动脚本（§2.3 的参数） |
+| [`pipeline/grpo/scripts/grpo_v51fix_notool.sh`](../pipeline/grpo/scripts/grpo_v51fix_notool.sh) | 无工具 GRPO 启动脚本 |
+| [`pipeline/grpo/easyr1_602a128_local.diff`](../pipeline/grpo/easyr1_602a128_local.diff) | 对 EasyR1 的本地改动 |
 | [`pipeline/eval/baselines/eval_base.py`](../pipeline/eval/baselines/eval_base.py) | 原模型评测：不带工具 / 原生 zoom 工具 |
-| [`pipeline/eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | caption 协议评测（原模型 zero-shot、SFT、RL 模型） |
+| [`pipeline/eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | caption 协议评测 |
 | [`pipeline/eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本统计 |
-| [`pipeline/construct/`](../pipeline/construct/)、[`pipeline/sft/`](../pipeline/sft/) | 轨迹构造与 SFT |
 
-## 4. 实验矩阵
+## 4. 正在进行的实验
 
-每个条件只回答它能回答的那个问题，不同条件不能互相替代。
-
-| ID | 条件 | 回答的问题 | 状态 |
+| ID | 条件 | GPU | 状态 |
 |---|---|---|---|
-| B0 | 原模型，不带工具的 prompt | 原模型不用工具有多少能力 | 修正后重测中 |
-| B1 | 原模型 + 原生 zoom 工具 | 原生工具调用的能力 | 修正后重测中 |
-| B2 | 原模型 zero-shot + 我们的 caption 协议 | 协议本身带来的负担或收益 | 修正后重测中 |
-| B3 | 原模型 + SFT（A-SFT） | SFT cold-start 的贡献 | 修正后重测中 |
-| H1 | 答案式 SFT（同题同图，只有图片 + 最终答案，没有 caption） | 纯答案监督的贡献 | 在队列里，重测 |
-| H2 | 答案式 SFT + GRPO | 没有 caption 的 cold-start 上，RL 的贡献 | 在队列里，重测（与 B6 不同） |
-| B4 | A-SFT + GRPO | SFT 之上 RL 的增益与成本 | 排队，训练到收敛 |
-| B5 | 原模型直接 GRPO（caption 协议，不做 SFT） | 不做 SFT 时 RL 能学到什么 | B4/B6 之后 |
-| B6 | 原模型 GRPO，无工具 | 无工具 RL 本身的增益 | 排队，训练到收敛 |
-| B7 / B8 | AdaptVision / CounterCredit（同底座适配） | 与已有方法比较 | 适配中 |
-| X1 / X2 | Mini-o3-7B、DeepEyes-7B（或 Pixel-Reasoner） | 与外部完整系统的位置关系 | Mini-o3 权重已下载，评测适配待写 |
-| 方法 | A-SFT + 我们的方法（见 §7） | 是否学会按观测价值选动作，并改善 trade-off | 在基础对照之后 |
+| B0 | 原模型，不带工具的 prompt | 0 | 评测中（512/552 题） |
+| B1 | 原模型 + 原生 zoom 工具 | 1 | 评测中（320/552 题） |
+| B2 | 原模型 zero-shot + caption 协议 | — | **完成** |
+| B3 | A-SFT | — | **完成** |
+| H1 | 答案式 SFT | 0 | B0 之后评测 |
+| H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | 0 | H1 之后评测 |
+| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练中**（10-24 12:50 开始） |
+| B4 | A-SFT + GRPO | 0, 1 | B1 和 H2 结束后自动开始训练 |
+| B5 | 原模型直接 GRPO（caption 协议） | — | B6 之后 |
+| B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
+| X1 / X2 | Mini-o3-7B、DeepEyes-7B | — | 未开始（Mini-o3 权重已下载） |
 
-## 5. 当前在跑（2026-10-24）
+## 5. 结果
 
-| GPU | 现在 | 之后（自动接续） |
-|---|---|---|
-| 0 | B0 评测 → H1 → H2 | B4 训练到收敛（GPU 0,1） |
-| 1 | B1 评测 | |
-| 2 | B2 评测 | B6 训练到收敛（GPU 2,3） |
-| 3 | B3 评测 | |
+### 5.1 E1（552 题 × 4 次采样 = 2,208 条轨迹）
 
-评测结果出来后会填到 §4 和 trade-off 图上。
+| ID | 准确率 | 有 `<answer>` 标签 | 首裁率 | 后续裁图 / 题 | 处理 token / 题 | 生成 token / 题 | 截断率 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| B0 | 运行中 | | | | | | |
+| B1 | 运行中 | | | | | | |
+| B2 | .0068 | .0149 | .0145 | .0747 | 2,386 | 105 | .0005 |
+| B3 | .5670 | .9805 | .5725 | .4216 | 5,015 | 170 | .0014 |
 
-## 6. 已有结果（旧设置，只作参考）
+按来源统计的准确率：
 
-10-16 → 10-22 的结果都在旧设置下得到，主要有这些问题：
-- 每步 12 题、165 次更新，规模小；
-- 每步只更新一次，PPO clip 实际不起作用；
-- `max_grad_norm=0.1`，每一步都被裁；
-- 评测每轮只有 640 token；
-- 原模型 baseline 的题面被截断过（docs/02 I13）。
+| ID | MME-RealWorld | MMMU-Pro | V* | WorldBench |
+|---|---:|---:|---:|---:|
+| B2 | .0044 | .0449 | .0045 | .0000 |
+| B3 | .5708 | .2885 | .8125 | .2782 |
 
-所以下面的数字**只能用来看方向**，不能作为方法有效或无效的证据：
+B2 的 2,208 条轨迹按最后一轮分类：
 
-| 条件（旧设置，E1） | 准确率 | 每题裁图 | 直答率 |
-|---|---:|---:|---:|
-| A-SFT（无 RL） | .552 | 1.01 | .43 |
-| A-SFT + GRPO（原版，165 次更新） | .664 | 2.31 | .00 |
-| 答案式 SFT | .458 | 0 | 1.00 |
-| 答案式 SFT + GRPO | .492 | 0 | 1.00 |
+| 最后一轮 | 条数 |
+|---|---:|
+| 裁图请求，但 bbox 不在 [0,1] 内，被拒绝（例如 `[355,122,595,152]`） | 1,021 |
+| 既没有裁图动作也没有 `<answer>` 标签 | 830 |
+| `<answer>` 终答 | 357 |
 
-在旧设置下，我们还试过这些改动：
-- 裁图代价 `correct·(1−λ·crop)`：原样在 GRPO 下塌缩成直答；
-- 改 std 分母；
-- RLOO（λ = 0 / .01）；
-- 四种情况的信用分配；
-- 两分支首轮价值差；
-- 首动作监督短实验（64 题、20 次更新，起点不是 A-SFT）；
-- 分段 advantage 的测量。
+### 5.2 训练曲线
 
-**都没有得到“准确率不降、裁图更少”的可靠结论。** 这些实验的规模和设置都有上述问题，所以也不能据此认为这些方向无效。详细记录在 `docs/archive/`。
+（B4、B6 每 25 步的验证准确率，训练开始后填写。）
 
-**数据身份（不影响内部比较，但正式报告要写清楚）：**
-- 8k RL 题池含 700 道 MMMU-Pro 官方 test 来源题；
-- A-SFT 已经见过官方 V*（191 题）中的 67 题。
+## 6. 还没弄清的问题
 
-所以完整的官方 MMMU-Pro / V* 不能称为“未见测试集”。E1 中的 V* 112 题与这 67 题不重合。
-
-## 7. 接下来的实验思路
-
-按顺序：
-
-1. **基础对照（进行中）**：B0–B3、H1/H2 在统一的输入、预算和评分下重测；B4 / B6 训练到收敛；之后跑 B5。所有结果放到同一张 trade-off 图上，并给出分 benchmark 的表。
-2. **外部模型与已有方法**：
-   - Mini-o3 / DeepEyes 用各自原生的工具协议评测，与我们共享题目和评分，成本按同一口径统计；
-   - AdaptVision / CounterCredit 在同一个 4B 底座上适配。
-3. **完整 DAPO**（导师 10-18 建议）：dynamic sampling 补足有效组 + clip-higher。在 A-SFT 上与标准 GRPO 同规模比较准确率与裁图成本。之前只开过“丢全错组”，没有形成完整的 DAPO 条件。
-4. **首动作约束**（导师 10-22）：
-   - 方法：在还没输出动作之前保存共同前缀，分两支（直接回答 / 先裁图再继续），各采样 4 条；用两支的平均收益差监督首个动作（`t_answer` / `t_crop` 的完整标签序列概率），作为 GRPO 之外的额外约束。
-   - 这次从 A-SFT 起，跑完整规模，而不是之前的 64 题短实验。
-   - 先人工抽题检查：两支的差异确实能区分“直接答就够”与“需要补看”的题，再开训练。
-5. **后续裁图的信用分配**：在首动作行为稳定之后，再做后续裁图的信用（分段 advantage、势能函数）。
-6. **成本账**：每组报告训练 token、更新次数、rollout 条数、GPU 时，**包括分叉、探针等额外采样**；推理成本按每轮完整输入加生成累计。
-
-每一步只在前一步的对照可靠之后再做，避免在不可比的设置上比较方法。
+1. 原模型在 caption 协议下，为什么近一半轨迹给出 0–1000 尺度的框，另有 830 条既不裁图也不写 `<answer>`？
+2. B4 和 B6 在多少步达到平台？平台时的准确率和裁图成本是多少？
+3. 不做 SFT 的 B5，在 caption 协议下能否得到非零奖励？
