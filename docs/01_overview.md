@@ -62,14 +62,56 @@ Step N | re_examine
 - 从第 150 步起，如果最近 3 次验证的均值比再之前 3 次的均值高不到 0.01，就在保存完 checkpoint 后停止。上限 300 步。
 - 这条规则在开跑前写定，代码见 `plateau_stop.py`。
 
-**冒烟实测的每步时间**（第 1 步，不含保存）：
+每步时间和配置见 §2.4。
 
-| 组 | rollout | 旧策略 log-prob | 更新 | 合计 |
-|---|---:|---:|---:|---:|
-| B4（caption） | 509 s | 181 s | 616 s | 约 22 分钟 |
-| B6（无工具） | 286 s | 104 s | 345 s | 约 12 分钟 |
+### 2.4 训练时间与配置（还没确定合理的配置）
 
-### 2.4 评测
+**每步的实测量**（B4 冒烟，2 张卡）：
+
+| 第几步 | rollout | 旧策略 log-prob | 更新（4 次） | 奖励 | 合计（不含保存） |
+|---|---:|---:|---:|---:|---:|
+| 1 | 509 s | 181 s | 616 s | 14 s | 1,320 s |
+| 2 | 422 s | 178 s | 611 s | 14 s | 1,225 s |
+
+第 1 步共 2,048 条轨迹（128 题 × 16 条）：
+- 处理 token 合计 8.79M，生成 token 合计 0.29M；
+- 每条轨迹平均裁图 0.72 次。
+
+旧配置（每步 12 题 × 16 条 = 192 条轨迹，2 张卡）每步约 140 秒。
+
+**时间：**
+
+| | B4（A-SFT + GRPO，带裁图） | B6（原模型 + GRPO，无工具） |
+|---|---:|---:|
+| 每步 | 20–22 分钟 | 约 12 分钟 |
+| 到第 150 步（停止规则最早生效） | 约 51–55 小时 | 约 30 小时 |
+| 到第 300 步（上限） | 约 102–110 小时 | 约 60 小时 |
+
+另外每 25 步还有一次验证（440 题）和一次 checkpoint 保存。
+
+**部署**：为了能同时做多组实验，每组用 2 张卡，4 张卡同时跑两组（现在是 B6 + 之后的 B4）。
+
+**决定训练开销的设置**（[`grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh)）：
+
+```bash
+data.train_files=.../grpo_caption_v51_8k/train.parquet   # 8,000 题的题池
+data.rollout_batch_size=128                               # 每步 128 题
+worker.rollout.n=16                                       # 每题 16 条 rollout
+worker.actor.global_batch_size=32                         # mini-batch 32 题 → 每步 4 次更新
+data.max_response_length=7168                             # 多轮总响应预算（含工具回执）
+worker.actor.micro_batch_size_per_device_for_update=2
+worker.actor.micro_batch_size_per_device_for_experience=4
+worker.rollout.gpu_memory_utilization=0.45                # 2 卡上 vLLM 与训练共用显存
+trainer.n_gpus_per_node=2
+trainer.max_steps=300 trainer.val_freq=25 trainer.save_freq=25   # 上限 300 步，每 25 步验证并保存
+```
+
+**还不清楚的问题：**
+1. 要训练到收敛，每步应该用多少题、每题多少条 rollout、每步更新几次，才算合理？
+2. 需要的步数和时间，主要由什么决定：题目的选择（8k 题池的组成；A-SFT 在第 1 步训练题上的 rollout 准确率是 .549），还是 rollout 的配置（128 × 16）？
+3. 2 卡一组、两组并行，与 4 卡跑一组相比，哪种更合适？
+
+### 2.5 评测
 
 - **E1**：552 题（440 道分层验证题 + 112 道 V* 留出题），每题采样 4 次，T = .7。
 - **预算**：上下文 32,768，累计生成 8,192 token，每轮可以用完剩余预算。
@@ -94,6 +136,42 @@ Step N | re_examine
 | [`pipeline/eval/baselines/eval_base.py`](../pipeline/eval/baselines/eval_base.py) | 原模型评测：不带工具 / 原生 zoom 工具 |
 | [`pipeline/eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | caption 协议评测 |
 | [`pipeline/eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本统计 |
+
+### 关键代码（节选）
+
+奖励：只看唯一一个 `<answer>` 是否等于标准答案（[`reward_caption.py`](../pipeline/grpo/v51fix/reward_caption.py)）：
+
+```python
+def _norm_answer(text):
+    matches = _ANS.findall(text)            # <answer>...</answer>
+    if len(matches) != 1:                   # 轨迹在第一个答案处结束；多个答案算无效
+        return None
+    answer = matches[0].strip().upper()
+    return answer if _LETTER.fullmatch(answer) else None   # A–J
+
+def score_one(data_source, solution_str, ground_truth, extra_info=None):
+    gold = str(ground_truth).strip().upper()
+    return float(bool(_LETTER.fullmatch(gold)) and _norm_answer(solution_str) == gold)
+```
+
+裁图框检查：不合法的框直接拒绝，不做截断或夹边（[`caption_env.py`](../pipeline/grpo/v51fix/caption_env.py)）：
+
+```python
+def valid_bbox(b):
+    x0, y0, x1, y1 = (float(v) for v in b)
+    return 0.0 <= x0 < x1 <= 1.0 and 0.0 <= y0 < y1 <= 1.0
+```
+
+停止规则（`plateau_stop.py`，开跑前写定）：
+
+```python
+MIN_STEP, WINDOW, MIN_GAIN = 150, 3, 0.01
+# vals = [(step, val_accuracy), ...]，每 25 步一个点
+if vals[-1][0] >= MIN_STEP and len(vals) >= 2 * WINDOW:
+    gain = mean(vals[-3:]) - mean(vals[-6:-3])
+    if gain < MIN_GAIN:
+        ...  # 等这一步的 checkpoint 保存完，再停止本 run 的进程
+```
 
 ## 4. 正在进行的实验
 
@@ -124,6 +202,10 @@ Step N | re_examine
 | B2 | .0068 | .0149 | .0145 | .0747 | 2,386 | 105 | .0005 |
 | B3 | .5670 | .9805 | .5725 | .4216 | 5,015 | 170 | .0014 |
 
+![E1 trade-off](../media/baselines_v52_20261024/tradeoff_E1.png)
+
+图中目前只有已完成的条件；其余条件完成后加入。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
+
 按来源统计的准确率：
 
 | ID | MME-RealWorld | MMMU-Pro | V* | WorldBench |
@@ -144,14 +226,16 @@ B2 的 2,208 条轨迹按最后一轮分类：
 
 | 组 | GPU | 开始时间 | 每步时间（冒烟第 1 步） | 第 150 步（最早可停） | 第 300 步（上限） |
 |---|---|---|---:|---:|---:|
-| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 12:50 | 约 12 分钟 | 约 1.25 天（30 小时） | 约 2.5 天（60 小时） |
-| B4 A-SFT + GRPO | 0, 1 | 排队（B1 与 H2 评测结束后） | 约 22 分钟 | 约 2.3 天（55 小时） | 约 4.6 天（110 小时） |
+| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 12:50 | 约 12 分钟 | 约 30 小时 | 约 60 小时 |
+| B4 A-SFT + GRPO | 0, 1 | 排队（B1 与 H2 评测结束后） | 20–22 分钟 | 约 51–55 小时 | 约 102–110 小时 |
 
 - 时间均为北京时间。
 - 天数按冒烟第 1 步的耗时乘以步数折算，**另外**每 25 步还有一次验证和一次 checkpoint 保存。实际时间以训练日志为准。
 - 每 25 步的验证准确率出来后填在这里。
 
 ## 6. 还没弄清的问题
+
+训练配置与时间的问题见 §2.4。
 
 1. 原模型在 caption 协议下，为什么近一半轨迹给出 0–1000 尺度的框，另有 830 条既不裁图也不写 `<answer>`？
 2. B4 和 B6 在多少步达到平台？平台时的准确率和裁图成本是多少？

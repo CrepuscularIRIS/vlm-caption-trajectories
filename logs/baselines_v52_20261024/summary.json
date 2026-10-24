@@ -1,0 +1,62 @@
+[
+ {
+  "file": "traj_B0_direct.jsonl",
+  "n": 2208,
+  "acc": 0.5217,
+  "fmt": 0.9534,
+  "first": 0.0,
+  "later": 0.0,
+  "tokens": 1463.9529,
+  "gen": 809.9457,
+  "truncated": 0.0466,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.5273,
+   "mmmu_pro": 0.3397,
+   "vstar": 0.6741,
+   "worldbench": 0.3306
+  },
+  "id": "B0",
+  "label": "原模型 不带工具"
+ },
+ {
+  "file": "traj_B2_caption_zs.jsonl",
+  "n": 2208,
+  "acc": 0.0068,
+  "fmt": 0.0149,
+  "first": 0.0145,
+  "later": 0.0747,
+  "tokens": 2385.8293,
+  "gen": 104.7903,
+  "truncated": 0.0005,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.0044,
+   "mmmu_pro": 0.0449,
+   "vstar": 0.0045,
+   "worldbench": 0.0
+  },
+  "id": "B2",
+  "label": "原模型 caption zero-shot"
+ },
+ {
+  "file": "traj_B3_sft.jsonl",
+  "n": 2208,
+  "acc": 0.567,
+  "fmt": 0.9805,
+  "first": 0.5725,
+  "later": 0.4216,
+  "tokens": 5015.1621,
+  "gen": 170.1123,
+  "truncated": 0.0014,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.5708,
+   "mmmu_pro": 0.2885,
+   "vstar": 0.8125,
+   "worldbench": 0.2782
+  },
+  "id": "B3",
+  "label": "A-SFT"
+ }
+]
