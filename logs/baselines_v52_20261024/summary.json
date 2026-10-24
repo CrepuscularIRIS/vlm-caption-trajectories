@@ -20,6 +20,26 @@
   "label": "原模型 不带工具"
  },
  {
+  "file": "traj_B1_native.jsonl",
+  "n": 2208,
+  "acc": 0.5888,
+  "fmt": 0.9348,
+  "first": 0.9873,
+  "later": 0.7097,
+  "tokens": 4287.8256,
+  "gen": 394.774,
+  "truncated": 0.0127,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.6084,
+   "mmmu_pro": 0.3077,
+   "vstar": 0.7902,
+   "worldbench": 0.2944
+  },
+  "id": "B1",
+  "label": "原模型 原生 zoom 工具"
+ },
+ {
   "file": "traj_B2_caption_zs.jsonl",
   "n": 2208,
   "acc": 0.0068,
@@ -58,5 +78,45 @@
   },
   "id": "B3",
   "label": "A-SFT"
+ },
+ {
+  "file": "traj_H1_ao_sft.jsonl",
+  "n": 2208,
+  "acc": 0.4515,
+  "fmt": 0.9995,
+  "first": 0.0,
+  "later": 0.0,
+  "tokens": 1879.7237,
+  "gen": 10.9973,
+  "truncated": 0.0,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.4683,
+   "mmmu_pro": 0.2885,
+   "vstar": 0.5156,
+   "worldbench": 0.3468
+  },
+  "id": "H1",
+  "label": "答案式 SFT"
+ },
+ {
+  "file": "traj_H2_ao_rl160.jsonl",
+  "n": 2208,
+  "acc": 0.4792,
+  "fmt": 1.0,
+  "first": 0.0,
+  "later": 0.0,
+  "tokens": 1879.721,
+  "gen": 10.9946,
+  "truncated": 0.0,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.5125,
+   "mmmu_pro": 0.2564,
+   "vstar": 0.5692,
+   "worldbench": 0.2742
+  },
+  "id": "H2",
+  "label": "答案式 SFT + GRPO"
  }
 ]
