@@ -147,6 +147,8 @@ trainer.val_freq=25 trainer.save_freq=25
 | [`pipeline/grpo/easyr1_602a128_local.diff`](../pipeline/grpo/easyr1_602a128_local.diff) | 对 EasyR1 的本地改动 |
 | [`pipeline/eval/baselines/eval_base.py`](../pipeline/eval/baselines/eval_base.py) | 原模型评测：不带工具 / 原生 zoom 工具 |
 | [`pipeline/eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | caption 协议评测 |
+| [`pipeline/eval/baselines/eval_minio3.py`](../pipeline/eval/baselines/eval_minio3.py) | X1：Mini-o3 官方协议（`<grounding>` 相对坐标，裁原图不放大），E1 预算 |
+| [`pipeline/eval/baselines/eval_deepeyes.py`](../pipeline/eval/baselines/eval_deepeyes.py) | X2：DeepEyes 官方协议（`image_zoom_in_tool` 绝对像素坐标），E1 预算 |
 | [`pipeline/eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本统计 |
 
 ### 关键代码（节选）
@@ -190,12 +192,14 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | B2 | 原模型 zero-shot + caption 协议 | — | **完成** |
 | B3 | A-SFT | — | **完成** |
 | H1 | 答案式 SFT | — | **完成** |
-| H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成** |
-| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；E1 评测未做 |
-| B4 | A-SFT + GRPO | 0, 1 | **停止**（10-24 17:58 开始；20:39 第 7 步 CUDA OOM 退出，见 §5.2） |
-| B5 | 原模型直接 GRPO（caption 协议） | — | B6 之后 |
+| H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
+| H2（6k） | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | 排队（B5 之后） |
+| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测中（GPU 2） |
+| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-25 02:08 重启，`b4_6k_m1`：update micro batch 2 → 1，其余不变；验证集 422 题）。第一次（`b4_6k`）在第 7 步 CUDA OOM 退出，见 §5.2 |
+| B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | 排队（X1、X2 评测之后） |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
-| X1 / X2 | Mini-o3-7B、DeepEyes-7B | — | 未开始（Mini-o3 权重已下载） |
+| X1 | Mini-o3-7B-v1（官方协议，E1 预算） | 3 | **评测中**（10-25 02:15 开始） |
+| X2 | DeepEyes-7B（官方协议，E1 预算） | 3 | 排队（X1 之后；权重下载中） |
 
 ## 5. 结果
 
@@ -247,7 +251,8 @@ B2 的 2,208 条轨迹按最后一轮分类：
 | 组 | 第 0 步 | 第 25 步 | 第 47 步 |
 |---|---:|---:|---:|
 | B6 | .470 | .557 | .564 |
-| B4 | .502 | — | — |
+| B4（`b4_6k`，440 题） | .502 | — | — |
+| B4（`b4_6k_m1`，422 题） | .533 | | |
 
 - B4 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
 
