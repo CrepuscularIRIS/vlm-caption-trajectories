@@ -2,7 +2,7 @@
 
 Written before any GPU use for this test. It will be entered into study `rl-objective-credit` as a collection-only `plan_test` after the four-case (023/024) and zero-arm interprets. The text below is copied verbatim.
 
-Design source: mentor's 10-22 suggestion (private conversation log, lines 170–180; summarised in [docs/research_design/decision_loss_20261022/](../../../docs/research_design/decision_loss_20261022/README.md)) [scrub: private link removed], and Pro's design `docs/research_design/decision_loss_20261022/PRO_RESPONSE.md` (UTF-8 sha256 55df6e12…), §§2–8. The user asked for it to be carried out as designed.
+Design source: mentor's 10-22 suggestion (private conversation log, lines 170–180; summarised in [docs/research_design/decision_loss_20261022/](../../../docs/archive/research_design/decision_loss_20261022/README.md)) [scrub: private link removed], and Pro's design `docs/research_design/decision_loss_20261022/PRO_RESPONSE.md` (UTF-8 sha256 55df6e12…), §§2–8. The user asked for it to be carried out as designed.
 
 ## Question
 

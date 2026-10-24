@@ -1,6 +1,6 @@
 # Trajectory libraries A and B (public-safe export)
 
-This folder publishes the two SFT trajectory libraries compared in [docs/22](../docs/22_dual_library_eval_20261016.md): every assistant turn (short evidence caption, plan/NEXT text, crop action, final answer) and the tool receipts between them. Questions, options and images are **not** included. Field reference: [SCHEMA.md](SCHEMA.md). Numbers: [STATS.json](STATS.json).
+This folder publishes the two SFT trajectory libraries compared in [docs/22](../docs/archive/22_dual_library_eval_20261016.md): every assistant turn (short evidence caption, plan/NEXT text, crop action, final answer) and the tool receipts between them. Questions, options and images are **not** included. Field reference: [SCHEMA.md](SCHEMA.md). Numbers: [STATS.json](STATS.json).
 
 | File | Records | Assistant turns | Notes |
 |---|---:|---:|---|
@@ -11,7 +11,7 @@ This folder publishes the two SFT trajectory libraries compared in [docs/22](../
 
 ## Library A: V2.2 KEEP (caption v5.1)
 
-A is the frozen V2.2 release described in [docs/19](../docs/19_v2_2_complete_design_and_catalog_20261009.md): one path per question, chosen from four main generators (Luna, Sol 5.6, GLM, Grok) plus targeted top-ups from Astra, Gemini and K3. Each generator answered with the "short evidence caption + real crop action" protocol at native resolution with a budget of 8 crops. Every selected path was reviewed view by view by a model reviewer and is KEEP. These are model reviews, not human gold labels. There are 4,040 tasks and 3,690 original-image groups. The paths contain 2,132 direct answers, 1,146 one-crop paths and 762 paths with two or more crops. The A SFT run in docs/22 did not use all 4,040 records. It used the 3,983 questions shared with B, giving 6,953 turn rows. `in_sft_aligned_3983` marks those records. The private aligned file was not available locally, so the flag is rebuilt from B's item list. The rebuilt subset has 6,953 assistant turns, which matches the training row count.
+A is the frozen V2.2 release described in [docs/19](../docs/archive/19_v2_2_complete_design_and_catalog_20261009.md): one path per question, chosen from four main generators (Luna, Sol 5.6, GLM, Grok) plus targeted top-ups from Astra, Gemini and K3. Each generator answered with the "short evidence caption + real crop action" protocol at native resolution with a budget of 8 crops. Every selected path was reviewed view by view by a model reviewer and is KEEP. These are model reviews, not human gold labels. There are 4,040 tasks and 3,690 original-image groups. The paths contain 2,132 direct answers, 1,146 one-crop paths and 762 paths with two or more crops. The A SFT run in docs/22 did not use all 4,040 records. It used the 3,983 questions shared with B, giving 6,953 turn rows. `in_sft_aligned_3983` marks those records. The private aligned file was not available locally, so the flag is rebuilt from B's item list. The rebuilt subset has 6,953 assistant turns, which matches the training row count.
 
 ## Library B: v4c interpolated (caption v6)
 

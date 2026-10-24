@@ -1,49 +1,57 @@
 # 变更记录
 
+## 2026-10-24 — 整理仓库：旧文档归档，新入口，已知问题台账
+
+- docs/01–36、CASEBOOK、SPOTCHECK、idea_cards、research_design、旧 README 全部移入 `docs/archive/`（`git mv`，内容不变，相对链接按新位置重写；改前改后断链都是 0）。对照表见 `docs/archive/README.md`。
+- 新 README 只指向当前文件：docs/40（已知问题与修复台账，来自 10-23 代码审查）、docs/39（Probe 协议）、docs/38（导师要求对账）。
+- docs/39 撤回“训练算法与 Mini-o3 一样”的说法，并列出全部差异。
+- CI：生成 CASEBOOK / SPOTCHECK 的脚本改为输出新路径；`manifest.sha256.json` 和 `release_manifest.json` 按新路径重新计算 hash（核对过每个文件相对 HEAD 只改了链接），并把 README.md、CHANGELOG.md 移出冻结清单（它们是入口文件，会持续更新）。归档前 CI 已经因 README 的 hash 失败。
+- 新增原模型基线评测 `pipeline/eval/baselines/eval_base.py`（B0/B1；已知问题见 docs/40 I1、I3）和 10-23 设置审计的复算图。
+
 ## 2026-10-24 — 拆分后续裁图；按两份 Pro 回复设计下一步
 
-- 新增 [docs/36](docs/36_later_crops_design_20261024.md)、`pipeline/eval/later_crops/later_decomp.py`、`logs/later_crops/decomp_E{1,2}_160.json`。把每题裁图拆成"第一次 + 后续"。代价够大的三组（std 下限 λ=.025 / .05、卡 B）后续裁图减少 0.47–0.69 次/题，第一次裁图几乎不变；与同配方原版重跑比，E1 准确率差在 ±.01 内，逐题变差 / 变好落在"同配方跑两次"的范围里。λ=.05 在 E2 上开始有小代价。
+- 新增 [docs/36](docs/archive/36_later_crops_design_20261024.md)、`pipeline/eval/later_crops/later_decomp.py`、`logs/later_crops/decomp_E{1,2}_160.json`。把每题裁图拆成"第一次 + 后续"。代价够大的三组（std 下限 λ=.025 / .05、卡 B）后续裁图减少 0.47–0.69 次/题，第一次裁图几乎不变；与同配方原版重跑比，E1 准确率差在 ±.01 内，逐题变差 / 变好落在"同配方跑两次"的范围里。λ=.05 在 E2 上开始有小代价。
 - 下一步设计：种子 43 的确认三组（原版、std 下限 λ=.025、RLOO λ=.05），待用户确认后启动；可选的 S/N 中间状态诊断只用于解释机制。
 - docs/35 §7 加注：之前"低 1.7 个点"是与原版首次 run 比的。
 
 ## 2026-10-24 — 导师要求逐条对账
 
-- 新增 [docs/35](docs/35_mentor_requests_and_results_20261024.md)：按导师飞书原话的顺序，逐条列出做了什么、结果和链接；附全部 RL 组一览（准确率、裁图、token、GPU 小时）。补上四种情况信用、零信用、首动作监督的开销（同一方法复算 RLOO λ=.01 的行，与原表一致）。另列出还没做的五项。
+- 新增 [docs/35](docs/archive/35_mentor_requests_and_results_20261024.md)：按导师飞书原话的顺序，逐条列出做了什么、结果和链接；附全部 RL 组一览（准确率、裁图、token、GPU 小时）。补上四种情况信用、零信用、首动作监督的开销（同一方法复算 RLOO λ=.01 的行，与原表一致）。另列出还没做的五项。
 - λ=.05 / .10 剂量对照按用户要求在第 6 步停止，无结果；docs/33 §5、README 同步。
 
 ## 2026-10-23 夜 — 仓库入口整理；训练账本诊断；λ 剂量对照启动
 
-- 新增 [docs/33](docs/33_status_20261023.md)，作为唯一阅读入口：导师原话中的目标、10-16 以来实验一表、现在多出来多少步、下一步。README 顶部改为指向它；docs/31–32 降为背景阅读。
+- 新增 [docs/33](docs/archive/33_status_20261023.md)，作为唯一阅读入口：导师原话中的目标、10-16 以来实验一表、现在多出来多少步、下一步。README 顶部改为指向它；docs/31–32 降为背景阅读。
 - 新增 [logs/stageA](logs/stageA/README.md)：按全对 / 全错 / 有对有错分组的训练账本统计。RLOO 下 λ=.01 只占更新信号的 2–5%；方向对，但力度小；相邻检查点之间裁图波动可超过 1 次/题；附严格势函数在 RLOO 下抵消的代数检查。
 - 新增 `pipeline/eval/later_crops/excess_crops.py` 与 `logs/later_crops/excess_160.json`：同一道题上，与裁图最少的那条答对样本相比，其余答对样本多裁了多少次。
 - 启动导师公式在 RLOO 下的 λ=.05 / .10 两组（`logs/stageA/lsweep_remote.sh`）。
 
 ## 2026-10-23 晚 — 研究轨迹加入 Pro 第 4 轮与全部推断汇总
 
-- [docs/32](docs/32_research_trajectory_20261023.md) 新增 §4.5（Pro 第 4 轮：逐图审查后"多余裁图"拆成可获取性、定位、读取 / 绑定、停止四种失败；主卡"已到达证据的读出—使用断点"；c01 的 17 个评分最小检查，未运行）与 §4.6（Pro 四轮全部推断及证据状态）；错误表、问题清单与材料同步更新。
-- [docs/31](docs/31_later_crops_reading_20261023.md) 文首加更新说明：两处分类判断被逐图审查修正。
+- [docs/32](docs/archive/32_research_trajectory_20261023.md) 新增 §4.5（Pro 第 4 轮：逐图审查后"多余裁图"拆成可获取性、定位、读取 / 绑定、停止四种失败；主卡"已到达证据的读出—使用断点"；c01 的 17 个评分最小检查，未运行）与 §4.6（Pro 四轮全部推断及证据状态）；错误表、问题清单与材料同步更新。
+- [docs/31](docs/archive/31_later_crops_reading_20261023.md) 文首加更新说明：两处分类判断被逐图审查修正。
 - docs/32 §4.5 加入 Codex 49 轮直接审查（`3d7a7ba`）：c01 认错对象早于多裁、c00 描述正确但动作无效、c02 字母对理由错、停止候选由 c07 改为 c04；推断表与问题清单同步。
 
 ## 2026-10-23 — 研究轨迹总览（供导师查阅）
 
-- 新增 [docs/32](docs/32_research_trajectory_20261023.md)：10-16 → 10-23 全部步骤的时间线，Pro 三轮诊断与设计逐条展开，犯过的错与发现者，正在进行的领域问题与思维方式提取，后续问题清单。
+- 新增 [docs/32](docs/archive/32_research_trajectory_20261023.md)：10-16 → 10-23 全部步骤的时间线，Pro 三轮诊断与设计逐条展开，犯过的错与发现者，正在进行的领域问题与思维方式提取，后续问题清单。
 - docs/30 §7.4 勘误：零信用确实少裁了（−0.31/题），原写"都没有减少裁图"不对；"BCE 饱和"改为假说（均为 Pro 10-23 复核指出）。
 
 ## 2026-10-23 — 后续裁图的轨迹阅读
 
-- 新增 [docs/31](docs/31_later_crops_reading_20261023.md)：r1 第 160 步 E1 clean/E2 轨迹中第一次之后的裁图按几何与自述意图分类，并给出 CC 的批判性评价（"冗余"混了无新信息、确认后作答、封顶循环三类问题；E2 显示后续裁图承担恢复）。描述性阅读，不是反事实实验。
+- 新增 [docs/31](docs/archive/31_later_crops_reading_20261023.md)：r1 第 160 步 E1 clean/E2 轨迹中第一次之后的裁图按几何与自述意图分类，并给出 CC 的批判性评价（"冗余"混了无新信息、确认后作答、封顶循环三类问题；E2 显示后续裁图承担恢复）。描述性阅读，不是反事实实验。
 - 脚本 `pipeline/eval/later_crops/later_crops.py`，结果 `logs/later_crops/r1_160.json`（只含计数与比例，无题面、无模型输出）。
 - Stage 0 勘误：5 个正收益状态中参考模型本就直答的是 2 个，不是 3 个（`logs/dl/stage0/README.md`）。
 
 ## 2026-10-23 — 三组信用/动作训练结果
 
-- [docs/30](docs/30_rl_credit_report_20261022.md) 第 0 节与新增第 7 节：四种情况信用（否定：裁图 +0.54/题，准确率不变）、零信用对照（预注册 H 成立，但因零信用比 r1 低 2.5 点）、首动作监督（否定：U_choice −0.025 [−0.034, −0.018]；直接作答变多但不分状态）。原第 7 节"材料在哪里"改为第 8 节。
+- [docs/30](docs/archive/30_rl_credit_report_20261022.md) 第 0 节与新增第 7 节：四种情况信用（否定：裁图 +0.54/题，准确率不变）、零信用对照（预注册 H 成立，但因零信用比 r1 低 2.5 点）、首动作监督（否定：U_choice −0.025 [−0.034, −0.018]；直接作答变多但不分状态）。原第 7 节"材料在哪里"改为第 8 节。
 - 代码：`pipeline/grpo/v51_fc/`、`v51_fcz/`、`v52_dl/`（含两份预注册与执行偏差），启动脚本 `pipeline/grpo/scripts/{grpo_fc,fc_remote,grpo_fcz,fcz_remote,grpo_dl,dl_remote}.sh`；路径按 `pipeline/SCRUB_NOTES.md` 替换，`v52_dl` 的 Python 路径改读环境变量（标 `[scrub]`）。
 - 汇总：`logs/fc/compare_fc.json`、`logs/fcz/compare_fcz.json`、`logs/dl/compare_dl.json`（只含指标与 uid，无题面、无模型输出）。
 
 ## 2026-10-22 — 合并 docs/30–37 为一份报告
 
-- 新增 [docs/30_rl_credit_report_20261022.md](docs/30_rl_credit_report_20261022.md)：RLOO 对照结果（E1/E2 分 benchmark、开销）、信用分配前的四个诊断问题、走偏的地方、请导师决定的三个选项。删除原 docs/30–37（保留在 git 历史），README 入口与各处链接改指新报告。以下旧条目中的 docs/30–37 编号指已删除的旧文件。
+- 新增 [docs/30_rl_credit_report_20261022.md](docs/archive/30_rl_credit_report_20261022.md)：RLOO 对照结果（E1/E2 分 benchmark、开销）、信用分配前的四个诊断问题、走偏的地方、请导师决定的三个选项。删除原 docs/30–37（保留在 git 历史），README 入口与各处链接改指新报告。以下旧条目中的 docs/30–37 编号指已删除的旧文件。
 
 ## 2026-10-22 — 修测量后重跑分段价值诊断（v2）
 
@@ -60,7 +68,7 @@
 
 ## 2026-10-22 — 决策记录 D
 
-- 新增 [docs/36](docs/30_rl_credit_report_20261022.md)、`pipeline/eval/mve/mine_utilization.py`、`build_case_pages.py`、`logs/mve/utilization_mined_summary.json`。
+- 新增 [docs/36](docs/archive/30_rl_credit_report_20261022.md)、`pipeline/eval/mve/mine_utilization.py`、`build_case_pages.py`、`logs/mve/utilization_mined_summary.json`。
 
 ## 2026-10-22 — 看图标注结果
 
@@ -68,7 +76,7 @@
 
 ## 2026-10-22 — 配对回执诊断准备
 
-- 新增 [docs/35](docs/30_rl_credit_report_20261022.md)、`pipeline/eval/mve/`、`logs/mve/`（审查结果、40 个状态的记录与标注表；图像留在服务器）。
+- 新增 [docs/35](docs/archive/30_rl_credit_report_20261022.md)、`pipeline/eval/mve/`、`logs/mve/`（审查结果、40 个状态的记录与标注表；图像留在服务器）。
 
 ## 2026-10-22 — 采纳外部复核（Pro + Codex），核对源码后改正
 
@@ -76,7 +84,7 @@
 
 ## 2026-10-22 — 给导师的汇总报告
 
-- 新增 [docs/34](docs/30_rl_credit_report_20261022.md)：全部 RL 组的 E1 / E2 分 benchmark 表、训练开销表、"是否是 advantage 的问题"的证据表、四种情况信用分配的现状与下一步、请导师确认的三点。
+- 新增 [docs/34](docs/archive/30_rl_credit_report_20261022.md)：全部 RL 组的 E1 / E2 分 benchmark 表、训练开销表、"是否是 advantage 的问题"的证据表、四种情况信用分配的现状与下一步、请导师确认的三点。
 
 ## 2026-10-22 — 第三节方案定稿
 
@@ -88,11 +96,11 @@
 
 ## 2026-10-22 — 导师要求逐条核对
 
-- 新增 [docs/33](docs/30_rl_credit_report_20261022.md)。改正：docs/29 与 README 的"人工抽看"（实为 AI 只读文字）；docs/30 加 RLOO 开销表 9b；docs/31 加门槛开销；docs/32 加两点说明。
+- 新增 [docs/33](docs/archive/30_rl_credit_report_20261022.md)。改正：docs/29 与 README 的"人工抽看"（实为 AI 只读文字）；docs/30 加 RLOO 开销表 9b；docs/31 加门槛开销；docs/32 加两点说明。
 
 ## 2026-10-22 — 给导师的进展总结
 
-- 新增 [docs/32](docs/30_rl_credit_report_20261022.md)。
+- 新增 [docs/32](docs/archive/30_rl_credit_report_20261022.md)。
 
 ## 2026-10-22 晚 — 决策点基线门槛结果
 
@@ -100,7 +108,7 @@
 
 ## 2026-10-22 — 决策点基线（idea card 与第一次检验启动）
 
-- 新增 [docs/31](docs/30_rl_credit_report_20261022.md)、`docs/idea_cards/`（idea card 与撞车核对）、`pipeline/grpo/v51_db/`（单测 4 项）、`pipeline/grpo/scripts/grpo_db.sh`、`pipeline/eval/db/`。
+- 新增 [docs/31](docs/archive/30_rl_credit_report_20261022.md)、`docs/idea_cards/`（idea card 与撞车核对）、`pipeline/grpo/v51_db/`（单测 4 项）、`pipeline/grpo/scripts/grpo_db.sh`、`pipeline/eval/db/`。
 
 ## 2026-10-22 — RLOO 对照最终结果
 
@@ -108,12 +116,12 @@
 
 ## 2026-10-21 — 第 6 节结果；RLOO 对照与信用分配插件
 
-- 新增 [docs/30](docs/30_rl_credit_report_20261022.md)：按轮次拆解（表 1–2，描述性）、固定上下文行为探针（表 3–4，事先预测成立）、冻结读者门槛（表 5，不可测）、四种情况分布、导师 10-21 原话、RLOO 对照设计与训练中途数字（表 6）、四种情况信用分配的 token 规则。
+- 新增 [docs/30](docs/archive/30_rl_credit_report_20261022.md)：按轮次拆解（表 1–2，描述性）、固定上下文行为探针（表 3–4，事先预测成立）、冻结读者门槛（表 5，不可测）、四种情况分布、导师 10-21 原话、RLOO 对照设计与训练中途数字（表 6）、四种情况信用分配的 token 规则。
 - 新增 `pipeline/eval/sec6/`、`pipeline/eval/rloo/`、`pipeline/grpo/v51_dvb/`（已停的方向 B）、`pipeline/grpo/v51_credit/`（未训练）、脚本 `grpo_dvb.sh`、`grpo_rloo.sh`、`reader_server.sh`；`logs/sec6/` 汇总 JSON。
 
 ## 2026-10-20 — 两分支首轮决策与首轮价值差 GRPO
 
-- 新增 [docs/29](docs/29_twobranch_dv_grpo_20261020.md)：导师 10-19 方案的全部步骤——两分支测量（300 题分类、置换检验、人工抽看）、2,000 题 dV 表、dV GRPO 与原版在第 40/80/120/160 步的 E1/E2 分 benchmark 对比、裁图与直答比例、训练中按 dV 分组的首轮裁图比例、训练开销、事先预测的判定。
+- 新增 [docs/29](docs/archive/29_twobranch_dv_grpo_20261020.md)：导师 10-19 方案的全部步骤——两分支测量（300 题分类、置换检验、人工抽看）、2,000 题 dV 表、dV GRPO 与原版在第 40/80/120/160 步的 E1/E2 分 benchmark 对比、裁图与直答比例、训练中按 dV 分组的首轮裁图比例、训练开销、事先预测的判定。
 - 新增 `pipeline/eval/twobranch/`（两分支评测、选题、汇总、重分析、抽看材料生成、dV 表、两组对比）、`pipeline/grpo/v51_dv/`（首轮价值差插件 + 单测）、`pipeline/grpo/scripts/grpo_dv.sh`。
 - 新增 `logs/twobranch/`：逐题两分支结果（正确率、裁图数、生成 token）、汇总、人工判定、dV 表、两组对比结果。不含题面、图像和模型输出。
 - docs/29 第 6 节：方法来源（10-19 自建领域库与冻结读者候选）、GAP 与瓶颈、未检验的思考、下一步四个方向（含开销与停止条件）。
@@ -126,14 +134,14 @@
 
 ## 2026-10-19 — 审查
 
-- 新增 [docs/28](docs/28_review_20261019.md)：导师要求的完成情况、遇到的问题、行为统计给出的 GAP（G1–G5）、后续方向 D1–D3。
+- 新增 [docs/28](docs/archive/28_review_20261019.md)：导师要求的完成情况、遇到的问题、行为统计给出的 GAP（G1–G5）、后续方向 D1–D3。
 - 新增 `pipeline/grpo/v51_cc/behavior_stats.py`（库 A SFT 数据与 E1/E2 输出的行为统计）。
 - 代码补齐：`pipeline/grpo/v51_ansonly/` 收录答案式插件全部文件（与服务器一致，`caption_env.py` 为脱敏版）；`pipeline/grpo/scripts/cleanup_ckpt.sh`。
 - 服务器清理：已结束的 7 组只保留第 160、165 步合并后的权重，删除优化器状态、中间 checkpoint 与 FSDP 分片（约 800 GB）；结果与评测不受影响。
 
 ## 2026-10-19 — 全部结果
 
-- 新增 [docs/27](docs/27_results_20261019.md)：E1 / E2 分 benchmark 表、与原版的配对差值、训练开销表（SFT/GRPO 更新次数、训练 token、rollout 条数、生成与处理 token、GPU 小时）、rollout 分组统计、发现与未完成项。docs/26 顶部加指向说明。
+- 新增 [docs/27](docs/archive/27_results_20261019.md)：E1 / E2 分 benchmark 表、与原版的配对差值、训练开销表（SFT/GRPO 更新次数、训练 token、rollout 条数、生成与处理 token、GPU 小时）、rollout 分组统计、发现与未完成项。docs/26 顶部加指向说明。
 - `logs/grpo/`：卡 A、卡 B、KL、答案式 GRPO 的最终逐步指标，对照重跑的中途指标；`group_stats_20261019.md`（8 组）。
 - `pipeline/grpo/scripts/`：实际使用的队列脚本 `chain_gpu01b/c/d.sh`、`chain_gpu23b/c.sh`、`evals_after_kl.sh`；`grpo_ao.sh` 与 `grpo_cropfloor.sh` 加 `trainer.save_model_only=true`（10-19 起，磁盘不足）。`group_stats.py` 覆盖 8 组。
 - 更正：答案式 SFT 的第一次评测 .424 作废——LLaMA-Factory 导出的 `config.json` 缺 `rope_scaling`（M-RoPE 设置），同一缺失也导致答案式 GRPO 第一次启动失败；换成库 A SFT 模型的 config（两者仅此一处不同）后重评为 .458。
@@ -146,7 +154,7 @@
 
 ## 2026-10-18 晚 — rollout 分组统计、KL 与新基线计划
 
-- 新增 [docs/26](docs/26_cards_ab_groups_kl_20261018.md)：卡 A 第 40 步结果；全对 / 全错 / 有对有错 × 直答 / 裁图的正确率、advantage、监督 token；KL 现状与计划；两个新基线；之后的报告格式。
+- 新增 [docs/26](docs/archive/26_cards_ab_groups_kl_20261018.md)：卡 A 第 40 步结果；全对 / 全错 / 有对有错 × 直答 / 裁图的正确率、advantage、监督 token；KL 现状与计划；两个新基线；之后的报告格式。
 - 新增 `pipeline/grpo/v51_cc/group_stats.py`、`log_metrics.py`；`pipeline/grpo/scripts/grpo_kl.sh`、`wait_then_kl.sh`、`wait_then_ctrl.sh`。
 - 新增 `logs/grpo/group_stats_20261018.md`，以及卡 A / 卡 B 训练中的逐步指标（非最终）。
 - 更正：crop-floor 两组 λ 为 0.025 / 0.05。
@@ -166,11 +174,11 @@
 - 新增 `pipeline/`（协议、SFT 数据与配置、GRPO 四个变体与启动脚本、EasyR1 本地改动 diff、评测与分析脚本；路径脱敏）。
 - 新增 `logs/`（GRPO 逐步指标与解析配置 ×7，SFT 曲线 ×2，E1/E2 汇总）。
 - 新增 `trajectories/`（库 A 4,040、库 B 3,983；去题干、选项与图像；`check_public_export.py` 校验）。
-- 新增 [docs/25](docs/25_code_logs_trajectories_20261018.md) 索引；docs/22、docs/23 加 Adaptive-CoF 更正。
+- 新增 [docs/25](docs/archive/25_code_logs_trajectories_20261018.md) 索引；docs/22、docs/23 加 Adaptive-CoF 更正。
 
 ## 2026-10-18 — 阶段报告
 
-- 新增[阶段报告](docs/24_stage_report_20261018.md)：导师 10-16 回复逐句对应的理解、动作与结果；两轮重新设计；第二轮 E1/E2 结果与判定；目前的 7 项困难；需要导师确认的 4 个问题。数字与[导师回复记录](docs/23_mentor_guidance_20261016.md)第 7–9 节一致，无新实验。
+- 新增[阶段报告](docs/archive/24_stage_report_20261018.md)：导师 10-16 回复逐句对应的理解、动作与结果；两轮重新设计；第二轮 E1/E2 结果与判定；目前的 7 项困难；需要导师确认的 4 个问题。数字与[导师回复记录](docs/archive/23_mentor_guidance_20261016.md)第 7–9 节一致，无新实验。
 
 ## 2026-10-18 — 裁图代价第二轮结果
 
@@ -185,7 +193,7 @@
 
 ## 2026-10-16 — 导师回复记录：从 A 重跑 GRPO，加裁图代价
 
-- 新增[导师回复记录](docs/23_mentor_guidance_20261016.md)：原话、逐条整理、与现有奖励代码的对照、下一轮实验设计（`correct * (1.0 - 0.01 * crop_count)` 对原版 GRPO）、指标与停止条件、行动项。
+- 新增[导师回复记录](docs/archive/23_mentor_guidance_20261016.md)：原话、逐条整理、与现有奖励代码的对照、下一轮实验设计（`correct * (1.0 - 0.01 * crop_count)` 对原版 GRPO）、指标与停止条件、行动项。
 - 现有 GRPO 奖励只看终答对错，已满足“不给字面标签奖励”“不因没调用工具扣分”；直答在代码上可正常终止并打分，训练日志尚未核对。
 - 双库报告开头与第 10 节加指向新记录的说明。实验未开始。
 - 10-17：核对上一轮 A 组 GRPO 日志——34,128 条采样中直答未被判无效，直答在第 74–83 步之间消失；补实现方式与“0.01 经组内标准差归一会被放大”的说明。
@@ -209,7 +217,7 @@
 
 ## 2026-10-10 — 导师指导记录：轨迹定位与 SFT→RL 路线
 
-- 新增[导师指导完整记录](docs/20_mentor_guidance_20261010.md)：V2.2 步数分布（平均 1.74、最长 9）定位为生成模型能力强的合理结果，与多步流程工作的"弱模型+高不确定性"假设及步数口径不同，非数据缺陷。
+- 新增[导师指导完整记录](docs/archive/20_mentor_guidance_20261010.md)：V2.2 步数分布（平均 1.74、最长 9）定位为生成模型能力强的合理结果，与多步流程工作的"弱模型+高不确定性"假设及步数口径不同，非数据缺陷。
 - 固化下一步路线：双数据库（现有库原样 SFT + 步骤间插值注入试错/recover 行为）对比、轨迹 diversity 不做有效/无效预判、论文按三贡献点组织、SFT 2 epoch → RL 约 40K 对错样本、Qwen2.5-3B / Qwen3-4B、单卡 A100 起步。
 - 全部为计划与指导记录：未新增或修改数据、未做插值构造、无训练运行或收益结论；V2.2 冻结导出与全部旧报告不变。
 

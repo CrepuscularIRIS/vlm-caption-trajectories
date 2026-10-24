@@ -65,11 +65,11 @@
 
 ### `twobranch/`
 
-两分支测量与 dV GRPO 对比的汇总（[docs/29](../docs/29_twobranch_dv_grpo_20261020.md)）：`per_question_v2.csv`（逐题两分支正确率、裁图数、生成 token、未满足首轮约束次数）、`test_v2.json`（分类与置换检验）、`test_v1_unmet_scored_wrong.json`（作废的第一版）、`inspection_verdicts.csv`（人工抽看判定，只含 uid / 类别 / 判定）、`dv_table.json`、`dv_summary.json`、`compare.json`（两组 E1/E2 各步与训练中按 dV 分组的首轮裁图比例）。
+两分支测量与 dV GRPO 对比的汇总（[docs/29](../docs/archive/29_twobranch_dv_grpo_20261020.md)）：`per_question_v2.csv`（逐题两分支正确率、裁图数、生成 token、未满足首轮约束次数）、`test_v2.json`（分类与置换检验）、`test_v1_unmet_scored_wrong.json`（作废的第一版）、`inspection_verdicts.csv`（人工抽看判定，只含 uid / 类别 / 判定）、`dv_table.json`、`dv_summary.json`、`compare.json`（两组 E1/E2 各步与训练中按 dV 分组的首轮裁图比例）。
 
 ### `sec6/`
 
-第 6 节汇总（原 docs/30，现并入[进展报告](../docs/30_rl_credit_report_20261022.md)）：`turn_decomp.json`（按轮次拆解）、`probe_summary.json`（固定上下文探针）、`reader_summary.json`（冻结读者门槛）、`four_case.json`（裁图前后读者对错的四种情况）。
+第 6 节汇总（原 docs/30，现并入[进展报告](../docs/archive/30_rl_credit_report_20261022.md)）：`turn_decomp.json`（按轮次拆解）、`probe_summary.json`（固定上下文探针）、`reader_summary.json`（冻结读者门槛）、`four_case.json`（裁图前后读者对错的四种情况）。
 
 ### `fc/`、`fcz/`、`dl/`（10-22/23，见 docs/30 第 7 节）
 

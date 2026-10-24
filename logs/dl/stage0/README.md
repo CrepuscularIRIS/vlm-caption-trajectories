@@ -1,6 +1,6 @@
 # Stage 0：用已有分叉检查信号和选路空间（2026-10-23）
 
-来源：Pro / Codex 重设计 [READOUT](../../../docs/research_design/decision_loss_redesign_20261022/READOUT.md) 的第一步。只用已采集的分叉，CPU 计算；没有加载模型，没有新采样，也没有用 GPU。
+来源：Pro / Codex 重设计 [READOUT](../../../docs/archive/research_design/decision_loss_redesign_20261022/READOUT.md) 的第一步。只用已采集的分叉，CPU 计算；没有加载模型，没有新采样，也没有用 GPU。
 
 输入（不公开，因含题面；sha256 记在 `stage0.json` 的 `input_sha256`）：
 - 参考模型 r1@40 的 64 个审计状态，每个状态 4 条直答分叉 + 4 条裁图分叉（`audit_states.json`、`score_ref.json`）；

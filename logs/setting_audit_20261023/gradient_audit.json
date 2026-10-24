@@ -1,0 +1,390 @@
+[
+  {
+    "run": "grpo_v3_AO_base",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_AO_base_metrics.csv",
+    "sha256": "1c18da468301fefecadbb10265a0aa57ea81cd46908edbba9947125cc5994f40",
+    "updates": 165,
+    "grad_min": 0.0,
+    "grad_median": 39.051,
+    "grad_max": 1310.466,
+    "above_01": 142,
+    "median_clip_coefficient": 0.0025607538203694193,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.473
+      },
+      {
+        "step": 40,
+        "accuracy": 0.473
+      },
+      {
+        "step": 80,
+        "accuracy": 0.48
+      },
+      {
+        "step": 120,
+        "accuracy": 0.47
+      },
+      {
+        "step": 160,
+        "accuracy": 0.468
+      },
+      {
+        "step": 165,
+        "accuracy": 0.466
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_cc_dsasym",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_cc_dsasym_metrics.csv",
+    "sha256": "cb4ef099027c877075a3dd237c7e2cb487a623a83662211c74c7844f1bb00f39",
+    "updates": 165,
+    "grad_min": 2.293,
+    "grad_median": 7.297,
+    "grad_max": 361.683,
+    "above_01": 165,
+    "median_clip_coefficient": 0.01370426014742221,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.548
+      },
+      {
+        "step": 80,
+        "accuracy": 0.57
+      },
+      {
+        "step": 120,
+        "accuracy": 0.573
+      },
+      {
+        "step": 160,
+        "accuracy": 0.627
+      },
+      {
+        "step": 165,
+        "accuracy": 0.634
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_cc",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_cc_metrics.csv",
+    "sha256": "b9eb5d5212af667846b7f168251fe10ecd8ceea90f6a3c834f6a12a485a4dd5b",
+    "updates": 165,
+    "grad_min": 2.362,
+    "grad_median": 8.218,
+    "grad_max": 93.569,
+    "above_01": 165,
+    "median_clip_coefficient": 0.012168409324846762,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.589
+      },
+      {
+        "step": 80,
+        "accuracy": 0.6
+      },
+      {
+        "step": 120,
+        "accuracy": 0.593
+      },
+      {
+        "step": 160,
+        "accuracy": 0.611
+      },
+      {
+        "step": 165,
+        "accuracy": 0.641
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_cropcost",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_cropcost_metrics.csv",
+    "sha256": "24a476337dcfdbb60ebe950347df24e989e03df13b0d815ed7eea0e74afc5b58",
+    "updates": 56,
+    "grad_min": 3.967,
+    "grad_median": 15.297,
+    "grad_max": 140.9,
+    "above_01": 56,
+    "median_clip_coefficient": 0.006537470731568596,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.484
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_floor_ctrl_l000",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_floor_ctrl_l000_metrics.csv",
+    "sha256": "00fbbd8a59b3b11243279169657fa10fd873c7c5f23676384abf46baf2c09087",
+    "updates": 165,
+    "grad_min": 3.094,
+    "grad_median": 7.53,
+    "grad_max": 108.198,
+    "above_01": 165,
+    "median_clip_coefficient": 0.013280210719759532,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.559
+      },
+      {
+        "step": 80,
+        "accuracy": 0.557
+      },
+      {
+        "step": 120,
+        "accuracy": 0.607
+      },
+      {
+        "step": 160,
+        "accuracy": 0.616
+      },
+      {
+        "step": 165,
+        "accuracy": 0.62
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_floor_l025",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_floor_l025_metrics.csv",
+    "sha256": "bee9a98f1bb94ba44b42f908186f4ad2ad04d31ab22c1b7d1b1443f273ef54be",
+    "updates": 165,
+    "grad_min": 2.198,
+    "grad_median": 8.162,
+    "grad_max": 49.88,
+    "above_01": 165,
+    "median_clip_coefficient": 0.012251897543261758,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.564
+      },
+      {
+        "step": 80,
+        "accuracy": 0.589
+      },
+      {
+        "step": 120,
+        "accuracy": 0.586
+      },
+      {
+        "step": 160,
+        "accuracy": 0.591
+      },
+      {
+        "step": 165,
+        "accuracy": 0.607
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_floor_l050",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_floor_l050_metrics.csv",
+    "sha256": "65807a96112c586c9fec69f8bb0c1d180f0285823db27be3ba62101df1c24d5d",
+    "updates": 165,
+    "grad_min": 3.078,
+    "grad_median": 8.38,
+    "grad_max": 260.501,
+    "above_01": 165,
+    "median_clip_coefficient": 0.011933172800337375,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.591
+      },
+      {
+        "step": 80,
+        "accuracy": 0.568
+      },
+      {
+        "step": 120,
+        "accuracy": 0.589
+      },
+      {
+        "step": 160,
+        "accuracy": 0.595
+      },
+      {
+        "step": 165,
+        "accuracy": 0.602
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_floor_s43_l000",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_floor_s43_l000_metrics.csv",
+    "sha256": "917f8ba85efee50a517f4e823b79bcd859f470b20c357e908d84ef9c12c90514",
+    "updates": 3,
+    "grad_min": 4.826,
+    "grad_median": 5.866,
+    "grad_max": 14.75,
+    "above_01": 3,
+    "median_clip_coefficient": 0.017047388842927235,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.523
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_floor_s43_l050",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_floor_s43_l050_metrics.csv",
+    "sha256": "fce55ee8bcc06add1354c12e1de6280cc3be82c8bc54173bdf20937c64aa57fa",
+    "updates": 3,
+    "grad_min": 4.749,
+    "grad_median": 5.084,
+    "grad_max": 14.786,
+    "above_01": 3,
+    "median_clip_coefficient": 0.019669547665313206,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.523
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A_kl_k1e2",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_kl_k1e2_metrics.csv",
+    "sha256": "139daa0ed98720678e90005f07a11e655990d0fbdc5951a0dda25749bba1c286",
+    "updates": 165,
+    "grad_min": 2.431,
+    "grad_median": 7.214,
+    "grad_max": 239.143,
+    "above_01": 165,
+    "median_clip_coefficient": 0.013861933204611421,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.605
+      },
+      {
+        "step": 80,
+        "accuracy": 0.593
+      },
+      {
+        "step": 120,
+        "accuracy": 0.614
+      },
+      {
+        "step": 160,
+        "accuracy": 0.625
+      },
+      {
+        "step": 165,
+        "accuracy": 0.607
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_A",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_A_metrics.csv",
+    "sha256": "701e28ac63e6e40bfa71904eb0681f3cf258c43dfee83d0a49579e70f3e167fd",
+    "updates": 165,
+    "grad_min": 2.481,
+    "grad_median": 7.632,
+    "grad_max": 230.46,
+    "above_01": 165,
+    "median_clip_coefficient": 0.013102723650062416,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.502
+      },
+      {
+        "step": 40,
+        "accuracy": 0.566
+      },
+      {
+        "step": 80,
+        "accuracy": 0.586
+      },
+      {
+        "step": 120,
+        "accuracy": 0.605
+      },
+      {
+        "step": 160,
+        "accuracy": 0.616
+      },
+      {
+        "step": 165,
+        "accuracy": 0.609
+      }
+    ]
+  },
+  {
+    "run": "grpo_v3_B",
+    "source": "publications/vlm-caption-trajectories/logs/grpo/grpo_v3_B_metrics.csv",
+    "sha256": "dbc9f94ee393fa73db537c8d7285787b67c3349c4b0c0ab4b2d0d8ae14137b02",
+    "updates": 165,
+    "grad_min": 2.012,
+    "grad_median": 5.088,
+    "grad_max": 181.884,
+    "above_01": 165,
+    "median_clip_coefficient": 0.019654084187483455,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.495
+      },
+      {
+        "step": 40,
+        "accuracy": 0.55
+      },
+      {
+        "step": 80,
+        "accuracy": 0.568
+      },
+      {
+        "step": 120,
+        "accuracy": 0.566
+      },
+      {
+        "step": 160,
+        "accuracy": 0.595
+      },
+      {
+        "step": 165,
+        "accuracy": 0.589
+      }
+    ]
+  }
+]

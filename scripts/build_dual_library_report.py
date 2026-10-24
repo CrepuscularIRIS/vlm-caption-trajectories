@@ -11,7 +11,7 @@ from pathlib import Path
 import markdown
 
 ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "docs" / "22_dual_library_eval_20261016.md"
+SRC = ROOT / "docs" / "archive" / "22_dual_library_eval_20261016.md"
 CSS = ROOT / "scripts" / "report_template.css"
 OUT = ROOT / "web" / "reports" / "dual_library_eval_20261016.html"
 REPO = "https://github.com/CrepuscularIRIS/vlm-caption-trajectories"
@@ -72,8 +72,8 @@ def render(md_text: str) -> str:
 </header>
 <nav class="toc">{conv.toc}</nav>
 {body}
-<footer>由 <code>docs/22_dual_library_eval_20261016.md</code> 生成（<code>scripts/build_dual_library_report.py</code>）。
-<a href="{REPO}/blob/main/docs/22_dual_library_eval_20261016.md">Markdown 原文</a> · <a href="{REPO}">仓库</a></footer>
+<footer>由 <code>docs/archive/22_dual_library_eval_20261016.md</code> 生成（<code>scripts/build_dual_library_report.py</code>）。
+<a href="{REPO}/blob/main/docs/archive/22_dual_library_eval_20261016.md">Markdown 原文</a> · <a href="{REPO}">仓库</a></footer>
 </div>
 </body>
 </html>

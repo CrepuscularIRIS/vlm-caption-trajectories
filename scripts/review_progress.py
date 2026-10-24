@@ -42,8 +42,8 @@ def casebook(cases):
                 v=views[vid];asset=v.get('public_asset')
                 if asset and asset not in shown:
                     shown.add(asset)
-                    return ['',f"![{c['case_id']} {t['label']} {vid}](../{asset})",'']
-                if asset:return ['',f"视图 `{vid}`：[已公开图像](../{asset})。",'']
+                    return ['',f"![{c['case_id']} {t['label']} {vid}](../../{asset})",'']
+                if asset:return ['',f"视图 `{vid}`：[已公开图像](../../{asset})。",'']
                 return ['',f"视图 `{vid}`：本地查看，SHA-256 `{v['sha256']}`。",'']
             out += show('original_image')
             for step in t['steps']:
@@ -53,7 +53,7 @@ def casebook(cases):
             out += ['', '**模型原判理由：** '+t['model_adjudication']['reason'],'',
                 '<details><summary>来源与时序元数据</summary>','',f"- 源结果：`{t['source_path']}`",
                 f"- 源哈希：`{t['source_sha256']}`",'- 人工终裁：未填写。','','</details>']
-        out += ['',f"[完整可见路径 JSON](../cases/20261006/{c['case_id']}_{c['item_id']}.json)"]
+        out += ['',f"[完整可见路径 JSON](../../cases/20261006/{c['case_id']}_{c['item_id']}.json)"]
     return '\n'.join(out)+'\n'
 
 
@@ -124,7 +124,7 @@ def verify():
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--write-casebook',action='store_true');args=p.parse_args()
-    s,cases=verify();path=ROOT/'docs/CASEBOOK_20261006.md';text=casebook(cases)
+    s,cases=verify();path=ROOT/'docs/archive/CASEBOOK_20261006.md';text=casebook(cases)
     if args.write_casebook:path.write_text(text)
     else:assert path.read_text()==text,'Casebook does not match frozen case JSON'
     print(json.dumps({'consistency':'PASS','captured_at':s['captured_at'],'initial_tasks':1984,

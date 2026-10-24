@@ -55,10 +55,10 @@ def markdown(data):
                 asset = v['public_asset']
                 if asset and asset not in shown:
                     shown.add(asset)
-                    return ['', f"![{c['case_id']} {t['model']} {vid}](../{asset})", '',
+                    return ['', f"![{c['case_id']} {t['model']} {vid}](../../{asset})", '',
                             f"*真实收到的 `{vid}`；完整哈希与来源见 JSON。*", '']
                 if asset:
-                    return ['', f"视图 `{vid}` 与本案例上方已显示图像相同：[查看](../{asset})。", '']
+                    return ['', f"视图 `{vid}` 与本案例上方已显示图像相同：[查看](../../{asset})。", '']
                 return ['', f"视图 `{vid}`：本地可查，SHA-256 `{v['sha256']}`。", '']
 
             out += show('original_image')
@@ -75,11 +75,11 @@ def markdown(data):
             out += ['', '<details><summary>可追溯信息</summary>', '',
                 f"- 原结果相对路径：`{t['source_path']}`", f"- 原结果 SHA-256：`{t['source_sha256']}`",
                 '- 这里展示的是保存的可见 turn；生成器可能做过标签归一，记录保留在案例 JSON。', '', '</details>']
-        out += ['', f"[完整案例 JSON](../cases/20261004/{c['case_id']}_{c['item_id']}.json)"]
+        out += ['', f"[完整案例 JSON](../../cases/20261004/{c['case_id']}_{c['item_id']}.json)"]
     out += ['', '## 如何使用这些特例', '',
         'C01–C03 用来讨论目标行为；C04–C06 检查行为、前缀和审核门的边界；C07–C09 区分共同盲点、范围歧义和金标待核。'
         '**不要把全部案例直接作为 SFT 正例，不要用本页推断全池失败率。**', '',
-        '图片归属与修改说明见 [ATTRIBUTION](../media/20261004/ATTRIBUTION.json)。']
+        '图片归属与修改说明见 [ATTRIBUTION](../../media/20261004/ATTRIBUTION.json)。']
     return '\n'.join(out) + '\n'
 
 
@@ -155,7 +155,7 @@ def main():
     ap.add_argument('--output', type=Path)
     a = ap.parse_args()
     data = cases()
-    target = ROOT / 'docs/CASEBOOK_20261004.md'
+    target = ROOT / 'docs/archive/CASEBOOK_20261004.md'
     if a.write_markdown:
         target.write_text(markdown(data))
     if a.check_markdown:

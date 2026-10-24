@@ -28,7 +28,7 @@ def markdown(spot):
         + ('来自全审完的 1,317 候选，原 69 条全部保留，新增 6 条。' if final else '这是原池 1,241 候选的历史 69 条；新版 75 条已全部保留它们，见 [当前抽检册](SPOTCHECK75_20261004.md)。') +
         '本文是文本审阅入口，不能替代原图核验。', '',
         '[新增审核与重做分析](12_cc_spotcheck_update_20261004.md) · '
-        f'[结构化样本与视图哈希](../data/spotcheck{n}_20261004.json)', '',
+        f'[结构化样本与视图哈希](../../data/spotcheck{n}_20261004.json)', '',
         '第三方题目原文和新图像不在此公开页面分发；保留模型实际可见 caption、动作和时序。'
         '完整问题、原图与 crop 在本地 `obs/runs/audit_luna_v1_20261003/SPOTCHECK_CASEBOOK.html` 查看。'
         '旧页面的“Gemini read”是固定文案，真实 reader 须以 sidecar 为准。', '',
@@ -112,8 +112,8 @@ def verify():
         require(not t['generated_now'] and not t['semantic_truth_confirmed'],'Proposal must stay a proposal')
         if t['suggested_action']=='review_existing_alternative_first':
             require(any(a['score']==1 and a['termination']=='answer' for a in t['alternatives']),'Missing existing alternative')
-    require((ROOT/'docs/SPOTCHECK75_20261004.md').read_text()==markdown(spot),'Spotcheck Markdown mismatch')
-    require((ROOT/'docs/SPOTCHECK69_20261004.md').read_text()==markdown(original),'Original spotcheck Markdown mismatch')
+    require((ROOT/'docs/archive/SPOTCHECK75_20261004.md').read_text()==markdown(spot),'Spotcheck Markdown mismatch')
+    require((ROOT/'docs/archive/SPOTCHECK69_20261004.md').read_text()==markdown(original),'Original spotcheck Markdown mismatch')
     for rel,record in read('data/cc_code_provenance_20261004.json')['published_code'].items():
         require(hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==record['published_sha256'],'CC code snapshot hash')
     for r in rows:
@@ -132,8 +132,8 @@ def main():
     ap.add_argument('--output',type=Path)
     a=ap.parse_args()
     if a.write_markdown:
-        (ROOT/'docs/SPOTCHECK69_20261004.md').write_text(markdown(read('data/spotcheck69_20261004.json')))
-        (ROOT/'docs/SPOTCHECK75_20261004.md').write_text(markdown(read('data/spotcheck75_20261004.json')))
+        (ROOT/'docs/archive/SPOTCHECK69_20261004.md').write_text(markdown(read('data/spotcheck69_20261004.json')))
+        (ROOT/'docs/archive/SPOTCHECK75_20261004.md').write_text(markdown(read('data/spotcheck75_20261004.json')))
     if a.verify:
         verify()
     if a.workspace_root and a.output:

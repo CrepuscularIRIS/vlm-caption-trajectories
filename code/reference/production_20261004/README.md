@@ -15,4 +15,4 @@
 
 这些是供审阅的实际代码快照，**不是可直接启动生产任务的独立安装包**。`models_v51`、`tiered_transport`、`agy_reader`、`api_reader`、题图和生产配置等依赖未分发；导入路径也沿用源工程。公开脚本不要求运行这些生成器。
 
-已知问题保留原貌，详见 [质量缺口](../../../docs/09_production_review_20261004.md)：fallback_unreviewed 仍可能自动通过；终答引用视图包可能缺原图；坐标检测存在特定漏检。发布不等于这些问题已修复。
+已知问题保留原貌，详见 [质量缺口](../../../docs/archive/09_production_review_20261004.md)：fallback_unreviewed 仍可能自动通过；终答引用视图包可能缺原图；坐标检测存在特定漏检。发布不等于这些问题已修复。
