@@ -2,7 +2,7 @@
 
 这些文件只作记录，不再是阅读入口。当前入口见 [仓库 README](../../README.md)。
 
-其中的结论如果与 [docs/37](../37_baselines_and_scale_20261023.md)、[docs/38](../38_mentor_requirements_audit_20261024.md) 或 [docs/40](../40_known_issues_20261024.md) 的更正冲突，以更正为准。
+其中的结论如果与 [docs/37](37_baselines_and_scale_20261023.md)、[docs/38](38_mentor_requirements_audit_20261024.md) 或 [docs/40](../40_known_issues_20261024.md) 的更正冲突，以更正为准。
 
 内容没有改动，只把相对链接改成了新位置。飞书对话里的旧 GitHub 链接 `…/blob/main/docs/NN_xxx.md`，换成 `…/blob/main/docs/archive/NN_xxx.md` 即可打开。
 
@@ -51,3 +51,6 @@
 | `docs/SPOTCHECK75_20261004.md` | [SPOTCHECK75_20261004.md](SPOTCHECK75_20261004.md) | 75 条分层抽检：完整可见步骤 |
 | `docs/idea_cards` | [idea_cards](idea_cards/) | （目录） |
 | `docs/research_design` | [research_design](research_design/) | （目录） |
+| `docs/37_baselines_and_scale_20261023.md` | [37_baselines_and_scale_20261023.md](37_baselines_and_scale_20261023.md) | 10-23 baseline 与规模计划（已过时） |
+| `docs/38_mentor_requirements_audit_20261024.md` | [38_mentor_requirements_audit_20261024.md](38_mentor_requirements_audit_20261024.md) | 导师要求逐条对账（已过时，被内部全量对账取代） |
+| `docs/39_probe_protocol_for_mentor_20261024.md` | [39_probe_protocol_for_mentor_20261024.md](39_probe_protocol_for_mentor_20261024.md) | B4/B6 部署与参数（已过时；200 步方案已取消） |

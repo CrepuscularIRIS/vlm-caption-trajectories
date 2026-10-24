@@ -1,6 +1,6 @@
 # 当前阅读入口
 
-**最新：[按导师纠正重排 baseline 与 RL 规模](../37_baselines_and_scale_20261023.md)（2026-10-23，America/New_York）**。
+**最新：[按导师纠正重排 baseline 与 RL 规模](37_baselines_and_scale_20261023.md)（2026-10-23，America/New_York）**。
 
 补齐 Qwen3-VL-4B 原模型 direct / native tool / caption zero-shot，Base+GRPO 与无工具 GRPO，以及 AdaptVision、CounterCredit 和两个外部视觉模型。新 RL 计划 8k 题、32题×16 rollout、1,000 次更新、max_grad_norm=1.0；单 seed，不再安排 multi-seed。先完善基础对比，不等待方法终稿。
 

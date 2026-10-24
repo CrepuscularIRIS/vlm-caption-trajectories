@@ -1,3 +1,5 @@
+> **已过时（2026-10-24 归档）：** 本页是旧分析和旧计划，结论与排期均已失效。导师要求现以内部全量对账为准（原话逐行、逐条对照、配置与任务缺口），已知代码问题见 [docs/40](../40_known_issues_20261024.md)。
+
 # 按导师纠正重排实验：补齐 baseline，扩大 RL，统一性能—成本对比
 
 整理日期：2026-10-23（America/New_York）。服务器的部分历史文件名为 20261024，保留原名。
@@ -20,7 +22,7 @@
 
 原版 GRPO-A 日志的验证准确率：step 0/40/80/120/160/165 = **.502/.566/.586/.605/.616/.609**。最后五步小幅回落不能证明收敛；40→160 的整体趋势仍上升。导师指出训练太短是合理的实验调整依据，下一轮直接扩大训练。噪声可能还包含 batch、抽样、数值非确定性与评测规模；不必先精确分解这些来源才补足训练。
 
-依据：[原版完整 config](../logs/grpo/grpo_v3_A_config.json)、[逐步指标](../logs/grpo/grpo_v3_A_metrics.csv)。
+依据：[原版完整 config](../../logs/grpo/grpo_v3_A_config.json)、[逐步指标](../../logs/grpo/grpo_v3_A_metrics.csv)。
 
 ### 2.2 max_grad_norm 确实一直在生效
 
@@ -47,7 +49,7 @@
 
 ### 2.4 旧 E1 适合开发，正式结果需要独立评测
 
-E1 为 552 题×4 采样，来源是 MME-RW 339、MMMU-Pro 39、V* 112、WorldBench 62；前 440 题来自训练池验证部分，且 E1 已反复用于方法选择。已有重叠检查还标出 40/552 个候选重叠（题面/图像感知哈希口径，未在本次重新逐图裁决）。因此新正式评测按 source-image family 去重；旧 E1 保留为开发学习曲线，不包装成全新 held-out 结论。[重叠记录](../logs/db/overlap.json)
+E1 为 552 题×4 采样，来源是 MME-RW 339、MMMU-Pro 39、V* 112、WorldBench 62；前 440 题来自训练池验证部分，且 E1 已反复用于方法选择。已有重叠检查还标出 40/552 个候选重叠（题面/图像感知哈希口径，未在本次重新逐图裁决）。因此新正式评测按 source-image family 去重；旧 E1 保留为开发学习曲线，不包装成全新 held-out 结论。[重叠记录](../../logs/db/overlap.json)
 
 ## 3. 完整 baseline 矩阵
 
@@ -154,9 +156,9 @@ P0 的人工核查是看真实 prompt、模型实际收到的图、bbox/source �
 
 全部是旧 E1、T=.7、552×4、历史设置；不能当成新 baseline 系列已完成。缺失的原模型/外部模型点留空，首动作 DL 的 64 题短实验不塞进 552 题图。
 
-![历史同图 trade-off](../media/setting_audit_20261023/historical_tradeoff.png)
+![历史同图 trade-off](../../media/setting_audit_20261023/historical_tradeoff.png)
 
-![旧设置的学习曲线与梯度](../media/setting_audit_20261023/training_diagnostics.png)
+![旧设置的学习曲线与梯度](../../media/setting_audit_20261023/training_diagnostics.png)
 
 | 旧说法 | 本次修正 |
 |---|---|
@@ -168,4 +170,4 @@ P0 的人工核查是看真实 prompt、模型实际收到的图、bbox/source �
 | 卡 B/大代价已证明少裁不掉分 | 保留有用效率趋势；不在两个原版结果中事后挑较低者作为成功证明 |
 | 必须补第二 seed 才能继续 | **取消**。优先完整 baseline、更大训练、更充分学习曲线 |
 
-可复算聚合与脚本见 [logs/setting_audit_20261023](../logs/setting_audit_20261023/README.md)。本页的计划值和实测历史数值分开，不把科研经验建议写成实验结论。
+可复算聚合与脚本见 [logs/setting_audit_20261023](../../logs/setting_audit_20261023/README.md)。本页的计划值和实测历史数值分开，不把科研经验建议写成实验结论。

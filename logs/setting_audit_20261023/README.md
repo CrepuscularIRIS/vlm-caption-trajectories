@@ -1,6 +1,6 @@
 # 2026-10-23 设置审计的复算数据
 
-主文：[docs/37](../../docs/37_baselines_and_scale_20261023.md)。本目录是已有文件的 CPU 聚合与新计划；不是新训练结果。
+主文：[docs/37](../../docs/archive/37_baselines_and_scale_20261023.md)。本目录是已有文件的 CPU 聚合与新计划；不是新训练结果。
 
 - `gradient_audit.json`：12 份旧 CSV，保留来源与 SHA-256；范数为裁剪前值，系数为 .1 阈值的公式推算。
 - `existing_eval_audit.json`：只读聚合 63 份旧评测 JSONL，保留 SHA-256 和 UID 集摘要；不含正在运行的 confirm_20261024 部分评测。

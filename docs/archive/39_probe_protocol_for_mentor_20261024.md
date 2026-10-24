@@ -1,10 +1,12 @@
+> **已过时（2026-10-24 归档）：** 本页是旧分析和旧计划，结论与排期均已失效。导师要求现以内部全量对账为准（原话逐行、逐条对照、配置与任务缺口），已知代码问题见 [docs/40](../40_known_issues_20261024.md)。
+
 # 按导师 10-23 意见的实验部署与参数（2026-10-24）
 
 ## 1. 导师原话 → 做法
 
 | 导师 10-23 | 做法 |
 |---|---|
-| 时刻检查 setting | 先修完代码审查发现的问题（[docs/40](40_known_issues_20261024.md)），再开训练 |
+| 时刻检查 setting | 先修完代码审查发现的问题（[docs/40](../40_known_issues_20261024.md)），再开训练 |
 | 补 Qwen3-VL-4B 原模型 baseline 系列：不带工具、原生工具、caption 协议 zero-shot | B0 / B1 / B2，用修复后的同一套 runner 和预算重跑 |
 | RL 规模拉上去；step 太少，没收敛 | 每步 12 题 → 128 题，更新 165 次 → 800 次（§3） |
 | `max_grad_norm=0.1` 每步都被 clip | 改为 1.0 |
@@ -61,21 +63,21 @@
 
 ## 4. 源代码
 
-训练（[`pipeline/grpo/v51fix/`](../pipeline/grpo/v51fix/)）在原版 [`pipeline/grpo/v51/`](../pipeline/grpo/v51/) 上只改了三处：拒绝越界 bbox、token 账本、完整 checkpoint。
+训练（[`pipeline/grpo/v51fix/`](../../pipeline/grpo/v51fix/)）在原版 [`pipeline/grpo/v51/`](../../pipeline/grpo/v51/) 上只改了三处：拒绝越界 bbox、token 账本、完整 checkpoint。
 
 | 文件 | 作用 |
 |---|---|
-| [`grpo/scripts/grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh) | B4 / B5 启动脚本，上表参数全部在这里 |
-| [`grpo/scripts/grpo_v51fix_notool.sh`](../pipeline/grpo/scripts/grpo_v51fix_notool.sh) | B6 启动脚本（EasyR1 原生单轮） |
-| [`grpo/v51fix/easyr1_caption.py`](../pipeline/grpo/v51fix/easyr1_caption.py) | 多轮裁图 rollout |
-| [`grpo/v51fix/caption_env.py`](../pipeline/grpo/v51fix/caption_env.py) | 裁图环境（越界 bbox 在这里拒绝） |
-| [`grpo/v51fix/reward_caption.py`](../pipeline/grpo/v51fix/reward_caption.py) / [`reward_direct.py`](../pipeline/grpo/v51fix/reward_direct.py) | 正确性奖励（caption / 无工具） |
-| [`grpo/v51fix/training_ledger.py`](../pipeline/grpo/v51fix/training_ledger.py) | 每条训练轨迹的裁图数、生成 token、处理 token |
-| [`grpo/easyr1_602a128_local.diff`](../pipeline/grpo/easyr1_602a128_local.diff) | 服务器上 EasyR1 的本地改动（与服务器一致） |
-| [`grpo/scripts/build_direct_pool.py`](../pipeline/grpo/scripts/build_direct_pool.py) | B6 数据：同一批题目与图像，prompt 换成 direct |
-| [`eval/baselines/eval_base.py`](../pipeline/eval/baselines/eval_base.py) | B0 / B1 评测（direct / 原生 zoom 工具） |
-| [`eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | B2 / B3 / RL 模型评测（caption 协议） |
-| [`eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本：准确率、首裁、后续裁图、每题总 token |
+| [`grpo/scripts/grpo_v51fix.sh`](../../pipeline/grpo/scripts/grpo_v51fix.sh) | B4 / B5 启动脚本，上表参数全部在这里 |
+| [`grpo/scripts/grpo_v51fix_notool.sh`](../../pipeline/grpo/scripts/grpo_v51fix_notool.sh) | B6 启动脚本（EasyR1 原生单轮） |
+| [`grpo/v51fix/easyr1_caption.py`](../../pipeline/grpo/v51fix/easyr1_caption.py) | 多轮裁图 rollout |
+| [`grpo/v51fix/caption_env.py`](../../pipeline/grpo/v51fix/caption_env.py) | 裁图环境（越界 bbox 在这里拒绝） |
+| [`grpo/v51fix/reward_caption.py`](../../pipeline/grpo/v51fix/reward_caption.py) / [`reward_direct.py`](../../pipeline/grpo/v51fix/reward_direct.py) | 正确性奖励（caption / 无工具） |
+| [`grpo/v51fix/training_ledger.py`](../../pipeline/grpo/v51fix/training_ledger.py) | 每条训练轨迹的裁图数、生成 token、处理 token |
+| [`grpo/easyr1_602a128_local.diff`](../../pipeline/grpo/easyr1_602a128_local.diff) | 服务器上 EasyR1 的本地改动（与服务器一致） |
+| [`grpo/scripts/build_direct_pool.py`](../../pipeline/grpo/scripts/build_direct_pool.py) | B6 数据：同一批题目与图像，prompt 换成 direct |
+| [`eval/baselines/eval_base.py`](../../pipeline/eval/baselines/eval_base.py) | B0 / B1 评测（direct / 原生 zoom 工具） |
+| [`eval/baselines/eval_caption.py`](../../pipeline/eval/baselines/eval_caption.py) | B2 / B3 / RL 模型评测（caption 协议） |
+| [`eval/baselines/summarize.py`](../../pipeline/eval/baselines/summarize.py) | 统一评分与成本：准确率、首裁、后续裁图、每题总 token |
 
 ## 5. 状态
 

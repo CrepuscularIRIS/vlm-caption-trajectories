@@ -1,6 +1,6 @@
 # 中间多出来的步骤：已有结果的重新拆分，以及下一步设计（2026-10-24）
 
-> **2026-10-23 最新安排：** 后续实验以 [baseline 与规模计划](../37_baselines_and_scale_20261023.md) 为准：补原模型三联基线、扩大 RL、调整梯度裁剪、不做 multi-seed。下文保留历史记录，其中“精度持平”“RL 学不出”等解释按新入口收紧。
+> **2026-10-23 最新安排：** 后续实验以 [baseline 与规模计划](37_baselines_and_scale_20261023.md) 为准：补原模型三联基线、扩大 RL、调整梯度裁剪、不做 multi-seed。下文保留历史记录，其中“精度持平”“RL 学不出”等解释按新入口收紧。
 
 依据：
 - 两份 Pro 回复与 Codex 对照：[pro_pair_review_20261024](research_design/pro_pair_review_20261024/COMPARISON.md)。B 把方向拉回导师目标，A 继续展开诊断。
