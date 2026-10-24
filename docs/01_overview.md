@@ -259,12 +259,14 @@ B2 的 2,208 条轨迹按最后一轮分类：
 | B6 | .470 | .557 | .564 |
 | B4（`b4_6k`，440 题） | .502 | — | — |
 | B4（`b4_6k_m1`，422 题） | .533 | | |
+| B5（`b5_6k`，422 题） | .000 | | |
 
 - B4 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
 
 - 时间均为北京时间。预计完成时间 = 每步时间 × 47，再加上验证和保存；实际以训练日志为准。
 - 之前按“到收敛为止”启动的两组（12:50 / 13:18）已在导师 10-24 回复后停止，没有使用它们的结果。
 - 8k 题池的两组（13:53 启动）在 17:57 停止（B4 完成 10 步，B6 完成 21 步），没有使用它们的结果。
+- B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
 
 ## 6. 还没弄清的问题
