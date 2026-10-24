@@ -198,8 +198,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-25 02:08 重启，`b4_6k_m1`：update micro batch 2 → 1，其余不变；验证集 422 题）。第一次（`b4_6k`）在第 7 步 CUDA OOM 退出，见 §5.2 |
 | B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | 排队（X1、X2 评测之后） |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
-| X1 | Mini-o3-7B-v1（官方协议，E1 预算） | 3 | **评测中**（10-25 02:15 开始） |
-| X2 | DeepEyes-7B（官方协议，E1 预算） | 3 | 排队（X1 之后；权重下载中） |
+| X1 | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
+| X2 | DeepEyes-7B（官方协议，E1 预算） | 3 | 排队（第一次权重下载中断，缺 1 个分片，重新下载中） |
 
 ## 5. 结果
 
@@ -214,12 +214,13 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | H1 | .4515 | .9995 | 0 | 0 | 1,880 | 11 | 0 |
 | H2 | .4792 | 1.0000 | 0 | 0 | 1,880 | 11 | 0 |
 | B6 | .5960 | .9932 | 0 | 0 | 1,113 | 459 | .0068 |
+| X1 | .6395 | .9398 | .8927 | 1.8107 | 17,280 | 680 | .0059 |
 
 H1、H2 使用答案式协议评测（工具可用，2,208 条轨迹中裁图次数均为 0）。
 
 ![E1 trade-off](../media/baselines_v52_20261024/tradeoff_E1.png)
 
-图中是 B0–B3、H1、H2、B6 七个条件，其余条件完成后加入。B6 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 B0 的不带工具 prompt 评测。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
+图中是 B0–B3、H1、H2、B6、X1 八个条件，其余条件完成后加入。B6 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 B0 的不带工具 prompt 评测。X1 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
 
 按来源统计的准确率：
 
@@ -232,6 +233,7 @@ H1、H2 使用答案式协议评测（工具可用，2,208 条轨迹中裁图次
 | H1 | .4683 | .2885 | .5156 | .3468 |
 | H2 | .5125 | .2564 | .5692 | .2742 |
 | B6 | .6364 | .4103 | .6920 | .3185 |
+| X1 | .6364 | .3462 | .9085 | .3548 |
 
 B2 的 2,208 条轨迹按最后一轮分类：
 
