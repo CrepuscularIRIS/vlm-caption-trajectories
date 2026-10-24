@@ -42,7 +42,7 @@ Step N | re_examine
 
 | 项 | 值 |
 |---|---|
-| 题池 | 8,000 题：MME-RealWorld 5,975，MMMU-Pro 1,064，WorldBench 961 |
+| 题池 | 6,016 题：MME-RealWorld 4,577，WorldBench 790，MMMU-Pro 649（与 SFT 不重合，见下） |
 | 每步 | 128 题 × 16 条 rollout |
 | 每步更新 | 4 次（mini-batch 32 题） |
 | 学习率 | 1e-6，warmup 5%，之后恒定 |
@@ -58,10 +58,22 @@ Step N | re_examine
 | 硬件 | 每组 2 张 RTX PRO 6000 96GB |
 
 **训练长度：RL 题池每道题过一遍，不重复。**
-- 步数 = 题池大小 ÷ 每步题数 = 8,000 ÷ 128 → **62 步**。
-- EasyR1 会丢掉最后不满一批的题，所以一遍覆盖 7,936 题，有 64 题（0.8%）不在这一遍里。
-- 第 25、50 步和最后一步各验证一次（440 道验证题），并保存完整 checkpoint。
-- 启动参数：`trainer.total_epochs=1`（不设 `max_steps`），warmup 是 62 步的 5%。
+- 步数 = 题池大小 ÷ 每步题数 = 6,016 ÷ 128 = **47 步**。
+- 题池取 6,016 = 47 × 128：EasyR1 会丢掉最后不满一批的题（`drop_last=True`），取整后这一遍不丢题。
+- 第 25 步和最后一步各验证一次（440 道验证题），并保存完整 checkpoint。
+- 启动参数：`trainer.total_epochs=1`（不设 `max_steps`），warmup 是 47 步的 5%。
+
+**题池构建**（[`pool6k.py`](../pipeline/grpo/scripts/pool6k.py)，重叠检查 [`sft_overlap.py`](../pipeline/grpo/scripts/sft_overlap.py)）：
+- 候选：v51 训练池去掉 V*、E1（uid / 图片路径 / 16×16 均值哈希）和 v51 验证集，余 13,074 题。
+- 去掉与 A-SFT 数据（3,983 题 / 4,040 条轨迹）任一项相同的题：题面、题面加选项、原图 16×16 均值哈希（同一张图问不同问题也去掉）。去掉 1,610 题。
+- 旧 2k 题池中剩下的 1,867 题全部保留，其余按 seed 42 的顺序补足到 6,016 题，同一图像哈希只取一题。
+- 与 A-SFT 的重叠（同一脚本统计）：
+
+| 数据 | 题数 | 题面相同 | 题面加选项相同 | 原图哈希相同 |
+|---|---:|---:|---:|---:|
+| 6k 题池（本次训练） | 6,016 | 0 | 0 | 0 |
+| 8k 题池（10-24 13:53 的两组，已停） | 8,000 | 0 | 0 | 961 |
+| 验证集（训练中每次验证用） | 440 | 0 | 0 | 18 |
 
 每步时间和配置见 §2.4。
 
@@ -80,19 +92,19 @@ Step N | re_examine
 
 旧配置（每步 12 题 × 16 条 = 192 条轨迹，2 张卡）每步约 140 秒。
 
-**时间**（一遍 = 62 步，另有 3 次验证和 3 次保存）：
+**时间**（实测每步时间，来自 10-24 的 8k 两组；一遍 = 47 步，另有验证和保存）：
 
 | | B4（A-SFT + GRPO，带裁图） | B6（原模型 + GRPO，无工具） |
 |---|---:|---:|
-| 每步 | 20–22 分钟 | 10–12 分钟 |
-| 一遍（62 步） | 约 21–23 小时 | 约 10.5–12.5 小时 |
+| 每步（实测中位数） | 20.6 分钟（1,239 s） | 11.8 分钟（707 s） |
+| 一遍（47 步） | 约 16.7 小时 | 约 9.7 小时 |
 
 **部署**：每组 2 张卡，两组同时跑。目前每组的 2 张卡都在 rollout（vLLM）和训练（FSDP）之间轮流使用。
 
 **决定训练开销的设置**（[`grpo_v51fix.sh`](../pipeline/grpo/scripts/grpo_v51fix.sh)，加上一遍的覆盖参数）：
 
 ```bash
-data.train_files=.../grpo_caption_v51_8k/train.parquet   # 8,000 题的题池
+data.train_files=.../grpo_caption_v51_6k/train.parquet   # 6,016 题的题池
 data.rollout_batch_size=128                               # 每步 128 题
 worker.rollout.n=16                                       # 每题 16 条 rollout
 worker.actor.global_batch_size=32                         # mini-batch 32 题 → 每步 4 次更新
@@ -101,7 +113,7 @@ worker.actor.micro_batch_size_per_device_for_update=2
 worker.actor.micro_batch_size_per_device_for_experience=4
 worker.rollout.gpu_memory_utilization=0.45                # vLLM 与训练共用显存
 trainer.n_gpus_per_node=2
-trainer.total_epochs=1 trainer.max_steps=null             # 题池过一遍：8000 // 128 = 62 步
+trainer.total_epochs=1 trainer.max_steps=null             # 题池过一遍：6016 // 128 = 47 步
 trainer.val_freq=25 trainer.save_freq=25
 ```
 
@@ -109,7 +121,7 @@ trainer.val_freq=25 trainer.save_freq=25
 
 > 训练时间主要是和我们在RL阶段投入的样本数对齐，所以取决于这个设定。假设我们现在rl 2k samples，按现在的设定其实150+ step就已经把每道题都过了一遍。不同于sft阶段，假设sft训练2epoch就是把相同的训练样本重复过两遍，rl阶段通常不需要重复去过题库。那么这种情况下只要你的rl steps能够覆盖所有rl samples，就算跑完了一个周期。你可以把rl samples样本量提上去，然后可以算一下所需要的steps，只需要跑满就可以了，不用重复刷。另外2 * 2的配置是合理的，一组双卡然后里面一张做rollout一张做反向传播，这个是没问题的。
 
-题池大小选 8k（过滤后可用的题共 13,074 道）。
+题池大小：先选 8k（10-24 13:53 启动），同日改为 6k（17:58 启动），并要求与 SFT 数据完全不重合。
 
 ### 2.5 评测
 
@@ -121,7 +133,7 @@ trainer.val_freq=25 trainer.save_freq=25
   - 后续裁图：每题 max(裁图数 − 1, 0)；
   - 每题处理 token：每轮完整输入（包括重复的历史和图像 token）加生成，累计。
 - **数据身份**：
-  - 8k 题池含 700 道 MMMU-Pro 官方 test 来源题；
+  - 6k 题池含 433 道 MMMU-Pro 官方 test 来源题（8k 题池为 700 道）；
   - A-SFT 的训练数据含官方 V*（191 题）中的 67 题；
   - E1 的 112 道 V* 与这 67 题不重合。
 
@@ -166,7 +178,7 @@ def valid_bbox(b):
 
 ```python
 # 不设 max_steps 时
-self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 8000 // 128 * 1 = 62
+self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 6016 // 128 * 1 = 47
 ```
 
 ## 4. 正在进行的实验
@@ -179,8 +191,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 80
 | B3 | A-SFT | — | **完成** |
 | H1 | 答案式 SFT | — | **完成** |
 | H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成** |
-| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练中**（10-24 13:53 开始，题池一遍 62 步，见 §5.2） |
-| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-24 13:53 开始，题池一遍 62 步，见 §5.2） |
+| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练中**（10-24 17:58 开始，6k 题池一遍 47 步，见 §5.2） |
+| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-24 17:58 开始，6k 题池一遍 47 步，见 §5.2） |
 | B5 | 原模型直接 GRPO（caption 协议） | — | B6 之后 |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | X1 / X2 | Mini-o3-7B、DeepEyes-7B | — | 未开始（Mini-o3 权重已下载） |
@@ -227,12 +239,13 @@ B2 的 2,208 条轨迹按最后一轮分类：
 
 | 组 | GPU | 开始时间 | 步数 | 每步时间 | 预计完成 |
 |---|---|---|---:|---:|---|
-| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 13:53 | 62 | 10–12 分钟 | 10-25 约 00:40–03:00 |
-| B4 A-SFT + GRPO | 0, 1 | 10-24 13:53 | 62 | 20–22 分钟 | 10-25 约 11:00–13:00 |
+| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 17:58 | 47 | 11.8 分钟 | 10-25 约 03:40 |
+| B4 A-SFT + GRPO | 0, 1 | 10-24 17:58 | 47 | 20.6 分钟 | 10-25 约 10:40 |
 
-- 时间均为北京时间。预计完成时间 = 每步时间 × 62，再加上 3 次验证和保存；实际以训练日志为准。
+- 时间均为北京时间。预计完成时间 = 每步时间 × 47，再加上验证和保存；实际以训练日志为准。
 - 之前按“到收敛为止”启动的两组（12:50 / 13:18）已在导师 10-24 回复后停止，没有使用它们的结果。
-- 第 25、50、62 步的验证准确率出来后填在这里。
+- 8k 题池的两组（13:53 启动）在 17:57 停止（B4 完成 10 步，B6 完成 21 步），没有使用它们的结果。
+- 第 25、47 步的验证准确率出来后填在这里。
 
 ## 6. 还没弄清的问题
 
