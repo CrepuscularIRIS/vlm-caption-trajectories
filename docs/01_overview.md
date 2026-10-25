@@ -271,6 +271,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
   2. `b4_6k_m1`（10-25 02:08，update micro batch 2 → 1）：完成 11 步后，第 12 步 compute_log_probs 中 Ray worker 退出（`ActorDiedError`，exit type `SYSTEM_ERROR`，worker stderr 中没有 Python 报错），没有 checkpoint。
   3. `b4_6k_r3`（10-25 07:27）：另把 experience micro batch 4 → 2，每 5 步保存一次完整 checkpoint，异常退出后用同一输出目录续跑（EasyR1 `find_last_checkpoint`）。
      - 第 0 次运行在第 9 步 update_actor 中退出（`ray.exceptions.ActorUnavailableError: ... RpcError: RPC error: Socket closed rpc_code: 14`），11:17 从 `global_step_5` 续跑（日志 `Load from checkpoint: .../global_step_5`，载入 model / optimizer / extra_state）。
+     - 第 1 次续跑又在第 9 步退出（`_make_batch_data` 中 `ActorUnavailableError`，rank 0 worker 的 stderr 没有报错）。同一容器 cgroup 的 `memory.peak` 为 470,298,918,912 B，`memory.max` 为 472,446,402,560 B（两组训练共用）。13:13 起改为每 2 步保存一次，从 `global_step_5` 继续。
 - B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
 
