@@ -262,7 +262,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
 | B4（`b4_6k`，440 题） | .502 | — | — |
 | B4（`b4_6k_m1`，422 题） | .533 | | |
 | B5（`b5_6k`，422 题） | .000 | .000 | .000 |
-| H2（`h2_6k`，422 题） | .448 | | |
+| H2（`h2_6k`，422 题） | .448 | .500 | |
 
 - B4 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
 
