@@ -259,7 +259,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
 | B6 | .470 | .557 | .564 |
 | B4（`b4_6k`，440 题） | .502 | — | — |
 | B4（`b4_6k_m1`，422 题） | .533 | | |
-| B5（`b5_6k`，422 题） | .000 | | |
+| B5（`b5_6k`，422 题） | .000 | .000 | |
 
 - B4 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
 
@@ -270,6 +270,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
   1. `b4_6k`（10-24 17:58）：第 7 步 update_actor 中 `torch.OutOfMemoryError`，见上。
   2. `b4_6k_m1`（10-25 02:08，update micro batch 2 → 1）：完成 11 步后，第 12 步 compute_log_probs 中 Ray worker 退出（`ActorDiedError`，exit type `SYSTEM_ERROR`，worker stderr 中没有 Python 报错），没有 checkpoint。
   3. `b4_6k_r3`（10-25 07:27）：另把 experience micro batch 4 → 2，每 5 步保存一次完整 checkpoint，异常退出后用同一输出目录续跑（EasyR1 `find_last_checkpoint`）。
+     - 第 0 次运行在第 9 步 update_actor 中退出（`ray.exceptions.ActorUnavailableError: ... RpcError: RPC error: Socket closed rpc_code: 14`），11:17 从 `global_step_5` 续跑（日志 `Load from checkpoint: .../global_step_5`，载入 model / optimizer / extra_state）。
 - B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
 
