@@ -196,7 +196,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | H2（6k） | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | 排队（B5 之后） |
 | B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
 | B4 | A-SFT + GRPO | 0, 1 | **暂停排队**（`b4_6k_r3` 已保存到第 6 步；B5 跑完后单独续跑，见 §5.2） |
-| B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练中**（10-25 04:45 开始，47 步，验证集 422 题） |
+| B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练完成**（10-25 04:45 – 20:32，47 步，含 2 次续跑）；E1 评测排队 |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | X1 | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
 | X2 | DeepEyes-7B（官方协议，E1 预算） | — | **完成**（§5.1） |
@@ -259,7 +259,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
 | B6 | .470 | .557 | .564 |
 | B4（`b4_6k`，440 题） | .502 | — | — |
 | B4（`b4_6k_m1`，422 题） | .533 | | |
-| B5（`b5_6k`，422 题） | .000 | .000 | |
+| B5（`b5_6k`，422 题） | .000 | .000 | .000 |
 
 - B4 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
 
