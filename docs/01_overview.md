@@ -272,6 +272,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
   3. `b4_6k_r3`（10-25 07:27）：另把 experience micro batch 4 → 2，每 5 步保存一次完整 checkpoint，异常退出后用同一输出目录续跑（EasyR1 `find_last_checkpoint`）。
      - 第 0 次运行在第 9 步 update_actor 中退出（`ray.exceptions.ActorUnavailableError: ... RpcError: RPC error: Socket closed rpc_code: 14`），11:17 从 `global_step_5` 续跑（日志 `Load from checkpoint: .../global_step_5`，载入 model / optimizer / extra_state）。
      - 第 1 次续跑又在第 9 步退出（`_make_batch_data` 中 `ActorUnavailableError`，rank 0 worker 的 stderr 没有报错）。同一容器 cgroup 的 `memory.peak` 为 470,298,918,912 B，`memory.max` 为 472,446,402,560 B（两组训练共用）。13:13 起改为每 2 步保存一次，从 `global_step_5` 继续。
+- B5 在第 35 步 `_make_batch_data` 中退出（`ActorUnavailableError`，与 B4 相同），最后 checkpoint 为第 25 步；10-25 13:43 从 `global_step_25` 续跑，改为每 2 步保存、异常退出后自动续跑。H2 排在 B5 之后（第一次启动时 GPU 3 仍被 B5 的残留 worker 占用 69 GB，vLLM 初始化失败，未开始训练）。
 - B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
 
