@@ -195,7 +195,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
 | H2（6k） | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | 排队（B5 之后） |
 | B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
-| B4 | A-SFT + GRPO | 0, 1 | **训练中**（10-25 07:27 第三次启动，`b4_6k_r3`，见 §5.2） |
+| B4 | A-SFT + GRPO | 0, 1 | **暂停排队**（`b4_6k_r3` 已保存到第 6 步；B5 跑完后单独续跑，见 §5.2） |
 | B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练中**（10-25 04:45 开始，47 步，验证集 422 题） |
 | B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | X1 | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
@@ -273,6 +273,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
      - 第 0 次运行在第 9 步 update_actor 中退出（`ray.exceptions.ActorUnavailableError: ... RpcError: RPC error: Socket closed rpc_code: 14`），11:17 从 `global_step_5` 续跑（日志 `Load from checkpoint: .../global_step_5`，载入 model / optimizer / extra_state）。
      - 第 1 次续跑又在第 9 步退出（`_make_batch_data` 中 `ActorUnavailableError`，rank 0 worker 的 stderr 没有报错）。两组训练共用的容器 cgroup：`memory.high` 470,298,918,912 B，`memory.max` 472,446,402,560 B；14:10 时 `memory.current` 462,295,064,576 B（其中文件缓存 252 GB），`memory.events` 中 high 计数 4,854,887、oom_kill 0。（更正：此处之前误把 `memory.high` 的值写成了 `memory.peak`，该容器没有 `memory.peak` 文件。）13:13 起改为每 2 步保存一次，从 `global_step_5` 继续。
      - 13:59 第 7 步 compute_log_probs 中 `ActorDiedError` 退出，14:01 从 `global_step_6` 续跑。14:12 起服务器上每 5 分钟对 checkpoint 文件执行 `posix_fadvise(DONTNEED)`（只清页缓存，文件不动），记录在 `memory_evict.log`；第一次执行后 `memory.current` 468 GB → 332 GB。
+     - 14:47 各进程常驻内存：B4 约 201 GB、B5 约 191 GB，共享内存 86 GB；14:43 `memory.current` 470 GB。14:49 起改为一次只跑一组训练（只改调度）：B5 先跑完，再单独跑 B4（从 `global_step_6` 续跑），然后 H2。
 - B5 在第 35 步 `_make_batch_data` 中退出（`ActorUnavailableError`，与 B4 相同），最后 checkpoint 为第 25 步；10-25 13:43 从 `global_step_25` 续跑，改为每 2 步保存、异常退出后自动续跑。H2 排在 B5 之后（第一次启动时 GPU 3 仍被 B5 的残留 worker 占用 69 GB，vLLM 初始化失败，未开始训练）。
 - B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
