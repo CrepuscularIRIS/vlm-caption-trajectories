@@ -278,6 +278,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
      - 13:59 第 7 步 compute_log_probs 中 `ActorDiedError` 退出，14:01 从 `global_step_6` 续跑。14:12 起服务器上每 5 分钟对 checkpoint 文件执行 `posix_fadvise(DONTNEED)`（只清页缓存，文件不动），记录在 `memory_evict.log`；第一次执行后 `memory.current` 468 GB → 332 GB。
      - 14:47 各进程常驻内存：B4 约 201 GB、B5 约 191 GB，共享内存 86 GB；14:43 `memory.current` 470 GB。14:49 起改为一次只跑一组训练（只改调度）：B5 先跑完，再单独跑 B4（从 `global_step_6` 续跑），然后 H2。
      - 16:31 起按用户要求恢复两组并行。21:39–21:40 B4（第 13 步）与 H2（第 5 步）的日志中出现 `ray.exceptions.OutOfMemoryError: 1 worker(s) were killed due to the node running low on memory ... 420.95GB used / 440.00GB limit (0.956701)`（此前各次退出的日志中只有 `ActorUnavailableError` / `ActorDiedError`）；两组分别从第 12、4 步续跑，页缓存清理改为每 60 秒一次。
+     - 10-26 04:38：B4 连续 3 次（attempt 36–38）在存到第 18 步之前被 Ray 内存监控杀掉；B4 暂停在 `global_step_16`，等 H2 训练结束后单独续跑（只改调度）。
 - B5 在第 35 步 `_make_batch_data` 中退出（`ActorUnavailableError`，与 B4 相同），最后 checkpoint 为第 25 步；10-25 13:43 从 `global_step_25` 续跑，改为每 2 步保存、异常退出后自动续跑。H2 排在 B5 之后（第一次启动时 GPU 3 仍被 B5 的残留 worker 占用 69 GB，vLLM 初始化失败，未开始训练）。
 - B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
 - B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
