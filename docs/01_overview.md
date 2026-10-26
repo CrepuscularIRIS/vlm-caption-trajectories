@@ -268,7 +268,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 答案式 SFT + GRPO（旧） | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
 | 答案式 SFT + GRPO | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | **训练完成**（10-25 20:45 – 10-26 07:09，47 步，含多次续跑）；第 47 步 E1 评测**完成**（§5.1，ID 答案式 SFT + GRPO） |
 | 无 SFT + GRPO（无工具） | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
-| SFT + GRPO | SFT 模型 + GRPO（caption 协议），6k 题池一遍 | 0, 1 | **训练中**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，见 §5.2） |
+| SFT + GRPO | SFT 模型 + GRPO（caption 协议），6k 题池一遍 | 0, 1 | **训练完成**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，10-27 04:37 存到第 47 步，见 §5.2）；第 47 步 E1 评测与 obsbench 轨迹**进行中** |
 | 无 SFT + GRPO | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练完成**（10-25 04:45 – 20:32，47 步，含 2 次续跑）；第 47 步 E1 评测**完成**（§5.1） |
 | AdaptVision / CounterCredit | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | Mini-o3-7B | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
@@ -336,7 +336,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 |---|---:|---:|---:|
 | 无 SFT + GRPO（无工具） | .470 | .557 | .564 |
 | SFT + GRPO（`b4_6k`，440 题） | .502 | — | — |
-| SFT + GRPO（`b4_6k_m1` / `b4_6k_r3`，422 题） | .533 | .595 | |
+| SFT + GRPO（`b4_6k_m1` / `b4_6k_r3`，422 题） | .533 | .595 | .623 |
 | 无 SFT + GRPO（`b5_6k`，422 题） | .000 | .000 | .000 |
 | 答案式 SFT + GRPO（`h2_6k`，422 题） | .448 | .500 | .474 |
 
@@ -427,5 +427,5 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ### 7.4 训练安排
 
-- SFT + GRPO（6k，2 卡）训练中，预计 10-27 凌晨完成；完成后按队列自动跑第 47 步的 E1 评测和 obsbench 轨迹。
+- SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步的 E1 评测和 obsbench 轨迹按队列自动运行。
 - 用户 10-26：这组完成后，继续用 2 卡跑训练。
