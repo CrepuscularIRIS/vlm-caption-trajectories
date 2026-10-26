@@ -17,7 +17,8 @@
    "worldbench": 0.3306
   },
   "id": "B0",
-  "label": "原模型 不带工具"
+  "label": "原模型 不带工具",
+  "name": "无 SFT（无工具）"
  },
  {
   "file": "traj_B1_native.jsonl",
@@ -37,7 +38,8 @@
    "worldbench": 0.2944
   },
   "id": "B1",
-  "label": "原模型 原生 zoom 工具"
+  "label": "原模型 原生 zoom 工具",
+  "name": "无 SFT（原生 zoom）"
  },
  {
   "file": "traj_B2_caption_zs.jsonl",
@@ -57,7 +59,8 @@
    "worldbench": 0.0
   },
   "id": "B2",
-  "label": "原模型 caption zero-shot"
+  "label": "原模型 caption zero-shot",
+  "name": "无 SFT"
  },
  {
   "file": "traj_B3_sft.jsonl",
@@ -77,7 +80,8 @@
    "worldbench": 0.2782
   },
   "id": "B3",
-  "label": "A-SFT"
+  "label": "A-SFT",
+  "name": "SFT"
  },
  {
   "file": "traj_H1_ao_sft.jsonl",
@@ -97,7 +101,8 @@
    "worldbench": 0.3468
   },
   "id": "H1",
-  "label": "答案式 SFT"
+  "label": "答案式 SFT",
+  "name": "答案式 SFT"
  },
  {
   "file": "traj_H2_ao_rl160.jsonl",
@@ -117,7 +122,8 @@
    "worldbench": 0.2742
   },
   "id": "H2",
-  "label": "答案式 SFT + GRPO"
+  "label": "答案式 SFT + GRPO",
+  "name": "答案式 SFT + GRPO（旧）"
  },
  {
   "file": "traj_B6_rl47.jsonl",
@@ -137,7 +143,8 @@
    "worldbench": 0.3185
   },
   "id": "B6",
-  "label": "原模型 + GRPO 无工具（6k，第 47 步）"
+  "label": "原模型 + GRPO 无工具（6k，第 47 步）",
+  "name": "无 SFT + GRPO（无工具）"
  },
  {
   "file": "traj_X1_minio3.jsonl",
@@ -157,7 +164,8 @@
    "worldbench": 0.3548
   },
   "id": "X1",
-  "label": "Mini-o3-7B-v1（官方协议）"
+  "label": "Mini-o3-7B-v1（官方协议）",
+  "name": "Mini-o3-7B"
  },
  {
   "file": "traj_X2_deepeyes.jsonl",
@@ -177,7 +185,8 @@
    "worldbench": 0.3145
   },
   "id": "X2",
-  "label": "DeepEyes-7B（官方协议）"
+  "label": "DeepEyes-7B（官方协议）",
+  "name": "DeepEyes-7B"
  },
  {
   "file": "traj_B5_rl47.jsonl",
@@ -197,7 +206,8 @@
    "worldbench": 0.0
   },
   "id": "B5",
-  "label": "原模型 + caption GRPO（6k，第 47 步）"
+  "label": "原模型 + caption GRPO（6k，第 47 步）",
+  "name": "无 SFT + GRPO"
  },
  {
   "file": "traj_H2_rl47.jsonl",
@@ -217,6 +227,7 @@
    "worldbench": 0.3145
   },
   "id": "H2-6k",
-  "label": "答案式 SFT + 答案式 GRPO（6k，第 47 步）"
+  "label": "答案式 SFT + 答案式 GRPO（6k，第 47 步）",
+  "name": "答案式 SFT + GRPO"
  }
 ]

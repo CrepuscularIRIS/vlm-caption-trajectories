@@ -25,7 +25,7 @@
 
 用户 10-25 / 10-26 的安排：
 - 主线问题：降低视觉观测的幻觉；方法：更简单、更有效的 RL 信号。
-- 先在 4B 上用现有 4,040 条 A-SFT 跑完 baseline（§4）；补强后的轨迹留到 7B 阶段（Qwen3-VL-8B、Qwen2.5-VL-7B）。模型规模、轨迹、RL 方法不同时更换。
+- 先在 4B 上用现有 4,040 条 SFT 跑完 baseline（§4）；补强后的轨迹留到 7B 阶段（Qwen3-VL-8B、Qwen2.5-VL-7B）。模型规模、轨迹、RL 方法不同时更换。
 - 弃权 / 选项 E 的用法不单列，用错按答错计；图表 / OCR 题的选项与 gold 冲突不处理，不改 gold。
 - 待向导师确认（§6）：幻觉放在主线还是支线；效率（trade-off）的位置；对象 / 行列绑定错误是否单独计量。
 
@@ -39,17 +39,17 @@
 
 | 类别 | 强模型实例 | 弱模型实例（题号） |
 |---|---|---|
-| 对象 / 行列绑定错误 | 错列读数；195 条轨迹带绑定标签 | A-SFT：o3bench_319、o3bench_229、treebench_253 |
-| 读对数值后，终答迁就选项 | Argon 2 例 | A-SFT：o3bench_229 |
-| 局部纠正后，后续推理没有跟着改 | Gemini 1 例（纠正后又引入无依据的说法） | B5：o3bench_229；A-SFT：o3bench_000 |
-| 答对，但所引视图不支持过程 | score=1 而判为 BAD 的 4 例 | A-SFT：o3bench_319、vs_075、vs_178；Base：treebench_373 |
-| fallback 后答对，但证据链不成立 | 动作纠正被计为事实纠正 1 例 | A-SFT：o3bench_114（8 次裁图） |
-| 证据已够仍继续裁 / 重复裁 | 首次覆盖后继续裁 23 / 105 | B5：treebench_373；Base：8 次裁回整图 |
+| 对象 / 行列绑定错误 | 错列读数；195 条轨迹带绑定标签 | SFT：o3bench_319、o3bench_229、treebench_253 |
+| 读对数值后，终答迁就选项 | Argon 2 例 | SFT：o3bench_229 |
+| 局部纠正后，后续推理没有跟着改 | Gemini 1 例（纠正后又引入无依据的说法） | 无 SFT + GRPO：o3bench_229；SFT：o3bench_000 |
+| 答对，但所引视图不支持过程 | score=1 而判为 BAD 的 4 例 | SFT：o3bench_319、vs_075、vs_178；无 SFT：treebench_373 |
+| fallback 后答对，但证据链不成立 | 动作纠正被计为事实纠正 1 例 | SFT：o3bench_114（8 次裁图） |
+| 证据已够仍继续裁 / 重复裁 | 首次覆盖后继续裁 23 / 105 | 无 SFT + GRPO：treebench_373；无 SFT：8 次裁回整图 |
 
 ### 1.3 还在做的实验
 
-- 4B baseline 矩阵：§4。其中 B4（A-SFT + GRPO）还在训练。
-- 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹：§5.3。已完成 Base、A-SFT、B5，其余在跑。
+- 4B baseline 矩阵：§4。其中 SFT + GRPO 还在训练。
+- 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹：§5.3。已完成无 SFT、SFT、无 SFT + GRPO，其余在跑。
 - 强模型轨迹审查：已暂停，1,245 / 2,422。
 
 ## 2. 设置
@@ -75,8 +75,8 @@ Step N | re_examine
 ### 2.2 SFT
 
 - 库 A 共 4,040 条轨迹（V2.2，多个教师模型生成，经过逐图审核），可在[网页目录](https://CrepuscularIRIS.github.io/vlm-caption-trajectories/)查看。
-- SFT 使用其中 3,983 题，共 6,953 个监督轮，训练 2 个 epoch，得到 **A-SFT**。
-- 答案式 SFT（H1 的起点）：同样的题和图，监督目标只有最终答案。
+- SFT 使用其中 3,983 题，共 6,953 个监督轮，训练 2 个 epoch，得到 **SFT** 模型。
+- 答案式 SFT：同样的题和图，监督目标只有最终答案。
 
 ### 2.3 RL（标准 GRPO）
 
@@ -105,9 +105,9 @@ Step N | re_examine
 
 **题池构建**（[`pool6k.py`](../pipeline/grpo/scripts/pool6k.py)，重叠检查 [`sft_overlap.py`](../pipeline/grpo/scripts/sft_overlap.py)）：
 - 候选：v51 训练池去掉 V*、E1（uid / 图片路径 / 16×16 均值哈希）和 v51 验证集，余 13,074 题。
-- 去掉与 A-SFT 数据（3,983 题 / 4,040 条轨迹）任一项相同的题：题面、题面加选项、原图 16×16 均值哈希（同一张图问不同问题也去掉）。去掉 1,610 题。
+- 去掉与 SFT 数据（3,983 题 / 4,040 条轨迹）任一项相同的题：题面、题面加选项、原图 16×16 均值哈希（同一张图问不同问题也去掉）。去掉 1,610 题。
 - 旧 2k 题池中剩下的 1,867 题全部保留，其余按 seed 42 的顺序补足到 6,016 题，同一图像哈希只取一题。
-- 与 A-SFT 的重叠（同一脚本统计）：
+- 与 SFT 的重叠（同一脚本统计）：
 
 | 数据 | 题数 | 题面相同 | 题面加选项相同 | 原图哈希相同 |
 |---|---:|---:|---:|---:|
@@ -119,7 +119,7 @@ Step N | re_examine
 
 ### 2.4 训练时间与配置（还没确定合理的配置）
 
-**每步的实测量**（B4 冒烟，2 张卡）：
+**每步的实测量**（SFT + GRPO 冒烟，2 张卡）：
 
 | 第几步 | rollout | 旧策略 log-prob | 更新（4 次） | 奖励 | 合计（不含保存） |
 |---|---:|---:|---:|---:|---:|
@@ -134,7 +134,7 @@ Step N | re_examine
 
 **时间**（实测每步时间，来自 10-24 的 8k 两组；一遍 = 47 步，另有验证和保存）：
 
-| | B4（A-SFT + GRPO，带裁图） | B6（原模型 + GRPO，无工具） |
+| | SFT + GRPO（带裁图） | 无 SFT + GRPO（无工具） |
 |---|---:|---:|
 | 每步（实测中位数） | 20.6 分钟（1,239 s） | 11.8 分钟（707 s） |
 | 一遍（47 步） | 约 16.7 小时 | 约 9.7 小时 |
@@ -174,7 +174,7 @@ trainer.val_freq=25 trainer.save_freq=25
   - 每题处理 token：每轮完整输入（包括重复的历史和图像 token）加生成，累计。
 - **数据身份**：
   - 6k 题池含 433 道 MMMU-Pro 官方 test 来源题（8k 题池为 700 道）；
-  - A-SFT 的训练数据含官方 V*（191 题）中的 67 题；
+  - SFT 的训练数据含官方 V*（191 题）中的 67 题；
   - E1 的 112 道 V* 与这 67 题不重合。
 
 ## 3. 代码
@@ -187,8 +187,8 @@ trainer.val_freq=25 trainer.save_freq=25
 | [`pipeline/grpo/easyr1_602a128_local.diff`](../pipeline/grpo/easyr1_602a128_local.diff) | 对 EasyR1 的本地改动 |
 | [`pipeline/eval/baselines/eval_base.py`](../pipeline/eval/baselines/eval_base.py) | 原模型评测：不带工具 / 原生 zoom 工具 |
 | [`pipeline/eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | caption 协议评测 |
-| [`pipeline/eval/baselines/eval_minio3.py`](../pipeline/eval/baselines/eval_minio3.py) | X1：Mini-o3 官方协议（`<grounding>` 相对坐标，裁原图不放大），E1 预算 |
-| [`pipeline/eval/baselines/eval_deepeyes.py`](../pipeline/eval/baselines/eval_deepeyes.py) | X2：DeepEyes 官方协议（`image_zoom_in_tool` 绝对像素坐标），E1 预算 |
+| [`pipeline/eval/baselines/eval_minio3.py`](../pipeline/eval/baselines/eval_minio3.py) | Mini-o3-7B 官方协议（`<grounding>` 相对坐标，裁原图不放大），E1 预算 |
+| [`pipeline/eval/baselines/eval_deepeyes.py`](../pipeline/eval/baselines/eval_deepeyes.py) | DeepEyes-7B 官方协议（`image_zoom_in_tool` 绝对像素坐标），E1 预算 |
 | [`pipeline/eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本统计 |
 
 ### 关键代码（节选）
@@ -225,22 +225,22 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ## 4. 正在进行的实验
 
-| ID | 条件 | GPU | 状态 |
+| 名称 | 条件 | GPU | 状态 |
 |---|---|---|---|
-| B0 | 原模型，不带工具的 prompt | — | **完成** |
-| B1 | 原模型 + 原生 zoom 工具 | — | **完成** |
-| B2 | 原模型 zero-shot + caption 协议 | — | **完成** |
-| B3 | A-SFT | — | **完成** |
-| H1 | 答案式 SFT | — | **完成** |
-| H2 | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
-| H2（6k） | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | **训练完成**（10-25 20:45 – 10-26 07:09，47 步，含多次续跑）；第 47 步 E1 评测**完成**（§5.1，ID H2-6k） |
-| B6 | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
-| B4 | A-SFT + GRPO | 0, 1 | **训练中**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，见 §5.2） |
-| B5 | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练完成**（10-25 04:45 – 20:32，47 步，含 2 次续跑）；第 47 步 E1 评测**完成**（§5.1） |
-| B7 / B8 | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
-| X1 | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
-| X2 | DeepEyes-7B（官方协议，E1 预算） | — | **完成**（§5.1） |
-| W | 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹（与 Astra 同协议） | 2, 3 | Base、A-SFT、B5 第 47 步**完成**（§5.3）；H2、B6 第 47 步，B4 第 36 步，旧 grpo_v3_AO_base 第 160 步**进行中**；B4 第 47 步等训练结束 |
+| 无 SFT（无工具） | 原模型，不带工具的 prompt | — | **完成** |
+| 无 SFT（原生 zoom） | 原模型 + 原生 zoom 工具 | — | **完成** |
+| 无 SFT | 原模型 zero-shot + caption 协议 | — | **完成** |
+| SFT | 原模型 + caption 轨迹 SFT（4,040 条） | — | **完成** |
+| 答案式 SFT | 答案式 SFT | — | **完成** |
+| 答案式 SFT + GRPO（旧） | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
+| 答案式 SFT + GRPO | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | **训练完成**（10-25 20:45 – 10-26 07:09，47 步，含多次续跑）；第 47 步 E1 评测**完成**（§5.1，ID 答案式 SFT + GRPO） |
+| 无 SFT + GRPO（无工具） | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
+| SFT + GRPO | SFT 模型 + GRPO（caption 协议），6k 题池一遍 | 0, 1 | **训练中**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，见 §5.2） |
+| 无 SFT + GRPO | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练完成**（10-25 04:45 – 20:32，47 步，含 2 次续跑）；第 47 步 E1 评测**完成**（§5.1） |
+| AdaptVision / CounterCredit | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
+| Mini-o3-7B | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
+| DeepEyes-7B | DeepEyes-7B（官方协议，E1 预算） | — | **完成**（§5.1） |
+| 4B 各检查点轨迹 | 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹（与 Astra 同协议） | 2, 3 | 无 SFT、SFT、无 SFT + GRPO 第 47 步**完成**（§5.3）；答案式 SFT + GRPO 第 47 步、无 SFT + GRPO（无工具）第 47 步、SFT + GRPO 第 36 步、答案式 SFT + GRPO（旧）第 160 步**进行中**；SFT + GRPO 第 47 步等训练结束 |
 
 ## 5. 结果
 
@@ -248,41 +248,41 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 | ID | 准确率 | 有 `<answer>` 标签 | 首裁率 | 后续裁图 / 题 | 处理 token / 题 | 生成 token / 题 | 截断率 |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| B0 | .5217 | .9534 | 0 | 0 | 1,464 | 810 | .0466 |
-| B1 | .5888 | .9348 | .9873 | .7097 | 4,288 | 395 | .0127 |
-| B2 | .0068 | .0149 | .0145 | .0747 | 2,386 | 105 | .0005 |
-| B3 | .5670 | .9805 | .5725 | .4216 | 5,015 | 170 | .0014 |
-| H1 | .4515 | .9995 | 0 | 0 | 1,880 | 11 | 0 |
-| H2 | .4792 | 1.0000 | 0 | 0 | 1,880 | 11 | 0 |
-| B6 | .5960 | .9932 | 0 | 0 | 1,113 | 459 | .0068 |
-| X1 | .6395 | .9398 | .8927 | 1.8107 | 17,280 | 680 | .0059 |
-| X2 | .5589 | .9035 | .8483 | .0041 | 13,800 | 3,292 | .1051 |
-| B5 | .0077 | .0172 | .0226 | .1250 | 2,668 | 109 | .0000 |
-| H2-6k | .5041 | 1.0000 | 0 | 0 | 1,880 | 11 | .0000 |
+| 无 SFT（无工具） | .5217 | .9534 | 0 | 0 | 1,464 | 810 | .0466 |
+| 无 SFT（原生 zoom） | .5888 | .9348 | .9873 | .7097 | 4,288 | 395 | .0127 |
+| 无 SFT | .0068 | .0149 | .0145 | .0747 | 2,386 | 105 | .0005 |
+| SFT | .5670 | .9805 | .5725 | .4216 | 5,015 | 170 | .0014 |
+| 答案式 SFT | .4515 | .9995 | 0 | 0 | 1,880 | 11 | 0 |
+| 答案式 SFT + GRPO（旧） | .4792 | 1.0000 | 0 | 0 | 1,880 | 11 | 0 |
+| 无 SFT + GRPO（无工具） | .5960 | .9932 | 0 | 0 | 1,113 | 459 | .0068 |
+| Mini-o3-7B | .6395 | .9398 | .8927 | 1.8107 | 17,280 | 680 | .0059 |
+| DeepEyes-7B | .5589 | .9035 | .8483 | .0041 | 13,800 | 3,292 | .1051 |
+| 无 SFT + GRPO | .0077 | .0172 | .0226 | .1250 | 2,668 | 109 | .0000 |
+| 答案式 SFT + GRPO | .5041 | 1.0000 | 0 | 0 | 1,880 | 11 | .0000 |
 
-H1、H2 使用答案式协议评测（工具可用，2,208 条轨迹中裁图次数均为 0）。
+答案式 SFT、答案式 SFT + GRPO（旧）使用答案式协议评测（工具可用，2,208 条轨迹中裁图次数均为 0）。
 
 ![E1 trade-off](../media/baselines_v52_20261024/tradeoff_E1.png)
 
-图中是 B0–B3、H1、H2、H2-6k、B5、B6、X1、X2 十一个条件，B4 完成后加入。H2 为旧规模训练（每步 12 题，第 160 步）；H2-6k 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。B5 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 B2 相同）。B6 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 B0 的不带工具 prompt 评测。X1 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。X2 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
+图中是上表十一个条件，SFT + GRPO 完成后加入。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
 
 按来源统计的准确率：
 
 | ID | MME-RealWorld | MMMU-Pro | V* | WorldBench |
 |---|---:|---:|---:|---:|
-| B0 | .5273 | .3397 | .6741 | .3306 |
-| B1 | .6084 | .3077 | .7902 | .2944 |
-| B2 | .0044 | .0449 | .0045 | .0000 |
-| B3 | .5708 | .2885 | .8125 | .2782 |
-| H1 | .4683 | .2885 | .5156 | .3468 |
-| H2 | .5125 | .2564 | .5692 | .2742 |
-| B6 | .6364 | .4103 | .6920 | .3185 |
-| X1 | .6364 | .3462 | .9085 | .3548 |
-| X2 | .5678 | .2500 | .7746 | .3145 |
-| B5 | .0059 | .0385 | .0067 | .0000 |
-| H2-6k | .5280 | .2372 | .6295 | .3145 |
+| 无 SFT（无工具） | .5273 | .3397 | .6741 | .3306 |
+| 无 SFT（原生 zoom） | .6084 | .3077 | .7902 | .2944 |
+| 无 SFT | .0044 | .0449 | .0045 | .0000 |
+| SFT | .5708 | .2885 | .8125 | .2782 |
+| 答案式 SFT | .4683 | .2885 | .5156 | .3468 |
+| 答案式 SFT + GRPO（旧） | .5125 | .2564 | .5692 | .2742 |
+| 无 SFT + GRPO（无工具） | .6364 | .4103 | .6920 | .3185 |
+| Mini-o3-7B | .6364 | .3462 | .9085 | .3548 |
+| DeepEyes-7B | .5678 | .2500 | .7746 | .3145 |
+| 无 SFT + GRPO | .0059 | .0385 | .0067 | .0000 |
+| 答案式 SFT + GRPO | .5280 | .2372 | .6295 | .3145 |
 
-B2 的 2,208 条轨迹按最后一轮分类：
+无 SFT（caption 协议）的 2,208 条轨迹按最后一轮分类：
 
 | 最后一轮 | 条数 |
 |---|---:|
@@ -294,37 +294,37 @@ B2 的 2,208 条轨迹按最后一轮分类：
 
 | 组 | GPU | 开始时间 | 步数 | 每步时间 | 预计完成 |
 |---|---|---|---:|---:|---|
-| B6 原模型 + GRPO，无工具 | 2, 3 | 10-24 17:58 | 47 | 588 秒（均值） | 10-25 01:52 完成 |
-| B4 A-SFT + GRPO | 0, 1 | 10-24 17:58 | 完成 6 步后退出 | 约 21 分钟 | — |
+| 无 SFT + GRPO（无工具） | 2, 3 | 10-24 17:58 | 47 | 588 秒（均值） | 10-25 01:52 完成 |
+| SFT + GRPO | 0, 1 | 10-24 17:58 | 完成 6 步后退出 | 约 21 分钟 | — |
 
 验证准确率（440 道验证题，`accuracy_reward`）：
 
 | 组 | 第 0 步 | 第 25 步 | 第 47 步 |
 |---|---:|---:|---:|
-| B6 | .470 | .557 | .564 |
-| B4（`b4_6k`，440 题） | .502 | — | — |
-| B4（`b4_6k_m1` / `b4_6k_r3`，422 题） | .533 | .595 | |
-| B5（`b5_6k`，422 题） | .000 | .000 | .000 |
-| H2（`h2_6k`，422 题） | .448 | .500 | .474 |
+| 无 SFT + GRPO（无工具） | .470 | .557 | .564 |
+| SFT + GRPO（`b4_6k`，440 题） | .502 | — | — |
+| SFT + GRPO（`b4_6k_m1` / `b4_6k_r3`，422 题） | .533 | .595 | |
+| 无 SFT + GRPO（`b5_6k`，422 题） | .000 | .000 | .000 |
+| 答案式 SFT + GRPO（`h2_6k`，422 题） | .448 | .500 | .474 |
 
-- B4 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
+- SFT + GRPO 在 20:39 第 7 步的 update_actor 中退出：`torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.41 GiB. GPU 0 ... 6.21 GiB is free ... this process has 88.73 GiB memory in use`。没有 checkpoint（第一次保存在第 25 步）。是否重启、配置是否改动待定。
 
 - 时间均为北京时间。预计完成时间 = 每步时间 × 47，再加上验证和保存；实际以训练日志为准。
 - 之前按“到收敛为止”启动的两组（12:50 / 13:18）已在导师 10-24 回复后停止，没有使用它们的结果。
-- 8k 题池的两组（13:53 启动）在 17:57 停止（B4 完成 10 步，B6 完成 21 步），没有使用它们的结果。
-- B4 启动记录（只改工程设置；题池、奖励、学习率、步数、rollout 数、batch 不变）：
+- 8k 题池的两组（13:53 启动）在 17:57 停止（SFT + GRPO 完成 10 步，无 SFT + GRPO（无工具） 完成 21 步），没有使用它们的结果。
+- SFT + GRPO 启动记录（只改工程设置；题池、奖励、学习率、步数、rollout 数、batch 不变）：
   1. `b4_6k`（10-24 17:58）：第 7 步 update_actor 中 `torch.OutOfMemoryError`，见上。
   2. `b4_6k_m1`（10-25 02:08，update micro batch 2 → 1）：完成 11 步后，第 12 步 compute_log_probs 中 Ray worker 退出（`ActorDiedError`，exit type `SYSTEM_ERROR`，worker stderr 中没有 Python 报错），没有 checkpoint。
   3. `b4_6k_r3`（10-25 07:27）：另把 experience micro batch 4 → 2，每 5 步保存一次完整 checkpoint，异常退出后用同一输出目录续跑（EasyR1 `find_last_checkpoint`）。
      - 第 0 次运行在第 9 步 update_actor 中退出（`ray.exceptions.ActorUnavailableError: ... RpcError: RPC error: Socket closed rpc_code: 14`），11:17 从 `global_step_5` 续跑（日志 `Load from checkpoint: .../global_step_5`，载入 model / optimizer / extra_state）。
      - 第 1 次续跑又在第 9 步退出（`_make_batch_data` 中 `ActorUnavailableError`，rank 0 worker 的 stderr 没有报错）。两组训练共用的容器 cgroup：`memory.high` 470,298,918,912 B，`memory.max` 472,446,402,560 B；14:10 时 `memory.current` 462,295,064,576 B（其中文件缓存 252 GB），`memory.events` 中 high 计数 4,854,887、oom_kill 0。（更正：此处之前误把 `memory.high` 的值写成了 `memory.peak`，该容器没有 `memory.peak` 文件。）13:13 起改为每 2 步保存一次，从 `global_step_5` 继续。
      - 13:59 第 7 步 compute_log_probs 中 `ActorDiedError` 退出，14:01 从 `global_step_6` 续跑。14:12 起服务器上每 5 分钟对 checkpoint 文件执行 `posix_fadvise(DONTNEED)`（只清页缓存，文件不动），记录在 `memory_evict.log`；第一次执行后 `memory.current` 468 GB → 332 GB。
-     - 14:47 各进程常驻内存：B4 约 201 GB、B5 约 191 GB，共享内存 86 GB；14:43 `memory.current` 470 GB。14:49 起改为一次只跑一组训练（只改调度）：B5 先跑完，再单独跑 B4（从 `global_step_6` 续跑），然后 H2。
-     - 16:31 起按用户要求恢复两组并行。21:39–21:40 B4（第 13 步）与 H2（第 5 步）的日志中出现 `ray.exceptions.OutOfMemoryError: 1 worker(s) were killed due to the node running low on memory ... 420.95GB used / 440.00GB limit (0.956701)`（此前各次退出的日志中只有 `ActorUnavailableError` / `ActorDiedError`）；两组分别从第 12、4 步续跑，页缓存清理改为每 60 秒一次。
-     - 10-26 04:38：B4 连续 3 次（attempt 36–38）在存到第 18 步之前被 Ray 内存监控杀掉；B4 暂停在 `global_step_16`，等 H2 训练结束后单独续跑（只改调度）。
-- B5 在第 35 步 `_make_batch_data` 中退出（`ActorUnavailableError`，与 B4 相同），最后 checkpoint 为第 25 步；10-25 13:43 从 `global_step_25` 续跑，改为每 2 步保存、异常退出后自动续跑。H2 排在 B5 之后（第一次启动时 GPU 3 仍被 B5 的残留 worker 占用 69 GB，vLLM 初始化失败，未开始训练）。
-- B5 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
-- B6 checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
+     - 14:47 各进程常驻内存：SFT + GRPO 约 201 GB、无 SFT + GRPO 约 191 GB，共享内存 86 GB；14:43 `memory.current` 470 GB。14:49 起改为一次只跑一组训练（只改调度）：无 SFT + GRPO 先跑完，再单独跑 SFT + GRPO（从 `global_step_6` 续跑），然后 答案式 SFT + GRPO（旧）。
+     - 16:31 起按用户要求恢复两组并行。21:39–21:40 SFT + GRPO（第 13 步）与答案式 SFT + GRPO（第 5 步）的日志中出现 `ray.exceptions.OutOfMemoryError: 1 worker(s) were killed due to the node running low on memory ... 420.95GB used / 440.00GB limit (0.956701)`（此前各次退出的日志中只有 `ActorUnavailableError` / `ActorDiedError`）；两组分别从第 12、4 步续跑，页缓存清理改为每 60 秒一次。
+     - 10-26 04:38：SFT + GRPO 连续 3 次（attempt 36–38）在存到第 18 步之前被 Ray 内存监控杀掉；SFT + GRPO 暂停在 `global_step_16`，等答案式 SFT + GRPO（旧） 训练结束后单独续跑（只改调度）。
+- 无 SFT + GRPO 在第 35 步 `_make_batch_data` 中退出（`ActorUnavailableError`，与 SFT + GRPO 相同），最后 checkpoint 为第 25 步；10-25 13:43 从 `global_step_25` 续跑，改为每 2 步保存、异常退出后自动续跑。答案式 SFT + GRPO（旧） 排在 无 SFT + GRPO 之后（第一次启动时 GPU 3 仍被 无 SFT + GRPO 的残留 worker 占用 69 GB，vLLM 初始化失败，未开始训练）。
+- 无 SFT + GRPO 第 1 步的 2,048 条 rollout：`terminal=invalid` 2,046 条、`length` 2 条，答对 0 条，裁图 0 次（`rollouts.jsonl`）。第 0 步验证 422 题中终答 0 条、invalid 422 条。
+- 无 SFT + GRPO（无工具） checkpoint：`global_step_25`、`global_step_47`（EasyR1 记录的最佳验证步为 47，.5636）。
 
 ### 5.3 4B 各检查点的 caption 协议轨迹（obsbench 935 题，2026-10-26）
 
@@ -335,7 +335,7 @@ B2 的 2,208 条轨迹按最后一轮分类：
 - 技术失败：0。
 - Astra 一列是对已有运行用同一统计脚本重算的。
 
-| | Astra | A-SFT | Base | B5 第 47 步 |
+| | Astra | SFT | 无 SFT | 无 SFT + GRPO |
 |---|---:|---:|---:|---:|
 | 答对 / 有分 | 807 / 934 | 412 / 931 | 4 / 37 | 5 / 40 |
 | V* | 187 / 191 | 165 / 191 | 0 / 16 | 1 / 22 |
@@ -347,23 +347,23 @@ B2 的 2,208 条轨迹按最后一轮分类：
 | 含 invalid_bbox 的轨迹 | 0 | 0 | 768 | 785 |
 
 - “有分”包括 answer 和 abstain，abstain 记 0；protocol_violation 和 truncated 不计分。
-- Base 的 768 条 invalid_bbox 轨迹中，首个无效框的坐标都大于 1；其中 756 条四个坐标有序、落在 0–1000 范围内。B5 对应为 785 条，其中 763 条。
-- A-SFT 答对的 412 题在 Base 下的情况：395 题无分，16 题答错，1 题答对。
+- 无 SFT 的 768 条 invalid_bbox 轨迹中，首个无效框的坐标都大于 1；其中 756 条四个坐标有序、落在 0–1000 范围内。无 SFT + GRPO 对应为 785 条，其中 763 条。
+- SFT 答对的 412 题在无 SFT 下的情况：395 题无分，16 题答错，1 题答对。
 - 裁图次数分布（题数）：
 
   | 裁图次数 | 0 | 1 | 2 | 3 | 4 | 5–8 |
   |---|---:|---:|---:|---:|---:|---:|
   | Astra | 758 | 108 | 32 | 27 | 7 | 3 |
-  | A-SFT | 460 | 269 | 133 | 42 | 11 | 20 |
-  | Base | 892 | 0 | 1 | 1 | 3 | 38 |
-  | B5 第 47 步 | 885 | 0 | 2 | 3 | 1 | 44 |
+  | SFT | 460 | 269 | 133 | 42 | 11 | 20 |
+  | 无 SFT | 892 | 0 | 1 | 1 | 3 | 38 |
+  | 无 SFT + GRPO | 885 | 0 | 2 | 3 | 1 | 44 |
 
 ## 6. 还没弄清的问题
 
 
 1. 原模型在 caption 协议下，为什么近一半轨迹给出 0–1000 尺度的框，另有 830 条既不裁图也不写 `<answer>`？
-2. B4 和 B6 过完一遍题池后，准确率和裁图成本分别是多少？
-3. 不做 SFT 的 B5，在 caption 协议下能否得到非零奖励？
+2. SFT + GRPO 和无 SFT + GRPO（无工具）过完一遍题池后，准确率和裁图成本分别是多少？
+3. 无 SFT + GRPO 在 caption 协议下能否得到非零奖励？
 4. 幻觉问题放在主线还是支线？（10-24 会议中，一处把“更低的幻觉率”归为支线，另一处把这类问题统称为“视觉观测的幻觉”；待问导师）
 5. 效率（性能与成本的 trade-off）放在什么位置？（10-24 会议中既归为支线，也说希望达到最佳 trade-off；待问导师）
 6. 对象 / 行列绑定错误（§1.2）要不要在 benchmark 里单独计量？（待问导师）
