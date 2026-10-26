@@ -68,7 +68,7 @@
 - **4B 各检查点在 caption 协议下的表现**（§5.3、[02 §1.2](02_known_issues.md#12-4b-各检查点的-caption-协议轨迹)）
   - 无 SFT 的 893 / 935 条终止为协议违规；768 条含无效框，其中 756 条首个无效框落在 0–1000 范围内。
   - SFT 后协议违规为 0。
-  - SFT + GRPO（第 36 步）答对 454 / 930，每题至少裁图 1 次。
+  - SFT + GRPO 答对 454 / 930（第 36 步）、450 / 933（第 47 步）；第 47 步 934 / 935 题至少裁图 1 次。
   - 答案式模型在该协议下只输出 `<answer>`，全部记为协议违规。
 - **强、弱模型都出现的过程问题类别**：见 §1.2。只有类别重合，没有发生率。
 - **强 / 教师模型的失败卡**（定向审查；[02 §1.10](02_known_issues.md#110-强--教师模型失败卡定向审查2026-10-26)）
@@ -82,7 +82,7 @@
 ### 1.4 还在做的实验
 
 - 4B baseline 矩阵：§4。其中 SFT + GRPO 还在训练。
-- 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹：§5.3。已完成 7 个检查点；SFT + GRPO 第 47 步等训练结束。
+- 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹：§5.3。已完成 8 个检查点（含 SFT + GRPO 第 47 步）。
 - 强模型轨迹审查：失败卡定向审查已完成（新审 362 条，连续两批无新增后停止）。原暂停队列剩 1,027 条；弱模型剩 2,769 条未逐图。SFT 新增 0 条，gold 未改。
 
 ## 2. 设置
@@ -273,7 +273,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | AdaptVision / CounterCredit | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | Mini-o3-7B | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
 | DeepEyes-7B | DeepEyes-7B（官方协议，E1 预算） | — | **完成**（§5.1） |
-| 4B 各检查点轨迹 | 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹（与 Astra 同协议） | 2, 3 | 7 个检查点**完成**（§5.3）；SFT + GRPO 第 47 步等训练结束 |
+| 4B 各检查点轨迹 | 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹（与 Astra 同协议） | 2, 3 | 8 个检查点**完成**（§5.3） |
 
 ## 5. 结果
 
@@ -369,13 +369,13 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 无 SFT | 4 / 37 | 0 / 16 | 3 / 7 | 1 / 14 | 893 |
 | SFT | 412 / 931 | 165 / 191 | 171 / 399 | 76 / 341 | 0 |
 | SFT + GRPO（第 36 步） | 454 / 930 | 170 / 191 | 176 / 399 | 108 / 340 | 1 |
+| SFT + GRPO（第 47 步） | 450 / 933 | 169 / 191 | 177 / 399 | 104 / 343 | 0 |
 | 无 SFT + GRPO（第 47 步） | 5 / 40 | 1 / 22 | 2 / 8 | 2 / 10 | 893 |
 | 无 SFT + GRPO（无工具，第 47 步） | 3 / 11 | 0 / 5 | 1 / 2 | 2 / 4 | 924 |
 | 答案式 SFT + GRPO（第 47 步） | 0 / 0 | — | — | — | 935 |
 | 答案式 SFT + GRPO（旧，第 160 步） | 0 / 0 | — | — | — | 935 |
 
 - “有分”包括 answer 和 abstain（abstain 记 0）；protocol_violation、truncated 不计分。
-- SFT + GRPO 第 47 步等训练结束后补上。
 
 ## 6. 还没弄清的问题
 
@@ -427,5 +427,5 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ### 7.4 训练安排
 
-- SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步的 E1 评测和 obsbench 轨迹按队列自动运行。
+- SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步 obsbench 轨迹已完成（§5.3）；E1 评测在跑。
 - 用户 10-26：这组完成后，继续用 2 卡跑训练。

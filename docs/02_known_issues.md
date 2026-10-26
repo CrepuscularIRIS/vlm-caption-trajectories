@@ -61,11 +61,13 @@
 | 条件 | 答对 / 有分 | V* | TreeBench | O3Bench | 终止 |
 |---|---:|---:|---:|---:|---|
 | SFT + GRPO（第 36 步） | 454 / 930 | 170 / 191 | 176 / 399 | 108 / 340 | answer 921、abstain 9、truncated 4、protocol_violation 1 |
+| SFT + GRPO（第 47 步） | 450 / 933 | 169 / 191 | 177 / 399 | 104 / 343 | answer 930、abstain 3、truncated 2 |
 | 无 SFT + GRPO（无工具，第 47 步） | 3 / 11 | 0 / 5 | 1 / 2 | 2 / 4 | protocol_violation 924、abstain 6、answer 5 |
 | 答案式 SFT + GRPO（第 47 步） | 0 / 0 | — | — | — | protocol_violation 935 |
 | 答案式 SFT + GRPO（旧，第 160 步） | 0 / 0 | — | — | — | protocol_violation 935 |
 
-- **SFT + GRPO 第 36 步**是训练中间的 checkpoint；第 47 步的轨迹等训练结束后再跑。
+- **SFT + GRPO 第 36 步**是训练中间的 checkpoint；第 47 步是训练结束时的 checkpoint（10-27 运行，技术失败 0）。
+  - 第 47 步裁图次数（题数）：0 次 1、1 次 135、2 次 348、3 次 250、4 次 109、5–8 次 92；违规 0。换区域重裁后答对（action_recovery）111 条；第 36 步 72 条。
   - 裁图次数（题数）：1 次 128、2 次 397、3 次 234、4 次 97、5–8 次 79；0 次没有。
 - **两个答案式模型**：每条轨迹都只有 1 步，输出形如 `<think>\n\n</think>\n\n<answer>B</answer>`。caption 为空、没有步骤头，按 v5.1 记为 protocol_violation，不计分；最后一步含 `<answer>` 的 935 / 935。
 - **无 SFT + GRPO（无工具）**：含 invalid_bbox 的轨迹 777 条。
