@@ -229,5 +229,26 @@
   "id": "H2-6k",
   "label": "答案式 SFT + 答案式 GRPO（6k，第 47 步）",
   "name": "答案式 SFT + GRPO"
+ },
+ {
+  "file": "traj_B4_rl47.jsonl",
+  "n": 2208,
+  "acc": 0.6603,
+  "fmt": 0.9946,
+  "first": 0.9982,
+  "later": 1.3827,
+  "tokens": 9924.8152,
+  "gen": 307.4076,
+  "truncated": 0.0014,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.6991,
+   "mmmu_pro": 0.3077,
+   "vstar": 0.8504,
+   "worldbench": 0.3266
+  },
+  "id": "B4",
+  "name": "SFT + GRPO",
+  "label": "SFT + GRPO（6k，第 47 步）"
  }
 ]

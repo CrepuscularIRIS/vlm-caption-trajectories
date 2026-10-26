@@ -268,7 +268,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 答案式 SFT + GRPO（旧） | 答案式 SFT + GRPO（旧训练第 160 步 checkpoint） | — | **完成**（旧规模：每步 12 题，160 步） |
 | 答案式 SFT + GRPO | 答案式 SFT + 答案式协议 GRPO，6k 题池一遍 | 2, 3 | **训练完成**（10-25 20:45 – 10-26 07:09，47 步，含多次续跑）；第 47 步 E1 评测**完成**（§5.1，ID 答案式 SFT + GRPO） |
 | 无 SFT + GRPO（无工具） | 原模型 + GRPO，无工具 | 2, 3 | **训练完成**（10-24 17:58 – 10-25 01:52，6k 题池一遍 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1） |
-| SFT + GRPO | SFT 模型 + GRPO（caption 协议），6k 题池一遍 | 0, 1 | **训练完成**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，10-27 04:37 存到第 47 步，见 §5.2）；第 47 步 E1 评测与 obsbench 轨迹**进行中** |
+| SFT + GRPO | SFT 模型 + GRPO（caption 协议），6k 题池一遍 | 0, 1 | **训练完成**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，10-27 04:37 存到第 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1），obsbench 轨迹**完成**（§5.3） |
 | 无 SFT + GRPO | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练完成**（10-25 04:45 – 20:32，47 步，含 2 次续跑）；第 47 步 E1 评测**完成**（§5.1） |
 | AdaptVision / CounterCredit | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | Mini-o3-7B | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
@@ -292,12 +292,13 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | DeepEyes-7B | .5589 | .9035 | .8483 | .0041 | 13,800 | 3,292 | .1051 |
 | 无 SFT + GRPO | .0077 | .0172 | .0226 | .1250 | 2,668 | 109 | .0000 |
 | 答案式 SFT + GRPO | .5041 | 1.0000 | 0 | 0 | 1,880 | 11 | .0000 |
+| SFT + GRPO | .6603 | .9946 | .9982 | 1.3827 | 9,925 | 307 | .0014 |
 
 答案式 SFT、答案式 SFT + GRPO（旧）使用答案式协议评测（工具可用，2,208 条轨迹中裁图次数均为 0）。
 
 ![E1 trade-off](../media/baselines_v52_20261024/tradeoff_E1.png)
 
-图中是上表十一个条件，SFT + GRPO 完成后加入。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
+图中是上表十二个条件。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
 
 按来源统计的准确率：
 
@@ -314,6 +315,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | DeepEyes-7B | .5678 | .2500 | .7746 | .3145 |
 | 无 SFT + GRPO | .0059 | .0385 | .0067 | .0000 |
 | 答案式 SFT + GRPO | .5280 | .2372 | .6295 | .3145 |
+| SFT + GRPO | .6991 | .3077 | .8504 | .3266 |
 
 无 SFT（caption 协议）的 2,208 条轨迹按最后一轮分类：
 
@@ -427,5 +429,5 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ### 7.4 训练安排
 
-- SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步 obsbench 轨迹已完成（§5.3）；E1 评测在跑。
+- SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步 obsbench 轨迹与 E1 评测均已完成（§5.1、§5.3）。
 - 用户 10-26：这组完成后，继续用 2 卡跑训练。
