@@ -279,7 +279,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ### 5.1 E1（552 题 × 4 次采样 = 2,208 条轨迹）
 
-| ID | 准确率 | 有 `<answer>` 标签 | 首裁率 | 后续裁图 / 题 | 处理 token / 题 | 生成 token / 题 | 截断率 |
+| 条件 | 准确率 | 有 `<answer>` 标签 | 首裁率 | 后续裁图 / 题 | 处理 token / 题 | 生成 token / 题 | 截断率 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | 无 SFT（无工具） | .5217 | .9534 | 0 | 0 | 1,464 | 810 | .0466 |
 | 无 SFT（原生 zoom） | .5888 | .9348 | .9873 | .7097 | 4,288 | 395 | .0127 |
@@ -302,7 +302,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 按来源统计的准确率：
 
-| ID | MME-RealWorld | MMMU-Pro | V* | WorldBench |
+| 条件 | MME-RealWorld | MMMU-Pro | V* | WorldBench |
 |---|---:|---:|---:|---:|
 | 无 SFT（无工具） | .5273 | .3397 | .6741 | .3306 |
 | 无 SFT（原生 zoom） | .6084 | .3077 | .7902 | .2944 |
