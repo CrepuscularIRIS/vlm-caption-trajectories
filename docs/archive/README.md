@@ -59,6 +59,7 @@
 | `docs/37_baselines_and_scale_20261023.md` | [37_baselines_and_scale_20261023.md](37_baselines_and_scale_20261023.md) | 10-23 baseline 与规模计划（已过时） |
 | `docs/38_mentor_requirements_audit_20261024.md` | [38_mentor_requirements_audit_20261024.md](38_mentor_requirements_audit_20261024.md) | 导师要求逐条对账（已过时，被内部全量对账取代） |
 | `docs/39_probe_protocol_for_mentor_20261024.md` | [39_probe_protocol_for_mentor_20261024.md](39_probe_protocol_for_mentor_20261024.md) | B4/B6 部署与参数（已过时；200 步方案已取消） |
+| `docs/01` §7.1–7.3（10-26 版） | [40_gap_candidates_20261026.md](40_gap_candidates_20261026.md) | 9 条 gap 候选、切入点规则、待问导师三问（已由导师 10-26 回复替代，见 docs/01 §7） |
 
 ## 2. 旧变更记录（2026-10-24 之前）
 
