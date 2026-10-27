@@ -413,6 +413,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 细化程度 | 不再细分；按导师上述口径推进 |
 | 下一步 | 先把 RL 训出来 |
 
+用户 10-26 23:51：导师这次回复是对 P1–P3 的优先级做了取舍，大致给出了后续要优化的方向；接下来重新做后续的算法设计。此前的 5 张 idea card（`ideaspark_run/vlm-crop-rl-card-*`）是这次回复之前产出的。
+
 ### 7.3 训练安排
 
 - SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步 obsbench 轨迹与 E1 评测均已完成（§5.1、§5.3）。
