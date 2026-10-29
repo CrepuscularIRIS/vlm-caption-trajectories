@@ -6,7 +6,6 @@ Does not modify the 21 original trajectory exports or their score table.
 import csv
 import gzip
 import hashlib
-import io
 import json
 import sys
 from collections import Counter
@@ -71,7 +70,7 @@ def main():
         table.append(f"| {cid} | {c['acc']:.4f} | {c['first']:.4f} | {c['later']:.4f} | {c['tokens']:.1f} |")
     dump(out / "accuracy_by_exact_crops.json", exact)
     with (out / "accuracy_by_exact_crops.csv").open('w') as f:
-        writer = csv.writer(f); writer.writerow(['condition','executed_crops','n','correct','accuracy'])
+        writer = csv.writer(f, lineterminator="\n"); writer.writerow(['condition','executed_crops','n','correct','accuracy'])
         for cid, buckets in exact.items():
             for n, b in buckets.items(): writer.writerow([cid,n,b['n'],b['correct'],b['accuracy']])
     (out / "RESULTS.zh.md").write_text("# E1 统一结果（23个条件）\n\n552题×4采样，每条件2,208条。使用原评分器；40步为额外预算探索，不能当同32步预算对照。E1曾参与开发，不称独立盲测。\n\n" + "\n".join(table) + "\n\n按实际执行裁图次数分层的分子、分母和准确率见[CSV](accuracy_by_exact_crops.csv)。这是模型自行选择路径后的条件统计，不是增加裁图次数的因果收益；没有样本的档位不记0准确率。首裁为每题至少裁一次的采样比例，后续裁图为max(N−1,0)的均值。处理token累加每轮完整输入和输出，未扣prefix缓存，不等于GPU FLOPs。\n")
