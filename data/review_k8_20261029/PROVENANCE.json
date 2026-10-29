@@ -1,0 +1,78 @@
+{
+  "selection": "targeted; no population rate",
+  "reviewer": "Codex, single visual reviewer; not human gold",
+  "record_appearances": 34,
+  "unique_trajectories": 30,
+  "sources": [
+    {
+      "artifact": "C01.json",
+      "private_source_sha256": "759004e3f258780dfe37f9899840078871052c8e8b2e61376a44569d83e2dce4",
+      "records": 2
+    },
+    {
+      "artifact": "C02.json",
+      "private_source_sha256": "f5109bf3d60c45bdcd30e40a1f544ad9f5f0af8e788f1cdf95d54eb6bbf7ffd8",
+      "records": 2
+    },
+    {
+      "artifact": "C03.json",
+      "private_source_sha256": "8e0420ffe52996888aba8674cd5f98fe6dfdb851fb28dd99d0d8de86e58711de",
+      "records": 2
+    },
+    {
+      "artifact": "C04.json",
+      "private_source_sha256": "f98e2a3214c7286d3af17220624726ef572c6e9d989f9399ea0442e7fc5f76e6",
+      "records": 2
+    },
+    {
+      "artifact": "C05.json",
+      "private_source_sha256": "1dd930ea0cb2109b88d71fcf381341395486aa4ff5a16416e12000549b57a78f",
+      "records": 2
+    },
+    {
+      "artifact": "C06.json",
+      "private_source_sha256": "0e7c2f5ac1ceab4ca0b6a1b75f5ed486111a58974d6a1c8dea2c8530fe54decc",
+      "records": 2
+    },
+    {
+      "artifact": "C07.json",
+      "private_source_sha256": "fe9dd1bd4ec1d1457ada6868e8f3797b85db05fe343e229ae2d57708cbec3ed3",
+      "records": 2
+    },
+    {
+      "artifact": "C08.json",
+      "private_source_sha256": "223b5259865e5d9db79764822ce55f0fc2680463ded2901b3a093a5d84470129",
+      "records": 1
+    },
+    {
+      "artifact": "C09.json",
+      "private_source_sha256": "bde2229894d02f7d6727491683e511cb4b24faba213985289af832e9cdf34273",
+      "records": 1
+    },
+    {
+      "artifact": "C10.json",
+      "private_source_sha256": "197eaec2aa75b0a4f1042094722a1782f20f47852cde21f48197121d69e39458",
+      "records": 2
+    },
+    {
+      "artifact": "C11.json",
+      "private_source_sha256": "51f9a165127750a3ab757dc760945de147cf610c44ab9490c24e3a8a379524ed",
+      "records": 1
+    },
+    {
+      "artifact": "C12.json",
+      "private_source_sha256": "64bbca62d013796239fdf74ce5e7c4c13f0948791a3e20fb2fb43966017e0555",
+      "records": 1
+    },
+    {
+      "artifact": "mme_10136_s0.json",
+      "private_source_sha256": "5b421339ca75f1fcd2046240dbdd832bf22a5bf90acef3103f708a9cc35fed28",
+      "records": 7
+    },
+    {
+      "artifact": "vstar_82_s0.json",
+      "private_source_sha256": "e222af8b2f373976e75426359370c733ff14150d8e807f3fe495cafe743a35ca",
+      "records": 7
+    }
+  ]
+}

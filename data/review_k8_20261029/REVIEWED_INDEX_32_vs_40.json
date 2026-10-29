@@ -1,0 +1,128 @@
+[
+  {
+    "model_tag": "k8_grpo",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 1,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_dapo",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 1,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_gspo",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 1,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_gigpo",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 1,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_base_grpo",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 0,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8c_dapo_s40",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 2,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8c_gspo_s40",
+    "uid": "mme_10136",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 1,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_grpo",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 8,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_dapo",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 2,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_gspo",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 2,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_gigpo",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 1,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8_base_grpo",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 0,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8c_dapo_s40",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 8,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  },
+  {
+    "model_tag": "k8c_gspo_s40",
+    "uid": "vstar_82",
+    "sample_idx": 0,
+    "original_image_viewed": true,
+    "executed_regions_viewed": 2,
+    "review": "REVIEW.zh.md",
+    "selection": "targeted existing case; no population rate"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "vstar",
+    "item_id": "vstar_95",
+    "sample_idx": 0,
+    "gold_letter": "A",
+    "final_answer": "B",
+    "has_answer_tag": 1,
+    "correct": 0,
+    "correct_train_rule": 0,
+    "steps": 2,
+    "crops": 1,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1500.0,
+        2000.0
+      ],
+      [
+        855,
+        1160,
+        1185,
+        1640
+      ]
+    ],
+    "image_wh": [
+      1500,
+      2000
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 4221,
+    "gen_tokens": 132,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe central woman wears a strap across her body that could be the watchband; its color is too small to distinguish reliably in the full view [original_image]. I will crop the strap region directly.\n</think>\n<grounding>{\"bbox_2d\":[0.57,0.58,0.79,0.82],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 89,
+        "check_errors": [],
+        "box_abs": [
+          855,
+          1160,
+          1185,
+          1640
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | commit\nThe strap crossing the woman’s body is a deep blue in this close view [observation_1]. This corresponds to option B.\n</think>\n<answer>B</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 43,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "c09342d252635967777c51d5d73e48f4b84875e3bf9b92c1d3ad1c913a18979f"
+  }
+]

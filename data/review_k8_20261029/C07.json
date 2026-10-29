@@ -1,0 +1,151 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "mme_realworld",
+    "item_id": "mme_14291",
+    "sample_idx": 0,
+    "gold_letter": "B",
+    "final_answer": "A",
+    "has_answer_tag": 1,
+    "correct": 0,
+    "correct_train_rule": 0,
+    "steps": 2,
+    "crops": 1,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        5472.0,
+        3080.0
+      ],
+      [
+        766,
+        1294,
+        1532,
+        1786
+      ]
+    ],
+    "image_wh": [
+      5472,
+      3080
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 4383,
+    "gen_tokens": 143,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe left riverside area has several black advertising flags along the front buildings; the one immediately left of the large central tree appears to read \"one\", but the lettering is small. I'll inspect that flag closely to distinguish option A from any similar nearby text.\n</think>\n<grounding>{\"bbox_2d\":[0.14,0.42,0.28,0.58],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 102,
+        "check_errors": [],
+        "box_abs": [
+          766,
+          1294,
+          1532,
+          1786
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | commit\nThe black flag immediately left of the large tree reads \"one\" in [observation_1]. This matches option A.\n</think>\n<answer>A</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 41,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "f3a58d1b3c039626c8c18b3da904d972879296d34c99d54d570e0e2ea57ada16"
+  },
+  {
+    "condition": "K-GRPO",
+    "bench": "mme_realworld",
+    "item_id": "mme_14291",
+    "sample_idx": 0,
+    "gold_letter": "B",
+    "final_answer": "B",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 3,
+    "crops": 2,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        5472.0,
+        3080.0
+      ],
+      [
+        383,
+        1078,
+        2298,
+        1910
+      ],
+      [
+        1628,
+        1427,
+        1992,
+        1677
+      ]
+    ],
+    "image_wh": [
+      5472,
+      3080
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 7745,
+    "gen_tokens": 241,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe left-side black advertising flags hang left of the large central tree; their small text is not readable at the full-frame scale [original_image]. I will inspect the left bank’s tree-left flags to distinguish the visible words.\n</think>\n<grounding>{\"bbox_2d\":[0.07,0.35,0.42,0.62],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 94,
+        "check_errors": [],
+        "box_abs": [
+          383,
+          1078,
+          2298,
+          1910
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | re_examine\nThe left-side black flags show partially visible text, but their exact wording needs closer inspection before binding to the big tree [observation_1]. I will magnify the rightmost black flag near the tree to read its visible characters.\n</think>\n<grounding>{\"bbox_2d\":[0.65,0.42,0.84,0.72],\"source\":\"observation_1\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 98,
+        "check_errors": [],
+        "box_abs": [
+          1628,
+          1427,
+          1992,
+          1677
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 3,
+        "text": "<think>\nStep 3 | commit\nThe black advertising flag on the left side of the big tree reads “BEAUTY STORE&SALONS” [observation_2]. This matches option B.\n</think>\n<answer>B</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 49,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "f3a58d1b3c039626c8c18b3da904d972879296d34c99d54d570e0e2ea57ada16"
+  }
+]

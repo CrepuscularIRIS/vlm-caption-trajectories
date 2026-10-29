@@ -1,0 +1,298 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "vstar",
+    "item_id": "vstar_82",
+    "sample_idx": 0,
+    "gold_letter": "D",
+    "final_answer": "D",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 3,
+    "crops": 2,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        2247.0,
+        1500.0
+      ],
+      [
+        90,
+        1170,
+        270,
+        1290
+      ],
+      [
+        80,
+        1210,
+        136,
+        1266
+      ]
+    ],
+    "image_wh": [
+      2247,
+      1500
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 6883,
+    "gen_tokens": 244,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nA small soda can is visible on the ground near the lower-left edge beside a trash bin, but its color is too small to distinguish at this scale [original_image]. I will inspect that region to bind the can to a color.\n</think>\n<grounding>{\"bbox_2d\":[0.04,0.78,0.12,0.86],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 96,
+        "check_errors": [],
+        "box_abs": [
+          90,
+          1170,
+          270,
+          1290
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | re_examine\nThe crop shows a small soda can on the green bench, but its color is too dark to distinguish reliably [observation_1]. I will enlarge that specific can against the bench and dark wall to read its visible hue.\n</think>\n<grounding>{\"bbox_2d\":[0.06,0.52,0.14,0.62],\"source\":\"observation_1\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 96,
+        "check_errors": [],
+        "box_abs": [
+          80,
+          1210,
+          136,
+          1266
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 3,
+        "text": "<think>\nStep 3 | commit\nThe enlarged view shows the soda can has a green body against the green bench and dark wall, matching option D [observation_2]. The other color options are not supported.\n</think>\n<answer>D</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 52,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "0b2ef2f07bb690e45b07b8ebd9893126b1044296fd55938d6abdf49cb687a5bc"
+  },
+  {
+    "condition": "K-GRPO",
+    "bench": "vstar",
+    "item_id": "vstar_82",
+    "sample_idx": 0,
+    "gold_letter": "D",
+    "final_answer": "D",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 9,
+    "crops": 8,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        2247.0,
+        1500.0
+      ],
+      [
+        101,
+        1088,
+        270,
+        1328
+      ],
+      [
+        124,
+        878,
+        360,
+        1080
+      ],
+      [
+        11,
+        945,
+        786,
+        1275
+      ],
+      [
+        292,
+        1080,
+        506,
+        1335
+      ],
+      [
+        0,
+        975,
+        786,
+        1425
+      ],
+      [
+        584,
+        630,
+        1079,
+        1050
+      ],
+      [
+        0,
+        1020,
+        719,
+        1470
+      ],
+      [
+        225,
+        870,
+        854,
+        1350
+      ]
+    ],
+    "image_wh": [
+      2247,
+      1500
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 35327,
+    "gen_tokens": 731,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nA small soda can is visible on the ground near the lower-left edge [original_image]. Its color needs a closer view to distinguish silver, red, white, or green.\n</think>\n<grounding>{\"bbox_2d\":[0.045,0.725,0.12,0.885],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 87,
+        "check_errors": [],
+        "box_abs": [
+          101,
+          1088,
+          270,
+          1328
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | re_examine\nThe crop shows a small green soda can near the seated man, but the color is still small [observation_1]. A tighter view of that same can will confirm the answer.\n</think>\n<grounding>{\"bbox_2d\":[0.055,0.585,0.16,0.72],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 89,
+        "check_errors": [],
+        "box_abs": [
+          124,
+          878,
+          360,
+          1080
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 3,
+        "text": "<think>\nStep 3 | fallback\nThis crop shows buildings rather than the soda can [observation_2]. I need the can near the seated man in the lower-left, so I shift the crop to that location.\n</think>\n<grounding>{\"bbox_2d\":[0.005,0.63,0.35,0.85],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 86,
+        "check_errors": [],
+        "box_abs": [
+          11,
+          945,
+          786,
+          1275
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 4,
+        "text": "<think>\nStep 4 | re_examine\nThe lower-left bench shows a small soda can, but its color is still small [observation_3]. A tighter view of that same can will resolve the exact color.\n</think>\n<grounding>{\"bbox_2d\":[0.13,0.72,0.225,0.89],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 86,
+        "check_errors": [],
+        "box_abs": [
+          292,
+          1080,
+          506,
+          1335
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 5,
+        "text": "<think>\nStep 5 | fallback\nThe bench crop missed the can; a lower-left crop should include the can and the seated man [observation_4]. I shift the region to the lower-left edge of [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.65,0.35,0.95],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 86,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          975,
+          786,
+          1425
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 6,
+        "text": "<think>\nStep 6 | re_examine\nThe seated man’s hand still contains the small can rather than the bench itself [observation_5]. A tighter crop of that hand and can will determine the visible color.\n</think>\n<grounding>{\"bbox_2d\":[0.26,0.42,0.48,0.7],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 84,
+        "check_errors": [],
+        "box_abs": [
+          584,
+          630,
+          1079,
+          1050
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 7,
+        "text": "<think>\nStep 7 | fallback\nThe central flag crop cut off the hand and can rather than showing them [observation_6]. I shift the crop to the lower-left edge of [original_image] to include the seated man’s hand.\n</think>\n<grounding>{\"bbox_2d\":[0.00,0.68,0.32,0.98],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 90,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          1020,
+          719,
+          1470
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 8,
+        "text": "<think>\nStep 8 | re_examine\nThe seated man’s hand remains outside the crop, so I shift the region lower to include his hand and the small can on the bench.\n</think>\n<grounding>{\"bbox_2d\":[0.1,0.58,0.38,0.9],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 77,
+        "check_errors": [],
+        "box_abs": [
+          225,
+          870,
+          854,
+          1350
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 9,
+        "text": "<think>\nStep 9 | commit\nThe lower-left can is visibly green on the bench, separate from the seated man’s hand [observation_8]. The color matches option D.\n</think>\n<answer>D</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 46,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "0b2ef2f07bb690e45b07b8ebd9893126b1044296fd55938d6abdf49cb687a5bc"
+  }
+]

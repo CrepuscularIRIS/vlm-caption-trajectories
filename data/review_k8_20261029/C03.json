@@ -1,0 +1,214 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "mme_realworld",
+    "item_id": "mme_18106",
+    "sample_idx": 0,
+    "gold_letter": "B",
+    "final_answer": "B",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 2,
+    "crops": 1,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        3489.0,
+        4361.0
+      ],
+      [
+        2233,
+        1396,
+        3140,
+        2486
+      ]
+    ],
+    "image_wh": [
+      3489,
+      4361
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 4630,
+    "gen_tokens": 153,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe unit is a street sign with MARIA TRAVLOS as a name and a phone number; the full sign text is too small to read in the full view. I will inspect the sign on the right side of the street.\n</think>\n<grounding>{\"bbox_2d\":[0.64,0.32,0.9,0.57],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 95,
+        "check_errors": [],
+        "box_abs": [
+          2233,
+          1396,
+          3140,
+          2486
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | commit\nIn [observation_1], the street sign clearly reads \"MARIA TRAVLOS\" and directly below it \"212 713 6795\". This matches option B.\n</think>\n<answer>B</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 58,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "ea1d2b27248dd60d98751243896c9ea5799f118d0088aa13545cf28313d087f2"
+  },
+  {
+    "condition": "K-GRPO",
+    "bench": "mme_realworld",
+    "item_id": "mme_18106",
+    "sample_idx": 0,
+    "gold_letter": "B",
+    "final_answer": "A",
+    "has_answer_tag": 1,
+    "correct": 0,
+    "correct_train_rule": 0,
+    "steps": 6,
+    "crops": 5,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        3489.0,
+        4361.0
+      ],
+      [
+        1535,
+        2006,
+        2233,
+        2791
+      ],
+      [
+        0,
+        0,
+        1116,
+        2965
+      ],
+      [
+        0,
+        2529,
+        628,
+        3489
+      ],
+      [
+        0,
+        523,
+        1116,
+        2006
+      ],
+      [
+        0,
+        1657,
+        768,
+        3402
+      ]
+    ],
+    "image_wh": [
+      3489,
+      4361
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 23137,
+    "gen_tokens": 516,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe unit is the street sign reading MARIA TRAVLOS, whose exact phone digits are too small to read at the full-image scale [original_image]. I will inspect the central sign where the name and number appear together.\n</think>\n<grounding>{\"bbox_2d\":[0.44,0.46,0.64,0.64],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 94,
+        "check_errors": [],
+        "box_abs": [
+          1535,
+          2006,
+          2233,
+          2791
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | fallback\nThe crop shows the street traffic and directional signs, not the MARIA TRAVLOS sign [observation_1]. I need to shift left to the building facade where the sign is mounted.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.32,0.68],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 85,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          0,
+          1116,
+          2965
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 3,
+        "text": "<think>\nStep 3 | re_examine\nThe left crop shows a partially obscured sign with MARIA TRAVLOS and a phone line, but the digits are not yet resolved [observation_2]. I will enlarge that sign to read its exact number.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.58,0.18,0.8],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 91,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          2529,
+          628,
+          3489
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 4,
+        "text": "<think>\nStep 4 | re_examine\nThis crop shows the road markings, not the sign; I still need to inspect the building's sign where MARIA TRAVLOS and the number appear together [observation_3]. I will enlarge the sign on the facade.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.12,0.32,0.46],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 95,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          523,
+          1116,
+          2006
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 5,
+        "text": "<think>\nStep 5 | re_examine\nThe facade crop shows the building's edge and windows, but not the specific sign [observation_4]. I will inspect the sign directly mounted on the building wall where MARIA TRAVLOS is printed.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.38,0.22,0.78],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 91,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          1657,
+          768,
+          3402
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 6,
+        "text": "<think>\nStep 6 | commit\nThe sign reading MARIA TRAVLOS is visible at the bottom-left, and its phone number is 212 841 5965 [observation_5]. This matches option A.\n</think>\n<answer>A</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 60,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "ea1d2b27248dd60d98751243896c9ea5799f118d0088aa13545cf28313d087f2"
+  }
+]

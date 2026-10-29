@@ -311,9 +311,9 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | SFT + GSPO（4k×8） | 同上，GSPO | 2, 3 | **完成**（10-28 20:50 – 10-29 05:14）；E1 **完成** |
 | SFT + GiGPO（4k×8） | 同上，GiGPO | 0, 1 | **完成**（10-29 01:17 – 08:43）；E1 **完成** |
 | 无 SFT + GRPO（4k×8） | 原模型 + GRPO，caption 协议 | 2, 3 | **完成**（10-29 05:14 – 08:43）；E1 **完成** |
-| DAPO / GSPO 续训（4k×8 → 96） | 第 32 步完整 checkpoint 恢复，每 8 步验证 | 0,1 / 2,3 | **训练中**（10-29 起，32→48 段进行中）|
-| GiGPO 续训（4k×8 → 96） | 完整恢复 | 0,1 | 排队（DAPO 之后）|
-| GRPO 正式重训（4k×8 → 96） | A-SFT 起点 0→96（`grpo_fresh`，替代 warm-start） | 2,3 | 排队（GSPO 之后）|
+| DAPO / GSPO 追加训练 | 从32步完整恢复，按用户要求停止 | 0,1 / 2,3 | **已停止；40步完整checkpoint的E1已完成**，见§5.1.1 |
+| GiGPO 续训计划 | — | — | 用户取消，未启动 |
+| GRPO 96步重训计划 | — | — | 用户取消，未启动；warm-start探索已停止 |
 | 4B 各检查点轨迹 | 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹（与 Astra 同协议） | 2, 3 | 8 个检查点**完成**（§5.3） |
 
 ## 5. 结果
@@ -395,7 +395,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | Mini-o3-7B | .658 (237) | .803 (646) | .715 (586) | .578 (251) | .497 (145) | .294 (343) |
 | DeepEyes-7B | .248 (335) | .615 (1,864) | .556 (9) | — | — | — |
 
-每个会裁图的条件都在 1 裁处最高，2 裁起下降；6k×16 的 SFT + GRPO 在每个裁数档位都高于 4k×8 四组。
+上表只描述实际样本的分层分布；不同裁图档位的题目与路径不同，不能用它识别额外裁图的因果收益。23条件的精确裁数分子/分母见[统一CSV](../logs/stopped40_20261029/accuracy_by_exact_crops.csv)。
 
 无 SFT（caption 协议）的 2,208 条轨迹按最后一轮分类：
 
@@ -404,6 +404,28 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 裁图请求，但 bbox 不在 [0,1] 内，被拒绝（例如 `[355,122,595,152]`） | 1,021 |
 | 既没有裁图动作也没有 `<answer>` 标签 | 830 |
 | `<answer>` 终答 | 357 |
+
+### 5.1.1 停止续训后的补评与统一导出（10-29）
+
+原21条件保持不变；增加2个40步检查点，共**23条件、50,784条评测轨迹**，每条件552题×4次采样。统一使用原`summarize.py`，不是直接对各文件不同口径的`ok`求平均。原始轨迹与服务器逐文件SHA一致；新导出另附[来源哈希](../logs/stopped40_20261029/PROVENANCE.json)。
+
+| 条件 | E1准确率 | 首裁 / 题 | 后续裁图 / 题 | 处理token / 题 | 相比同方法32步 |
+|---|---:|---:|---:|---:|---:|
+| DAPO 40步 | .6513 | .9986 | 1.3351 | 9,942.9 | −1.22pp（32步 .6635） |
+| GSPO 40步 | .6531 | .9968 | 2.2405 | 14,371.0 | +1.36pp（32步 .6395） |
+
+40步是追加预算探索，不代替32步同预算baseline；差值是点估计，没有据此宣称显著提升/下降。E1曾参与开发，不能称独立盲测。两组生成分别约32.4、31.8分钟；包含CPU合并、加载、并行生成和退出的整个评测控制器约35.7分钟，这两个口径不能相加。
+
+- [23条件总表](../logs/stopped40_20261029/RESULTS.zh.md) / [JSON](../logs/stopped40_20261029/summary_all.json)。
+- [精确裁图数×准确率CSV](../logs/stopped40_20261029/accuracy_by_exact_crops.csv)：各档同时保留正确数、条数与准确率，空档不计0；工具失败未执行的请求不计成功裁图。
+- [全量轨迹](../trajectories/e1_rollouts/README.md)：助手原文、框、终答和成本，沿用公开脱敏规则，不发布题面与图片。
+- [逐图复核](../data/review_k8_20261029/README.md)：两批34条记录出现、去重30条轨迹；其中最新14条为2题×7检查点的同题对照。定向抽检，不能外推全库错误率。
+
+![23条件准确率与成本](../logs/stopped40_20261029/tradeoff_all.png)
+
+### 5.1.2 逐图观察
+
+具体证据见[复核包](../data/review_k8_20261029/README.md)和[已知问题补充](02_known_issues.md#10-29-补充同题轨迹复核)。出现了列/系列绑定错误、无图像依据的视图描述、看见目标后离开再返回、终答正确但引用视图不含目标、颜色与选项映射错误；工具协议失败单列。这些是病例观察，不写成训练机制或全局发生率。
 
 ### 5.2 训练
 
@@ -421,9 +443,9 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 - DAPO：32 步共生成 246 次（每次 32 题 × 8 条），即 7,872 个题组次，题池 4,096 题每题生成 1–2 次；生成 token 15,635,092，处理 token 478,822,888。
 - GiGPO 的 step 分组：第 1 步非根组 725 个，其中多成员 1 个；第 32 步非根组 1,929 个，其中多成员 8 个，step advantage 非零 571 轮（共 2,962 轮）。根节点（第 1 轮）128 组都是多成员。
 - 逐步数据：[`logs/k8_20261028/curves_k8.json`](../logs/k8_20261028/curves_k8.json)；每步进入更新的题号与组统计：[`logs/k8_20261028/updates/`](../logs/k8_20261028/updates/)。
-- 32 步 = 4,096 题过一遍，即 **1 个名义 epoch**；第 25→32 步验证仍上升（上表）。4k×8 各组可能训练不充分，已安排续训（下条）。
-- **10-29 起有界续训至累计 96 步（3 个名义遍历）**：DAPO、GSPO 从第 32 步完整 checkpoint 恢复（GPU 0,1 / 2,3 并行，32→48 段进行中）；GiGPO 排队完整恢复；GRPO 第 32 步 optimizer 已删，warm-start 试跑（`k8c_grpo`）12:06 按用户决定终止（`retired_by_user`），改为从 A-SFT 正式重训 0→96（`grpo_fresh`）。每 8 步验证/保存。启动器与队列：服务器 `evidence/k8_continue_20261029/`，本地镜像 `obs/runs/k8_continue_20261029/`。Base caption 全零信号组不原样续跑（§5.2.2）。
-- **grad_norm 与 max_grad_norm**：k8 五组实测 4.7–40（Base 组恒 0），32 步全部高于当前配置 `max_grad_norm=1.0`（[`grpo_v52m_c.sh`](../pipeline/grpo/scripts/grpo_v52m_c.sh)）。旧 v51 系列脚本（每步 12 题，含答案式 SFT + GRPO 旧 160 步）为 0.1；导师 10-28（lark/Conversation.md）提到的 0.1 与旧脚本一致、与 6k×16 / 4k×8 的 1.0 不一致。k8 的 grad_norm 高于两个取值，每步都会被裁剪；续训沿用 1.0。
+- 32步为4,096题的一次名义遍历；DAPO动态补采的生成题组次数另计，不能称精确一次遍历。是否覆盖题库与是否收敛是不同问题，本轮按导师要求保留一次遍历的同预算结果。
+- **10-29用户要求立即停止续训，已执行**。最终日志完整记录DAPO到45步、GSPO到46步（停止前旧快照只读到45步）；两组最后完整可恢复checkpoint均为40步，之后的更新没有保存。只评测已保存的40步，结果见§5.1.1。不再派发64/80/96步，GiGPO续训和fresh GRPO队列取消。Base+GRPO低分如实保留，不为提高其结果改变baseline设置。
+- **grad_norm 与 max_grad_norm**：k8 五组实测 4.7–40（Base 组恒 0），32 步全部高于当前配置 `max_grad_norm=1.0`（[`grpo_v52m_c.sh`](../pipeline/grpo/scripts/grpo_v52m_c.sh)）。旧 v51 系列脚本（每步 12 题，含答案式 SFT + GRPO 旧 160 步）为 0.1；导师 10-28（lark/Conversation.md）提到的 0.1 与旧脚本一致、与 6k×16 / 4k×8 的 1.0 不一致。k8 的 grad_norm 高于两个取值，每步都会被裁剪；本次追加训练沿用 1.0。
 
 ![4k x 8 training curves](../media/train_curves/train_curves_k8.png)
 
@@ -432,6 +454,12 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 6k × 16 四组的曲线（10-27 画，数据 [`logs/grpo/curves_6k.json`](../logs/grpo/curves_6k.json)；空缺是续跑时丢失的日志段）：
 
 ![6k x 16 training curves](../media/train_curves/train_curves_6k.png)
+
+新增停止续训曲线（虚线为额外预算，竖线为32步预算边界；末段来自完整日志，缺测不补值）：
+
+![训练与开发验证曲线](../logs/stopped40_20261029/training_curves.png)
+
+[曲线数值](../logs/stopped40_20261029/curves_continuation.json) / [来源SHA](../logs/stopped40_20261029/curves_provenance.json)。训练、开发验证与E1分开；图中response length包含工具回执，不能当纯生成token。仅40步有本次可评测checkpoint，曲线45/46步不代表保存了这些模型。
 
 #### 5.2.2 无 SFT + GRPO（caption 协议）的核对（10-29）
 
@@ -514,8 +542,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 2. （已有数据）SFT + GRPO 与无 SFT + GRPO（无工具）过完一遍 6k 题池后的准确率与裁图成本见 §5.1。
 3. （已有数据）无 SFT + GRPO 在 caption 协议下的奖励：6k 与 4k × 8 两次训练中均为 0，见 §5.2.2。
 4–6. 原先待问导师的三项（幻觉主线 / 支线、效率位置、绑定错误是否单独计量）曾并入三个待问问题（[archive/40](archive/40_gap_candidates_20261026.md)）；导师 10-26 的回复见 §7。
-7. `max_grad_norm` 两代配置为 0.1（v51 系列脚本）→ 1.0（6k×16 与 4k×8，见 §5.2.1）；导师 10-28 按 0.1 评（lark/Conversation.md）。k8 实测 grad_norm 4.7–40，两个取值下每步都被裁剪。续训沿用 1.0；是否调整由用户 / 导师决定。
-8. 每个会裁图的条件都是 1 裁准确率最高、2 裁起下降（§5.1 裁图表）。4k×8 训练内 crops/轨迹从 0.7 升到 1.8–2.2（§5.2.1 逐步数据）；两者是否相关、以及更长训练下裁图数与准确率的走向，待 96 步续训的验证数据。
+7. `max_grad_norm` 两代配置为 0.1（v51 系列脚本）→ 1.0（6k×16 与 4k×8，见 §5.2.1）；导师 10-28 按 0.1 评（lark/Conversation.md）。k8 实测 grad_norm 4.7–40，两个取值下每步都被裁剪。本次追加训练沿用 1.0；是否调整由用户 / 导师决定。
+8. 裁图次数与准确率分层见§5.1，不将条件统计写成单调规律。4k×8 训练内 crops/轨迹从 0.7 升到 1.8–2.2（§5.2.1 逐步数据）；按裁图数的分层是模型自己选择路径后的条件统计，不能推断裁图导致性能变化；新增40步结果见§5.1.1，96步计划已取消。
 
 ## 7. 主线归位（导师 10-26 回复）与训练安排
 
@@ -562,6 +590,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 - 10-27 导师给出 baseline 分类（§7.4）；用户 10-27：先把导师要求的 baseline 全部跑完，再做我们的 reward shaping 方法（代码已写并审核，暂停）。
 - 10-28 用户：6k × 16 每组约 30 小时不可接受；改用 4k 题池（原图不重复）、每题 8 条 rollout、两组并行（§2.4.1），单 seed，按题池过一遍取最后一步比较。
 - 10-29 第 3、4 类五组训练与第 32 步 E1 完成（§5.1、§5.2.1）。
+
+10-29最新安排：先发布统一结果与逐图审查，再承接已有首动作收益差监督设计。已定配对是RLOO对照与RLOO＋辅助损失，不能说成两种新方法。保持A-SFT起点、同一4K题池/主采样8/32步，额外两分支各4条单列计算成本；λ=.01、β=1/256为此前信号检查值，尚非调优结论。v5.2i两组一致，不与v5.1 outcome-only GRPO作单因素归因。GPU集成检查与实际开训状态以运行回执更新。
 
 ### 7.4 导师四类 baseline × 现状（10-29）
 

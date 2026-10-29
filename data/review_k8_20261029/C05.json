@@ -1,0 +1,130 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "mme_realworld",
+    "item_id": "mme_10136",
+    "sample_idx": 0,
+    "gold_letter": "C",
+    "final_answer": "B",
+    "has_answer_tag": 1,
+    "correct": 0,
+    "correct_train_rule": 0,
+    "steps": 2,
+    "crops": 1,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1711.0,
+        669.0
+      ],
+      [
+        0,
+        47,
+        856,
+        351
+      ]
+    ],
+    "image_wh": [
+      1711,
+      669
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 4538,
+    "gen_tokens": 165,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe Preventive and Diagnostic Services section is visible, with rows including Initial Oral Examination and Mar-26 columns [original_image]. I need to confirm the exact currency amount at the intersection of that row and Mar-26, so I crop the sheet's left portion.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.07,0.5,0.525],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 103,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          47,
+          856,
+          351
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | commit\nThe Preventive and Diagnostic Services header is visible, and the Initial Oral Examination row under the Mar-26 column shows 10,170 in [USD] [observation_1]. That matches option B.\n</think>\n<answer>B</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 62,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "768ccba04093977f9e3b6026dcd7a655ed688fb135c48161834adec28c17a22b"
+  },
+  {
+    "condition": "K-GSPO",
+    "bench": "mme_realworld",
+    "item_id": "mme_10136",
+    "sample_idx": 0,
+    "gold_letter": "C",
+    "final_answer": "B",
+    "has_answer_tag": 1,
+    "correct": 0,
+    "correct_train_rule": 0,
+    "steps": 2,
+    "crops": 1,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1711.0,
+        669.0
+      ],
+      [
+        34,
+        100,
+        941,
+        234
+      ]
+    ],
+    "image_wh": [
+      1711,
+      669
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 4545,
+    "gen_tokens": 159,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe Preventive and Diagnostic Services block is near the top, with Initial Oral Examination in row 3; the Mar-26 column is the second Mar column and is visible, but the cell value needs a closer read [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.02,0.15,0.55,0.35],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 97,
+        "check_errors": [],
+        "box_abs": [
+          34,
+          100,
+          941,
+          234
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | commit\nThe Preventive and Diagnostic Services block is visible, and the Initial Oral Examination row under the Mar-26 column shows 10,170 in [USD] [observation_1]. That matches option B.\n</think>\n<answer>B</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 62,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "768ccba04093977f9e3b6026dcd7a655ed688fb135c48161834adec28c17a22b"
+  }
+]

@@ -26,6 +26,10 @@
 | `K-GiGPO.jsonl.gz` | SFT + GiGPO（4k×8） | SFT + GiGPO（4k×8，第 32 步） | 2,208 | 0.6209 | 4,412 |
 | `K-base.jsonl.gz` | 无 SFT + GRPO（4k×8） | 原模型 + caption GRPO（4k×8，第 32 步） | 2,208 | 0.0054 | 254 |
 
+## 10-29 追加预算检查点
+
+原21条件文件保持不变；新增`K-DAPO-40.jsonl.gz`与`K-GSPO-40.jsonl.gz`，每份2,208条，准确率分别.6513与.6531。现共23条件、50,784条。[统一结果](../../logs/stopped40_20261029/RESULTS.zh.md)、[分档准确率](../../logs/stopped40_20261029/accuracy_by_exact_crops.csv)、[来源哈希](../../logs/stopped40_20261029/PROVENANCE.json)。40步与32步预算不同，单列探索。导出入口`pipeline/eval/baselines/export_stop40.py`复用原导出器和评分器；相同题号/sample用于[同题复核](../../data/review_k8_20261029/README.md)。
+
 ## 字段
 
 | 字段 | 说明 |

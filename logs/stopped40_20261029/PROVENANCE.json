@@ -1,0 +1,14 @@
+[
+  {
+    "condition": "K-DAPO-40",
+    "raw_sha256": "d0ed51cdcf8a4f091a2298f45f003609fbc4884f50e93d14896c4b9514374163",
+    "public_sha256": "0b6bcdf16338fc6a04af32e51319e08695288a023a9b1c2c8bfc9b6e9d65ea88",
+    "checkpoint_step": 40
+  },
+  {
+    "condition": "K-GSPO-40",
+    "raw_sha256": "14a141710885703b0ac7e4e76f32e150d5b1a85644b913855157e0a529da6356",
+    "public_sha256": "d638c7760d424ed65173ee9a95bed1bb5b0c68f35104c75e26452144c26a31ad",
+    "checkpoint_step": 40
+  }
+]

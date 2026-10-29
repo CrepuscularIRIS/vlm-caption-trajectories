@@ -1,0 +1,130 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "mmmu_pro",
+    "item_id": "test_History_239",
+    "sample_idx": 0,
+    "gold_letter": "J",
+    "final_answer": "J",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 3,
+    "crops": 2,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1304.0,
+        534.0
+      ],
+      [
+        0,
+        134,
+        782,
+        454
+      ],
+      [
+        782,
+        134,
+        1304,
+        454
+      ]
+    ],
+    "image_wh": [
+      1304,
+      534
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 7665,
+    "gen_tokens": 281,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe timeline shows Menes unifying Lower Egypt at 3100 BC and Ramses the Great at 1250 BC, but the exact year labels are small; I need a closer view of those dates to bind them correctly [original_image].\n</think>\n<grounding>{\"bbox_2d\":[0.00,0.25,0.60,0.85],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 102,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          134,
+          782,
+          454
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | fallback\nThis crop confirms Menes at 3100 BC, but the Ramses entry is outside its frame [observation_1]. I need the right end of the timeline to bind the other event to its date.\n</think>\n<grounding>{\"bbox_2d\":[0.60,0.25,1.00,0.85],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 93,
+        "check_errors": [],
+        "box_abs": [
+          782,
+          134,
+          1304,
+          454
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 3,
+        "text": "<think>\nStep 3 | commit\nThe timeline places Menes at 3100 BC and Ramses the Great at 1250 BC [original_image][observation_2]. RULE: time elapsed = |later − earlier|. CALC: |1250 − 3100| = 1850 years, closest to option J.\n</think>\n<answer>J</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 86,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "b00ca2f7a8ebbdd3acb49c5660e584a8a3dc5c1c3f808dc800393f73dd870d8d"
+  },
+  {
+    "condition": "K-DAPO",
+    "bench": "mmmu_pro",
+    "item_id": "test_History_239",
+    "sample_idx": 2,
+    "gold_letter": "J",
+    "final_answer": "J",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 1,
+    "crops": 0,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1304.0,
+        534.0
+      ]
+    ],
+    "image_wh": [
+      1304,
+      534
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 1911,
+    "gen_tokens": 92,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | commit\nThe timeline places Menes unifying Lower Egypt at 3100 BC and Ramses the Great’s rule at 1250 BC [original_image]. RULE: time passed = later year minus earlier year. CALC: 3100 − 1250 = 1850, so approximately 1850 years passed.\n</think>\n<answer>J</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 92,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "b00ca2f7a8ebbdd3acb49c5660e584a8a3dc5c1c3f808dc800393f73dd870d8d"
+  }
+]

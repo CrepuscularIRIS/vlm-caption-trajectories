@@ -1,0 +1,66 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "worldbench",
+    "item_id": "worldbench_1378",
+    "sample_idx": 0,
+    "gold_letter": "A",
+    "final_answer": "D",
+    "has_answer_tag": 1,
+    "correct": 0,
+    "correct_train_rule": 0,
+    "steps": 2,
+    "crops": 1,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1428.0,
+        882.0
+      ],
+      [
+        928,
+        644,
+        1257,
+        856
+      ]
+    ],
+    "image_wh": [
+      1428,
+      882
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 4198,
+    "gen_tokens": 138,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nThe bottom-right logo is small, so I need a closer view of its stacked letters to identify the one above the \"F\". I will crop that logo region.\n</think>\n<grounding>{\"bbox_2d\":[0.65,0.73,0.88,0.97],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 82,
+        "check_errors": [],
+        "box_abs": [
+          928,
+          644,
+          1257,
+          856
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | commit\nIn [observation_1], the bottom-right logo shows the stacked words \"WORLD\", \"O F\", and \"HYATT\". The letter directly above the \"F\" is \"O\".\n</think>\n<answer>D</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 56,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "35e27e804a2643594fbffbccaeb57316c0cd933aee4df02ae5c50fdaf5239807"
+  }
+]

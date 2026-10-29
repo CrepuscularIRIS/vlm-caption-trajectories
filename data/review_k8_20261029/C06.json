@@ -1,0 +1,214 @@
+[
+  {
+    "condition": "K-DAPO",
+    "bench": "worldbench",
+    "item_id": "worldbench_1160",
+    "sample_idx": 0,
+    "gold_letter": "C",
+    "final_answer": "C",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 7,
+    "crops": 6,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1161.0,
+        1742.0
+      ],
+      [
+        0,
+        523,
+        406,
+        1219
+      ],
+      [
+        0,
+        87,
+        464,
+        1045
+      ],
+      [
+        0,
+        1219,
+        464,
+        1742
+      ],
+      [
+        0,
+        0,
+        789,
+        1359
+      ],
+      [
+        0,
+        732,
+        580,
+        1707
+      ],
+      [
+        0,
+        261,
+        580,
+        1010
+      ]
+    ],
+    "image_wh": [
+      1161,
+      1742
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 26004,
+    "gen_tokens": 602,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | locate\nA giant squid specimen is spread across a cloth, with two men nearby. A white ruler lies on the left, but its scale and markings are too small to bind the squid's length to a choice yet [original_image]. I'll inspect that ruler.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.30,0.35,0.70],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 99,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          523,
+          406,
+          1219
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 2,
+        "text": "<think>\nStep 2 | locate\nThe ruler shows a long scale with faint divisions, but it is not yet clear whether the squid reaches the full scale shown [observation_1]. I need a closer view of the ruler's markings.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.05,0.40,0.60],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 88,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          87,
+          464,
+          1045
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 3,
+        "text": "<think>\nStep 3 | re_examine\nThe ruler's scale is still too small for a binding measurement [observation_2]. A closer view of the ruler itself will help determine the squid's length.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.70,0.40,1.00],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 82,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          1219,
+          464,
+          1742
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 4,
+        "text": "<think>\nStep 4 | fallback\nThe squid's head and the lower ruler are visible, but the full length runs beyond this crop [observation_3]. I'll inspect the upper part of the squid and the ruler together.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.0,0.68,0.78],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 85,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          0,
+          789,
+          1359
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 5,
+        "text": "<think>\nStep 5 | re_examine\nThe full squid and the ruler are visible together, but the ruler's scale still needs a precise reading [observation_4]. A tighter view of the ruler will help bind the squid's length to the options.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.42,0.50,0.98],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 92,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          732,
+          580,
+          1707
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 6,
+        "text": "<think>\nStep 6 | re_examine\nThis view shows the squid alongside the ruler, but the ruler's markings are still too small to measure the full length [observation_5]. A closer view of the ruler is needed.\n</think>\n<grounding>{\"bbox_2d\":[0.0,0.15,0.50,0.58],\"source\":\"original_image\"}</grounding>",
+        "kind": "grounding",
+        "finish": "stop",
+        "n_tokens": 87,
+        "check_errors": [],
+        "box_abs": [
+          0,
+          261,
+          580,
+          1010
+        ]
+      },
+      {
+        "role": "assistant",
+        "step": 7,
+        "text": "<think>\nStep 7 | commit\nThe ruler runs along the squid's length, and its markings show the squid extending past the 9-meter mark [observation_6]. CALC: 9 + slightly more than 3/4 meter ≈ 9.8 meters, matching option C.\n</think>\n<answer>C</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 69,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "b30e00841d64f5fae0bc6e14297de99cc11644a0357955ae5f5e0565c3e5cea4"
+  },
+  {
+    "condition": "K-GRPO",
+    "bench": "worldbench",
+    "item_id": "worldbench_1160",
+    "sample_idx": 0,
+    "gold_letter": "C",
+    "final_answer": "C",
+    "has_answer_tag": 1,
+    "correct": 1,
+    "correct_train_rule": 1,
+    "steps": 1,
+    "crops": 0,
+    "boxes_abs": [
+      [
+        0.0,
+        0.0,
+        1161.0,
+        1742.0
+      ]
+    ],
+    "image_wh": [
+      1161,
+      1742
+    ],
+    "end": null,
+    "truncated": false,
+    "error": null,
+    "prompt_tokens": 1854,
+    "gen_tokens": 42,
+    "turns": [
+      {
+        "role": "assistant",
+        "step": 1,
+        "text": "<think>\nStep 1 | commit\nThe full squid spans roughly 9 meters across the image, as seen in [original_image]. Its length matches option C.\n</think>\n<answer>C</answer>",
+        "kind": "answer",
+        "finish": "stop",
+        "n_tokens": 42,
+        "check_errors": []
+      }
+    ],
+    "checkpoint_step": 32,
+    "source_image_sha256": "b30e00841d64f5fae0bc6e14297de99cc11644a0357955ae5f5e0565c3e5cea4"
+  }
+]
