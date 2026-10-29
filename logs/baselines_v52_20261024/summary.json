@@ -250,5 +250,194 @@
   "id": "B4",
   "name": "SFT + GRPO",
   "label": "SFT + GRPO（6k，第 47 步）"
+ },
+ {
+  "file": "traj_B0_answer.jsonl",
+  "n": 2208,
+  "acc": 0.4094,
+  "fmt": 0.7717,
+  "first": 0.0,
+  "later": 0.0,
+  "tokens": 686.4216,
+  "gen": 42.4144,
+  "truncated": 0.0036,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.3872,
+   "mmmu_pro": 0.2692,
+   "vstar": 0.5491,
+   "worldbench": 0.3669
+  },
+  "id": "B0-ans",
+  "label": "原模型 直接作答（无推理指令）",
+  "name": "无 SFT（直接作答）"
+ },
+ {
+  "file": "traj_B3_cot.jsonl",
+  "n": 2208,
+  "acc": 0.538,
+  "fmt": 0.971,
+  "first": 0.0,
+  "later": 0.0,
+  "tokens": 1041.2681,
+  "gen": 387.2609,
+  "truncated": 0.0236,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.5553,
+   "mmmu_pro": 0.3462,
+   "vstar": 0.6853,
+   "worldbench": 0.2984
+  },
+  "id": "B3-cot",
+  "label": "A-SFT CoT 提示（无工具）",
+  "name": "SFT（CoT）"
+ },
+ {
+  "file": "traj_B3_answer.jsonl",
+  "n": 2208,
+  "acc": 0.3863,
+  "fmt": 0.7015,
+  "first": 0.0,
+  "later": 0.0,
+  "tokens": 723.3415,
+  "gen": 79.3342,
+  "truncated": 0.0059,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.3953,
+   "mmmu_pro": 0.2821,
+   "vstar": 0.4531,
+   "worldbench": 0.2823
+  },
+  "id": "B3-ans",
+  "label": "A-SFT 直接作答（无推理指令）",
+  "name": "SFT（直接作答）"
+ },
+ {
+  "file": "traj_B3_native.jsonl",
+  "n": 2208,
+  "acc": 0.3216,
+  "fmt": 0.4592,
+  "first": 0.9995,
+  "later": 4.5648,
+  "tokens": 14955.827,
+  "gen": 454.2188,
+  "truncated": 0.0023,
+  "error": 0.0018,
+  "by_source": {
+   "mme_realworld": 0.3046,
+   "mmmu_pro": 0.1603,
+   "vstar": 0.4933,
+   "worldbench": 0.2056
+  },
+  "id": "B3-zoom",
+  "label": "A-SFT 原生 zoom 工具",
+  "name": "SFT（原生 zoom）"
+ },
+ {
+  "file": "traj_k8_grpo.jsonl",
+  "n": 2208,
+  "acc": 0.639,
+  "fmt": 0.9914,
+  "first": 0.9565,
+  "later": 0.9488,
+  "tokens": 8125.38,
+  "gen": 261.1553,
+  "truncated": 0.0009,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.6645,
+   "mmmu_pro": 0.3141,
+   "vstar": 0.8438,
+   "worldbench": 0.3347
+  },
+  "id": "K-GRPO",
+  "label": "SFT + GRPO（4k×8，第 32 步）",
+  "name": "SFT + GRPO（4k×8）"
+ },
+ {
+  "file": "traj_k8_dapo.jsonl",
+  "n": 2208,
+  "acc": 0.6635,
+  "fmt": 0.9905,
+  "first": 0.99,
+  "later": 1.1024,
+  "tokens": 8929.8478,
+  "gen": 286.9665,
+  "truncated": 0.0023,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.6881,
+   "mmmu_pro": 0.3526,
+   "vstar": 0.8728,
+   "worldbench": 0.3468
+  },
+  "id": "K-DAPO",
+  "label": "SFT + DAPO（4k×8，第 32 步）",
+  "name": "SFT + DAPO（4k×8）"
+ },
+ {
+  "file": "traj_k8_gspo.jsonl",
+  "n": 2208,
+  "acc": 0.6395,
+  "fmt": 0.9855,
+  "first": 0.9869,
+  "later": 1.2763,
+  "tokens": 9756.2183,
+  "gen": 277.8034,
+  "truncated": 0.0009,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.6622,
+   "mmmu_pro": 0.3397,
+   "vstar": 0.8348,
+   "worldbench": 0.3508
+  },
+  "id": "K-GSPO",
+  "label": "SFT + GSPO（4k×8，第 32 步）",
+  "name": "SFT + GSPO（4k×8）"
+ },
+ {
+  "file": "traj_k8_gigpo.jsonl",
+  "n": 2208,
+  "acc": 0.6209,
+  "fmt": 0.9887,
+  "first": 0.9955,
+  "later": 1.0027,
+  "tokens": 8506.2731,
+  "gen": 275.2523,
+  "truncated": 0.0018,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.6342,
+   "mmmu_pro": 0.2949,
+   "vstar": 0.8304,
+   "worldbench": 0.375
+  },
+  "id": "K-GiGPO",
+  "label": "SFT + GiGPO（4k×8，第 32 步）",
+  "name": "SFT + GiGPO（4k×8）"
+ },
+ {
+  "file": "traj_k8_base_grpo.jsonl",
+  "n": 2208,
+  "acc": 0.0054,
+  "fmt": 0.0149,
+  "first": 0.0172,
+  "later": 0.0978,
+  "tokens": 2502.3003,
+  "gen": 108.3945,
+  "truncated": 0.0005,
+  "error": 0.0,
+  "by_source": {
+   "mme_realworld": 0.0044,
+   "mmmu_pro": 0.0321,
+   "vstar": 0.0022,
+   "worldbench": 0.0
+  },
+  "id": "K-base",
+  "label": "原模型 + caption GRPO（4k×8，第 32 步）",
+  "name": "无 SFT + GRPO（4k×8）"
  }
 ]

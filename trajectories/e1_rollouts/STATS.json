@@ -1,0 +1,460 @@
+{
+ "B0": {
+  "name": "无 SFT（无工具）",
+  "label": "原模型 不带工具",
+  "rollouts": 2208,
+  "acc": 0.5217,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 157
+  }
+ },
+ "B1": {
+  "name": "无 SFT（原生 zoom）",
+  "label": "原模型 原生 zoom 工具",
+  "rollouts": 2208,
+  "acc": 0.5888,
+  "steps": {
+   "3": 449,
+   "2": 1398,
+   "5": 82,
+   "4": 177,
+   "9": 18,
+   "8": 5,
+   "6": 36,
+   "1": 28,
+   "7": 15
+  },
+  "crops_total": 3747,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 1
+  }
+ },
+ "B2": {
+  "name": "无 SFT",
+  "label": "原模型 caption zero-shot",
+  "rollouts": 2208,
+  "acc": 0.0068,
+  "steps": {
+   "1": 2176,
+   "5": 6,
+   "4": 1,
+   "8": 3,
+   "2": 1,
+   "9": 16,
+   "3": 2,
+   "7": 1,
+   "6": 2
+  },
+  "crops_total": 197,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "B3": {
+  "name": "SFT",
+  "label": "A-SFT",
+  "rollouts": 2208,
+  "acc": 0.567,
+  "steps": {
+   "1": 944,
+   "2": 767,
+   "3": 304,
+   "4": 95,
+   "7": 7,
+   "6": 15,
+   "8": 22,
+   "5": 42,
+   "9": 12
+  },
+  "crops_total": 2195,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "H1": {
+  "name": "答案式 SFT",
+  "label": "答案式 SFT",
+  "rollouts": 2208,
+  "acc": 0.4515,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "H2": {
+  "name": "答案式 SFT + GRPO（旧）",
+  "label": "答案式 SFT + GRPO",
+  "rollouts": 2208,
+  "acc": 0.4792,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "B6": {
+  "name": "无 SFT + GRPO（无工具）",
+  "label": "原模型 + GRPO 无工具（6k，第 47 步）",
+  "rollouts": 2208,
+  "acc": 0.596,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 39
+  }
+ },
+ "X1": {
+  "name": "Mini-o3-7B",
+  "label": "Mini-o3-7B-v1（官方协议）",
+  "rollouts": 2208,
+  "acc": 0.6395,
+  "steps": {
+   "1": 237,
+   "2": 646,
+   "3": 586,
+   "4": 251,
+   "7": 47,
+   "5": 145,
+   "11": 14,
+   "12": 126,
+   "8": 31,
+   "6": 76,
+   "10": 20,
+   "9": 29
+  },
+  "crops_total": 5969,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 8
+  }
+ },
+ "X2": {
+  "name": "DeepEyes-7B",
+  "label": "DeepEyes-7B（官方协议）",
+  "rollouts": 2208,
+  "acc": 0.5589,
+  "steps": {
+   "2": 1862,
+   "1": 337,
+   "3": 9
+  },
+  "crops_total": 1882,
+  "redacted_in_assistant_text": {
+   "image_url": 89,
+   "data_uri": 140,
+   "base64_blob": 5,
+   "endpoint": 2,
+   "question_stem": 2
+  }
+ },
+ "B5": {
+  "name": "无 SFT + GRPO",
+  "label": "原模型 + caption GRPO（6k，第 47 步）",
+  "rollouts": 2208,
+  "acc": 0.0077,
+  "steps": {
+   "1": 2158,
+   "5": 8,
+   "9": 29,
+   "4": 3,
+   "6": 3,
+   "8": 5,
+   "3": 1,
+   "2": 1
+  },
+  "crops_total": 326,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "H2-6k": {
+  "name": "答案式 SFT + GRPO",
+  "label": "答案式 SFT + 答案式 GRPO（6k，第 47 步）",
+  "rollouts": 2208,
+  "acc": 0.5041,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "B4": {
+  "name": "SFT + GRPO",
+  "label": "SFT + GRPO（6k，第 47 步）",
+  "rollouts": 2208,
+  "acc": 0.6603,
+  "steps": {
+   "3": 721,
+   "4": 417,
+   "2": 689,
+   "1": 4,
+   "5": 182,
+   "6": 91,
+   "7": 47,
+   "8": 46,
+   "9": 11
+  },
+  "crops_total": 5257,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "B0-ans": {
+  "name": "无 SFT（直接作答）",
+  "label": "原模型 直接作答（无推理指令）",
+  "rollouts": 2208,
+  "acc": 0.4094,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 3
+  }
+ },
+ "B3-cot": {
+  "name": "SFT（CoT）",
+  "label": "A-SFT CoT 提示（无工具）",
+  "rollouts": 2208,
+  "acc": 0.538,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 3
+  }
+ },
+ "B3-ans": {
+  "name": "SFT（直接作答）",
+  "label": "A-SFT 直接作答（无推理指令）",
+  "rollouts": 2208,
+  "acc": 0.3863,
+  "steps": {
+   "1": 2208
+  },
+  "crops_total": 0,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 2
+  }
+ },
+ "B3-zoom": {
+  "name": "SFT（原生 zoom）",
+  "label": "A-SFT 原生 zoom 工具",
+  "rollouts": 2208,
+  "acc": 0.3216,
+  "steps": {
+   "7": 30,
+   "9": 1160,
+   "5": 109,
+   "3": 475,
+   "2": 84,
+   "4": 257,
+   "6": 53,
+   "8": 31,
+   "10": 2,
+   "1": 4,
+   "18": 3
+  },
+  "crops_total": 12286,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "K-GRPO": {
+  "name": "SFT + GRPO（4k×8）",
+  "label": "SFT + GRPO（4k×8，第 32 步）",
+  "rollouts": 2208,
+  "acc": 0.639,
+  "steps": {
+   "1": 96,
+   "2": 1024,
+   "4": 287,
+   "3": 574,
+   "5": 111,
+   "7": 34,
+   "6": 34,
+   "9": 20,
+   "8": 28
+  },
+  "crops_total": 4207,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "K-DAPO": {
+  "name": "SFT + DAPO（4k×8）",
+  "label": "SFT + DAPO（4k×8，第 32 步）",
+  "rollouts": 2208,
+  "acc": 0.6635,
+  "steps": {
+   "3": 563,
+   "1": 23,
+   "2": 1023,
+   "4": 310,
+   "7": 38,
+   "5": 124,
+   "6": 51,
+   "8": 47,
+   "9": 29
+  },
+  "crops_total": 4620,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "K-GSPO": {
+  "name": "SFT + GSPO（4k×8）",
+  "label": "SFT + GSPO（4k×8，第 32 步）",
+  "rollouts": 2208,
+  "acc": 0.6395,
+  "steps": {
+   "4": 272,
+   "1": 29,
+   "2": 1001,
+   "3": 522,
+   "6": 67,
+   "5": 143,
+   "9": 60,
+   "8": 65,
+   "7": 49
+  },
+  "crops_total": 4997,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "K-GiGPO": {
+  "name": "SFT + GiGPO（4k×8）",
+  "label": "SFT + GiGPO（4k×8，第 32 步）",
+  "rollouts": 2208,
+  "acc": 0.6209,
+  "steps": {
+   "3": 545,
+   "2": 1145,
+   "1": 10,
+   "5": 114,
+   "4": 246,
+   "7": 27,
+   "6": 35,
+   "9": 44,
+   "8": 42
+  },
+  "crops_total": 4412,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ },
+ "K-base": {
+  "name": "无 SFT + GRPO（4k×8）",
+  "label": "原模型 + caption GRPO（4k×8，第 32 步）",
+  "rollouts": 2208,
+  "acc": 0.0054,
+  "steps": {
+   "1": 2170,
+   "6": 1,
+   "5": 4,
+   "8": 7,
+   "9": 22,
+   "4": 1,
+   "3": 2,
+   "2": 1
+  },
+  "crops_total": 254,
+  "redacted_in_assistant_text": {
+   "image_url": 0,
+   "data_uri": 0,
+   "base64_blob": 0,
+   "endpoint": 0,
+   "question_stem": 0
+  }
+ }
+}

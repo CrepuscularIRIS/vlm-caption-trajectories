@@ -1,4 +1,4 @@
-# 实验报告（2026-10-24，实验进行中）
+# 实验报告（2026-10-24 起，10-29 更新）
 
 本页写主线、发现（计数）、配置、正在进行的实验和统计结果，不写原因解释；发现背后的完整计数见 [docs/02](02_known_issues.md) 第一部分。还没弄清的地方写成问题，放在 §6。代码层面的已知问题与修复状态见 [docs/02](02_known_issues.md)。之前的全部报告已归档到 [docs/archive/](archive/README.md)。
 
@@ -82,7 +82,7 @@
 
 ### 1.4 还在做的实验
 
-- 4B baseline 矩阵：§4。其中 SFT + GRPO 还在训练。
+- 4B baseline 矩阵：§4；导师四类 baseline 的对应与完成情况见 §7.4。第 3、4 类的 4k × 8 训练（5 组）与第 32 步 E1 已于 10-29 完成（§5.1、§5.2）。
 - 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹：§5.3。已完成 8 个检查点（含 SFT + GRPO 第 47 步）。
 - 强模型轨迹审查：失败卡定向审查已完成（新审 362 条，连续两批无新增后停止）。原暂停队列剩 1,027 条；弱模型剩 2,769 条未逐图。SFT 新增 0 条，gold 未改。
 
@@ -197,6 +197,31 @@ trainer.val_freq=25 trainer.save_freq=25
 
 题池大小：先选 8k（10-24 13:53 启动），同日改为 6k（17:58 启动），并要求与 SFT 数据完全不重合。
 
+### 2.4.1 4k × 8 正式配置（10-28 起；第 3、4 类训练）
+
+6k × 16 的 SFT + GRPO 一组约 29.5 小时（含续跑），用户 10-28 要求压到约 12 小时，改用下面的配置重跑第 3、4 类。没有列出的设置与 §2.3 相同（学习率、clip、grad norm、无 KL、温度、0/1 奖励、序列预算、图像上限、单 seed）。
+
+| 项 | 值 |
+|---|---|
+| 题池 | 4,096 题，原图文件 sha256 互不相同：MME-RealWorld 2,987、WorldBench 610、MMMU-Pro 499。由 6k 题池（6,016 题，原图 sha256 唯一 5,330）按原图 sha256 去重后抽取（random_state 20261028）；去重按文件字节，没有做感知哈希 |
+| 每步 | 128 题 × **8** 条 rollout；mini-batch 32 题，每步 4 次更新 |
+| 步数 | **32 步** = 4,096 ÷ 128，题池过一遍（`trainer.max_steps=32`） |
+| 验证 | 第 0 / 25 / 32 步，422 题 |
+| 保存 | 每 5 步，保留 2 个；最终合并第 32 步 HF 权重 |
+| 部署 | 两组同时跑，每组 2 张卡（GPU0,1 一组，GPU2,3 一组） |
+| 内存 / 吞吐（只改工程实现） | 多模态输入按“原图 + 已执行裁图框”在训练时重建（lazy）；每个视图的预处理结果缓存 16 GB；16 个预取线程；rollout 每次生成 32 题；update micro batch 2、experience micro batch 4（DAPO 的 update micro batch 为 1） |
+| 覆盖记录 | 每步把进入更新的题号、组统计（全对 / 全错 / 混合）、非零 advantage 的 token 占比写入 `updates.jsonl`（[`update_ledger.py`](../pipeline/grpo/v52m_c/update_ledger.py)） |
+
+各组只差算法设置（启动参数见 [`logs/k8_20261028/common.sh`](../logs/k8_20261028/common.sh)）：
+
+| 组 | 起点 | 算法设置 |
+|---|---|---|
+| SFT + GRPO | SFT | 与 §2.3 相同 |
+| SFT + DAPO | SFT | `online_filtering`（组内正确率 .01–.99 之外的组丢弃，凑满 128 组）、clip .2 / .28、token 平均；没有 overlong 惩罚 |
+| SFT + GSPO | SFT | `loss_type=gspo`、序列平均、clip .0003 / .0004；序列平均模式下外层按序列数加权（[`easyr1_patches.py`](../pipeline/grpo/v52m_c/easyr1_patches.py)） |
+| SFT + GiGPO | SFT | episode advantage（GRPO）+ 1.0 × step advantage；step 组按（题、已返回视图数、已执行框、裁图数、轮次）完全相同分组，mean/std 归一，单成员组 step advantage 记 0，γ = 1（[`gigpo.py`](../pipeline/grpo/gigpo/gigpo.py)） |
+| 无 SFT + GRPO | Qwen3-VL-4B-Instruct | 与 §2.3 相同 |
+
 ### 2.5 评测
 
 - **E1**：552 题（440 道分层验证题 + 112 道 V* 留出题），每题采样 4 次，T = .7。
@@ -224,6 +249,11 @@ trainer.val_freq=25 trainer.save_freq=25
 | [`pipeline/eval/baselines/eval_minio3.py`](../pipeline/eval/baselines/eval_minio3.py) | Mini-o3-7B 官方协议（`<grounding>` 相对坐标，裁原图不放大），E1 预算 |
 | [`pipeline/eval/baselines/eval_deepeyes.py`](../pipeline/eval/baselines/eval_deepeyes.py) | DeepEyes-7B 官方协议（`image_zoom_in_tool` 绝对像素坐标），E1 预算 |
 | [`pipeline/eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本统计 |
+| [`pipeline/grpo/v52m_c/`](../pipeline/grpo/v52m_c/) | 4k × 8 训练（GRPO / DAPO / GSPO）：lazy 多模态、视图缓存、预取、更新记录、EasyR1 补丁 |
+| [`pipeline/grpo/gigpo/`](../pipeline/grpo/gigpo/) | 4k × 8 GiGPO：同上 + step advantage（`gigpo.py`） |
+| [`pipeline/grpo/scripts/grpo_v52m_c.sh`](../pipeline/grpo/scripts/grpo_v52m_c.sh)、[`grpo_gigpo.sh`](../pipeline/grpo/scripts/grpo_gigpo.sh) | 4k × 8 启动脚本；排程 [`logs/k8_20261028/`](../logs/k8_20261028/) |
+| [`pipeline/eval/baselines/export_e1_rollouts.py`](../pipeline/eval/baselines/export_e1_rollouts.py) | E1 轨迹导出为公开 rollout 文件（[`trajectories/e1_rollouts/`](../trajectories/e1_rollouts/)） |
+| [`pipeline/grpo/plot_curves_k8.py`](../pipeline/grpo/plot_curves_k8.py) | 4k × 8 训练曲线 |
 
 ### 关键代码（节选）
 
@@ -274,6 +304,13 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | AdaptVision / CounterCredit | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
 | Mini-o3-7B | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
 | DeepEyes-7B | DeepEyes-7B（官方协议，E1 预算） | — | **完成**（§5.1） |
+| 无 SFT（直接作答） | 原模型，只要求直接给选项 | — | **完成**（10-27，§5.1） |
+| SFT（CoT） / SFT（直接作答） / SFT（原生 zoom） | SFT 模型换三种提示 | — | **完成**（10-27，§5.1） |
+| SFT + GRPO（4k×8） | SFT + GRPO，4k 题池一遍 32 步，n = 8 | 2, 3 | **完成**（10-28 13:52 – 20:50）；E1 **完成** |
+| SFT + DAPO（4k×8） | 同上，DAPO | 0, 1 | **完成**（10-28 13:52 – 10-29 01:17）；E1 **完成** |
+| SFT + GSPO（4k×8） | 同上，GSPO | 2, 3 | **完成**（10-28 20:50 – 10-29 05:14）；E1 **完成** |
+| SFT + GiGPO（4k×8） | 同上，GiGPO | 0, 1 | **完成**（10-29 01:17 – 08:43）；E1 **完成** |
+| 无 SFT + GRPO（4k×8） | 原模型 + GRPO，caption 协议 | 2, 3 | **完成**（10-29 05:14 – 08:43）；E1 **完成** |
 | 4B 各检查点轨迹 | 4B 各检查点在 obsbench 935 题上的 caption 协议轨迹（与 Astra 同协议） | 2, 3 | 8 个检查点**完成**（§5.3） |
 
 ## 5. 结果
@@ -294,12 +331,25 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 无 SFT + GRPO | .0077 | .0172 | .0226 | .1250 | 2,668 | 109 | .0000 |
 | 答案式 SFT + GRPO | .5041 | 1.0000 | 0 | 0 | 1,880 | 11 | .0000 |
 | SFT + GRPO | .6603 | .9946 | .9982 | 1.3827 | 9,925 | 307 | .0014 |
+| 无 SFT（直接作答） | .4094 | .7717 | 0 | 0 | 686 | 42 | .0036 |
+| SFT（CoT） | .5380 | .9710 | 0 | 0 | 1,041 | 387 | .0236 |
+| SFT（直接作答） | .3863 | .7015 | 0 | 0 | 723 | 79 | .0059 |
+| SFT（原生 zoom） | .3216 | .4592 | .9995 | 4.5648 | 14,956 | 454 | .0023 |
+| SFT + GRPO（4k×8） | .6390 | .9914 | .9565 | .9488 | 8,125 | 261 | .0009 |
+| SFT + DAPO（4k×8） | .6635 | .9905 | .9900 | 1.1024 | 8,930 | 287 | .0023 |
+| SFT + GSPO（4k×8） | .6395 | .9855 | .9869 | 1.2763 | 9,756 | 278 | .0009 |
+| SFT + GiGPO（4k×8） | .6209 | .9887 | .9955 | 1.0027 | 8,506 | 275 | .0018 |
+| 无 SFT + GRPO（4k×8） | .0054 | .0149 | .0172 | .0978 | 2,502 | 108 | .0005 |
+
+- 10-27 新增：无 SFT（直接作答）、SFT（直接作答）的提示为 `Answer with the option letter directly, in the form <answer>X</answer>.`；SFT（CoT）用与“无 SFT（无工具）”相同的 “Think step by step …” 提示；SFT（原生 zoom）用与“无 SFT（原生 zoom）”相同的工具声明。
+- 10-29 新增：带“（4k×8）”的五行是 §2.4.1 配置第 32 步的模型，按 caption 协议评测。不带“（4k×8）”的 SFT + GRPO、无 SFT + GRPO 是 6k × 16 第 47 步，题池、每题 rollout 数、步数都不同。
+- 每条 rollout 的原文（不含题目和图像）：[`trajectories/e1_rollouts/`](../trajectories/e1_rollouts/)。
 
 答案式 SFT、答案式 SFT + GRPO（旧）使用答案式协议评测（工具可用，2,208 条轨迹中裁图次数均为 0）。
 
 ![E1 trade-off](../media/baselines_v52_20261024/tradeoff_E1.png)
 
-图中是上表十二个条件。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
+图中是上表二十一个条件。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
 
 按来源统计的准确率：
 
@@ -317,6 +367,15 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | 无 SFT + GRPO | .0059 | .0385 | .0067 | .0000 |
 | 答案式 SFT + GRPO | .5280 | .2372 | .6295 | .3145 |
 | SFT + GRPO | .6991 | .3077 | .8504 | .3266 |
+| 无 SFT（直接作答） | .3872 | .2692 | .5491 | .3669 |
+| SFT（CoT） | .5553 | .3462 | .6853 | .2984 |
+| SFT（直接作答） | .3953 | .2821 | .4531 | .2823 |
+| SFT（原生 zoom） | .3046 | .1603 | .4933 | .2056 |
+| SFT + GRPO（4k×8） | .6645 | .3141 | .8438 | .3347 |
+| SFT + DAPO（4k×8） | .6881 | .3526 | .8728 | .3468 |
+| SFT + GSPO（4k×8） | .6622 | .3397 | .8348 | .3508 |
+| SFT + GiGPO（4k×8） | .6342 | .2949 | .8304 | .3750 |
+| 无 SFT + GRPO（4k×8） | .0044 | .0321 | .0022 | .0000 |
 
 无 SFT（caption 协议）的 2,208 条轨迹按最后一轮分类：
 
@@ -327,6 +386,51 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | `<answer>` 终答 | 357 |
 
 ### 5.2 训练
+
+#### 5.2.1 4k × 8 五组（§2.4.1，10-28 – 10-29）
+
+| 组 | GPU | 时间（北京） | 时长 | 验证 第 0 / 25 / 32 步 | 进入更新的不同题 / 4,096 | 组统计合计（全对 / 全错 / 混合） | 非零 advantage token 占比（32 步均值） |
+|---|---|---|---:|---|---|---|---:|
+| SFT + GRPO | 2, 3 | 10-28 13:52 – 20:50 | 7.0 h | .533 / .576 / .602 | 4,096，各 1 次 | 1,298 / 489 / 2,309 | .639 |
+| SFT + DAPO | 0, 1 | 10-28 13:52 – 10-29 01:17 | 11.4 h | .533 / .595 / .637 | 2,648（1,447 题 2 次；1,448 题生成后全被过滤，没有进入更新） | 每步 128 组都是混合组 | 1.000 |
+| SFT + GSPO | 2, 3 | 10-28 20:50 – 10-29 05:14 | 8.4 h | .533 / .600 / .621 | 4,096，各 1 次 | 1,296 / 492 / 2,308 | .647 |
+| SFT + GiGPO | 0, 1 | 10-29 01:17 – 08:43 | 7.4 h | .533 / .576 / .555 | 4,096，各 1 次 | 1,248 / 515 / 2,333 | .642 |
+| 无 SFT + GRPO | 2, 3 | 10-29 05:14 – 08:43 | 3.5 h | .000 / .000 / .000 | 4,096，各 1 次 | 0 / 4,096 / 0 | 0 |
+
+- 时长含验证与保存；5 组都是 32 步正常结束（exit 0），没有续跑。
+- DAPO：32 步共生成 246 次（每次 32 题 × 8 条），即 7,872 个题组次，题池 4,096 题每题生成 1–2 次；生成 token 15,635,092，处理 token 478,822,888。
+- GiGPO 的 step 分组：第 1 步非根组 725 个，其中多成员 1 个；第 32 步非根组 1,929 个，其中多成员 8 个，step advantage 非零 571 轮（共 2,962 轮）。根节点（第 1 轮）128 组都是多成员。
+- 逐步数据：[`logs/k8_20261028/curves_k8.json`](../logs/k8_20261028/curves_k8.json)；每步进入更新的题号与组统计：[`logs/k8_20261028/updates/`](../logs/k8_20261028/updates/)。
+
+![4k x 8 training curves](../media/train_curves/train_curves_k8.png)
+
+“crops / trajectory” 统计每步生成的全部 rollout（DAPO 包括之后被过滤掉的组）。“train accuracy” 是 EasyR1 日志里的 `reward/accuracy`。
+
+6k × 16 四组的曲线（10-27 画，数据 [`logs/grpo/curves_6k.json`](../logs/grpo/curves_6k.json)；空缺是续跑时丢失的日志段）：
+
+![6k x 16 training curves](../media/train_curves/train_curves_6k.png)
+
+#### 5.2.2 无 SFT + GRPO（caption 协议）的核对（10-29）
+
+用户问：SFT + GRPO 与无 SFT + GRPO 是不是搞错了，无 SFT 为什么约 .005。核对结果：
+
+- **模型身份**：E1 header 中，无 SFT（4k×8）的模型路径是该组 `global_step_32` 合并的权重；无 SFT 是 Qwen3-VL-4B-Instruct 原模型；SFT + GRPO（4k×8）是 SFT 起点那一组的 `global_step_32`。
+- **权重**：无 SFT + GRPO（4k×8）第 32 步的合并权重与 Qwen3-VL-4B-Instruct 逐张量比较，713 个共同张量的最大差值为 0（合并权重多 1 个张量名）。
+- **训练奖励**：32 步共 4,096 组全部是全错组，非零 advantage token 占比每步为 0；训练日志中能完整解析的 `[caption]` 行合计 22,495 条轨迹，`terminal_answers` 0，`invalid` 22,477。
+- **奖励规则**：caption 协议下，任一轮 `check_step` 报错，轨迹即以 `invalid` 结束，奖励文本置空，记 0 分（`caption_contracts.py`，`caption_terminal != "answer"` 时 `text = ""`）。4k × 8 与 6k 的 `reward_caption.py` sha256 相同，协议模块相同。
+- **E1 中的格式**：
+
+| 条件 | 准确率 | 有 `<answer>` | 最后一轮 answer / grounding / 两者都不是 | 每条轨迹都有的 check_errors | 按训练奖励规则判对 |
+|---|---:|---:|---|---|---:|
+| 无 SFT | .0068 | 357 / 2,208 | 357 / 1,021 / 830 | `think_blocks=0`、`missing_header`、`empty_caption`（2,208 / 2,208） | 0 / 2,208 |
+| 无 SFT + GRPO（4k×8） | .0054 | 357 / 2,208 | 357 / 1,036 / 815 | 同上（2,208 / 2,208） | 0 / 2,208 |
+| 无 SFT + GRPO（6k，第 47 步） | .0077 | 362 / 2,208 | 362 / 1,044 / 802 | 同上（2,208 / 2,208） | 0 / 2,208 |
+| SFT + GRPO（4k×8） | .6390 | 2,206 / 2,208 | 2,206 / 0 / 2 | 2 条 | 1,409 / 2,208 |
+
+- 无 SFT + GRPO（4k×8）的 357 条 `<answer>` 中，260 条内容为 `UNCLEAR`。
+- 同一模型在“直接作答”“CoT”“原生 zoom”提示下的 E1 为 .4094、.5217、.5888（§5.1）。
+
+#### 5.2.3 6k × 16（10-24 – 10-27）
 
 | 组 | GPU | 开始时间 | 步数 | 每步时间 | 预计完成 |
 |---|---|---|---:|---:|---|
@@ -384,8 +488,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 
 1. 原模型在 caption 协议下，为什么近一半轨迹给出 0–1000 尺度的框，另有 830 条既不裁图也不写 `<answer>`？
-2. SFT + GRPO 和无 SFT + GRPO（无工具）过完一遍题池后，准确率和裁图成本分别是多少？
-3. 无 SFT + GRPO 在 caption 协议下能否得到非零奖励？
+2. （已有数据）SFT + GRPO 与无 SFT + GRPO（无工具）过完一遍 6k 题池后的准确率与裁图成本见 §5.1。
+3. （已有数据）无 SFT + GRPO 在 caption 协议下的奖励：6k 与 4k × 8 两次训练中均为 0，见 §5.2.2。
 4–6. 原先待问导师的三项（幻觉主线 / 支线、效率位置、绑定错误是否单独计量）曾并入三个待问问题（[archive/40](archive/40_gap_candidates_20261026.md)）；导师 10-26 的回复见 §7。
 
 ## 7. 主线归位（导师 10-26 回复）与训练安排
@@ -430,3 +534,35 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 - SFT + GRPO（6k，2 卡）10-27 04:37 训练完成（第 47 步验证 .623）；第 47 步 obsbench 轨迹与 E1 评测均已完成（§5.1、§5.3）。
 - 用户 10-26：这组完成后，继续用 2 卡跑训练。
+- 10-27 导师给出 baseline 分类（§7.4）；用户 10-27：先把导师要求的 baseline 全部跑完，再做我们的 reward shaping 方法（代码已写并审核，暂停）。
+- 10-28 用户：6k × 16 每组约 30 小时不可接受；改用 4k 题池（原图不重复）、每题 8 条 rollout、两组并行（§2.4.1），单 seed，按题池过一遍取最后一步比较。
+- 10-29 第 3、4 类五组训练与第 32 步 E1 完成（§5.1、§5.2.1）。
+
+### 7.4 导师四类 baseline × 现状（10-29）
+
+导师 10-27 飞书原文：
+
+> 第一类baseline: base model direct answer / base model + cot / base model + tools prompts (模型内置tools，不用function calling)
+> 第二类baseline: base model + sft 重复上三个
+> 第三类baseline: base model + sft + 标准grpo (outcome-only reward), base model + 标准grpo (outcome-only reward)
+> 第四类baseline: grpo换成dapo, gigpo, gspo
+> 第一类纯zero-shot reasoning，第二类sft训练2epoch之后也是快速做zero-shot
+
+（第四类最初由用户转述，随后导师在飞书中原文写出。）问到是否上 7B，导师：“先4b就好了”。下表 E1 = 552 题 × 4 次采样；SFT = 2 epoch 的 A-SFT。
+
+| 类 | 导师要求 | 对应条件（§5.1） | E1 |
+|---|---|---|---:|
+| 1 | base model direct answer | 无 SFT（直接作答） | .4094 |
+| 1 | base model + CoT | 无 SFT（无工具），“Think step by step” 提示 | .5217 |
+| 1 | base model + tools prompts（模型内置 tools，不用 function calling） | 无 SFT（原生 zoom）：Qwen3-VL 自带 chat template 的 `tools=` 声明，模型输出 `<tool_call>`；无 SFT：caption 协议提示 | .5888；.0068 |
+| 2 | SFT + direct answer | SFT（直接作答） | .3863 |
+| 2 | SFT + CoT | SFT（CoT） | .5380 |
+| 2 | SFT + tools prompts | SFT（原生 zoom）；SFT（caption 协议） | .3216；.5670 |
+| 3 | base + SFT + 标准 GRPO（outcome-only） | SFT + GRPO（4k×8）；SFT + GRPO（6k） | .6390；.6603 |
+| 3 | base + 标准 GRPO（outcome-only） | 无 SFT + GRPO（4k×8，caption 协议）；无 SFT + GRPO（6k，caption 协议）；无 SFT + GRPO（无工具，6k） | .0054；.0077；.5960 |
+| 4 | GRPO → DAPO | SFT + DAPO（4k×8） | .6635 |
+| 4 | GRPO → GSPO | SFT + GSPO（4k×8） | .6395 |
+| 4 | GRPO → GiGPO | SFT + GiGPO（4k×8） | .6209 |
+
+- 第 1 类“tools prompts（不用 function calling）”对应原生 zoom 还是 caption 协议提示，待用户 / 导师确认。
+- 第 3 类“无 SFT + GRPO（无工具）”只有 6k 版本；4k × 8 没有跑这一组。

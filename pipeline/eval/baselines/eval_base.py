@@ -1,4 +1,5 @@
-"""Base-model baselines B0 (direct reasoning, no tool) and B1 (Qwen3-VL native zoom tool) on the E1 pool.
+"""Base-model baselines B0 (direct reasoning = CoT prompt, no tool), "answer" mode (direct answer, no reasoning
+instruction; 10-27) and B1 (Qwen3-VL native zoom tool) on the E1 pool.
 
 Same 552 questions (440 val + 112 V* holdout), same images, same seeds and sampling as eval_v4.py, so the records
 drop into the same trade-off figure. B2 (caption protocol zero-shot) is eval_v4.py itself run on the base checkpoint.
@@ -31,7 +32,7 @@ from pathlib import Path
 os.environ.setdefault("VLLM_ENABLE_V1_MULTIPROCESSING", "0")
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--mode", choices=["direct", "native"], required=True)
+ap.add_argument("--mode", choices=["direct", "answer", "native"], required=True)
 ap.add_argument("--model", required=True)
 ap.add_argument("--code-dir", required=True, help="only for caption_contracts.raw_image_prompt and the pool path")
 ap.add_argument("--tag", required=True)
@@ -63,6 +64,9 @@ MAX_LEN, MAX_GEN_TOTAL = 32768, 8192  # one budget for every runner: a turn may 
 MIN_PX, MAX_PX = 1024, 589824
 DIRECT_SUFFIX = ("\nThink step by step about the image, then give the final answer as the option letter "
                  "in the form <answer>X</answer>.")
+# 10-27 mentor baseline class 1/2 "direct answer": no reasoning instruction ("direct" above is the CoT prompt).
+ANSWER_SUFFIX = "\nAnswer with the option letter directly, in the form <answer>X</answer>."
+SUFFIX = {"direct": DIRECT_SUFFIX, "answer": ANSWER_SUFFIX}
 NATIVE_SYSTEM = "Use tools to answer."
 NATIVE_SUFFIX = ("\nYou may zoom in on regions of the image with the tool when it helps. When you are done, give the "
                  "final answer as the option letter in the form <answer>X</answer>.")
@@ -161,7 +165,7 @@ header = dict(tag=a.tag, mode=a.mode, model=a.model, pool=a.pool, samples=a.samp
               max_gen_total=MAX_GEN_TOTAL, max_model_len=MAX_LEN, min_px=MIN_PX, max_px=MAX_PX,
               max_crops=a.max_crops if a.mode == "native" else 0,
               system=NATIVE_SYSTEM if a.mode == "native" else None,
-              suffix=NATIVE_SUFFIX if a.mode == "native" else DIRECT_SUFFIX,
+              suffix=NATIVE_SUFFIX if a.mode == "native" else SUFFIX[a.mode],
               tool=ZOOM_TOOL if a.mode == "native" else None, vllm=vllm.__version__, torch=torch.__version__,
               gpu=torch.cuda.get_device_name(0), started=time.strftime("%F %T"),
               sha256=dict(val=sha256_file(f"{a.pool}/val.parquet"),
@@ -184,7 +188,7 @@ class State:
         q = full_question(row["env_head"])
         self.raw_imgs = [Image.open(row["images"][0]).convert("RGB")]
         self.proc_imgs = [process_image(self.raw_imgs[0], MIN_PX, MAX_PX)]
-        user = [{"type": "image"}, {"type": "text", "text": q + (NATIVE_SUFFIX if a.mode == "native" else DIRECT_SUFFIX)}]
+        user = [{"type": "image"}, {"type": "text", "text": q + (NATIVE_SUFFIX if a.mode == "native" else SUFFIX[a.mode])}]
         self.msgs = ([{"role": "system", "content": NATIVE_SYSTEM}] if a.mode == "native" else []) + \
             [{"role": "user", "content": user}]
         self.turns, self.done, self.final_text, self.end = [], False, None, None
@@ -274,7 +278,7 @@ def advance(states):
 
 t0, n_done, n_ok = time.time(), 0, 0
 rows = [r for _, r in df.iterrows()]
-max_rounds = 1 if a.mode == "direct" else 2 * a.max_crops + 2
+max_rounds = 1 if a.mode != "native" else 2 * a.max_crops + 2
 with open(jsonl, "a") as fout:
     for c0 in range(0, len(rows), a.chunk):
         states = [State(r, s) for r in rows[c0:c0 + a.chunk] for s in range(a.samples) if (r["uid"], s) not in done]
