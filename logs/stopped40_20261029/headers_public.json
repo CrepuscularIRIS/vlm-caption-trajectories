@@ -1,0 +1,68 @@
+{
+  "dapo": {
+    "tag": "k8c_dapo_s40",
+    "perturb": "none",
+    "samples": 4,
+    "seed_base": 20261017,
+    "n_questions": 552,
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "max_new_tokens": "remaining",
+    "max_gen_total": 8192,
+    "max_model_len": 32768,
+    "min_px": 1024,
+    "max_px": 589824,
+    "max_crops": 8,
+    "proto_module": "caption_v51",
+    "vllm": "0.11.0",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "started": "2026-10-29 18:04:53",
+    "sha256": {
+      "val": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+      "vstar_holdout": "1c20b41df52e0c3f922fa5b30e67615805935af713719eab846d2bf9c0abcb70",
+      "caption_env": "4f5865dbde0cf457ceafc7e6cfb8a917b67143d885cffc937cfbd55f98e31d35",
+      "script": "edd936cec1f419d1d1195ad3901e554d595066cdebc664cdaa6c99517d31e918",
+      "model_config": "0a7225eb65419a7410ae5f7db9a6c9bf2eceb2398d8416b1d50823b0b819b922"
+    },
+    "checkpoint_step": 40,
+    "weights_sha256": {
+      "model-00001-of-00002.safetensors": "2f1bf69cef5dfa18ba19aebe5f4f2548557efab65acb82f99af720fa0afcc810",
+      "model-00002-of-00002.safetensors": "0ef173e18e768286674bfc605dc7ac5627f0795c150cc51ca24ff2ec1166cac8"
+    }
+  },
+  "gspo": {
+    "tag": "k8c_gspo_s40",
+    "perturb": "none",
+    "samples": 4,
+    "seed_base": 20261017,
+    "n_questions": 552,
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "max_new_tokens": "remaining",
+    "max_gen_total": 8192,
+    "max_model_len": 32768,
+    "min_px": 1024,
+    "max_px": 589824,
+    "max_crops": 8,
+    "proto_module": "caption_v51",
+    "vllm": "0.11.0",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "started": "2026-10-29 18:04:53",
+    "sha256": {
+      "val": "eac7c7e3a5a20a0ddf276580bc1f35f483ab780799b8ff534c33a5039524059d",
+      "vstar_holdout": "1c20b41df52e0c3f922fa5b30e67615805935af713719eab846d2bf9c0abcb70",
+      "caption_env": "4f5865dbde0cf457ceafc7e6cfb8a917b67143d885cffc937cfbd55f98e31d35",
+      "script": "edd936cec1f419d1d1195ad3901e554d595066cdebc664cdaa6c99517d31e918",
+      "model_config": "0a7225eb65419a7410ae5f7db9a6c9bf2eceb2398d8416b1d50823b0b819b922"
+    },
+    "checkpoint_step": 40,
+    "weights_sha256": {
+      "model-00001-of-00002.safetensors": "1b66570cbb082091ea888d412fcbe9e14df012e53e9e218f849dfc24fc3101bd",
+      "model-00002-of-00002.safetensors": "570a9e02b85f86a0cae6eeea56d3302fdf143828a8ca3c220ba20aed17573a2a"
+    }
+  }
+}
