@@ -11,8 +11,8 @@
 | `H1.jsonl.gz` | 答案式 SFT | 答案式 SFT | 2,208 | 0.4515 | 0 |
 | `H2.jsonl.gz` | 答案式 SFT + GRPO（旧） | 答案式 SFT + GRPO | 2,208 | 0.4792 | 0 |
 | `B6.jsonl.gz` | 无 SFT + GRPO（无工具） | 原模型 + GRPO 无工具（6k，第 47 步） | 2,208 | 0.5960 | 0 |
-| `X1.jsonl.gz` | Mini-o3-7B | Mini-o3-7B-v1（官方协议） | 2,208 | 0.6395 | 5,969 |
-| `X2.jsonl.gz` | DeepEyes-7B | DeepEyes-7B（官方协议） | 2,208 | 0.5589 | 1,882 |
+| `X1.jsonl.gz` | Mini-o3-7B | Mini-o3-7B-v1（原生工具接口＋E1采样/预算适配） | 2,208 | 0.6395 | 5,969 |
+| `X2.jsonl.gz` | DeepEyes-7B | DeepEyes-7B（原生工具接口＋E1采样/预算适配） | 2,208 | 0.5589 | 1,882 |
 | `B5.jsonl.gz` | 无 SFT + GRPO | 原模型 + caption GRPO（6k，第 47 步） | 2,208 | 0.0077 | 326 |
 | `H2-6k.jsonl.gz` | 答案式 SFT + GRPO | 答案式 SFT + 答案式 GRPO（6k，第 47 步） | 2,208 | 0.5041 | 0 |
 | `B4.jsonl.gz` | SFT + GRPO | SFT + GRPO（6k，第 47 步） | 2,208 | 0.6603 | 5,257 |
@@ -47,3 +47,8 @@
 | `turns[]` | 助手轮：`step`、`text`、`finish`、`n_tokens`；caption 协议另有 `kind`（answer / grounding / null）与 `check_errors`；原生工具条件有 `tools` / `tool`；部分条件有 `box_abs` |
 
 不含：题目与选项原文、图像、工具回执图像、机器路径。助手原文中复述题干首行（≥ 40 字符）的地方替换为 `[question stem removed]`；DeepEyes-7B（X2）在 `</tool_call>` 之后自己写出的假图片链接、`data:image` 与 base64 串替换为 `[removed:<类型>]`。每个条件的替换次数见 [`STATS.json`](STATS.json) 的 `redacted_in_assistant_text`。
+
+
+## v53 末步32新增
+
+新增`V53-control-32.jsonl.gz`和`V53-decision-32.jsonl.gz`各2208条，准确率.6318/.5919，原23条件文件不变；总计25条件55,200条。新增导出回执独立保存在[PROVENANCE](../../logs/joint_review_20261029/PROVENANCE.json)，旧STATS仅覆盖旧23条件。导出脚本[export_joint_review.py](../../pipeline/eval/baselines/export_joint_review.py)沿用相同评分/脱敏规则，并从完整env_head恢复题干进行去重引用。训练v5.2i、评测v5.1；全量结果与[96条定向视觉审查](../../data/joint_review_20261029/README.md)分开。

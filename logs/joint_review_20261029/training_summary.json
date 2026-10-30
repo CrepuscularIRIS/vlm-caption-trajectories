@@ -1,0 +1,70 @@
+{
+  "control": {
+    "exit_code": 0,
+    "wall_seconds": 34929.0,
+    "steps": 32,
+    "unique_questions": 4096,
+    "main_trajectories": 32768,
+    "main_gen_tokens": 7163707,
+    "main_proc_tokens": 214449299,
+    "fork_trajectories": 0,
+    "fork_gen_tokens": 0,
+    "fork_proc_tokens": 0,
+    "validations": {
+      "0": {
+        "accuracy_reward": 0.538,
+        "overall_reward": 0.533
+      },
+      "25": {
+        "accuracy_reward": 0.571,
+        "overall_reward": 0.563
+      },
+      "32": {
+        "accuracy_reward": 0.595,
+        "overall_reward": 0.584
+      }
+    },
+    "timing_totals": {
+      "step": 34347.388,
+      "gen": 10383.446,
+      "old": 6482.716,
+      "update_actor": 16774.524,
+      "save_checkpoint": 391.212,
+      "val": null
+    }
+  },
+  "decision": {
+    "exit_code": 0,
+    "wall_seconds": 41554.0,
+    "steps": 32,
+    "unique_questions": 4096,
+    "main_trajectories": 32768,
+    "main_gen_tokens": 6746469,
+    "main_proc_tokens": 207856310,
+    "fork_trajectories": 32744,
+    "fork_gen_tokens": 2963110,
+    "fork_proc_tokens": 149423047,
+    "validations": {
+      "0": {
+        "accuracy_reward": 0.538,
+        "overall_reward": 0.533
+      },
+      "25": {
+        "accuracy_reward": 0.573,
+        "overall_reward": 0.565
+      },
+      "32": {
+        "accuracy_reward": 0.585,
+        "overall_reward": 0.577
+      }
+    },
+    "timing_totals": {
+      "step": 41019.257,
+      "gen": 14321.507,
+      "old": 6624.903,
+      "update_actor": 19417.405,
+      "save_checkpoint": 358.37,
+      "val": null
+    }
+  }
+}

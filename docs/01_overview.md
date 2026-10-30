@@ -246,8 +246,8 @@ trainer.val_freq=25 trainer.save_freq=25
 | [`pipeline/grpo/easyr1_602a128_local.diff`](../pipeline/grpo/easyr1_602a128_local.diff) | 对 EasyR1 的本地改动 |
 | [`pipeline/eval/baselines/eval_base.py`](../pipeline/eval/baselines/eval_base.py) | 原模型评测：不带工具 / 原生 zoom 工具 |
 | [`pipeline/eval/baselines/eval_caption.py`](../pipeline/eval/baselines/eval_caption.py) | caption 协议评测 |
-| [`pipeline/eval/baselines/eval_minio3.py`](../pipeline/eval/baselines/eval_minio3.py) | Mini-o3-7B 官方协议（`<grounding>` 相对坐标，裁原图不放大），E1 预算 |
-| [`pipeline/eval/baselines/eval_deepeyes.py`](../pipeline/eval/baselines/eval_deepeyes.py) | DeepEyes-7B 官方协议（`image_zoom_in_tool` 绝对像素坐标），E1 预算 |
+| [`pipeline/eval/baselines/eval_minio3.py`](../pipeline/eval/baselines/eval_minio3.py) | Mini-o3-7B 原生工具接口适配（`<grounding>` 相对坐标，裁原图不放大），E1 预算 |
+| [`pipeline/eval/baselines/eval_deepeyes.py`](../pipeline/eval/baselines/eval_deepeyes.py) | DeepEyes-7B 原生工具接口适配（`image_zoom_in_tool` 绝对像素坐标），E1 预算 |
 | [`pipeline/eval/baselines/summarize.py`](../pipeline/eval/baselines/summarize.py) | 统一评分与成本统计 |
 | [`pipeline/grpo/v52m_c/`](../pipeline/grpo/v52m_c/) | 4k × 8 训练（GRPO / DAPO / GSPO）：lazy 多模态、视图缓存、预取、更新记录、EasyR1 补丁 |
 | [`pipeline/grpo/gigpo/`](../pipeline/grpo/gigpo/) | 4k × 8 GiGPO：同上 + step advantage（`gigpo.py`） |
@@ -302,8 +302,8 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 | SFT + GRPO | SFT 模型 + GRPO（caption 协议），6k 题池一遍 | 0, 1 | **训练完成**（`b4_6k_r3`，10-26 07:11 起单独从第 16 步续跑，10-27 04:37 存到第 47 步，见 §5.2）；第 47 步 E1 评测**完成**（§5.1），obsbench 轨迹**完成**（§5.3） |
 | 无 SFT + GRPO | 原模型直接 GRPO（caption 协议），6k 题池一遍 | 2, 3 | **训练完成**（10-25 04:45 – 20:32，47 步，含 2 次续跑）；第 47 步 E1 评测**完成**（§5.1） |
 | AdaptVision / CounterCredit | AdaptVision / CounterCredit（同底座适配） | — | 未开始 |
-| Mini-o3-7B | Mini-o3-7B-v1（官方协议，E1 预算） | — | **完成**（§5.1） |
-| DeepEyes-7B | DeepEyes-7B（官方协议，E1 预算） | — | **完成**（§5.1） |
+| Mini-o3-7B | Mini-o3-7B-v1（原生工具接口＋E1采样/预算适配） | — | **完成**（§5.1） |
+| DeepEyes-7B | DeepEyes-7B（原生工具接口＋E1采样/预算适配） | — | **完成**（§5.1） |
 | 无 SFT（直接作答） | 原模型，只要求直接给选项 | — | **完成**（10-27，§5.1） |
 | SFT（CoT） / SFT（直接作答） / SFT（原生 zoom） | SFT 模型换三种提示 | — | **完成**（10-27，§5.1） |
 | SFT + GRPO（4k×8） | SFT + GRPO，4k 题池一遍 32 步，n = 8 | 2, 3 | **完成**（10-28 13:52 – 20:50）；E1 **完成** |
@@ -352,7 +352,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ![E1 trade-off](../media/baselines_v52_20261024/tradeoff_E1.png)
 
-图中是上表二十一个条件。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按其官方协议评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），按其官方 `eval_vstar.py` 协议评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
+图中是上表二十一个条件。答案式 SFT + GRPO（旧）为旧规模训练（每步 12 题，第 160 步）；答案式 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，同样按答案式协议评测，2,208 条轨迹中裁图次数为 0。无 SFT + GRPO 为 6k 题池一遍（47 步）的最后一个 checkpoint，按 caption 协议评测（与 无 SFT 相同）。无 SFT + GRPO（无工具） 为 6k 题池一遍（47 步）的最后一个 checkpoint，使用 无工具 的不带工具 prompt 评测。Mini-o3-7B 为 Mini-o3-7B-v1（Qwen2.5-VL-7B 底座），按原生工具接口加E1预算适配评测，图像输入上限 2,000,000 像素（我们的条件为 589,824 像素），每题最多 12 张图；2,208 条轨迹中 115 条因达到 12 张图上限结束，0 条工具调用报错。DeepEyes-7B 为 DeepEyes-7B（Qwen2.5-VL-7B 底座），基于官方 `eval_vstar.py` 工具接口适配评测（原图不缩放输入，裁图用绝对像素坐标）；2,208 条轨迹中 230 条截断、2 条工具调用出错、2 条超出上下文。官方代码没有 `</tool_call>` 停止词，我们也没有加；截断的轨迹中可见 `</tool_call>` 之后继续生成、重复工具调用 JSON 直到用完 8,192 生成预算的情况。汇总数据：[`logs/baselines_v52_20261024/summary.json`](../logs/baselines_v52_20261024/summary.json)，作图脚本：[`plot_tradeoff.py`](../pipeline/eval/baselines/plot_tradeoff.py)。
 
 按来源统计的准确率：
 
@@ -621,3 +621,43 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 - 第 1 类“tools prompts（不用 function calling）”对应原生 zoom 还是 caption 协议提示，待用户 / 导师确认。
 - 第 3 类“无 SFT + GRPO（无工具）”只有 6k 版本；4k × 8 没有跑这一组。
+
+
+## 10-29 晚间：v53 完成、八方法同题审查
+
+两组v53均从原2 epoch A-SFT起跑，4096题、128题/步×8主rollout、32步、seed42，各双卡并行；RLOO、R=Y(1−.01N)、lr1e-6、一次warmup、clip .2/.3、max_grad_norm1、无KL/动态采样。control无分叉辅助项；decision沿用两支K4、|D|加权BCE、β=1/256、H0=32。未新增模型设计。两组均exit0并保存完整step32；固定评测最终32步，没有按E1选检查点。
+
+墙钟control 9h42m09s，decision 11h32m34s，均含验证/保存/启动。两组各32768条主轨迹；decision另有32744条分叉轨迹，额外生成2,963,110 token、处理149,423,047 token。主生成/处理token分别为control 7,163,707/214,449,299、decision 6,746,469/207,856,310。分项计时有嵌套，不能相加当总耗时；验证单独时长缺测。[训练数据](../logs/joint_review_20261029/training_summary.json)。
+
+八组均为E1 552题×4=2208条，用同一字母评分器，保留错误与截断分母。E1曾参与开发，不是独立盲测。六本地组为caption评测；两外部模型为各自原生工具接口加E1采样/预算适配，**不是完整官方评测复现，也不是互换协议的新评测**。本次v53训练v5.2i、E1 v5.1；与旧四算法还存在奖励/配置差异，不能称单因素算法消融。
+
+| 方法 | E1 | 首裁/条 | 后续裁图/条 | 生成token/条 | 处理token/条 | caption标记 |
+|---|---:|---:|---:|---:|---:|---:|
+| GRPO | 0.6390 | 0.9565 | 0.9488 | 261.2 | 8125.4 | 0.41% |
+| DAPO | 0.6635 | 0.9900 | 1.1024 | 287.0 | 8929.8 | 0.63% |
+| GSPO | 0.6395 | 0.9869 | 1.2763 | 277.8 | 9756.2 | 0.41% |
+| GiGPO | 0.6209 | 0.9955 | 1.0027 | 275.3 | 8506.3 | 0.59% |
+| RLOO control | 0.6318 | 0.9837 | 1.0082 | 278.0 | 8535.4 | 0.50% |
+| RLOO + 首动作监督 | 0.5919 | 0.7763 | 0.5960 | 203.3 | 6266.1 | 17.66% |
+| Mini-o3-7B（接口适配） | 0.6395 | 0.8927 | 1.8107 | 679.7 | 17279.8 | 不适用 |
+| DeepEyes-7B（接口适配） | 0.5589 | 0.8483 | 0.0041 | 3291.5 | 13799.6 | 不适用 |
+
+首裁为至少一次实际裁图的比例，后续裁图为max(N−1,0)均值；总裁图为两项之和。处理token累加每轮完整输入与输出，包括重复历史和图像，不是唯一文本长度或FLOPs。decision与control差3.99个百分点、裁图少31.1%、处理token少26.6%；这些是结果差值，不能据此判定机制或以17.66%标记解释掉分。
+
+![八方法结果与成本](../logs/joint_review_20261029/eight_method_comparison.png)
+
+![分源正确数与分母](../logs/joint_review_20261029/source_accuracy.png)
+
+![按实际裁图数分层](../logs/joint_review_20261029/crop_stratified_accuracy.png)
+
+不同裁图层的题目组成不同，条件准确率不是裁图的因果效果。[完整分源/分层CSV](../logs/joint_review_20261029/strata.csv)保留正确数与分母；空字段为未记录，不当作0。没有独立区域/状态参考标签，当前不报告区域或观察决策precision/recall，pass@4也不作为recall替代。
+
+![实际记录的开发验证点](../logs/joint_review_20261029/six_training_curves.png)
+
+曲线只有0/25/32三个实际点，连接线不是额外验证。GSPO在25步.600高于DAPO .595，32步.621低于DAPO .637；只记录交叉，不从曲线给出advantage因果。RLOO两组32步开发验证.595/.585，不能与E1 .6318/.5919混写。[验证点数值](../logs/joint_review_20261029/validation_points.json)。
+
+12道冻结题×8方法=96条已完成带限制逐图审查（原六组72、外部24），查看原图与实际裁图、对照逐轮原文。单一模型复核者、定向抽样；音乐理论、小目标身份等仍有未判定项，不代表独立人工验真，也不外推总体错误率。[96条审查及范围](../data/joint_review_20261029/README.md)，[新增4416条v53全量轨迹](../trajectories/e1_rollouts/README.md#v53-末步32新增)，[公开产物与来源SHA](../logs/joint_review_20261029/PROVENANCE.json)。
+
+记录包含：裁图未含声称目标、可见符号与描述不符、人物/对象身份或比较方向转移、轴与比较量混用、计算与选项不一致、重复同一视图、长输出截断，以及答对但引用不支持原句。各项都有对应题号/sample/轮次；没有将它们归结为同一个算法原因。E1不记录训练advantage，不能从这批错答反推其训练梯度或mask。先保留失败证据，未据此实施credit assignment或reward shaping新方案。
+
+外部协议差异详见[docs/02补充](02_known_issues.md#10-29-晚间协议与审查口径)。跨协议运行范围尚未确定，没有新增官方配置或协议互换分数；现有外部得分继续保留原名称、预算与轨迹。

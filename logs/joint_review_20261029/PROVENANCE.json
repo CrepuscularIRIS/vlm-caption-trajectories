@@ -1,0 +1,59 @@
+{
+  "rollouts": {
+    "V53-control-32": {
+      "raw_sha256": "8e2ce972baaaa805517f872c226e178e373e895007d014476a357f589f27c2c7",
+      "public_sha256": "9169fe10c2696f499eb5f28477681117359398e655089c4d7af52d02df317291",
+      "n": 2208,
+      "redactions": {
+        "image_url": 0,
+        "data_uri": 0,
+        "base64_blob": 0,
+        "endpoint": 0,
+        "question_stem": 0
+      }
+    },
+    "V53-decision-32": {
+      "raw_sha256": "d6f0eac6db52f1009ea05e7d26cb61d3b2b0a7a0ab27bf0335d90f10e4fa2774",
+      "public_sha256": "e545fa13bdf1c592ad113f1c845b721526ded5f53bb654725c00a26d822505fb",
+      "n": 2208,
+      "redactions": {
+        "image_url": 0,
+        "data_uri": 0,
+        "base64_blob": 0,
+        "endpoint": 0,
+        "question_stem": 0
+      }
+    }
+  },
+  "audit_records": 96,
+  "score_input_hashes": {
+    "grpo": "b4961cd64e55b992af27039af07508b951d834e10b97059f422e042ff0d21059",
+    "dapo": "8a0dbb9a43e814bcb04fa73b4296cf418cd7756e514c53f8d6d6eb06e7345ffe",
+    "gspo": "033a5fc20bd8e48c29810b4ab0f6d79edf3096b6dbafab2a6035458e5d6732b2",
+    "gigpo": "2c809227bba2066c8513434528d7d296b483f423724a2602b3c37ce977963d3c",
+    "rloo": "8e2ce972baaaa805517f872c226e178e373e895007d014476a357f589f27c2c7",
+    "rloo_decision": "d6f0eac6db52f1009ea05e7d26cb61d3b2b0a7a0ab27bf0335d90f10e4fa2774"
+  },
+  "source_hashes": {
+    "audit_findings_batch01.jsonl": "d8ff4b88500f2b0c823e3006417275172a4cba2169d5040c00b2b4516a12eaa2",
+    "audit_findings_batch02.jsonl": "182e90fdda062ca3d6db2c2886fd4c0542c8fcf7b822ea057dba3dc69eeb629f",
+    "audit_findings_batch03.jsonl": "60aff00b3f68fbfaded6405700311b581c0c8fb3ca2230c3632635676cfd48a7",
+    "audit_findings_batch04.jsonl": "8f3f936c24777d03a727c22e14d81b5db8a820d867f668539c42dd80917ab100",
+    "audit_findings_batch05.jsonl": "7426c47a0d868313e0ce5ee277a9fd467ba59b844879404c80bce54262829530",
+    "audit_findings_batch06.jsonl": "3dce394acc933cf49857131a768726408800643586d60ca2b28255a0aac87315",
+    "audit_findings_batch07.jsonl": "27e550f119df1c0f6b136e4a71769205f66a49bce70471999bb0d623e66518db",
+    "audit_findings.jsonl": "3a912f449763df712ad892451d6a9270ccfba42fe8a8a1e07ec171a1bd725201",
+    "training_summary.json": "6eb3350c7fcc0bafdd596120117c18a10bca2b0184cbe4f50e8a0daccafdbd90",
+    "summary_eight.json": "2add018b70bd6b8d760f8fb0e86ac7a7af6b388103d95442548bb3b1e7ccc927"
+  },
+  "scorer_sha256": "95caa9979e785bad38f9602eb21795f9062f8a38dcce01cbe3ff4b2db7a4d985",
+  "audit_export_sha256": "182641aaf34c2cf5a61b1b77ab462da73e091b6f5418a8d5ebda2e8d98ab8352",
+  "audit_redactions": {
+    "image_url": 0,
+    "data_uri": 0,
+    "base64_blob": 0,
+    "endpoint": 0,
+    "question_stem": 0
+  },
+  "scope": "Directed single-reviewer visual audit with unresolved items; no causal attribution"
+}

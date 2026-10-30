@@ -373,3 +373,14 @@ MME-RealWorld 子类准确率（漏斗池全量）：
 | vstar_82 / 0 | Base+GRPO32 | 非法框未执行，加上缺失think块；只记录baseline结果，不单独改变其协议或奖励。 |
 
 完整逐轮文字、执行框、图像SHA与复核范围均在证据包；公开不附benchmark图片，需在本地重建。所有评测轨迹仅作评测和审查，不进入SFT。分数正确并不能自动覆盖这类过程错误。
+
+
+## 10-29 晚间：协议与审查口径
+
+- **外部原生接口不等于官方配置复现**：固定版本DeepEyes `eval_vstar.py`（11d20c6）为temperature0、每轮10240 token；旧E1为temperature.7、累计8192、上下文32768，同轮tool+answer/无tool无answer/length终止分支也有差异。Mini-o3（2c5a0de）README示例Avg@32，旧E1为Avg@4。提示常量逐字相同，不足以确认整套协议相同。保留旧分数，未静默改协议重跑。固定原文：[DeepEyes](https://github.com/Visual-Agent/DeepEyes/blob/11d20c6be32b2cf62c914e0c73a06db2f9a7e3a1/eval/eval_vstar.py)、[Mini-o3](https://github.com/Mini-o3/Mini-o3/blob/2c5a0dedb5279eff2c0e6049aac05de97bf7a2b3/README.md)。
+- **数字答案与选项字母**：worldbench_362/sample2/decision原文先算14−12=2、最终输出数字6；既定字母提取器返回None，而6是GT选项B的内容。分别记计算矛盾与格式，未将该条自动改为正确；协议check_errors为空也不代表评分器能抽取字母。
+- **review摘要截短与实际输入**：test_Manage_234的review.question是摘要；本次从env_head恢复完整题面，不能将摘要截短直接报告成模型输入缺失。审查证据不等于重新捕获了运行时prompt。
+- **可视回放范围**：按执行框与各runner的PIL处理重建原图/实际crop，记录图像SHA；未重放processor张量。文字工具请求不等于实际执行，不能把全图仍可见的情况写成只看到了crop。
+- **协议标记与得分**：v53 decision至少一轮标记17.66%，control0.50%；训练v5.2i、E1 v5.1。未据此判定掉分原因，也未为某组放宽规则。外部caption标记不适用，不填0。
+
+[96条同题审查](../data/joint_review_20261029/README.md)包含答对但引用不支持过程、轴/对象绑定与符号读取、计算矛盾、重复裁图及截断实例。定向病例不代表总体率，音乐理论等未判定项保留。没有新的算法归因或奖励设计。
