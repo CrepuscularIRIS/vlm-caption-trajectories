@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "rows_per_method": 2208,
+  "questions": 552,
+  "samples_per_question": 4,
+  "output_hashes_match_remote": true,
+  "keys_gt_source_match": true,
+  "header_parameters_match": [
+    "perturb",
+    "samples",
+    "seed_base",
+    "n_questions",
+    "temperature",
+    "top_p",
+    "max_new_tokens",
+    "max_gen_total",
+    "max_model_len",
+    "min_px",
+    "max_px",
+    "max_crops",
+    "proto_module"
+  ],
+  "pool_code_hash_match": true,
+  "scorer_sha256": "95caa9979e785bad38f9602eb21795f9062f8a38dcce01cbe3ff4b2db7a4d985",
+  "files": {
+    "GRPO": {
+      "sha256": "b4961cd64e55b992af27039af07508b951d834e10b97059f422e042ff0d21059"
+    },
+    "DAPO": {
+      "sha256": "8a0dbb9a43e814bcb04fa73b4296cf418cd7756e514c53f8d6d6eb06e7345ffe"
+    },
+    "GSPO": {
+      "sha256": "033a5fc20bd8e48c29810b4ab0f6d79edf3096b6dbafab2a6035458e5d6732b2"
+    },
+    "GiGPO": {
+      "sha256": "2c809227bba2066c8513434528d7d296b483f423724a2602b3c37ce977963d3c"
+    },
+    "RLOO": {
+      "sha256": "8e2ce972baaaa805517f872c226e178e373e895007d014476a357f589f27c2c7"
+    },
+    "SP": {
+      "sha256": "6fee2f1f87fac19ec499b256c70450da0fea9dab81a3424c7b53b9f9a6ad432f"
+    },
+    "CA": {
+      "sha256": "26bca5bc146332908b74a7a11908173a8b7fee825b8e2b17f982ede1dc6c4e8c"
+    }
+  },
+  "e1_independent_blind": false,
+  "visual_audit": "24 targeted trajectories reviewed with limits; not population prevalence",
+  "precision_recall": "missing_reference_labels"
+}

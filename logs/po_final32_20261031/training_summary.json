@@ -1,0 +1,74 @@
+{
+  "sp": {
+    "complete_steps": 32,
+    "final_training_accuracy_rounded": 0.614,
+    "final_retained_reward_rounded": 0.543,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.521,
+        "precision": "rounded log"
+      },
+      {
+        "step": 25,
+        "accuracy": 0.592,
+        "precision": "rounded log"
+      },
+      {
+        "step": 32,
+        "accuracy": 0.6209,
+        "precision": "tracker, matched final log"
+      }
+    ],
+    "local_anchors": 256,
+    "local_nonzero_anchors": 112,
+    "local_gen_tokens": 287460,
+    "local_proc_tokens": 11269998,
+    "resume_wall_seconds": 21135.604365110397,
+    "final_validation_seconds": null,
+    "final_save_seconds": null,
+    "e1": 0.6386
+  },
+  "ca": {
+    "complete_steps": 32,
+    "final_training_accuracy_rounded": 0.637,
+    "final_retained_reward_rounded": 0.541,
+    "validation": [
+      {
+        "step": 0,
+        "accuracy": 0.521,
+        "precision": "rounded log"
+      },
+      {
+        "step": 25,
+        "accuracy": 0.595,
+        "precision": "rounded log"
+      },
+      {
+        "step": 32,
+        "accuracy": 0.5995,
+        "precision": "tracker, matched final log"
+      }
+    ],
+    "local_anchors": 256,
+    "local_nonzero_anchors": 173,
+    "local_gen_tokens": 445339,
+    "local_proc_tokens": 17713480,
+    "resume_wall_seconds": 17421.04693198204,
+    "final_validation_seconds": null,
+    "final_save_seconds": null,
+    "e1": 0.6544
+  },
+  "provenance": {
+    "formal_probe_20261030_221106.json": "64a9cd5a2e59ffc817cecb1680f2fbe7ab222efd23a4f4c23de8a4c822b36591",
+    "resume_probe_20261031_070224.json": "9549d22ea9d413f8c5ceabcf000238cba29d6f80a19962f4d7260df0923cb698",
+    "pre_eval_receipt.json": "da428932a6fe96efaefff8ad87fba45453389551fedcb0ecdf8d8e5b4ff111e5"
+  },
+  "limitations": [
+    "Training and development validation are not E1.",
+    "DAPO retained batches change composition across steps.",
+    "CA unsaved steps 21-23 are separately exported, not counted twice.",
+    "Final validation/save durations missing; nested timings are not additive.",
+    "Local token counters exclude shared-prefix inference."
+  ]
+}

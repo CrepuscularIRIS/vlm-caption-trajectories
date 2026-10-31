@@ -1,0 +1,61 @@
+{
+  "exporter_sha256": "d9589c677574f5b49598214da9ecddddab1370de85b40fd7f778cefaa3344bac",
+  "existing_rollout_exporter_sha256": "4749976208b054081ec7bdf796c05e7a6ead58b5c2bd16a62aa8f0005a0084e7",
+  "raw_receipts": {
+    "SP": {
+      "raw_sha256": "6fee2f1f87fac19ec499b256c70450da0fea9dab81a3424c7b53b9f9a6ad432f",
+      "rows": 2208,
+      "correct": 1410,
+      "redactions": {
+        "image_url": 0,
+        "data_uri": 0,
+        "base64_blob": 0,
+        "endpoint": 0,
+        "question_stem": 0
+      }
+    },
+    "CA": {
+      "raw_sha256": "26bca5bc146332908b74a7a11908173a8b7fee825b8e2b17f982ede1dc6c4e8c",
+      "rows": 2208,
+      "correct": 1445,
+      "redactions": {
+        "image_url": 0,
+        "data_uri": 0,
+        "base64_blob": 0,
+        "endpoint": 0,
+        "question_stem": 0
+      }
+    }
+  },
+  "omitted": [
+    "question fields",
+    "images",
+    "local paths",
+    "machine details"
+  ],
+  "files": {
+    "algorithm_comparison.png": "2b1d40e1013d245b622158a35438be75f35b9c55ef408f33e1a927a248c82384",
+    "training_steps.csv": "ee370b699e66531aa281b11cdafbe1e9688968f572037fa56347563b1aa1a278",
+    "audit_findings.jsonl": "8730d95fa681b1ac6dd5d8871ade044d311d9dc583f4b0189696a13150669a76",
+    "performance_cost.pdf": "99056f898a5356cd3271f75b93670dc9b3ee6522b65d2ce2d8f3b4b2c11eb5d0",
+    "source_crop_accuracy.pdf": "78a8d250cda9dffcc19078f8c89737dc4c324cf7b08c5fad3fc4831bc8cde8e7",
+    "performance_cost.png": "38d79a9610d25749209def42f6cfe5d1f98f9b4550e7a0c5f8543e387e8afe0b",
+    "algorithm_comparison.json": "765b30b1ab3b3e2faff66cefada40bac48f05f70bf019f11e11111163d3c70a5",
+    "paired_counts.json": "fb1a5b64c6af000e70394674c686a8b81b2cc7cbe86928e677159f1362584b4e",
+    "development_validation.pdf": "8290d5db5b4ad2046a9ea91abb4d62863c223be720746e526883881b764ccac7",
+    "development_validation.png": "cf126d134e0d891fadba6e16f4f035a40520d8123a911a19d8753a6db32bb26b",
+    "source_crop_accuracy.png": "83f97ff6ad2910da4d06a3f5a74acaa37b25452359f78f56e99dcbbdc9d4a6f8",
+    "PO-SP-32.jsonl.gz": "404fdacef0c6068e2e90c149536edc85dbb1619f1b681148fb85bbf2e3403305",
+    "strata.csv": "2b15cb688e403ed55d9af2e7e26d1e3458359d26aefebe6f714ce7c7926614f1",
+    "PO-CA-32.jsonl.gz": "06f5731132e74b0209a7b785c9726b0826469153d29f2ab1a55a45f4856f0afd",
+    "training_curves.png": "ce46f4d860442a893d853d08df8b2662bd34d820a3330b9447a69c95db1d0148",
+    "algorithm_comparison.pdf": "4b37bbfa817ee547bf9860af0e3745d2b1fd248510c9258ce69372257eaaca74",
+    "REPORT.md": "cb0070ffb4b5c36856bb34393ebc25e0f73988cb2e8bdf1a87419ab5b0f85dec",
+    "acceptance.json": "e59ce55deab6cf75e53ca3001afcb05207fe35903f58791809c954274bf0c092",
+    "AUDIT_PROGRESS.json": "0607432f9af6b47919499ec74127e328cd482a155df78134842f4ca141b604e7",
+    "summary.json": "e2ac62e866d93c6d290ee38540f988ae19a848ecc9141f001838018a9432362d",
+    "training_curves.pdf": "1364ace3c99ad32717f1b4dcbe411ce88e69f7d72b5890aee683a30b3a7b0fe0",
+    "training_summary.json": "434e99db8d8bc464a929c987753ed28c67c98eb6f7a2197479a7a88be343446a",
+    "discarded_branch.csv": "0cdb49ac8b5ce2417f7bea329d21d9b8c8f929bed3fe7732e9d167c02a9df729"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "updated": "2026-10-31T08:34:43.347445-04:00",
+  "selected_e1": 24,
+  "reviewed_e1": 24,
+  "remaining_e1": 0,
+  "reviewed_questions": 12,
+  "finding_files": [
+    "audit_findings_batch01.jsonl",
+    "audit_findings_batch02.jsonl",
+    "audit_findings_batch03.jsonl",
+    "audit_findings_batch04.jsonl"
+  ],
+  "previous_training_audit": {
+    "trajectories": 14,
+    "questions": 6,
+    "separate_from_e1": true
+  },
+  "sampling": "targeted_not_prevalence",
+  "pending_uids": []
+}

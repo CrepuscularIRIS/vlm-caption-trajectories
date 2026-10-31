@@ -1,0 +1,92 @@
+[
+  {
+    "method": "SP",
+    "reference": "GRPO",
+    "both_correct": 1150,
+    "both_wrong": 537,
+    "gained": 260,
+    "lost": 261,
+    "net": -1
+  },
+  {
+    "method": "SP",
+    "reference": "DAPO",
+    "both_correct": 1196,
+    "both_wrong": 529,
+    "gained": 214,
+    "lost": 269,
+    "net": -55
+  },
+  {
+    "method": "SP",
+    "reference": "GSPO",
+    "both_correct": 1147,
+    "both_wrong": 533,
+    "gained": 263,
+    "lost": 265,
+    "net": -2
+  },
+  {
+    "method": "SP",
+    "reference": "GiGPO",
+    "both_correct": 1116,
+    "both_wrong": 543,
+    "gained": 294,
+    "lost": 255,
+    "net": 39
+  },
+  {
+    "method": "SP",
+    "reference": "RLOO",
+    "both_correct": 1152,
+    "both_wrong": 555,
+    "gained": 258,
+    "lost": 243,
+    "net": 15
+  },
+  {
+    "method": "CA",
+    "reference": "GRPO",
+    "both_correct": 1184,
+    "both_wrong": 536,
+    "gained": 261,
+    "lost": 227,
+    "net": 34
+  },
+  {
+    "method": "CA",
+    "reference": "DAPO",
+    "both_correct": 1222,
+    "both_wrong": 520,
+    "gained": 223,
+    "lost": 243,
+    "net": -20
+  },
+  {
+    "method": "CA",
+    "reference": "GSPO",
+    "both_correct": 1181,
+    "both_wrong": 532,
+    "gained": 264,
+    "lost": 231,
+    "net": 33
+  },
+  {
+    "method": "CA",
+    "reference": "GiGPO",
+    "both_correct": 1143,
+    "both_wrong": 535,
+    "gained": 302,
+    "lost": 228,
+    "net": 74
+  },
+  {
+    "method": "CA",
+    "reference": "RLOO",
+    "both_correct": 1179,
+    "both_wrong": 547,
+    "gained": 266,
+    "lost": 216,
+    "net": 50
+  }
+]

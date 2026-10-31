@@ -1,0 +1,149 @@
+{
+  "GRPO": {
+    "file": "review_k8_grpo.jsonl",
+    "n": 2208,
+    "acc": 0.639,
+    "fmt": 0.9914,
+    "first": 0.9565,
+    "later": 0.9488,
+    "tokens": 8125.38,
+    "gen": 261.1553,
+    "truncated": 0.0009,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6645,
+      "mmmu_pro": 0.3141,
+      "vstar": 0.8438,
+      "worldbench": 0.3347
+    },
+    "correct": 1411,
+    "crops": 1.9053442028985508,
+    "protocol_flagged": 0.004076086956521739
+  },
+  "DAPO": {
+    "file": "review_k8_dapo.jsonl",
+    "n": 2208,
+    "acc": 0.6635,
+    "fmt": 0.9905,
+    "first": 0.99,
+    "later": 1.1024,
+    "tokens": 8929.8478,
+    "gen": 286.9665,
+    "truncated": 0.0023,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6881,
+      "mmmu_pro": 0.3526,
+      "vstar": 0.8728,
+      "worldbench": 0.3468
+    },
+    "correct": 1465,
+    "crops": 2.092391304347826,
+    "protocol_flagged": 0.006340579710144928
+  },
+  "GSPO": {
+    "file": "review_k8_gspo.jsonl",
+    "n": 2208,
+    "acc": 0.6395,
+    "fmt": 0.9855,
+    "first": 0.9869,
+    "later": 1.2763,
+    "tokens": 9756.2183,
+    "gen": 277.8034,
+    "truncated": 0.0009,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6622,
+      "mmmu_pro": 0.3397,
+      "vstar": 0.8348,
+      "worldbench": 0.3508
+    },
+    "correct": 1412,
+    "crops": 2.2631340579710146,
+    "protocol_flagged": 0.004076086956521739
+  },
+  "GiGPO": {
+    "file": "review_k8_gigpo.jsonl",
+    "n": 2208,
+    "acc": 0.6209,
+    "fmt": 0.9887,
+    "first": 0.9955,
+    "later": 1.0027,
+    "tokens": 8506.2731,
+    "gen": 275.2523,
+    "truncated": 0.0018,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6342,
+      "mmmu_pro": 0.2949,
+      "vstar": 0.8304,
+      "worldbench": 0.375
+    },
+    "correct": 1371,
+    "crops": 1.9981884057971016,
+    "protocol_flagged": 0.00588768115942029
+  },
+  "RLOO": {
+    "file": "traj_v53_control_s32.jsonl",
+    "n": 2208,
+    "acc": 0.6318,
+    "fmt": 0.9909,
+    "first": 0.9837,
+    "later": 1.0082,
+    "tokens": 8535.3705,
+    "gen": 277.9746,
+    "truncated": 0.0014,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6556,
+      "mmmu_pro": 0.3333,
+      "vstar": 0.846,
+      "worldbench": 0.3024
+    },
+    "correct": 1395,
+    "crops": 1.9918478260869565,
+    "protocol_flagged": 0.004981884057971014
+  },
+  "SP": {
+    "file": "traj_po_sp_s32_1031.jsonl",
+    "n": 2208,
+    "acc": 0.6386,
+    "fmt": 0.995,
+    "first": 0.9774,
+    "later": 1.2989,
+    "tokens": 9854.0897,
+    "gen": 281.1409,
+    "truncated": 0.0005,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6586,
+      "mmmu_pro": 0.3077,
+      "vstar": 0.8616,
+      "worldbench": 0.3347
+    },
+    "correct": 1410,
+    "crops": 2.276268115942029,
+    "protocol_flagged": 0.003170289855072464
+  },
+  "CA": {
+    "file": "traj_po_ca_s32_1031.jsonl",
+    "n": 2208,
+    "acc": 0.6544,
+    "fmt": 0.9946,
+    "first": 0.9615,
+    "later": 1.0453,
+    "tokens": 8584.7885,
+    "gen": 258.8139,
+    "truncated": 0.0009,
+    "error": 0.0,
+    "by_source": {
+      "mme_realworld": 0.6836,
+      "mmmu_pro": 0.2756,
+      "vstar": 0.8393,
+      "worldbench": 0.3992
+    },
+    "correct": 1445,
+    "crops": 2.0067934782608696,
+    "protocol_flagged": 0.004528985507246377
+  }
+}
