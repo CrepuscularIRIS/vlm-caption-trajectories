@@ -661,3 +661,15 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 记录包含：裁图未含声称目标、可见符号与描述不符、人物/对象身份或比较方向转移、轴与比较量混用、计算与选项不一致、重复同一视图、长输出截断，以及答对但引用不支持原句。各项都有对应题号/sample/轮次；没有将它们归结为同一个算法原因。E1不记录训练advantage，不能从这批错答反推其训练梯度或mask。先保留失败证据，未据此实施credit assignment或reward shaping新方案。
 
 外部协议差异详见[docs/02补充](02_known_issues.md#10-29-晚间协议与审查口径)。跨协议运行范围尚未确定，没有新增官方配置或协议互换分数；现有外部得分继续保留原名称、预算与轨迹。
+
+## 9. PO两方法阶段性审查（2026-10-30）
+
+本轮SP-GPO/CA-VPO在原v5.1 DAPO主目标上增加局部信用目标；共同β=.125、H8、K4，SP M2。**训练发生工程中断，尚无PO最终E1结果。** SP完成20/32、CA23/32，双方最后完整保存step20；退出日志均为Ray主机内存阈值触发worker终止。源码与启动SHA一致，双rank恢复文件非空，未做加载恢复演练。CA21–23步已完成但未保存。
+
+![PO已完成步骤曲线](../logs/po_review_20261030/training_curves.png)
+
+训练accuracy最近值SP .624 / CA .649，保留批次reward .531 / .537；它们不是benchmark准确率。开发验证仅step0 .521，无step25/32新验证。完整步的局部非零anchor为70/160、129/184；对应公式复算160/160、184/184匹配，不表示过程事实已验证或方法有效。
+
+新增3题6条**训练局部续写**逐图审查：发现主体绑定、文字与选项冲突、实际天空crop被描述成骑车人、反复寻找画外仪表等实例。原图/全部实际crop概览及完整输出已查看；单帧速度、对象类别和穷尽计数保留未判定。不是新E1审查，不外推频率。原有八方法E1和96条定向审查保持不变。
+
+[完整阶段报告与下一步待回答问题](../logs/po_review_20261030/REPORT.md) · [逐条审查](../logs/po_review_20261030/audit_findings.jsonl) · [真实步指标](../logs/po_review_20261030/training_steps.csv) · [来源SHA](../logs/po_review_20261030/PROVENANCE.json)。PO多源benchmark、终答得失、裁图分层与token成本尚待选择评测checkpoint并完成评测，不能填入历史DAPO32步的同预算排名。

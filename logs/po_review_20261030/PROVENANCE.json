@@ -1,0 +1,46 @@
+{
+  "purpose": "Interrupted-run evidence, not final benchmark results",
+  "source_data_sha256": {
+    "formal_probe_20261030_221106.json": "64a9cd5a2e59ffc817cecb1680f2fbe7ab222efd23a4f4c23de8a4c822b36591",
+    "snapshot_20261030_221056.json": "c738cb0d79ce803b5d6b96b79d40c37368c99eb8d3868bb90ee0830907a62e1c",
+    "sp/rollouts.jsonl": "bca17453a856b2e1d8e0219dd32d498efa620bfeb4e8a4b8bfc6923190c86ef6",
+    "sp/updates.jsonl": "6a4f49a1af75362a1de9add2dab365b7d52142ca4039f79a3504dd76f93f5d28",
+    "sp/local_traces.858243.jsonl": "3965a02ad12634dbd3d4cc6d9225ea5055cbe7b89a51dca52e7379e2026d10a2",
+    "sp/local_traces.864164.jsonl": "3cc2960b586903b5bf3915f6f01e9ee402e0ba258f9ae6d9f202067f9bcf2b57",
+    "ca/rollouts.jsonl": "03d5643c9969ac87af032f6df84cd7708729eadbc2c93da128df2183557ecac3",
+    "ca/updates.jsonl": "788784d8e31279236b0cf0b69a08409d7e4b95b382bb5538bd9321644b45a3e4",
+    "ca/local_traces.865047.jsonl": "3644e2f6651206e0a779b5c2038c341b87569b743ab0b69e4169015a9ec5c5b0",
+    "ca/local_traces.864719.jsonl": "807071153e407f58a67d5a76a00e08a96ed3c75e54c9cb14ed9f528e5e227f7c"
+  },
+  "training_source_sha256": {
+    "caption_contracts.py": "d186998e304399fa33334e219e3c1b1727b0fcb8bd41847c6de2afa07dc5debe",
+    "caption_env.py": "e99c161bf200b6cdb0419c140939f96e5c98bd54d68dc526312c6d7a50fe52b5",
+    "easyr1_caption.py": "68f82468b44e2c6b41f6f4a0d657ade710f8066754581bc80f3a6a991c70d0f5",
+    "easyr1_patches.py": "2152d09475a498cea5c732143ffb6732b984a082e871215e77e41c5c85627788",
+    "po_core.py": "101cc01babf20d47be8ea21d499d7886352055cd10cbe21a0b4616f64867e4b7",
+    "po_integration.py": "8b9b27390620e116297ac60138d08319bb90caad1d2cc6da6a04266e2247cd83",
+    "po_rollout.py": "ac862d065ffbd52920860d398d0f013becd16ab3a96d232997063cdf81532b8e",
+    "reward_caption.py": "d58f2e19c41945909731173be3ed412449637b8410288a23d7f6a1bbeab3e935",
+    "reward_direct.py": "2c72010e97000cf7a136dcca2bd54ff2362e154c37fe88563d69bf8850691938",
+    "run.sh": "9fb327a2c416f751e058c8a07d68fdc8f19003cb67b37e76615a55ca54675639",
+    "test_po.py": "8913fd1174e356adce5c14b7e3bb86c78f3a3e8301e384cec2e7cf977a73cee8",
+    "update_ledger.py": "6b5ed810933d887da00e485e338792b831a562f3a560f15e71d1d468001057f2"
+  },
+  "omitted": [
+    "original questions",
+    "original images and rendered crops",
+    "hostnames and machine paths",
+    "credentials",
+    "checkpoints"
+  ],
+  "files": {
+    "training_steps.csv": "cc0a66062a8a2d6a1829dbffe7ac05fc4f938633ed2df5ef348c84e926c819fa",
+    "audit_findings.jsonl": "8a9de331f6d0251b565bbbeb848959194a577de3d90453916e74688cef16ff15",
+    "AUDIT_PROGRESS.json": "c4a8710276afa8dd7e6dd0c3986bbcde3b8899f536af31e990dda9518c2643a7",
+    "training_curves.png": "386ba5e4a839407f15ceb9358bc99f24bc0a1767a7d164c952c8917758f463c2",
+    "local_signals.csv": "95db532bc717ba74597fb10cb4a4fcd03bb2f853a9c9633d03ebb118349d97ff",
+    "REPORT.md": "141bb7bc40d2319a180e8931f229a2c1af75b7513425502c40f80cb902e8e7e7",
+    "training_curves.pdf": "f34b84d101d5cc8641719a77bf747754d92a8eaa693cb1f138fdd530d43573d7",
+    "training_summary.json": "3868314e62a84b9cb7477e192c5e334d1b5c06debe88b68667418c31e45ae7f8"
+  }
+}
