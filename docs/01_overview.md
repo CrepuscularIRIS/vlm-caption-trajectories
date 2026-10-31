@@ -673,3 +673,6 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 新增3题6条**训练局部续写**逐图审查：发现主体绑定、文字与选项冲突、实际天空crop被描述成骑车人、反复寻找画外仪表等实例。原图/全部实际crop概览及完整输出已查看；单帧速度、对象类别和穷尽计数保留未判定。不是新E1审查，不外推频率。原有八方法E1和96条定向审查保持不变。
 
 [完整阶段报告与下一步待回答问题](../logs/po_review_20261030/REPORT.md) · [逐条审查](../logs/po_review_20261030/audit_findings.jsonl) · [真实步指标](../logs/po_review_20261030/training_steps.csv) · [来源SHA](../logs/po_review_20261030/PROVENANCE.json)。PO多源benchmark、终答得失、裁图分层与token成本尚待选择评测checkpoint并完成评测，不能填入历史DAPO32步的同预算排名。
+
+
+PO审查补充：训练局部轨迹已逐图核对14条/6题，新增WorldBench同图方向判断与MMMU-Pro数学、建筑题。包含无裁图的文字—选项冲突及答对但中间图文不匹配实例；定向样本不外推，PO E1仍缺测。详见[阶段报告](../logs/po_review_20261030/REPORT.md)。

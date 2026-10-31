@@ -1,7 +1,7 @@
 {
-  "reviewed": 6,
-  "planned": 6,
-  "questions": 3,
-  "scope": "directed local training continuation sample; all original/contact views inspected; not full local trace corpus or E1",
+  "reviewed": 14,
+  "planned": 14,
+  "questions": 6,
+  "scope": "directed local training traces; original and all actual crop contact views inspected; not full corpus or E1",
   "remaining_final_benchmark_audit": true
 }
