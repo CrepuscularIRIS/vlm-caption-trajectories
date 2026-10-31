@@ -35,14 +35,17 @@
   ],
   "files": {
     "training_steps.csv": "cc0a66062a8a2d6a1829dbffe7ac05fc4f938633ed2df5ef348c84e926c819fa",
+    "algorithm_comparison.pdf": "db7e7c4be390b96f41f060cae7687f557c13f1fa3cb17120e22a57f8639b4401",
     "audit_findings.jsonl": "6782d30f1689c26d72e06177d8683c89bd5032344bfec561fe81ad52e5e04814",
     "AUDIT_PROGRESS.json": "ba14f790dc674f0f56c2eff1bcfdadf22d6522b4d6cdd2e0f26785828d2f98e5",
     "training_curves.png": "386ba5e4a839407f15ceb9358bc99f24bc0a1767a7d164c952c8917758f463c2",
+    "algorithm_comparison.png": "05316466c4da9f986484216fb0f8ec53be059d2300ce9abb621e227ca908be1c",
     "anchor_batch_membership_check.json": "cc188cd3bdab1056fa1d921a45a08d15b927804caa8509f4322915a88feaaad7",
     "local_signals.csv": "95db532bc717ba74597fb10cb4a4fcd03bb2f853a9c9633d03ebb118349d97ff",
-    "REPORT.md": "45752a9f1a55d8f647465766f0562230079bef297b0ef988e682d62cabef8409",
+    "REPORT.md": "0fc79b3111d8b12c3d86523186d3113edf7586de2c2be9f9cfbc0ec08a145577",
     "training_curves.pdf": "f34b84d101d5cc8641719a77bf747754d92a8eaa693cb1f138fdd530d43573d7",
     "cost_partition_check.json": "97633af610d39ce5bf09fc1e76c30a563d83044f837198ad71645ef6fde42c53",
+    "algorithm_comparison.json": "03e74c03c17c207d1967d9a9d0fbba860265c757322fb761cdd30994eb03b7d4",
     "training_summary.json": "3868314e62a84b9cb7477e192c5e334d1b5c06debe88b68667418c31e45ae7f8"
   }
 }

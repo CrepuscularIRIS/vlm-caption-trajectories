@@ -652,7 +652,7 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 不同裁图层的题目组成不同，条件准确率不是裁图的因果效果。[完整分源/分层CSV](../logs/joint_review_20261029/strata.csv)保留正确数与分母；空字段为未记录，不当作0。没有独立区域/状态参考标签，当前不报告区域或观察决策precision/recall，pass@4也不作为recall替代。
 
-![实际记录的开发验证点](../logs/joint_review_20261029/six_training_curves.png)
+![当前算法曲线对照（不展示RLOO+Decision）](../logs/po_review_20261030/algorithm_comparison.png)
 
 曲线只有0/25/32三个实际点，连接线不是额外验证。GSPO在25步.600高于DAPO .595，32步.621低于DAPO .637；只记录交叉，不从曲线给出advantage因果。RLOO两组32步开发验证.595/.585，不能与E1 .6318/.5919混写。[验证点数值](../logs/joint_review_20261029/validation_points.json)。
 
@@ -676,3 +676,6 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 
 PO审查补充：训练局部轨迹已逐图核对14条/6题，新增WorldBench同图方向判断与MMMU-Pro数学、建筑题。包含无裁图的文字—选项冲突及答对但中间图文不匹配实例；定向样本不外推，PO E1仍缺测。详见[阶段报告](../logs/po_review_20261030/REPORT.md)。
+
+
+PO恢复更新：用户授权从完整step20续至累计32步，先SP后CA各双卡。当前对照图保留RLOO control，加入PO-SP/CA，RLOO+Decision仅保留历史结果；PO最终E1尚未生成。
