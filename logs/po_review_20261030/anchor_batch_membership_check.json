@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-30T22:22:06.630010-04:00",
+  "scope": "CPU-only check of frozen logs; no training or inference",
+  "models": {
+    "sp": {
+      "complete_steps": 20,
+      "update_groups": {
+        "all_correct": 0,
+        "all_wrong": 0,
+        "mixed": 2560
+      },
+      "anchors_checked": 160,
+      "anchor_qid_in_same_step_retained_batch": 160,
+      "missing_matches": 0,
+      "same_step_qid_membership_only": true
+    },
+    "ca": {
+      "complete_steps": 23,
+      "update_groups": {
+        "all_correct": 0,
+        "all_wrong": 0,
+        "mixed": 2944
+      },
+      "anchors_checked": 184,
+      "anchor_qid_in_same_step_retained_batch": 184,
+      "missing_matches": 0,
+      "same_step_qid_membership_only": true
+    }
+  },
+  "interpretation_limit": "Retained main batches are mixed groups; this check does not establish training on all-wrong main groups, nor visual correctness of local advantage. No new visual audits."
+}

@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-10-30T22:36:59.738731-04:00",
+  "scope": "Frozen local logs only; no remote polling or inference",
+  "models": {
+    "sp": {
+      "completed_steps": {
+        "anchors": 160,
+        "gen_tokens": 178511,
+        "proc_tokens": 6800171,
+        "trace_records": 1120
+      },
+      "unfinished_step_logged_work": {
+        "anchors": 1,
+        "gen_tokens": 97,
+        "proc_tokens": 5907,
+        "trace_records": 2
+      },
+      "matched_first_20_steps": {
+        "anchors": 160,
+        "gen_tokens": 178511,
+        "proc_tokens": 6800171,
+        "trace_records": 1120
+      },
+      "matched_first_20_nonzero_anchors": 70
+    },
+    "ca": {
+      "completed_steps": {
+        "anchors": 184,
+        "gen_tokens": 311054,
+        "proc_tokens": 12154426,
+        "trace_records": 2024
+      },
+      "unfinished_step_logged_work": {
+        "anchors": 8,
+        "gen_tokens": 12920,
+        "proc_tokens": 595677,
+        "trace_records": 84
+      },
+      "matched_first_20_steps": {
+        "anchors": 160,
+        "gen_tokens": 262040,
+        "proc_tokens": 10249383,
+        "trace_records": 1756
+      },
+      "matched_first_20_nonzero_anchors": 112
+    }
+  },
+  "limitations": [
+    "Incomplete-step logs may be partial; recorded work is not proof of optimizer completion.",
+    "Main generation-call counters cannot safely partition work by optimizer step from this file alone.",
+    "Token counters omit shared prefix inference; do not add nested timings.",
+    "Same step count does not imply same training sample composition or benchmark quality."
+  ]
+}
