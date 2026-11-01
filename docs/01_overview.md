@@ -330,6 +330,29 @@ self.training_steps = len(train_dataloader) * config.trainer.total_epochs   # 60
 
 ## 5. 结果
 
+### 三类基础baseline展示（2026-10-31整理已有结果）
+
+第一、二类已于此前完成，本次只重新分组展示，无新增推理。每行552题×4，失败保留分母。
+
+| 类别 | 模型 / 提示或训练 | 条件 | 正确/2208 | E1 |
+|---|---|---|---:|---:|
+| I | Base / direct answer | B0-ans | 904 | 40.94% |
+| I | Base / CoT | B0 | 1152 | 52.17% |
+| I | Base / 原生zoom工具提示 | B1 | 1300 | 58.88% |
+| II | A-SFT / direct answer | B3-ans | 853 | 38.63% |
+| II | A-SFT / CoT | B3-cot | 1188 | 53.80% |
+| II | A-SFT / 原生zoom工具提示 | B3-zoom | 710 | 32.16% |
+| III | A-SFT + 标准GRPO，outcome-only | K-GRPO | 1411 | 63.90% |
+| III | Base + 标准GRPO，outcome-only | K-base | 12 | 0.54% |
+
+第三类这两行均为4k×8、step32、caption v5.1。历史6k×16/step47的SFT+GRPO为66.03%，Base+GRPO caption为0.77%，Base+GRPO无工具为59.60%，不可省略预算和接口后合成同一行。A-SFT使用原caption提示另为56.70%，不是表中的原生zoom提示。
+
+原生zoom通过模型chat template生成工具文本，由本地runner解析执行，没有调用API function-calling接口；工具schema仍采用`type: function`，不称无schema纯文本提示。E1不是独立盲测。
+
+[设计仓库完整说明、图表、精确分母与四数据集结果](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/main/results/baseline_classes_20261031/REPORT.md)。
+
+用户已停止DAPO-LOO两组（完整24/28步），保留checkpoint与日志，不再派发其E1。下一阶段转Reward；尚无新Reward实验结果。
+
 ### 5.1 E1（552 题 × 4 次采样 = 2,208 条轨迹）
 
 | 条件 | 准确率 | 有 `<answer>` 标签 | 首裁率 | 后续裁图 / 题 | 处理 token / 题 | 生成 token / 题 | 截断率 |
