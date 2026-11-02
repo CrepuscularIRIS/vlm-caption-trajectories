@@ -1,5 +1,9 @@
 # 实验细节与已知问题（2026-10-26 起）
 
+## SAPO-VLM（2026-11-02）
+
+SAPO 同题观察中出现相邻行误读、正确选项伴随错误电路描述，以及从地铁站柱裁图声称读出电话的情况。审查涵盖四来源各一题、两组共八条轨迹。 [分源数据、曲线与逐图核对](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/main/results/sapo_vlm_20261102/REPORT.md)。
+
 ## PO最终验收与剩余证据边界（2026-10-31）
 
 此前Ray内存中断已通过完整step20恢复完成两组32步，保留失败/恢复成本；科学参数不变。两组最终E1均exit0、2208唯一键/552题×4，header/输入代码hash/远端输出SHA已核。NCCL退出警告保留；tokenizer regex警告与旧运行相同，未据此声称影响为零。
