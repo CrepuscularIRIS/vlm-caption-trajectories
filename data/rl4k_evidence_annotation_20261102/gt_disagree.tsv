@@ -1,0 +1,153 @@
+uid	source	unit	gt	gt_note
+mme_10118	mme_realworld	keyed_set	A	放大图确认 Capital 部分 Management Fees 行的 Aug-27 单元格读作 0.0，而非 gt 选项 A 的 20.0；选项中没有对应数值。
+mme_10164	mme_realworld	keyed_set	D	The Total revenue row reads 15,960 under dez/24, matching option C. The supplied gt value 16,849 is in the adjacent Dec -24 B budget column.
+mme_10169	mme_realworld	keyed_set	A	The July Insurance Fees cell reads 15,000 USD, matching option B. The supplied gt A (22,500) instead matches July Fuel Costs in the row immediately above.
+mme_10222	mme_realworld	keyed_set	D	图中 Total Assets 行与 30-09-2027 列交叉处读作 786.700.988,0，对应选项 C；gt 选项 D 的 731.795.037,7 位于 30-09-2026 列。保留原 gt 不变。
+mme_10315	mme_realworld	keyed_set	D	Current assets 分区中 Trade and other receivables 的 2010 年数值为 109,178（$ million），不在选项中；gt D 的 2,239 属于 Restricted cash 的 2010 年数值。
+mme_10374	mme_realworld	keyed_set	D	The June Rent Expense cell displays a dash. The value (132) belongs to June Cleaning Fee Expense, the immediately following row, not Rent Expense.
+mme_10600	mme_realworld	keyed_set	D	Revenue Breakdown 图中 Avg. Daily Rental Fee 深绿色折线在 2025 年达到最低点，2024 年折线点明显更高。图像支持选项 C（2025），而非 gt D（2024）。
+mme_10622	mme_realworld	keyed_set	B	同名汇总行的年度数值为211、211、221、231、305、315、328、336、341、344，10 Years列为284。最高值是344（选项C），不是gt B的341。若比较整个分区，Sit-In Kayak行还有498，也不支持341。
+mme_10641	mme_realworld	keyed_set	A	Cash Flow Statement中的Change in Cash在2029年为62,163；2023—2033年所有年度值均小于600,000，最大为2033年的207,598。Total列852,030不是年度值。相邻Cash行首次超过600,000是在2032年（644,432），同样不支持gt A。
+mme_10660	mme_realworld	keyed_set	B	Total Cost of Revenue行依次显示横杠、1.043、1.564、2.085、3.475、6.255、6.255、3.128、3.128。最大值是6,255，并非gt选项B的6,225。
+mme_10812	mme_realworld	keyed_set	D	The Change in Cash row shows a dash for January and 346,250 for February. February is therefore the first month exceeding 100,000. August shows 101,658 but is n
+mme_13772	mme_realworld	single_box	E	图中央清晰可见红底白字“Heumarkt”，因此 E 所称图中没有该内容不成立。C 的“Heunarkt”和 D 的“Heumurkt”均与图中文字拼写不同；不修改原 gt。
+mme_14235	mme_realworld	single_box	D	The brown hanging sign on the right reads 'APTEKA Centralna'. The sign reading 'Terranova' is on the left, so gt D does not satisfy the question's location cons
+mme_14270	mme_realworld	single_box	C	The left-hand poster on the foreground right-side street lamp clearly reads ANNA KARENINA, matching option D. OLD NAVY is a separate building sign to the right 
+mme_14346	mme_realworld	single_box	B	The full-resolution crop shows the lowercase wordmark 'incase', with a right-hand stem on the fourth letter 'a', supporting option A rather than gt B ('incose')
+mme_14404	mme_realworld	single_box	B	The foreground camera model marking clearly reads X-T30, matching option C rather than the supplied gt B (T-X30). The black camera also displays X-T30.
+mme_14468	mme_realworld	single_box	B	The Fresh Strawberries listing clearly shows $3.88 ea., matching option C rather than supplied gt B (45.66).
+mme_14601	mme_realworld	single_box	A	放大图中花体名称可见部分读作“The Carly”，右端被手包遮挡；可见字母与 gt 的“The Candy”不符。
+mme_14927	mme_realworld	single_box	C	原分辨率裁剪确认“Huevos con Tocino”一行标价为 $2.95，对应选项 D，不是 gt C 的 $2.05。
+mme_15023	mme_realworld	unanswerable	A	图中 CHILI DOG & SMALL FRIES 对应的价格为 $2.29（大号 2，右上角小号 29），不是题面所写的 $29。全图没有标价 $29 的套餐，因此按题面字面要求，选项 A 不成立。
+mme_15066	mme_realworld	single_box	D	SUMMER TOYS 栏明确标注 40% OFF，对应选项 B，而非 gt D 的 30%off；30% OFF 出现在相邻的 ST. PATRICK’S 栏。
+mme_15349	mme_realworld	single_box	C	认证白框从上到下清楚显示 APPROVED、BY THE、COMICS、CODE；按独立文字行计数，第三行是 COMICS（选项 B），gt CODE（选项 C）是第四行。
+mme_15476	mme_realworld	region_global	A	The map depicts London, with visible labels including River Thames, Hyde Park, Westminster, and King's Cross. 'MINUTES' is part of the publisher's watermark/foo
+mme_15738	mme_realworld	single_box	B	包装正面标题清楚写着 STAR WARS，对应电影系列选项 A；右下角的 Disney 是品牌标志，不是该电影系列标题，故不支持 gt B。
+mme_15963	mme_realworld	single_box	C	图中演员介绍明确列出 Brendan Fraser、Helen Mirren 和 Jim Broadbent。Karen Durbin, ELLE 是顶部影评引语的署名，不是主演名单；给定选项中没有与图中主演名单相符的答案。
+mme_16867	mme_realworld	single_box	A	The plate 35 HT 01 is clearly visible on the silver hatchback at image left. The prominent white van at image right instead bears 82 UZ 74. The gt text matches 
+mme_16873	mme_realworld	single_box	A	The full-resolution crop shows the plate reading '46 EG 52', not gt option A, '48 EG 52'. None of the supplied options matches the visible plate.
+mme_17033	mme_realworld	single_box	B	The full-resolution crop shows the target plate as TO 725DH. In particular, the character after 5 appears to be D, not the 0 in gt option B (T0 7250H).
+mme_17170	mme_realworld	single_box	D	The hull marking clearly reads F 219, matching option C, not the supplied gt D (F 229). The full-resolution crop confirms that the middle digit is 1.
+mme_17619	mme_realworld	single_box	E	粉色“大信”招牌下方清楚显示“02)2254-7761”，因此 gt E 所称图中没有号码不成立；该号码与 A–D 均不完全一致。
+mme_18113	mme_realworld	single_box	C	Full-resolution crops confirm that the AUTO DRIVER telephone line reads 'TEL: 0745 147 720 / 0744 820 208'. Its first number matches option A, not the supplied 
+mme_18521	mme_realworld	single_box	D	雕像后方建筑底层红色招牌放大后读作 КЕГАБ（第三字可见部分呈 Г 形，可能为模糊的 Б）。末字为西里尔字母 Б：下部闭合圆圈、上横向右伸出，字形与选项 C 'KECA6' 的末字 6 一致，与 gt D 'KECAG' 的 G（右侧开口无闭合圆圈）不符。两个选项都不是严格转录，但图像更支持 C。
+mme_18727	mme_realworld	single_box	D	裁剪图中，远处篮筐上方显示牌的黄色计时字段读作 6:15，下方红色字段为 30；黄色内容不是 gt D 的 0。
+mme_18802	mme_realworld	single_box	B	原分辨率裁剪清楚显示左上角文字为“GAMBIT / COMPETITIVE CO-OP”，对应选项 A；gt 选项 B 中的“COMPETLTIVE”与图中文字不符。
+mme_18808	mme_realworld	single_box	E	The number below the lower-left barcode clearly reads 978-3-8454-7055-9. The requested content is present, contradicting option E, and none of options A–D exact
+mme_18821	mme_realworld	single_box	B	The full-resolution crop shows 'FUSION', matching option C (Fusion), not the supplied gt B (Fasion).
+mme_19172	mme_realworld	single_box	E	The silver sign is present in front of the foreground car. The crop confirms its date reads “25 - 27 Aprile 2008”. Options A–D do not reproduce that date exactl
+mme_19222	mme_realworld	single_box	E	The upper-left plaque visibly reads SOUTH. The requested text is present, contradicting option E. None of options A–D spells SOUTH correctly.
+mme_19235	mme_realworld	single_box	A	原分辨率裁图确认：鸟形图案正上方的浅色文字为 FOOTBALL CLUB，对应选项 B；gt A 的 YOU'LL NEVER WALK ALONE 位于上方横幅，但为浅色底上的深色字，不满足白色文字约束。
+mme_2358	mme_realworld	single_box	A	左侧前景穿黑色上衣和深色裤子的行人呈迈步姿态，脚下为道路斑马线而非人行道；可见证据支持 B（crossing the crosswalk），不支持给定 A。
+mme_2454	mme_realworld	multi_set	C	近景蓝白色公交车、红色公交车、远处浅色公交车之外，浅色公交车右侧还可见一辆绿色公交车，共4辆，与gt的3辆不符。
+mme_2479	mme_realworld	unanswerable	E	The image visibly contains white-and-blue roadside railing barriers: one in the lower-left foreground and additional railing beside the parked cars on the right
+mme_3134	mme_realworld	multi_set	B	The closer views show two additional carton-like box bodies omitted from the draft: a pale striped carton behind b2 and a small yellow-brown carton in front of 
+mme_3148	mme_realworld	unanswerable	C	The crops show three individual tires in each of the foreground-left, middle-left, and middle-right stacks, plus two in the foreground-right stack: these four s
+mme_3151	mme_realworld	unanswerable	C	裁剪图显示近景右侧 b6 是三个堆叠轮胎，左侧 b1 也是多个堆叠轮胎，此外还有数处轮胎堆。因此六处轮胎组不能等同于六个轮胎，按单个轮胎计数不支持 gt C（6）。远处堆叠内部的轮胎边界模糊，无法可靠确定总数。
+mme_5258	mme_realworld	keyed_set	D	2023 列的 Initial Investment 单元格为空白。29.032 出现在该列的 Free Cash Flow (undiscounted) 行和 Total 行，而非 Initial Investment 行；图中证据支持 E，不支持给定 gt D。
+mme_5371	mme_realworld	keyed_set	E	Principal Repayments 行与 Jan-23 列交叉处明确显示 (230)。该数据存在，但选项 A–D 未列出这一数值，gt E 所称图中没有该数据与图像不符。
+mme_5383	mme_realworld	keyed_set	B	Job Type 3 的 Average Material Costs per Job 中，Item 41 对应金额为 $2,000，不在给定选项中。gt B 的 $1,250 是右侧 Average Equipment Rental Costs per Job 中 Item 41 的金额。
+mme_5641	mme_realworld	keyed_set	C	Manufacturing Capacity 表中，2027 F / Year 4 列的 Capacity Increase 为 10,000，对应选项 B；gt 选项 C 的 5,000 位于相邻的 2026 F / Year 3 列。
+mme_5645	mme_realworld	keyed_set	A	The January Revenue cell reads $241,644,182, not 21,644,182 as stated in option A. None of the numerical options matches the displayed January value.
+mme_5780	mme_realworld	keyed_set	D	Total CAPEX 中 Buildings 行、2025 列的单元格清晰显示“-”，不是 808；808 位于同列的 Furniture 和 Fixtures 行。
+mme_5840	mme_realworld	keyed_set	C	The Funds Contributed value for Raise A is $500,000. The gt value $250,000 belongs to Raise B. No listed option matches the visible Raise A value.
+mme_5855	mme_realworld	keyed_set	B	原分辨率裁剪中，Feb-21 列的 Net Income 清楚显示为 (218,553.30)，而 gt 选项 B 为 218,533.30，数字不同，且省略了会计负数括号。
+mme_5893	mme_realworld	keyed_set	B	Net Investor Cash Flows 表中，Client 1 的 FY 2022 单元格显示 $ (2,000,000.00)，不是 gt B 的 5,000,000.00；$ (5,000,000.00) 位于下一行 Client 2。
+mme_6011	mme_realworld	keyed_set	C	图中 Cumulated Operating Hours 行与 2026 / Year 3 列交叉处为 13,140，对应选项 B；gt 选项 C 的 21,024 属于 2027 / Year 4 列。
+mme_6016	mme_realworld	keyed_set	C	2027 / Year 4 列的 EBIT Margin 为 17.1%，选项中没有此值。gt C 的 21.2|% 对应同列 EBITDA Margin 的 21.2%，且选项多出竖线，不符合题目所问的 EBIT Margin。
+mme_6048	mme_realworld	keyed_set	C	Payback Period 区域中，Cumulative Cash Flow 行与 Year 8 列交叉处为 2,100,000，对应选项 B；gt 选项 C 的 800000 位于该行 Year 6 列。
+mme_6074	mme_realworld	keyed_set	C	提供的全图中，Consumables 下 Management Case 的数值为 35.20；gt C 的 36.28 出现在 Base Case 行及 Consumables 汇总行。35.20 未列入选项。
+mme_6287	mme_realworld	keyed_set	E	指定图表中明确有 Residential 标签及对应的正值柱，柱高远低于 $100,000 刻度，支持选项 D，而不是表示数据不存在的 gt E。
+mme_6347	mme_realworld	keyed_set	A	JV Partner 1 的柱顶介于 30.0% 和 35.0% 之间，约为 33%；全图中相邻财务指标表显示其 IRR 为 32.9%。A（32%）是最接近的选项，但不是图中的精确数值。
+mme_6357	mme_realworld	keyed_set	A	Cash Balance 行与 2022 列交叉处清楚显示 $5,090，下方绿色曲线在 2022 年也约为 $5,000，不支持 gt A 的 50,000。
+mme_6466	mme_realworld	keyed_set	B	2026 年的 15.6% 对应浅绿色 Net Income (Loss) Margin 折线，而不是 Direct Costs。Direct Costs 是灰色柱，按左侧 USD 轴估读约为 16,000,000 USD，没有精确数值标签。
+mme_6764	mme_realworld	keyed_set	B	The Cash from Operations row under 2021F clearly reads 19,576, not the gt option B value 79,576. None of the supplied numeric options matches the visible value.
+mme_6900	mme_realworld	keyed_set	C	Jun-22 行左侧 Interest 列显示 $81,758，右侧 Interest 列显示 $0；gt C 的 8,175,809 出现在该行的 Beginning Balance、Repay Balance 和 Balance (interest basis) 列，而不是 Interest 列。
+mme_7060	mme_realworld	keyed_set	B	右上 Retained Earnings & Cash 图中，2024 年 Cash Balance 蓝柱标值为 13,372；gt 的 13,738 对应 2025 年蓝柱。2024 年的可见值不在给定数值选项中。
+mme_7070	mme_realworld	keyed_set	B	图例确认灰色柱为 Successful Drills。FY2026 的灰色柱高度约为 6，介于 0 和 10 之间，不支持 gt B（Between 30 and 40）；同年份绿色柱属于另一系列，高度约为 40。给定选项中没有符合目标柱读数的区间。
+mme_7140	mme_realworld	keyed_set	B	The Year 5 cell in the Units per Load row reads 100,000, not 10,000. The immediately preceding Estimated Shipping Costs per Load row reads $10,000. None of the 
+mme_7146	mme_realworld	keyed_set	D	The Reserve row's Amount cell clearly reads $100,000, not gt option D ($10000). None of the supplied numeric options matches the visible value.
+mme_7244	mme_realworld	keyed_set	C	The Investment Split chart explicitly labels Working Capital Funds as 260,000, not the supplied gt value 220,000. None of the numeric options matches the displa
+mme_7290	mme_realworld	keyed_set	C	The 2022 entry in the 'Pecan Pice' row reads $5.50, with unit USD/kg, not 5.50%. The adjacent Pecan Price Inflation entry is 3.00%. Option C matches the price n
+mme_7471	mme_realworld	keyed_set	A	Year 4 列的 Cost of Services 行读作 853,753，选项中没有该值。gt A 的 1,552,279 位于 Year 4 的 Revenue 行，而非 Cost of Services 行。
+mme_7478	mme_realworld	keyed_set	D	图中 Retained Earnings 行与 Year 1 列交叉处为 218,375，对应选项 C；gt 选项 D 的 247000 是 Year 1 的 Equity Capital 值。
+mme_7763	mme_realworld	keyed_set	C	The Exterior Renovation Budget Subtotal under Month 6 reads 39,817 (option B), not 39,871 (gt option C). The supplied crops confirm this reading; gt is unchange
+mme_7855	mme_realworld	keyed_set	C	Investor (LP) Cash Flows 区域的 Tier 1 行、Month 5（Jun-22）列读作 4,676；gt 的 4,831 位于 Month 6（Jul-22）列。选项未列出 4,676。
+mme_7897	mme_realworld	keyed_set	D	上方 Cash 图中，Q4 2021 的橙色 Cash Balance 点对应右侧数值轴约 500,000，位于 400,000 与 600,000 之间，不符合 gt D 的 200000 至 400000。
+mme_7928	mme_realworld	keyed_set	D	FY2031 下的 $346,957 位于 Owner DCF 行，而不是 Owner NPV 行。Owner NPV 行在 Year 0 列显示 $2,460,875，FY2031 对应单元格为空。按题面字面要求，图中证据支持 E 而非 D。
+mme_7953	mme_realworld	keyed_set	C	Customer Service Headcount 图中 Oct-24 对应柱顶高于 40、低于 50，约为 44，支持选项 D，而非 gt C。
+mme_7965	mme_realworld	keyed_set	A	The NPV field reads ($856,229), with accounting parentheses indicating a negative value. Option A matches the digits but omits the negative sign represented by 
+mme_8005	mme_realworld	keyed_set	D	Column 1 of 'Net Cash Effect of Investing Activities' reads ($1,800,000). The gt magnitude $23,140 belongs instead to 'Net Cash Effect of Operating Activities',
+mme_8034	mme_realworld	keyed_set	B	The 5/1/2026 row under Active Customers - Type 2 reads 538,750, which is not among the options. The supplied gt value 8,948 appears in that row under Customers 
+mme_8377	mme_realworld	keyed_set	C	Jan-2025 的 Prospective tenants 浅蓝色堆叠分段下界约为 350、上界约为 1300，分段自身的值约为 950 sqm，不在选项 C 的 1000 to 1500 内；C 对应的是柱顶累计高度所在区间。
+mme_8433	mme_realworld	keyed_set	C	The FY 2026 orange Type 2 segment spans approximately $125,000 to $380,000 on the stacked chart, so its value is approximately $255,000, within option D. Suppli
+mme_8445	mme_realworld	keyed_set	D	The CIO row (row 42, Apr-23) reads 35.0% in the Payroll Tax/Benefits column, corresponding to option A rather than supplied gt D (0.0%). The next row, Business 
+mme_8642	mme_realworld	keyed_set	B	The Total Buildings row shows 95.000.000 in the Amount column and 69,90% in the percentage column. The gt value 10.000.000 belongs to Other Buildings, not Total
+mme_8647	mme_realworld	keyed_set	A	Equity Contributions 分区的 General Partners % 为 10,0%；gt A 的 60.0% 出现在 Profit Distribution Share 分区的 General Partner % 行。题目指定分区的值不在选项中。
+mme_8710	mme_realworld	keyed_set	D	Total Distributions 行的 Year 5 列清楚显示 21.737.057，不在数值选项中；gt D 的 394.242 位于该行 Year 3 列。所问数据确实存在，因此选项 E 也不成立。
+mme_8824	mme_realworld	unanswerable	C	The image shows an Atlas Eco Resort Business Valuation spreadsheet with annual cash-flow projections and enterprise/equity valuation. It contains neither a Uses
+mme_8984	mme_realworld	single_box	C	The diagram's rightmost x-axis year is 2034. The label 2032 is followed by 2033 and 2034, so gt C (2032) does not match the visible end year. No supplied option
+mme_9099	mme_realworld	keyed_set	B	The Gross Profit Margin series shows 10.5% for 2027. The supplied gt B, 7.5%, belongs to the Net Profit Margin series for 2027. The requested value is visible b
+mme_9107	mme_realworld	keyed_set	A	The Profit Margins chart shows forecast 2030 Net Profit Margin as 22.7% on the blue series. The gt value 37.4% belongs to the Gross Profit Margin series for 203
+mme_9214	mme_realworld	keyed_set	B	图中 Net Inc. FY18 对应 (976)，即负 976 百万美元；选项 B 的 976 仅与绝对值一致，未保留负号。
+mme_9398	mme_realworld	keyed_set	C	2021 年（01-Jan-21 至 31-Dec-21）列的 Tax 为 (33,565)，数值对应选项 D。gt C 的 26,800 位于相邻的 2020 年列。保留原 gt 不变。
+mme_9671	mme_realworld	keyed_set	A	2030 年 Unlevered Free Cash Flows 单元格显示 (3,563,234)，即负值 -3,563,234 USD；选项 A 的数字大小一致，但遗漏了负号。
+mme_9876	mme_realworld	unanswerable	A	The table has two Sensitivity columns for 2025. Gross Profit in USD/Motorboat is 4,349 under Motorboats # and (14,048) under Daily Motorboat Income. Option A ma
+mme_9969	mme_realworld	keyed_set	D	The July Cash Beginning cell clearly reads 67,269 USD, whereas gt option D says 67,259.
+test_Accounting_170	mmmu_pro	keyed_set	D	图中1926–2009行的风险溢价为7.93%，标准差为20.81%。按权益权重 y = 0.0793/(4 × 0.2081²)，权益应占45.78%，T-bills应占54.22%。题目询问顺序为T-bills、equity，gt D却给出45.78%、54.22%，次序相反；没有选项符合正确顺序。
+test_Accounting_99	mmmu_pro	keyed_set	A	图中Project Alpha第0至3年现金流为−$2,100、1,200、1,100、900；Project Beta为−$3,700、800、2,300、2,900。按题给8.5%折现率计算，盈利指数分别约1.307和1.341，均大于1，故应接受两个独立项目，对应选项C，而非gt A（仅B）。
+test_Architecture_and_Engineering_146	mmmu_pro	region_global	I	图中是三角形 ABC，三边方位标注为 N05°15′38″E、S76°18′52″E、S88°35′24″W。根据方位角计算，内角 A=81°34′30″、B=15°05′44″、C=83°19′46″。gt 的 B=194°50′06″ 大于 180°，不可能是图示三角形的内角，且 gt 三角之和不等于 180°。
+test_Architecture_and_Engineering_442	mmmu_pro	region_global	D	图示 B 点承受竖直向下的 60 kN 荷载，A 为铰支座，C 为水平滚动支座；AB 水平投影为 3 m、高差为 4 m，BC 长 4 m。按题给 E、A、I，以线弹性刚架虚功法计入弯曲和轴向变形，C 的水平位移约为向右 16.2 mm（仅弯曲约 17.6 mm），与 gt 的 44.1 mm 不符。
+test_Architecture_and_Engineering_473	mmmu_pro	unanswerable	B	图中标出了三角形 ABC、位于 C 右侧的卫星站 S，以及 SA、SB 和辅助角，但没有边长或数值角度。题面数据与 gt 不相容：若 ∠ACB=71°27′48.68″，由正弦定理，sin B=(AC/AB)sin C=(25/16.5)sin(71°27′48.68″)≈1.437>1，不可能构成三角形。
+test_Art_Theory_53	mmmu_pro	single_box	G	桌面正面题字读作“El sueño de la razon produce monstruos”，画面为伏案人物与猫头鹰、蝙蝠、猫，是 Goya《Los Caprichos》第 43 号，对应选项 D Francisco Goya，而非 gt G Giovanni Piranesi。
+test_Computer_Science_14	mmmu_pro	region_global	C	The five points show a pronounced decrease in mpg as weight increases, while the fitted line is horizontal at approximately 22.3 mpg. The fitted line misses the
+test_Electronics_18	mmmu_pro	region_global	G	图中串联电阻为305Ω，并联支路分别为1kΩ与16mH串联、500Ω、1/10 μF；输入为v(t)=sin((2π×10^4)t+45°)V，sin前没有系数5。由这些参数计算，输出约为0.401cos((2π×10^4)t−90.0°)V，与gt G的幅值0.866和相位−59°不符。
+test_Geography_191	mmmu_pro	region_global	E	图中均布荷载为 1.5 kN/m，作用于 A、B 之间的 8 m 跨段，B 到右端集中荷载 P 的距离为 4 m。按使 A 支座反力为零理解题意，对 B 点取矩得 P×4=(1.5×8)×4，因此 P=12 kN，对应选项 I，而非 gt 的 8KN。
+test_History_207	mmmu_pro	region_global	J	图题读作 “REMAINS OF THE ZIGGURAT OF WARKA, PRESENT-DAY IRAQ, ORIGINALLY BUILT CIRCA 4500 B.C.E.”，照片为美索不达米亚泥砖塔庙废墟。公元前 4500 年的美索不达米亚建筑不可能受中美洲建筑风格影响；图中证据更支持 G（为神祇建造）或
+test_Materials_165	mmmu_pro	keyed_set	A	图中读出 P=800 kN、截面 300 mm×300 mm、顶面 4 根钢筋。取 E_st=200 GPa（n=8）：A_st=4·π·9²=1017.9 mm²，A_c=88,982 mm²，σ_c=800e3/(88,982+8·1017.9)=8.24 MPa，σ_st=8·8.24=65.9 MPa。题目问钢
+test_Mechanical_Engineering_359	mmmu_pro	region_global	C	图示输入标为 T(t)，题面写 F(s)。若将 F(s) 视为输入转矩，图中 N1=5、N2=20、N3=40、N4=10，惯量为 1 kg·m²，串联阻尼和弹簧分别为 2 N·m·s/rad 和 2 N·m/rad，负载阻尼为 0.02 N·m·s/rad。负载阻尼折算到 N3 轴为 0.32，串联元件的转矩/角速度
+test_Pharmacy_333	mmmu_pro	keyed_set	D	图中30、40、60、80°C分别对应216、311、440、585克溶质/100克水。相邻点线性插值得35、55、75°C分别为263.5、407.75、548.75克/100克水。gt D的后两项370、510与这些数据不符。
+test_Physics_127	mmmu_pro	region_global	D	R 与 T、S 与 X 之间有连接的磁力线，表示异极相吸；T 与 Y、X 与 Z 之间的磁力线分开，表示同极相斥。因此 R 与 X、Z 同极，图中证据支持选项 I，而非 gt D（X and Y）。
+test_Public_Health_186	mmmu_pro	keyed_set	F	图中未暴露组患病9例、未患病7例，暴露组患病17例、未患病5例。暴露者归因分值为[17/(17+5)−9/(9+7)]/[17/(17+5)]=0.272，按选项精度对应E（0.27），而非给定F（0.30）。
+validation_Accounting_5	mmmu_pro	keyed_set	H	图中四季度的期初在产品为—、2,500、3,600、6,500，投入量为255,000、275,000、290,000、300,000，转出量为235,000、250,000、275,000、280,000，转换完工程度为50%、40%、45%、60%。加权平均法转换约当产量分别为245,000、261,000、283
+validation_Architecture_and_Engineering_22	mmmu_pro	keyed_set	A	图中五行前视/后视方位角为 AB 142°30′/322°30′、BC 223°15′/44°15′、CD 287°00′/107°45′、DE 12°45′/193°15′、EA 60°00′/239°00′。同站方位角之差给出内角96°30′、99°15′、117°15′、95°00′、133°15′，合计541°
+validation_Biology_20	mmmu_pro	keyed_set	F	图上 PO2=20 mmHg 对应饱和度约 30–32%，PO2=60 mmHg 对应约 90–92%；相减约为最大 HbO2 的 60%，不支持 gt F 的 65%。选项中没有约 60% 的答案。
+validation_Chemistry_11	mmmu_pro	region_global	G	The plotted pH rises from approximately 1 to 12, with the marked equivalence point at pH 7. This matches strong base added to strong acid (option A), not strong
+validation_Electronics_17	mmmu_pro	region_global	F	图(b)中电源为100 V，上端为正；电感为5 H，电流向右，v为左正右负。切换前稳态下20 Ω与4 Ω并联，再与30 Ω串联，故电感初始电流为2.5 A。切换后开关短接20 Ω，电感通过4 Ω放电，时间常数为5/4 s；按图示极性v=L di/dt=-10e^{-0.8t} V。gt F的衰减率一致但电压符号相反。
+validation_Energy_and_Power_6	mmmu_pro	region_global	F	容器外壁画有多圈螺旋盘绕通道，顶部有搅拌轴，未显示连续包围容器的整体夹套。在给定选项中，该结构更符合 D（Half coil Vessel），而非 gt F（Jacketed Vessel）。
+validation_History_6	mmmu_pro	region_global	D	图为二战苏联宣传海报：持步枪刺刀的士兵队列、醒目“1917”、俄文标语，图注译为“Young Men and Women, Defend the Freedom, Motherland, and Honor that was Won by your Fathers”。画面体现保卫祖国的民族主义，与马克思“工人没有祖国”
+validation_Literature_28	mmmu_pro	region_global	J	图中一名教师手持绘本 THE THREE NINJA PIGS 给三名儿童围坐朗读，与题面所述 Holdaway 的 Big Books 小组共读（F Shared-book Experience）一致；图中没有任何指向 J Survival And Adventure 的内容
+validation_Marketing_12	mmmu_pro	keyed_set	C	The with-breakfast column reads [8,7,9,5,9,8,10,7,6,9]; the without-breakfast column reads [6,5,5,4,7,7,7,5,6,5]. Corresponding-row differences are [2,2,4,1,2,1
+validation_Music_18	mmmu_pro	region_global	H	图中高音谱号下，下方音符在第二间，带升号，为 A♯4；上方音符在第五线上方的间，为 G5。这两个按谱面拼写的音属于选项 I 的 B 和声小调，不属于 gt H 的 C 旋律小调。
+validation_Psychology_24	mmmu_pro	single_box	G	蓝色区域位于脑桥下方、脊髓上方、小脑前方，覆盖延髓的外形，对应 D（medulla oblongata）；未见明确标出的脑干内部网状结构，图像不支持 G（reticular formation）。
+validation_Sociology_25	mmmu_pro	single_box	E	图中标题读作“value-neutrality”（下方为记者、持写字板者、西装男三人插画）。价值中立指不带价值判断的陈述；选项 F（2003 年阿肯色等州立法要求小学撤除汽水售卖机）是纯事实陈述，而 gt E（体育活动和健康饮食是儿童教育的基本部分）含价值判断。按图中概念应为 F，gt E 不成立；gt 未改。
+worldbench_1045	worldbench	multi_set	C	Three people have visible heads: the foreground carrier, the person in the doorway immediately behind and to the right of his head, and the person in the farthe
+worldbench_1089	worldbench	multi_compare	A	放大图确认背部上方有明显黑色不规则碎屑，体侧也附有颗粒，A 所述特征实际存在。沿体侧的黑线、三条可见的腿和橙色腹侧也均可见；未发现选项中明确不实的一项。
+worldbench_120	worldbench	ordered_chain	B	图中是 iProxy.Online 的 Stripe 付款方式页面，编号 1 的箭头指向 Mastercard 的省略号菜单，编号 2 的箭头指向 Remove。可见指令是在移除已保存的付款方式，未显示设置移动代理的操作，因此不支持选项 B。
+worldbench_1243	worldbench	multi_set	A	The crops show three visible blade portions: the left diagonal blade, the right downward-pointing blade, and a short lettered portion of the central chainsaw bl
+worldbench_1308	worldbench	multi_set	B	裁剪图确认有三名穿深蓝紫色衣服的医护人员：左侧站立者、右侧抱臂者和中央后方被遮挡者。可见实例数为3，对应C，而非gt B的2。
+worldbench_1338	worldbench	single_box	D	放大图显示 Dock 从左到右为 Calendar、Contacts、Reminders、Notes。Notes 左侧第二个应用是 Contacts（B），而 gt Reminders（D）位于 Notes 左侧第一个位置。保留原 gt 不变。
+worldbench_1340	worldbench	multi_compare	C	The baby in the 2015 upper-left photograph faces image-left, exposing the right facial profile. Babies in the 2016 photographs face image-right, exposing the le
+worldbench_1432	worldbench	single_box	B	The ship has a curved raised prow on the left and a windowed elevated stern structure with a rudder-like rear extension on the right. Its apparent heading is le
+worldbench_1443	worldbench	single_box	A	放大图显示选中匕首向下的刀尖约在 y=0.433；向右水平移动首先进入 ATK 标题字段的下缘，而 Physical 字段从约 y=0.440 开始，位于刀尖下方。严格按水平移动理解，图中不支持选项 A。
+worldbench_1497	worldbench	unanswerable	D	A white robotic end-effector with finger-like gripping components is visible near the center, above the peg and perforated work surface, contradicting the claim
+worldbench_1539	worldbench	keyed_set	C	Specification 第二子列只有 According to Jet A1 Spec. 行真正空白；另外四行明确显示 '-'。按字面空白计数为 1，不在选项中；将 '-' 也算作未填写单位，才得到 gt C 的 5。
+worldbench_1594	worldbench	multi_set	D	There are 11 complete stacked bars strictly below 100 Gigatons: Canada, AUS/New Zeal, Ukraine, Mexico, Other EU, South Africa, South Korea, Turkey, Nigeria, Res
+worldbench_1637	worldbench	pair_relation	C	放大图显示税务印章的两行文字相对于近乎水平的WARRANTY DEED仅顺时针倾斜约3°–5°，最接近选项A（About 0°），不支持gt选项C（About 15°）。
+worldbench_1662	worldbench	multi_compare	D	左侧有4行顶部文字、3行底部小字和1行ASUS标志，右侧有4行顶部文字和1行ASUS标志。右侧比左侧少3行，不是多3行。gt D的数值3仅与差值的绝对值一致。
+worldbench_1753	worldbench	pair_relation	B	The central e− segment runs from approximately (219,193) to (329,164), giving approximately 15° to the horizontal space axis and 75° to the vertical time axis. 
+worldbench_1881	worldbench	region_global	B	外侧大循环、Government 左侧小循环、Government 右侧小循环和 Financial Institutions 右侧小循环的箭头均沿顺时针方向，共 4 个。Financial Institutions 左侧两条弧线方向不一致，不构成同向循环。图示计数与 gt B（1）不符，且选项没有 4。
+worldbench_1901	worldbench	multi_compare	D	放大图中，I 与 XVI 的鹰后均为向左右展开的相同叶枝装饰；II 与 XV 的交叉器物不同，III 与 XIV 的装饰也不同。视觉证据支持选项 A，而非给定的 D；不修改 gt。
+worldbench_193	worldbench	multi_set	C	The full-resolution crops show three face-on white dishes and a fourth, narrow cream-colored dish viewed edge-on immediately left of the lowest white dish. Four
+worldbench_243	worldbench	multi_set	A	放大图显示，迷彩服人物一只手在胸前竖持手机，另一只戴手表的手横持另一部手机，两条手臂均属于该人物。图中可见的最大持有数量为两部，对应选项 B，而非 gt A。
+worldbench_286	worldbench	multi_set	C	放大后可确认十张可见的脸。初稿 b5 区域仅见头饰和头发，面部被前方手臂遮挡，不能计作可见的脸；视觉计数对应 B（Ten），而不是 gt C（Eleven）。未修改 gt。
+worldbench_34	worldbench	single_box	D	The report displays Start Time: 2015-07-27 21:01:54 and Duration: 0:00:00.000858. Adding the displayed duration gives 21:01:54.000858, corresponding to A at who
+worldbench_343	worldbench	pair_relation	A	近端作者标牌清楚读作「あまんきみこ」，对应书籍位于其右侧、い 标牌左侧。上层左端标牌为「あ」。选项 A 的「む」在远端分格，位于这些作者书籍的图像右侧，方向与题意相反；图中证据不支持 A。
+worldbench_398	worldbench	multi_compare	D	清晰可见的价格字段中，4980的4、2980的2和3980的3均比后面的980大。9、8、0彼此大小近似，但完整价格字段中的数字并非全都一样大；较大的首位数字不在选项中。
+worldbench_428	worldbench	multi_set	B	放大图显示右列最上方棕色顶吊篮为空，其左侧是支撑连接件，不是乘客。唯一明确可见乘客的蓝绿色吊篮属于左列。按图像中的左右列划分，右列可确认非空的数量为0，而非gt的1；远处吊篮不能据此断言为空。
+worldbench_553	worldbench	multi_set	C	The visible surface contains two identifiable pink coral reflections: the large central magenta patch and the smaller pink patch to its right. A third reflected
+worldbench_571	worldbench	multi_compare	B	裁剪图确认，中心标志 RINGLING 的首字母 R 连同花体延伸的可见高度约为 73 像素，大于 BARNUM 首字母 B 的约 51 像素，也大于 C 和 S。按字形高度应选 A（R），与给定 B 不一致。
+worldbench_629	worldbench	multi_set	A	按题面 paddle blades（桨叶）计数，前、中、后三艘皮艇分别可见 2、4、2 个桨叶；gt A 的 1、2、1 对应完整双头桨的数量，而非桨叶数量。
+worldbench_664	worldbench	multi_compare	D	The full-resolution crops confirm dark horizontal skid rails on the left helicopter but light gray horizontal skid rails with black supports on the right. D the
+worldbench_76	worldbench	single_box	C	放大图确认顶部菜单项为“Change to navigation point”，底部为“Change to shaping point”。题目要求将轨迹点设为必须到达的停靠点，对应顶部 navigation point（选项 B），而非给定 gt C 指向的底部 shaping point。
+worldbench_762	worldbench	multi_compare	B	The image-left fukigaeshi has a slightly larger apparent extent and visible area than the image-right flap. GT Right is consistent with wearer-relative sides, b

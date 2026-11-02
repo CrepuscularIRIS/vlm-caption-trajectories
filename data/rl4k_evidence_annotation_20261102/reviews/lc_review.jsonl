@@ -1,0 +1,25 @@
+{"uid": "worldbench_630", "verdict": "fixed_major", "changes": [{"field": "interpretations[0]", "problem": "画面坐标读法给出'?'，漏掉逐项排除：b1 杆左、b2 杆右、b3 杆前均有柜，只剩 Back，可直接推出 D", "fix": "改为观察者视角读法，answer_letter=D，并注明杆后被遮挡"}, {"field": "inference", "problem": "称无法由可见线索核实 Back，未反映上述排除读法", "fix": "改写为排除读法+遮挡限制"}], "note": "三个框紧贴柜体与相邻杆段，无截断。"}
+{"uid": "mme_4870", "verdict": "fixed_minor", "changes": [{"field": "clues[b2].bbox", "problem": "上沿截断标牌上部两行白字", "fix": "y0 0.234→0.178"}, {"field": "clues[b3]", "problem": "入口小牌 Clearance 9'-0\" 可读但未记录；b1/unresolved 称限高值不可转录", "fix": "新增 b3，改 b1 supports 与 unresolved[1]"}], "note": "三种解读覆盖实际竞争读法。"}
+{"uid": "worldbench_1360", "verdict": "fixed_major", "changes": [{"field": "interpretations[0].answer_letter", "problem": "字面读法下预订赚积分、永不耗尽，展示的 4 个时段全可订→C，原标 '?'", "fix": "改为 C 并写明'每个时段算一次预订'的前提"}, {"field": "interpretations[2].reading|inference", "problem": "称 gt C 只在无依据的成本假设下成立，与字面读法矛盾", "fix": "改写"}], "note": "4 个框位置准确。"}
+{"uid": "test_Architecture_and_Engineering_473", "verdict": "fixed_major", "changes": [{"field": "reading_answer", "problem": "填 B 只是复写 gt，自身 note 写明无选项被读数支持（tier 0，无 L2 读数）", "fix": "B→none（校验允许值）"}], "note": "同类 disagree 中 confidence=low 的 36 条可能有同样的复写 gt 问题，未在本样本内核查。"}
+{"uid": "mme_9876", "verdict": "pass", "changes": [], "note": "两列 Sensitivity 读数 4,349 与 (14,048) 已核对，框紧。"}
+{"uid": "validation_Energy_and_Power_16", "verdict": "pass", "changes": [], "note": "框紧，unresolved 正确区分题面数据与图。"}
+{"uid": "test_Art_113", "verdict": "pass", "changes": [], "note": "无署名，框覆盖人物。"}
+{"uid": "test_Literature_21", "verdict": "pass", "changes": [], "note": "五个框各含图与标签。"}
+{"uid": "validation_Clinical_Medicine_8", "verdict": "fixed_major", "changes": [{"field": "clues[b3]", "problem": "漏掉图中最显著的线索：左上多处胎儿毛细血管内充满深染小圆细胞（有核红细胞样），note 称未发现其他可辨线索", "fix": "新增 b3 并改 context/inference"}], "note": "b1/b2 框间质区准确；unresolved 保留。"}
+{"uid": "validation_Mechanical_Engineering_24", "verdict": "pass", "changes": [], "note": "框与标注一致。"}
+{"uid": "worldbench_1569", "verdict": "fixed_minor", "changes": [{"field": "clues[b4,b5,b6].supports", "problem": "low_res 要求记录清晰可辨部分；框内等高线数字 640/1000/560 放大可读但未转录", "fix": "写入各 supports，并说明地名点不在最内圈"}], "note": "框位置与 readable=false 合理。"}
+{"uid": "test_Diagnostics_and_Laboratory_Medicine_154", "verdict": "pass", "changes": [], "note": "低倍全切片，框覆盖两块组织。"}
+{"uid": "mme_2592", "verdict": "pass", "changes": [], "note": "六个候选框均落在对应车辆上，b3 可见两后轮。"}
+{"uid": "worldbench_918", "verdict": "pass", "changes": [], "note": "戒指框紧，水下区域框合理。"}
+{"uid": "mme_2348", "verdict": "fixed_major", "changes": [{"field": "clues[b5],clues[b6]", "problem": "search_scope 内有两处候选未列：远端横道上迈步的深色衣着行人（最符合'crossing'）与左侧人行道站立者", "fix": "新增 b5、b6，改 unresolved[0]"}, {"field": "clues[b4].supports", "problem": "据'脚部与条纹相邻'推出有人处于横道区域，未提到该群多数站立，与等待同样相容", "fix": "改为两可表述"}], "note": "b1/b2/b3 框位置正确。"}
+{"uid": "mme_4699", "verdict": "pass", "changes": [], "note": "行人为推锥桶车的工人（橙色背心），位于人行道花盆后；框正确。"}
+{"uid": "mme_4193", "verdict": "pass", "changes": [], "note": "目标车框紧。"}
+{"uid": "mme_3896", "verdict": "pass", "changes": [], "note": "b1/b2 为斜向长条目标，框面积大但覆盖对象全长。"}
+{"uid": "mme_4213", "verdict": "pass", "changes": [], "note": "红灯朝向自车方向，记录未据此推断目标车，正确。"}
+{"uid": "mme_3945", "verdict": "pass", "changes": [], "note": "前景另有横向条纹标线及前景拖影，未记录；不影响现有内容。"}
+{"uid": "worldbench_1246", "verdict": "pass", "changes": [], "note": "四象限 search_scope 覆盖全图，未见日期。"}
+{"uid": "test_Architecture_and_Engineering_395", "verdict": "pass", "changes": [], "note": "逐行读数与 186.304/187.528 计算已复算一致。"}
+{"uid": "worldbench_20", "verdict": "pass", "changes": [], "note": "框紧，候选排除理由成立。"}
+{"uid": "mme_8818", "verdict": "pass", "changes": [], "note": "四行读数已核对，search_scope 覆盖两表。"}
+{"uid": "worldbench_1026", "verdict": "pass", "changes": [], "note": "虾堆间白色块为去壳虾肉断面，非冰；记录结论成立。"}
