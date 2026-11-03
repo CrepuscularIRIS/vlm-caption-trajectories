@@ -1,5 +1,11 @@
 # 实验报告（2026-10-24 起，10-29 更新）
 
+## DTPO · 固定训练终点与成本
+
+DTPO 在固定 E1 上答对 1,447/2,208，DAPO 为 1,465/2,208。DTPO 独对 225 条，DAPO 独对 243 条；平均每条处理 token 分别为 15,579 与 8,930。训练开发集只在 0、25、32 步验证。下图涵盖九个有逐步记录的条件，橙点是开发验证；各方法采样供给及实际计算量不同。[三部分报告、全条件取舍图和可复算表](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/results/dtpo_e1_20261103/RESULTS.zh.md) · [逐图实例与限制](02_known_issues.md)
+
+![九组训练与开发验证曲线](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/results/dtpo_e1_20261103/training_curves.png)
+
 ## SAPO-VLM（2026-11-02）
 
 SAPO-VLM 固定第 32 步在 552 题 × 4 条轨迹上答对 1,274 条（57.70%），历史 DAPO 答对 1,465 条（66.35%）。SAPO 每条生成 171 个 token，DAPO 为 287 个。 [分源数据、曲线与逐图核对](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/main/results/sapo_vlm_20261102/REPORT.md)。

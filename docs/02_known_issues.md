@@ -1,5 +1,10 @@
 # 实验细节与已知问题（2026-10-26 起）
 
+## DTPO · 观察证据与发布校正
+
+- 在 V* 的新增、失去两层各固定一题，核对两方法共四条完整轨迹。一题中 DTPO 首裁同时包含人物和推车，另一次误裁树林后回到包含双方的视图；DAPO 的紧裁排除了参照人物，最终关系答错。另一题中 DTPO 第七裁已包含红白环，第八裁移到水面，最后弃答。DAPO 按选项计对，但其所引裁图只见橙色浮标。这两题不估计总体错误率。[样例与同键分母](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/results/dtpo_e1_20261103/RESULTS.zh.md)
+- 同池 V* 实为 DTPO 387/448、DAPO 391/448，旧报告中“DTPO 最高”的表述已更正。DTPO 未记录策略分布熵；发布的 diff 使用实际 old/new log-prob 差。远端日志写出全部 2,208 条并落盘，结尾有 NCCL 退出警告；本次未取得独立 E1 进程退出码回执。已核本地与远端输出 SHA，原评分器复算一致。[流程及发布检查](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/protocol/EXPERIMENT_LIFECYCLE.zh.md)
+
 ## SAPO-VLM（2026-11-02）
 
 SAPO 同题观察中出现相邻行误读、正确选项伴随错误电路描述，以及从地铁站柱裁图声称读出电话的情况。审查涵盖四来源各一题、两组共八条轨迹。 [分源数据、曲线与逐图核对](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/main/results/sapo_vlm_20261102/REPORT.md)。

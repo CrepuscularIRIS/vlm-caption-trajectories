@@ -6,6 +6,8 @@ Qwen3-VL-4B 学习“先写简短证据 Caption，再按需裁图”的视觉推
 
 ## 现在读
 
+本轮 DTPO 的定量结果、训练图和逐图核对见[实验总览](docs/01_overview.md)与[失败和限制](docs/02_known_issues.md)。每轮交付遵循[全阶段清单](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/protocol/EXPERIMENT_LIFECYCLE.zh.md)。
+
 | 文件 | 内容 |
 |---|---|
 | **[docs/01 项目总览](docs/01_overview.md)** | 我们在做什么、设计、代码位置、实验矩阵、当前运行、接下来的实验思路 |
