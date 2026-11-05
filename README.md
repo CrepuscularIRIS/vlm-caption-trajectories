@@ -6,7 +6,7 @@ Qwen3-VL-4B 学习“先写简短证据 Caption，再按需裁图”的视觉推
 
 ## 现在读
 
-**11-05 max2已补入：**最终step32 E1 **1404/2208（63.59%）**，GRPO1411、GRPO+A1421、A+B1429、DAPO1465、strat1399。首裁0.9986、后续裁图2.5417、处理token14726.9891/条。含max2的family图、六条件配对及两例逐图记录见[固定版本三部分报告](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/REPORT.zh.md)；[实验总览](docs/01_overview.md)和[已知缺项](docs/02_known_issues.md)同步。原训练退出码及逐rank更新事件仍缺；公开包不含题面、原图或机器路径。
+**11-05 max2已补入：**最终step32 E1 **1404/2208（63.59%）**，GRPO1411、GRPO+A1421、A+B1429、DAPO1465、strat1399。首裁0.9986、后续裁图2.5417、处理token14726.9891/条。含max2的family图、六条件配对及两例逐图记录见[固定版本三部分报告](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/REPORT.zh.md)；[实验总览](docs/01_overview.md)和[已知缺项](docs/02_known_issues.md)同步。原训练退出码及逐rank更新事件仍缺；公开包不含题面、原图或机器路径。
 
 **11-05 strat已补入：**固定step32 E1为1399/2208（63.36%），GRPO1411、GRPO+A1421、DAPO1465。含strat的family图、配对与成本、两例正反向逐图记录见[固定版本三部分报告](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/REPORT.zh.md)。公开包不含题面、原图或机器路径。
 

@@ -6,22 +6,28 @@
 
 | 条件 | 正确/2208 | 准确率 | 首裁/条 | 后续裁图/条 | 处理token/条 |
 |---|---:|---:|---:|---:|---:|
-| max2 | 1404 | 63.59% | .9986 | 2.5417 | 14726.9891 |
+| max2（新） | 1404 | 63.59% | .9986 | 2.5417 | 14726.9891 |
 | GRPO | 1411 | 63.90% | .9565 | .9488 | 8125.3800 |
 | GRPO+A | 1421 | 64.36% | .9982 | 3.0217 | 18033.9316 |
 | A+B | 1429 | 64.72% | .9968 | 1.4072 | 10047.4081 |
-| DAPO | 1465 | 66.35% | .9900 | 1.1024 | 8929.8478 |
+| DAPO | **1465** | **66.35%** | .9900 | 1.1024 | 8929.8478 |
 | strat | 1399 | 63.36% | .9932 | 1.4796 | 10792.7595 |
+
+粗体为准确率列最优；成本列不标最优。
 
 max2对GRPO：共同对1125、仅max2对279、仅GRPO对286、共同错518，净−7；差−0.3170pp，按题95%区间[−2.5362,1.9022]。对DAPO：1172/232/293/511，净−61，差−2.7627pp，区间[−4.9819,−0.5435]。552题整体重采样10000次，非多训练seed。max2与GRPO、GRPO+A、A+B、strat的区间均含0，记未分辨；不作原因解释。max2分源正确数：MME-RealWorld889/1356、MMMU-Pro51/156、V*383/448、WorldBench81/248。
 
 两例按完成前冻结规则抽取，为同题不同采样；case1 max2答案对，但所引视图未含官方目标框，不记有效找到目标；case2 max2错、GRPO第二裁包含目标后答对。全18个方法视图已打开拼图，关键3视图另单独看；本地实现hash与远端不同，不声称远端逐像素重放。公开不放题面、原图、uid。训练355行含Step0 dev；32个step计时43355.981s、双卡×计时24.0866561111GPU·小时，包含step内验证/保存，不是全run账单。
 
-[三部分报告、分源/四格/区间及公开复算包](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/REPORT.zh.md)
+**与GRPO的差距拆分**（同键uid+sample_idx；描述性计数，不作因果归因）：按GRPO在同键上的裁图数分档，0次96条净+2、1次1024条净−13、2次574条净−7、3–4次398条净+3、5次以上116条净+8；分源净差MME−12、V*+5、WorldBench−2、MMMU-Pro+2。GRPO只裁1次的1024条，max2只有8条；max2裁5次以上541条，GRPO116条。缺答案max2 28、GRPO 19。[聚合数据](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/grpo_gap.json)·[脚本](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/grpo_gap.py)·[psi参考实现](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/psi_v2.py)（与训练代码2000/2000逐数值一致）。
 
-![含max2的E1 family](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/family_e1.png)
-![首裁、后续裁图及token](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/direct_e1_cost.png)
-![训练诊断](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/max2_training_diagnostics.png)
+![max2与GRPO的差距拆分](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/max2_vs_grpo_gap.png)
+
+[三部分报告、分源/四格/区间及公开复算包](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/REPORT.zh.md)
+
+![含max2的E1 family](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/family_e1.png)
+![首裁、后续裁图及token](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/direct_e1_cost.png)
+![训练诊断](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/max2_training_diagnostics.png)
 
 ## strat · 同结果层中心化过程advantage（2026-11-05）
 

@@ -8,7 +8,7 @@
 - 两例为同题不同采样；max2答对例的引用视图不支持目标描述，答案与依据分开记。全18个方法视图已看，本地caption_env与远端hash不同；只核几何回执，不声称远端逐像素相同。重放私有文件旧前缀strat仅为本次max2技术别名，未混入strat条件轨迹。
 - max2使用L1索引3077可判题，GRPO+A使用L2索引3014题；同时变公式和索引。E1 error0、截断3、零裁3、缺答案28，各项可重叠。单训练seed，按题区间不覆盖训练seed不确定性。
 
-[固定版本完整记录与指纹](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/REPORT.zh.md)
+[固定版本完整记录与指纹](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/617cba2e2e4ded6e3bb852cf86ad40862c99b052/results/sgv2_max2_20261105/REPORT.zh.md)
 
 ## strat · 本轮验收与限制（2026-11-05）
 
