@@ -1,5 +1,28 @@
 # 实验报告（2026-10-24 起，11-05 更新）
 
+## max2 · GRPO + 终点式 S v2（2026-11-05）
+
+无SFT改动，A-SFT Qwen3-VL-4B；rl4k4096题，n8、32步、seed42、lr1e-6、max_grad_norm1。奖励`V·(Y+0.1·m·S)`后标准整组GRPO归一，S使用导师psi v2 max。相对GRPO+A，同时改变psi公式及索引口径（L1可判3077题，旧L2为3014题），不称单变量消融。运行身份为完整max2，不是早停max。
+
+| 条件 | 正确/2208 | 准确率 | 首裁/条 | 后续裁图/条 | 处理token/条 |
+|---|---:|---:|---:|---:|---:|
+| max2 | 1404 | 63.59% | .9986 | 2.5417 | 14726.9891 |
+| GRPO | 1411 | 63.90% | .9565 | .9488 | 8125.3800 |
+| GRPO+A | 1421 | 64.36% | .9982 | 3.0217 | 18033.9316 |
+| A+B | 1429 | 64.72% | .9968 | 1.4072 | 10047.4081 |
+| DAPO | 1465 | 66.35% | .9900 | 1.1024 | 8929.8478 |
+| strat | 1399 | 63.36% | .9932 | 1.4796 | 10792.7595 |
+
+max2对GRPO：共同对1125、仅max2对279、仅GRPO对286、共同错518，净−7；差−0.3170pp，按题95%区间[−2.5362,1.9022]。对DAPO：1172/232/293/511，净−61，差−2.7627pp，区间[−4.9819,−0.5435]。552题整体重采样10000次，非多训练seed。max2与GRPO、GRPO+A、A+B、strat的区间均含0，记未分辨；不作原因解释。max2分源正确数：MME-RealWorld889/1356、MMMU-Pro51/156、V*383/448、WorldBench81/248。
+
+两例按完成前冻结规则抽取，为同题不同采样；case1 max2答案对，但所引视图未含官方目标框，不记有效找到目标；case2 max2错、GRPO第二裁包含目标后答对。全18个方法视图已打开拼图，关键3视图另单独看；本地实现hash与远端不同，不声称远端逐像素重放。公开不放题面、原图、uid。训练355行含Step0 dev；32个step计时43355.981s、双卡×计时24.0866561111GPU·小时，包含step内验证/保存，不是全run账单。
+
+[三部分报告、分源/四格/区间及公开复算包](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/REPORT.zh.md)
+
+![含max2的E1 family](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/family_e1.png)
+![首裁、后续裁图及token](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/direct_e1_cost.png)
+![训练诊断](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/max2_training_diagnostics.png)
+
 ## strat · 同结果层中心化过程advantage（2026-11-05）
 
 无SFT改动；A-SFT / Qwen3-VL-4B，rl4k 4096题，n=8、32步、seed42、lr1e-6。奖励仍为V·Y，advantage为stock GRPO加0.1倍同题、同二值训练结果、可评分层内中心化S；不足两条或不可评分时加项为0。S使用导师psi v2；该项广播到全部有效response token。GRPO+A使用psi v1且改奖励，不是只差advantage位置的单变量消融。

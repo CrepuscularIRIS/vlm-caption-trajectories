@@ -1,5 +1,15 @@
 # 实验细节与已知问题（2026-10-26 起）
 
+## max2 · 本轮验收与限制（2026-11-05）
+
+- 原训练独立退出码、逐rank有限optimizer事件缺失；Step32、tracker32、七恢复文件非空不替代这些缺项。合并与E1各自独立exit0，2208唯一键、六条件GT/source与指定header字段核对通过；tokenizer regex警告保留，未改冻结评测。
+- update原all_correct/all_wrong/mixed按复合reward>0分类，不是任务Y对错。训练任务正确率从rollout.correct复算，未混用原组类别。
+- 分析初版遗漏Step0 dev并误标step计时不含验证/保存；均已修，1项回归测试通过；记录秒数不变。日志entropy为采样surprisal而非全词表熵，dev不是E1。
+- 两例为同题不同采样；max2答对例的引用视图不支持目标描述，答案与依据分开记。全18个方法视图已看，本地caption_env与远端hash不同；只核几何回执，不声称远端逐像素相同。重放私有文件旧前缀strat仅为本次max2技术别名，未混入strat条件轨迹。
+- max2使用L1索引3077可判题，GRPO+A使用L2索引3014题；同时变公式和索引。E1 error0、截断3、零裁3、缺答案28，各项可重叠。单训练seed，按题区间不覆盖训练seed不确定性。
+
+[固定版本完整记录与指纹](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/f81f739ff9a256e32cde4d9d6e080a1fd93c3e0f/results/sgv2_max2_20261105/REPORT.zh.md)
+
 ## strat · 本轮验收与限制（2026-11-05）
 
 - 原训练独立退出码、每rank128个有限optimizer事件未取得；Runner32、tracker32及7个恢复文件非空，不能替代上述缺项。合并exit0；首次编排合并后遇旧Python缺少hashlib.file_digest，改用流式SHA，未重复合并。E1 exit0，tokenizer regex警告保留，未改冻结配置。
