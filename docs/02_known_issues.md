@@ -1,5 +1,14 @@
 # 实验细节与已知问题（2026-10-26 起）
 
+## strat · 本轮验收与限制（2026-11-05）
+
+- 原训练独立退出码、每rank128个有限optimizer事件未取得；Runner32、tracker32及7个恢复文件非空，不能替代上述缺项。合并exit0；首次编排合并后遇旧Python缺少hashlib.file_digest，改用流式SHA，未重复合并。E1 exit0，tokenizer regex警告保留，未改冻结配置。
+- E1零裁15、截断3、error0、无答案32条，均保留2208分母；计数可重叠。日志actor/entropy_loss是T=.7采样token surprisal，不是全词表熵；ppo_kl记录0.0不等于精确KL为0。
+- 两个定向V*配对已审2/2对，双方12个turn、8/8张实际crop。case1 strat最终选项正确，但crop对象绑定与目标矛盾；case2 GRPO终答关系受支持，但此前亦有错误引用。答案和依据分别记录，不估计总体发生率。
+- 本地重建的8个crop绝对框与记录匹配；本地caption环境哈希与远端header不同，未重建处理器最终图像张量，不声称远端逐像素重放。公开匿名配对/聚合验收不等于私有原始响应或训练梯度重放。
+
+[固定版本完整记录](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/REPORT.zh.md) · [两例逐图记录](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/CASE_REVIEW.zh.md)
+
 ## DTPO · 观察证据与发布校正
 
 - 在 V* 的新增、失去两层各固定一题，核对两方法共四条完整轨迹。一题中 DTPO 首裁同时包含人物和推车，另一次误裁树林后回到包含双方的视图；DAPO 的紧裁排除了参照人物，最终关系答错。另一题中 DTPO 第七裁已包含红白环，第八裁移到水面，最后弃答。DAPO 按选项计对，但其所引裁图只见橙色浮标。这两题不估计总体错误率。[样例与同键分母](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/results/dtpo_e1_20261103/RESULTS.zh.md)

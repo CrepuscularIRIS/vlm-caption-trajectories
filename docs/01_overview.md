@@ -1,4 +1,27 @@
-# 实验报告（2026-10-24 起，10-29 更新）
+# 实验报告（2026-10-24 起，11-05 更新）
+
+## strat · 同结果层中心化过程advantage（2026-11-05）
+
+无SFT改动；A-SFT / Qwen3-VL-4B，rl4k 4096题，n=8、32步、seed42、lr1e-6。奖励仍为V·Y，advantage为stock GRPO加0.1倍同题、同二值训练结果、可评分层内中心化S；不足两条或不可评分时加项为0。S使用导师psi v2；该项广播到全部有效response token。GRPO+A使用psi v1且改奖励，不是只差advantage位置的单变量消融。
+
+| 条件 | 正确/2208 | E1 | 裁图/条 | 处理token/条 |
+|---|---:|---:|---:|---:|
+| strat | 1399 | 63.36% | 2.473 | 10792.76 |
+| GRPO | 1411 | 63.90% | 1.905 | 8125.38 |
+| GRPO+A | 1421 | 64.36% | 4.020 | 18033.93 |
+| DAPO | 1465 | 66.35% | 2.092 | 8929.85 |
+
+strat对GRPO：共同对1147、仅strat对252、仅GRPO对264、共同错545，净差−12。按题bootstrap95%区间：对GRPO −0.54 [−2.63,+1.49]pp；对GRPO+A −1.00 [−3.04,+1.09]pp；对DAPO −2.99 [−5.03,−1.04]pp。552题各四次整体重采样10,000次，不是多训练seed。DAPO过滤补采，采样预算不相等。
+
+训练生成32768条，处理232486038 token；记录步时9.3229小时，双卡×步时18.6458 GPU·小时（不含初始化/合并/E1）。E1 exit0、2208唯一键，四条件同键GT/source及固定header设置/数据代码SHA核对无差异。原训练退出码及每rank完整optimizer事件未取得。
+
+[完整三部分报告、分源四格及复算包](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/REPORT.zh.md) · [逐图记录与边界](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/CASE_REVIEW.zh.md)
+
+![含strat的E1 family](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/family_e1.png)
+![Reward family](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/family_01_reward.png)
+![采样surprisal family，非全词表熵](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/family_03_entropy.png)
+![Policy diff family](https://raw.githubusercontent.com/CrepuscularIRIS/vlm-rl-signal-design/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/family_04_ppo_kl.png)
+
 
 ## DTPO · 固定训练终点与成本
 

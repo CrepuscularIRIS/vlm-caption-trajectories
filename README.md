@@ -6,7 +6,9 @@ Qwen3-VL-4B 学习“先写简短证据 Caption，再按需裁图”的视觉推
 
 ## 现在读
 
-本轮 DTPO 的定量结果、训练图和逐图核对见[实验总览](docs/01_overview.md)与[失败和限制](docs/02_known_issues.md)。每轮交付遵循[全阶段清单](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/protocol/EXPERIMENT_LIFECYCLE.zh.md)。
+**11-05 strat已补入：**固定step32 E1为1399/2208（63.36%），GRPO1411、GRPO+A1421、DAPO1465。含strat的family图、配对与成本、两例正反向逐图记录见[固定版本三部分报告](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/fb94bf8c3b7e5a941fd0d84a1229f7a0ca4e60fc/results/sgv3_20261105/REPORT.zh.md)。公开包不含题面、原图或机器路径。
+
+本轮 strat 与历史 DTPO 的定量结果、训练图和逐图核对见[实验总览](docs/01_overview.md)与[失败和限制](docs/02_known_issues.md)。每轮交付遵循[全阶段清单](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/2c1f051db18ea629b3ad7f5c08fc1df432a54d09/protocol/EXPERIMENT_LIFECYCLE.zh.md)。
 
 | 文件 | 内容 |
 |---|---|
