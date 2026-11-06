@@ -6,6 +6,8 @@ Qwen3-VL-4B 学习“先写简短证据 Caption，再按需裁图”的视觉推
 
 ## 现在读
 
+**11-06 进入更新拆解（GRPO 底座，advantage 不动）：**R（回放补满，rollout 1×）E1 1450/2208（65.67%），四 bench 不加权 55.66；P（混合题追加一组，1.56×）1438（65.13%）、55.44；GRPO 1411 / 53.92，DAPO 1465 / 56.50。R − GRPO 合并 +1.77 [−0.23, +3.81]，P − R −0.54 [−2.45, +1.40]。[三部分报告与图](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/4fdb355989dd4b8c59336cf640433bdf110aad84/results/entry_ab_20261106/REPORT.zh.md)
+
 **11-06 E1 改为按 benchmark 分开、四个 bench 不加权平均（导师 11-05）：**每个方法只与自己的优化器底座比较。GRPO 53.92、DAPO 56.50（相对 GRPO +2.58pp，区间 [−0.33, +5.52]）；GRPO 底座中 A+B 55.95（+2.02，WorldBench +6.0、MMMU-Pro +2.6）、DTPO 55.48（+1.55）；其余 GRPO 底座方法在 ±1pp 内。旧的按题数加权合并分数只作参考，不再用于排序。[分 benchmark 表与图](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/12b5959e3e8ddd3863344c2811b2ca10925586e6/README.md#e1-按-benchmark-分开看2026-11-06)
 
 **11-05 max2已补入：**最终step32 E1 **1404/2208（63.59%）**，GRPO1411、GRPO+A1421、A+B1429、DAPO1465、strat1399。首裁0.9986、后续裁图2.5417、处理token14726.9891/条。含max2的family图、六条件配对及两例逐图记录见[固定版本三部分报告](https://github.com/CrepuscularIRIS/vlm-rl-signal-design/blob/127ee50190cc1fef767bf29d1686d48514e35425/results/sgv2_max2_20261105/REPORT.zh.md)；[实验总览](docs/01_overview.md)和[已知缺项](docs/02_known_issues.md)同步。原训练退出码及逐rank更新事件仍缺；公开包不含题面、原图或机器路径。
